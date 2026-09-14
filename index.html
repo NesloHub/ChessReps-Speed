@@ -131,7 +131,7 @@
         </div>
 
         <!-- Standard Left Panel Content (Library, filters, folders) -->
-        <div id="standard-left-panel" style="display:flex; flex-direction:column; gap:10px;">
+        <div id="standard-left-panel">
           <!-- Color Filter (White / Black / All) -->
           <div class="color-filters" id="color-filters">
             <button class="filter-btn active" id="filter-all" data-filter="all">All</button>
@@ -141,17 +141,13 @@
 
           <!-- Folder Controls: Random in folder, Branch Prompt toggle & Multi-select actions -->
           <div class="folder-controls-bar" id="folder-controls-bar">
-            <label class="toggle-switch-label" for="toggle-random-folder" title="Automatically pick a new random line in the same folder on completion">
+            <label class="toggle-switch-label" for="toggle-random-folder" title="Random Mode: Automatically train randomly among all your selected checked variations across folders">
               <input type="checkbox" id="toggle-random-folder" class="toggle-switch-input" checked>
               <span>🎲 Random</span>
             </label>
-            <label class="toggle-switch-label" for="toggle-free-branch" title="Free Line Switch: When you play any alternative move from your repertoire, automatically switch to that line and keep playing without stopping">
+            <label class="toggle-switch-label" for="toggle-free-branch" title="Free Switch: When you break out of the line, ask if you want to switch to that variation">
               <input type="checkbox" id="toggle-free-branch" class="toggle-switch-input" checked>
               <span>⚡ Free Switch</span>
-            </label>
-            <label class="toggle-switch-label" for="toggle-prompt-branch" title="Prompt to switch line if you play an alternative move from your repertoire (when Free Switch is disabled)">
-              <input type="checkbox" id="toggle-prompt-branch" class="toggle-switch-input">
-              <span>❓ Prompt</span>
             </label>
           </div>
 

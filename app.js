@@ -61,18 +61,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Initialize selectedLineIds from all folders by default or localStorage
+  // Initialize selectedLineIds from localStorage or popular starting repertoire
   const savedSelectedLines = localStorage.getItem('chessreps_selected_lines');
+  const hasEverSaved = localStorage.getItem('chessreps_has_saved_selection') === 'true';
   if (savedSelectedLines) {
     try {
       const parsed = JSON.parse(savedSelectedLines);
       state.selectedLineIds = new Set(parsed);
-    } catch (e) {
-      // fallback
-    }
+    } catch (e) {}
   }
-  if (state.selectedLineIds.size === 0) {
-    state.folders.forEach(f => (f.lines || []).forEach(l => state.selectedLineIds.add(l.id)));
+  if (!hasEverSaved && state.selectedLineIds.size === 0) {
+    // By default on first launch, activate Italian, London, and Caro-Kann
+    const initialFolderIds = ['folder-italian', 'folder-london', 'folder-caro'];
+    state.folders.forEach(f => {
+      if (initialFolderIds.includes(f.id)) {
+        (f.lines || []).forEach(l => state.selectedLineIds.add(l.id));
+      }
+    });
+    if (state.selectedLineIds.size === 0) {
+      state.folders.slice(0, 3).forEach(f => (f.lines || []).forEach(l => state.selectedLineIds.add(l.id)));
+    }
+    localStorage.setItem('chessreps_has_saved_selection', 'true');
+    localStorage.setItem('chessreps_selected_lines', JSON.stringify([...state.selectedLineIds]));
   }
 
   // Load linked profile if any
@@ -1018,26 +1028,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Playlist Selection Links (Select all / Deselect all)
     el.btnSelectAllLines.addEventListener('click', () => {
-      if (state.currentFolder) {
-        state.currentFolder.lines.forEach(l => state.selectedLineIds.add(l.id));
-        saveSelectedLines();
-        renderFoldersTree();
-        updatePlaylistCount();
-      }
+      // Select all lines across all folders currently filtered
+      const folders = getFilteredFolders();
+      folders.forEach(f => (f.lines || []).forEach(l => state.selectedLineIds.add(l.id)));
+      saveSelectedLines();
+      renderFoldersTree();
+      updatePlaylistCount();
     });
 
     el.btnDeselectAllLines.addEventListener('click', () => {
-      if (state.currentFolder) {
-        // Keep only current line selected
-        state.currentFolder.lines.forEach(l => {
-          if (l.id !== state.currentLine.id) {
-            state.selectedLineIds.delete(l.id);
-          }
-        });
-        saveSelectedLines();
-        renderFoldersTree();
-        updatePlaylistCount();
-      }
+      // Deselect all lines to allow fresh custom selection
+      state.selectedLineIds.clear();
+      saveSelectedLines();
+      renderFoldersTree();
+      updatePlaylistCount();
     });
 
     // Repertoire Search Filter
@@ -2385,32 +2389,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Played move is DIFFERENT from current line.
     // Check if it matches an alternative known line in the same folder or other folders!
     const matchingAlternatives = findMatchingLinesForMove(moveObj.san);
-    if (matchingAlternatives.length > 0) {
+    
+    // When Free Switch is ON: ask every time when breaking out of current line!
+    if (matchingAlternatives.length > 0 && state.freeLineSwitch) {
       state.chess.undo();
 
-      // Free Line Switch mode: seamless instant transition without popup
-      if (state.freeLineSwitch) {
-        const preferred = matchingAlternatives.find(m => m.isCurrentFolder) || matchingAlternatives[0];
-        const statsResult = window.srsManager.recordMoveAttempt(
-          true,
-          preferred.lineId,
-          preferred.targetMoveIndex,
-          moveObj.san,
-          moveObj.san
-        );
-        if (state.soundToggles.correct) window.chessAudio.playCorrect(statsResult.streak);
-        updateStatsDisplay();
-
-        switchToAlternativeLine(preferred);
-        return;
-      }
-
-      if (!state.promptOnBranch) {
-        switchToAlternativeLine(matchingAlternatives[0]);
-        return;
-      }
-
-      // Prompt the user with choices (English)
       state.pendingAlternativeMove = {
         from,
         to,
@@ -2424,23 +2407,34 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="alt-prompt-header">
             <span style="font-size:1.3rem;">💡</span>
             <div class="alt-prompt-text">
-              You played <strong>${moveObj.san}</strong>! It belongs to <strong>${alt.lineName}</strong> in <em>${alt.folderName}</em>.<br>
-              Switch to this variation and continue?
+              You played <strong>${moveObj.san}</strong>! That move branches into <strong>${alt.lineName}</strong> in <em>${alt.folderName}</em>.<br>
+              Would you like to switch to this variation and continue?
             </div>
           </div>
           <div class="alt-prompt-actions">
-            <button class="btn-switch-confirm" id="btn-switch-confirm-single">
-              <span>✓</span> Yes, switch line (${alt.lineName})
+            <button class="btn-switch-confirm" id="btn-switch-confirm-single" title="Press Enter to confirm">
+              <span>✓</span> Yes, switch to ${alt.lineName} (Enter)
             </button>
-            <button class="btn-switch-cancel" id="btn-switch-cancel-single">
-              <span>✕</span> No, try again
+            <button class="btn-switch-cancel" id="btn-switch-cancel-single" title="Press Esc to cancel">
+              <span>✕</span> No, try again on current line (Esc)
             </button>
           </div>
         `;
 
         document.getElementById('btn-switch-confirm-single')?.addEventListener('click', () => {
+          hideAltLinePrompt();
+          const statsResult = window.srsManager.recordMoveAttempt(
+            true,
+            alt.lineId,
+            alt.targetMoveIndex,
+            moveObj.san,
+            moveObj.san
+          );
+          if (state.soundToggles.correct) window.chessAudio.playCorrect(statsResult.streak);
+          updateStatsDisplay();
           switchToAlternativeLine(alt);
         });
+
         document.getElementById('btn-switch-cancel-single')?.addEventListener('click', () => {
           hideAltLinePrompt();
           renderBoard();
@@ -2452,19 +2446,20 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="alt-prompt-header">
             <span style="font-size:1.3rem;">🔀</span>
             <div class="alt-prompt-text">
-              You played <strong>${moveObj.san}</strong>! This move branches into <strong>${matchingAlternatives.length} variations</strong> in your repertoire:
+              You played <strong>${moveObj.san}</strong>! That move branches into <strong>${matchingAlternatives.length} variations</strong> in your repertoire:<br>
+              Choose a variation to switch to:
             </div>
           </div>
           <div class="alt-prompt-choices">
             ${matchingAlternatives.map((m, idx) => `
-              <button class="btn-pill primary btn-choose-branch" data-branch-idx="${idx}" style="font-size:0.8rem; padding:6px 12px;">
+              <button class="btn-pill primary btn-choose-branch" data-branch-idx="${idx}" style="font-size:0.82rem; padding:8px 14px;">
                 <span>⚡</span> ${m.lineName} <small style="opacity:0.75">(${m.folderName})</small>
               </button>
             `).join('')}
           </div>
           <div class="alt-prompt-actions">
-            <button class="btn-switch-cancel" id="btn-switch-cancel-single">
-              <span>✕</span> Cancel and stay in ${state.currentLine.name}
+            <button class="btn-switch-cancel" id="btn-switch-cancel-single" title="Press Esc to cancel">
+              <span>✕</span> No, stay on ${state.currentLine.name} (Esc)
             </button>
           </div>
         `;
@@ -2473,7 +2468,19 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.addEventListener('click', () => {
             const idx = parseInt(btn.dataset.branchIdx, 10);
             const chosen = matchingAlternatives[idx];
-            if (chosen) switchToAlternativeLine(chosen);
+            if (chosen) {
+              hideAltLinePrompt();
+              const statsResult = window.srsManager.recordMoveAttempt(
+                true,
+                chosen.lineId,
+                chosen.targetMoveIndex,
+                moveObj.san,
+                moveObj.san
+              );
+              if (state.soundToggles.correct) window.chessAudio.playCorrect(statsResult.streak);
+              updateStatsDisplay();
+              switchToAlternativeLine(chosen);
+            }
           });
         });
 
@@ -2485,7 +2492,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       el.altLinePrompt.classList.add('open');
-      setBanner('state-ready', '🔀', `Alternative line found for <strong>${moveObj.san}</strong>. Select above!`);
+      setBanner('state-ready', '🔀', `Branch detected! Would you like to switch variation? [Enter: Yes / Esc: No]`);
       return;
     }
 
@@ -2826,35 +2833,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }, delay);
   }
 
-  function getActiveLinesInCurrentFolder() {
-    if (!state.currentFolder) return [];
-    let lines = state.currentFolder.lines.filter(l => state.selectedLineIds.has(l.id));
-    if (lines.length === 0) lines = state.currentFolder.lines; // fallback
-    return lines;
+  function getAllActiveSelectedLines() {
+    const list = [];
+    state.folders.forEach(folder => {
+      if (state.colorFilter === 'w' && folder.color !== 'w') return;
+      if (state.colorFilter === 'b' && folder.color !== 'b') return;
+
+      (folder.lines || []).forEach(line => {
+        if (state.selectedLineIds.has(line.id)) {
+          list.push({ folder, line });
+        }
+      });
+    });
+    return list;
   }
 
-  function advanceLineInFolder() {
-    const lines = getActiveLinesInCurrentFolder();
-    if (lines.length <= 1) {
+  function advanceLine() {
+    const activeSelected = getAllActiveSelectedLines();
+    if (activeSelected.length === 0) {
       resetRep();
+      setBanner('state-ready', '⚠️', 'No variations selected! Check any variation in the library to start training.');
       return;
     }
 
-    let nextLine = null;
-    if (state.randomWithinFolder) {
-      const others = lines.filter(l => l.id !== state.currentLine.id);
-      nextLine = others.length > 0
-        ? others[Math.floor(Math.random() * others.length)]
-        : lines[0];
-    } else {
-      const currentIdx = lines.findIndex(l => l.id === state.currentLine.id);
-      const nextIdx = (currentIdx + 1) % lines.length;
-      nextLine = lines[nextIdx];
+    if (activeSelected.length === 1) {
+      const chosen = activeSelected[0];
+      selectFolderAndLine(chosen.folder.id, chosen.line.id);
+      return;
     }
 
-    if (nextLine) {
-      selectFolderAndLine(state.currentFolder.id, nextLine.id);
+    let nextItem = null;
+    if (state.randomWithinFolder) {
+      // Pick randomly among all active selected lines across all chosen folders!
+      const currentLineId = state.currentLine ? state.currentLine.id : null;
+      const others = activeSelected.filter(item => item.line.id !== currentLineId);
+      const pool = others.length > 0 ? others : activeSelected;
+      nextItem = pool[Math.floor(Math.random() * pool.length)];
+    } else {
+      const currentLineId = state.currentLine ? state.currentLine.id : null;
+      const currentIdx = activeSelected.findIndex(item => item.line.id === currentLineId);
+      const nextIdx = (currentIdx + 1) % activeSelected.length;
+      nextItem = activeSelected[nextIdx];
     }
+
+    if (nextItem) {
+      selectFolderAndLine(nextItem.folder.id, nextItem.line.id);
+    }
+  }
+
+  function advanceLineInFolder() {
+    advanceLine();
   }
 
   // =========================================================
@@ -3129,14 +3157,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function saveSelectedLines() {
+    localStorage.setItem('chessreps_has_saved_selection', 'true');
     localStorage.setItem('chessreps_selected_lines', JSON.stringify([...state.selectedLineIds]));
   }
 
   function updatePlaylistCount() {
-    if (!state.currentFolder) return;
-    const total = state.currentFolder.lines.length;
-    const selected = state.currentFolder.lines.filter(l => state.selectedLineIds.has(l.id)).length;
-    el.playlistCountLabel.textContent = `${selected} af ${total} aktive`;
+    const totalSelected = state.selectedLineIds.size;
+    let totalAvailable = 0;
+    state.folders.forEach(f => totalAvailable += (f.lines || []).length);
+    if (el.playlistCountLabel) {
+      el.playlistCountLabel.textContent = `${totalSelected} of ${totalAvailable} Active Variations`;
+    }
   }
 
   // Smoothly update active folder and line in the DOM without rebuilding innerHTML or jumping layout
@@ -3224,19 +3255,42 @@ document.addEventListener('DOMContentLoaded', () => {
       card.className = `folder-card ${isFolderActive ? 'active' : ''} ${isExpanded ? 'expanded' : ''}`;
       card.dataset.folderId = folder.id;
 
+      const checkedInFolder = folder.lines.filter(l => state.selectedLineIds.has(l.id)).length;
+      const isAllChecked = checkedInFolder === folder.lines.length && folder.lines.length > 0;
+      const isPartial = checkedInFolder > 0 && checkedInFolder < folder.lines.length;
+
       // Header
       const header = document.createElement('div');
       header.className = 'folder-header';
       header.innerHTML = `
         <div class="folder-title-left">
+          <input type="checkbox" class="folder-checkbox" data-folder-id="${folder.id}" title="Toggle all variations in ${folder.name}" ${isAllChecked ? 'checked' : ''}>
           <span class="folder-icon">${folder.icon || '📁'}</span>
           <span class="folder-name">${folder.name}</span>
         </div>
         <div class="folder-title-right">
-          <span class="folder-count-pill">${folder.lines.length}</span>
+          <span class="folder-count-pill" title="${checkedInFolder} of ${folder.lines.length} active">${checkedInFolder}/${folder.lines.length}</span>
           <span class="folder-chevron">▶</span>
         </div>
       `;
+
+      const folderCb = header.querySelector('.folder-checkbox');
+      if (folderCb && isPartial) {
+        folderCb.indeterminate = true;
+      }
+      if (folderCb) {
+        folderCb.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const targetState = folderCb.checked;
+          folder.lines.forEach(l => {
+            if (targetState) state.selectedLineIds.add(l.id);
+            else state.selectedLineIds.delete(l.id);
+          });
+          saveSelectedLines();
+          renderFoldersTree();
+          updatePlaylistCount();
+        });
+      }
 
       header.addEventListener('click', () => {
         const nowExpanded = card.classList.toggle('expanded');
@@ -3284,17 +3338,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (checkbox.checked) {
               state.selectedLineIds.add(line.id);
             } else {
-              // Don't allow 0 lines in active folder
-              const activeInFolder = folder.lines.filter(l => state.selectedLineIds.has(l.id));
-              if (activeInFolder.length <= 1) {
-                checkbox.checked = true;
-                alert('At least 1 variation must remain checked in this folder.');
-                return;
-              }
               state.selectedLineIds.delete(line.id);
             }
             saveSelectedLines();
             updatePlaylistCount();
+            
+            // Update folder header count and checkbox state
+            const updatedCheckedInFolder = folder.lines.filter(l => state.selectedLineIds.has(l.id)).length;
+            const updatedAll = updatedCheckedInFolder === folder.lines.length && folder.lines.length > 0;
+            const updatedPartial = updatedCheckedInFolder > 0 && updatedCheckedInFolder < folder.lines.length;
+            const fCb = card.querySelector('.folder-checkbox');
+            const fPill = card.querySelector('.folder-count-pill');
+            if (fCb) {
+              fCb.checked = updatedAll;
+              fCb.indeterminate = updatedPartial;
+            }
+            if (fPill) {
+              fPill.textContent = `${updatedCheckedInFolder}/${folder.lines.length}`;
+            }
           });
         }
 
