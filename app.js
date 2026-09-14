@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         color: 'w',
         icon: '📁',
         eco: 'PGN',
-        description: 'Dine egne importerede PGN åbningslinjer.',
+        description: 'Your own imported PGN opening lines.',
         lines: []
       };
       state.folders.push(customFolder);
@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
       move: true, capture: true, correct: true, error: true, complete: true,
       desc: {
         move: 'Skarpt klik — crisp og responsivt',
-        capture: 'Kraftig thud + snap — høj energi',
+        capture: 'Crisp thud + snap — high energy',
         correct: 'Opstigende ping — boost din selvtillid!',
         error:   'Brat alarm — spring videre!',
         complete: 'Triumf-fanfare — fejr din sejr!'
@@ -395,10 +395,10 @@ document.addEventListener('DOMContentLoaded', () => {
       volume: 42,
       move: true, capture: true, correct: true, error: false, complete: true,
       desc: {
-        move: 'Blød dukkert — varm og neddæmpet',
+        move: 'Soft woody pop — calm and focused',
         capture: 'Stille klik — diskret og rolig',
         correct: 'Fin chime — stille opmuntring',
-        error:   'Slået fra — ingen forstyrrelser',
+        error:   'Muted — zero distractions',
         complete: 'Dejlig akkord — afslappet fejring'
       }
     },
@@ -406,8 +406,8 @@ document.addEventListener('DOMContentLoaded', () => {
       volume: 0,
       move: false, capture: false, correct: false, error: false, complete: false,
       desc: {
-        move: 'Slået fra', capture: 'Slået fra',
-        correct: 'Slået fra', error: 'Slået fra', complete: 'Slået fra'
+        move: 'Muted', capture: 'Muted',
+        correct: 'Muted', error: 'Muted', complete: 'Muted'
       }
     },
     custom: null // Custom = user-defined, no changes
@@ -465,7 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update status label
     const label = document.getElementById('sound-status-label');
     if (label) {
-      const names = { hype: '⚡ Hype-stemning aktiv', cozy: '🕯️ Cozy-stemning aktiv', silent: '🔇 Lyd er slået fra', custom: '🎛️ Tilpasset opsætning' };
+      const names = { hype: '⚡ Hype audio mode active', cozy: '🕯️ Cozy audio mode active', silent: '🔇 Sound muted', custom: '🎛️ Custom audio settings' };
       label.textContent = names[mood] || '';
     }
   }
@@ -845,7 +845,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     el.btnHint.addEventListener('click', () => {
       if (state.trainingMode === 'test') {
-        setBanner('state-error', '🚫', 'Hints er deaktiveret i Eksamen-tilstand!');
+        setBanner('state-error', '🚫', 'Hints are disabled in Exam mode!');
         return;
       }
       showHint();
@@ -1808,19 +1808,19 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="coach-rec-row">
               <div class="coach-rec-label-wrap">
                 <span class="rec-dot rec-dot-primary" title="Primary Recommendation (Green Arrow)"></span>
-                <span style="font-weight:600; color:#34d399;">#1 Bedste:</span>
+                <span style="font-weight:600; color:#34d399;">#1 Best:</span>
                 <strong>${moveInfo.bestMoveSan}</strong>
               </div>
-              <button class="btn-pill primary" id="btn-play-coach-move" style="padding:2px 8px; font-size:0.75rem;">⚡ Spil</button>
+              <button class="btn-pill primary" id="btn-play-coach-move" style="padding:2px 8px; font-size:0.75rem;">⚡ Play</button>
             </div>
             ${moveInfo.secondBestSan ? `
             <div class="coach-rec-row">
               <div class="coach-rec-label-wrap">
                 <span class="rec-dot rec-dot-secondary" title="Secondary Alternative (Cyan Arrow)"></span>
-                <span style="font-weight:600; color:#38bdf8;">#2 Alternativ:</span>
+                <span style="font-weight:600; color:#38bdf8;">#2 Alternative:</span>
                 <strong>${moveInfo.secondBestSan}</strong>
               </div>
-              <button class="btn-pill" id="btn-play-second-coach-move" style="padding:2px 8px; font-size:0.75rem;">⚡ Spil</button>
+              <button class="btn-pill" id="btn-play-second-coach-move" style="padding:2px 8px; font-size:0.75rem;">⚡ Play</button>
             </div>` : ''}
           </div>
         `;
@@ -1844,11 +1844,11 @@ document.addEventListener('DOMContentLoaded', () => {
     state.showCoachArrow = !state.showCoachArrow;
     if (el.btnReviewShowBest) {
       el.btnReviewShowBest.classList.toggle('active', state.showCoachArrow);
-      el.btnReviewShowBest.innerHTML = state.showCoachArrow ? '<span>🎯</span> 2 Pile: Til' : '<span>🎯</span> 2 Pile: Fra';
+      el.btnReviewShowBest.innerHTML = state.showCoachArrow ? '<span>🎯</span> 2 Arrows: On' : '<span>🎯</span> 2 Arrows: Off';
     }
     if (el.btnCoachToggleArrow) {
       el.btnCoachToggleArrow.classList.toggle('active', state.showCoachArrow);
-      el.btnCoachToggleArrow.innerHTML = state.showCoachArrow ? '<span>🎯</span> Skjul 2 Pile' : '<span>🎯</span> Vis 2 Pile';
+      el.btnCoachToggleArrow.innerHTML = state.showCoachArrow ? '<span>🎯</span> Hide 2 Arrows' : '<span>🎯</span> Show 2 Arrows';
     }
 
     if (state.reviewData && state.reviewMoveIndex > 0) {
@@ -2278,7 +2278,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      setBanner('state-correct', '🔥', `Perfekt (${moveObj.san})! Modstander svarer...`);
+      setBanner('state-correct', '🔥', `Perfect (${moveObj.san})! Opponent replying...`);
       makeOpponentMove();
       return;
     }
@@ -2319,7 +2319,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <span>✓</span> Ja, skift linje (${alt.lineName})
             </button>
             <button class="btn-switch-cancel" id="btn-switch-cancel-single">
-              <span>✕</span> Nej, prøv igen
+              <span>✕</span> No, try again
             </button>
           </div>
         `;
@@ -2485,7 +2485,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (branches.length > 0) {
       el.branchesChipsList.innerHTML = branches.map((b, idx) => `
-        <button class="branch-chip" data-branch-idx="${idx}" title="Skift eller spil ${b.san} (${b.lineName})">
+        <button class="branch-chip" data-branch-idx="${idx}" title="Switch or play ${b.san} (${b.lineName})">
           <span class="branch-san">${b.san}</span>
           <span>${b.lineName}</span>
         </button>
@@ -2708,10 +2708,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let title = 'Grandmaster Niveau!';
     let xpBonus = 200;
 
-    if (pct < 60) { grade = 'D'; title = 'Brug mere tid i Læring'; xpBonus = 20; }
+    if (pct < 60) { grade = 'D'; title = 'Need more practice in Learn mode'; xpBonus = 20; }
     else if (pct < 75) { grade = 'C'; title = 'Godkendt indsats!'; xpBonus = 50; }
     else if (pct < 90) { grade = 'B+'; title = 'Well played!'; xpBonus = 100; }
-    else if (pct < 98) { grade = 'A'; title = 'Fremragende præcision!'; xpBonus = 150; }
+    else if (pct < 98) { grade = 'A'; title = 'Outstanding precision!'; xpBonus = 150; }
 
     window.srsManager.addXp(xpBonus);
     updateStatsDisplay();
@@ -2741,7 +2741,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextMove = state.currentLine.moves[moveIdx];
     const side = (moveIdx % 2 === 0) ? 'White' : 'Black';
     el.learningMoveNote.innerHTML = `
-      Træk ${Math.floor(moveIdx / 2) + 1} (${side}): <strong>${nextMove}</strong><br>
+      Move ${Math.floor(moveIdx / 2) + 1} (${side}): <strong>${nextMove}</strong><br>
       <span style="color:var(--text-muted); font-size:0.8rem;">
         ${state.currentLine.explanation || 'Strategic move adhering to core opening principles.'}
       </span>
@@ -2758,7 +2758,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (state.moveIndex >= state.currentLine.moves.length) return;
     const expectedSan = state.currentLine.moves[state.moveIndex];
     showHintForMove(expectedSan);
-    setBanner('state-ready', '💡', `Hint: Spil <strong>${expectedSan}</strong>`);
+    setBanner('state-ready', '💡', `Hint: Play <strong>${expectedSan}</strong>`);
   }
 
   function showHintForMove(expectedSan) {
@@ -3092,7 +3092,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let stageClass = 'stage-ny';
         if (lineInfo.stage === 'I gang') stageClass = 'stage-igang';
-        if (lineInfo.stage === 'Øvet') stageClass = 'stage-ovet';
+        if (lineInfo.stage === 'Intermediate' || lineInfo.stage === 'Intermediate') stageClass = 'stage-ovet';
         if (lineInfo.stage === 'Mastered' || lineInfo.stage === 'Mestret') stageClass = 'stage-mestret';
 
         const lineEl = document.createElement('div');
@@ -3101,7 +3101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         lineEl.innerHTML = `
           <div class="line-left-group">
-            <input type="checkbox" class="line-checkbox" data-line-id="${line.id}" ${isChecked ? 'checked' : ''} title="Marker for at inkludere i træning">
+            <input type="checkbox" class="line-checkbox" data-line-id="${line.id}" ${isChecked ? 'checked' : ''} title="Check to include in active training">
             <span class="line-name">${line.name}</span>
           </div>
           <div style="display:flex; align-items:center; gap:4px; flex-shrink:0;">
@@ -3122,7 +3122,7 @@ document.addEventListener('DOMContentLoaded', () => {
               const activeInFolder = folder.lines.filter(l => state.selectedLineIds.has(l.id));
               if (activeInFolder.length <= 1) {
                 checkbox.checked = true;
-                alert('Mindst 1 variant skal være markeret i mappen.');
+                alert('At least 1 variation must remain checked in this folder.');
                 return;
               }
               state.selectedLineIds.delete(line.id);
@@ -3356,7 +3356,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function fetchUserGames() {
     if (!state.linkedProfile) {
       openProfileModal();
-      showProfileError('Tilknyt først din profil for at hente dine personlige partier.');
+      showProfileError('Connect your account first to fetch your personal games.');
       return;
     }
 
@@ -3438,7 +3438,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const latestArchive = archData.archives[archData.archives.length - 1];
         const gamesRes = await fetch(latestArchive);
-        if (!gamesRes.ok) throw new Error('Kunne ikke hente de månedlige partier fra Chess.com.');
+        if (!gamesRes.ok) throw new Error('Could not fetch monthly games from Chess.com.');
         const gamesData = await gamesRes.json();
 
         const rawList = (gamesData.games || []).slice(-15).reverse();
@@ -3540,13 +3540,13 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
             <button class="btn-pill primary btn-import-game" data-game-idx="${idx}" style="font-size:0.8rem; padding:7px 14px; flex-shrink:0;">
-              <span>⚡</span> Træn som Repertoire
+              <span>⚡</span> Train as Repertoire
             </button>
           </div>
         `;
       }).join('');
 
-      // Attach click listeners to "Træn som Repertoire"
+      // Attach click listeners to "Train as Repertoire"
       el.gamesListContainer.querySelectorAll('.btn-import-game').forEach(btn => {
         btn.addEventListener('click', () => {
           const idx = parseInt(btn.dataset.gameIdx, 10);
@@ -3563,8 +3563,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div style="font-weight:700; color:var(--color-rose); margin-bottom:6px;">⚠️ Fejl under hentning:</div>
           <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.4;">${err.message || 'Kunne ikke forbinde til serveren.'}</div>
           <div style="margin-top:14px; display:flex; gap:8px;">
-            <button class="btn-pill" id="btn-retry-games">🔄 Prøv igen</button>
-            <button class="btn-pill primary" id="btn-load-demo-game">⚡ Indlæs Magnus Carlsen Mesterparti</button>
+            <button class="btn-pill" id="btn-retry-games">🔄 Try Again</button>
+            <button class="btn-pill primary" id="btn-load-demo-game">⚡ Load Magnus Carlsen Master Game</button>
           </div>
         </div>
       `;
@@ -3613,7 +3613,7 @@ document.addEventListener('DOMContentLoaded', () => {
         color: game.userColor,
         icon: '🌐',
         eco: game.eco || 'PGN',
-        description: 'Dine egne online partier omdannet til interaktive åbningsrepertoirer.',
+        description: 'Your own online games transformed into interactive opening repertoires.',
         lines: []
       };
       state.folders.push(targetFolder);
@@ -3653,7 +3653,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setBanner(
       'state-correct',
       '🎉',
-      `Partiet <strong>${newLine.name}</strong> er nu tilføjet og klar til repetitionstræning!`
+      `Game <strong>${newLine.name}</strong> successfully added to your repertoire!`
     );
   }
 
@@ -3704,7 +3704,7 @@ document.addEventListener('DOMContentLoaded', () => {
         color,
         icon: '📁',
         eco: 'PGN',
-        description: 'Brugerdefineret mappe med importerede varianter.',
+        description: 'Custom folder with imported training variations.',
         lines: []
       };
       state.folders.push(targetFolder);
@@ -3740,7 +3740,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFoldersTree();
     selectFolderAndLine(targetFolder.id, newLine.id);
 
-    setBanner('state-correct', '✅', `Varianten <strong>${lineName}</strong> er tilføjet til <strong>${folderName}</strong>!`);
+    setBanner('state-correct', '✅', `Variation <strong>${lineName}</strong> added to <strong>${folderName}</strong>!`);
   }
 
   // =========================================================
@@ -3844,7 +3844,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (el.builderPgnDisplay) {
       if (moves.length === 0) {
-        el.builderPgnDisplay.innerHTML = `<span class="builder-empty-hint">Flyt brikkerne på brættet for at opbygge din variant for både hvid og sort...</span>`;
+        el.builderPgnDisplay.innerHTML = `<span class="builder-empty-hint">Move pieces on the board to construct your custom variation for both White and Black...</span>`;
       } else {
         let pgnHtml = '';
         for (let i = 0; i < moves.length; i += 2) {
@@ -3929,7 +3929,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     el.builderSaveDrawer.style.display = 'flex';
-    el.builderSaveDrawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   function closeBuilderSaveDrawer() {
@@ -3955,7 +3954,7 @@ document.addEventListener('DOMContentLoaded', () => {
         color: el.builderLineColor.value,
         icon: '📁',
         eco: 'PGN',
-        description: 'Brugeroprettet mappe med egne varianter.',
+        description: 'Custom folder with your own created variations.',
         lines: []
       };
       state.folders.push(targetFolder);

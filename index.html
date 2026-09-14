@@ -119,10 +119,10 @@
           <button class="mode-tab tab-test" id="mode-tab-test" data-mode="test" title="Exam mode with no hints - graded at completion">
             <span>🎓 Exam</span>
           </button>
-          <button class="mode-tab tab-mistakes" id="mode-tab-mistakes" data-mode="mistakes" title="Træn de træk du tidligere lavede fejl på">
-            <span>🎯 Fejlbank (<span id="badge-mistakes-count">0</span>)</span>
+          <button class="mode-tab tab-mistakes" id="mode-tab-mistakes" data-mode="mistakes" title="Practice moves you previously got wrong">
+            <span>🎯 Mistakes (<span id="badge-mistakes-count">0</span>)</span>
           </button>
-          <button class="mode-tab tab-builder" id="mode-tab-builder" data-mode="builder" title="Byg dit eget repertoire træk for træk">
+          <button class="mode-tab tab-builder" id="mode-tab-builder" data-mode="builder" title="Build your own repertoire move by move">
             <span>🔨 Build PGN</span>
           </button>
           <button class="mode-tab tab-review" id="mode-tab-review" data-mode="review" title="Chess.com-style Game Review with evaluations, accuracy scores and Coach">
@@ -134,40 +134,40 @@
         <div id="standard-left-panel" style="display:flex; flex-direction:column; gap:10px;">
           <!-- Color Filter (White / Black / All) -->
           <div class="color-filters" id="color-filters">
-            <button class="filter-btn active" id="filter-all" data-filter="all">Alle</button>
-            <button class="filter-btn" id="filter-w" data-filter="w">Hvid ⚪</button>
-            <button class="filter-btn" id="filter-b" data-filter="b">Sort ⚫</button>
+            <button class="filter-btn active" id="filter-all" data-filter="all">All</button>
+            <button class="filter-btn" id="filter-w" data-filter="w">White ⚪</button>
+            <button class="filter-btn" id="filter-b" data-filter="b">Black ⚫</button>
           </div>
 
           <!-- Folder Controls: Random in folder, Branch Prompt toggle & Multi-select actions -->
           <div class="folder-controls-bar" id="folder-controls-bar">
-            <label class="toggle-switch-label" for="toggle-random-folder" title="Vælg automatisk en ny tilfældig variant inden for samme mappe ved afslutning">
+            <label class="toggle-switch-label" for="toggle-random-folder" title="Automatically pick a new random line in the same folder on completion">
               <input type="checkbox" id="toggle-random-folder" class="toggle-switch-input" checked>
-              <span>🎲 Tilfældig</span>
+              <span>🎲 Random</span>
             </label>
-            <label class="toggle-switch-label" for="toggle-prompt-branch" title="Spørg om du vil skifte, hvis du spiller et alternativt træk i repertoiret">
+            <label class="toggle-switch-label" for="toggle-prompt-branch" title="Prompt to switch line if you play an alternative move from your repertoire">
               <input type="checkbox" id="toggle-prompt-branch" class="toggle-switch-input" checked>
-              <span>❓ Spørg ved linjeskift</span>
+              <span>❓ Prompt on Branch</span>
             </label>
           </div>
 
           <!-- Quick Repertoire Search Bar -->
           <div class="repertoire-search-box" id="repertoire-search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" id="input-search-openings" placeholder="Søg variant, åbning, træk (f.eks. Najdorf, dyb, c5)..." autocomplete="off">
-            <button id="btn-clear-search" class="btn-clear-search" style="display:none;" title="Ryd søgning">✕</button>
+            <input type="text" id="input-search-openings" placeholder="Search variation, opening, moves (e.g. Najdorf, c5)..." autocomplete="off">
+            <button id="btn-clear-search" class="btn-clear-search" style="display:none;" title="Clear search">✕</button>
           </div>
 
           <!-- Playlist Selection Actions (Select all / Deselect all & Expand all) -->
           <div class="playlist-actions-bar" id="playlist-actions-bar">
             <div class="playlist-actions-left">
-              <span id="playlist-count-label">Aktive varianter</span>
+              <span id="playlist-count-label">Active Variations</span>
               <button class="playlist-btn-link toggle-folders-btn" id="btn-toggle-all-folders" title="Expand or collapse all opening folders">📂 Expand All</button>
             </div>
             <div class="playlist-actions-right">
-              <button class="playlist-btn-link" id="btn-select-all-lines">Vælg alle</button>
+              <button class="playlist-btn-link" id="btn-select-all-lines">Select All</button>
               <span style="color:var(--border-subtle)">|</span>
-              <button class="playlist-btn-link" id="btn-deselect-all-lines">Fravælg alle</button>
+              <button class="playlist-btn-link" id="btn-deselect-all-lines">Deselect All</button>
             </div>
           </div>
 
@@ -273,7 +273,7 @@
         <div class="builder-pgn-box">
           <div class="builder-pgn-header">
             <span class="builder-pgn-title">📜 Generated PGN String:</span>
-            <span class="builder-moves-count" id="builder-moves-count">0 træk</span>
+            <span class="builder-moves-count" id="builder-moves-count">0 moves</span>
           </div>
           <div class="builder-pgn-content" id="builder-pgn-display">
             <span class="builder-empty-hint">Move pieces on the board to construct your custom variation for both White and Black...</span>
@@ -304,31 +304,31 @@
           </div>
           <div class="save-drawer-grid">
             <div class="form-group">
-              <label class="form-label" for="builder-folder-select">Mappe i Repertoiret</label>
+              <label class="form-label" for="builder-folder-select">Repertoire Folder</label>
               <select class="form-input" id="builder-folder-select">
                 <!-- Dynamically populated from state.folders -->
               </select>
-              <input type="text" class="form-input" id="builder-new-folder-input" placeholder="Navn på ny mappe..." style="display:none; margin-top:6px;">
+              <input type="text" class="form-input" id="builder-new-folder-input" placeholder="New folder name..." style="display:none; margin-top:6px;">
             </div>
             <div class="form-group">
-              <label class="form-label" for="builder-line-name">Variantens Navn</label>
-              <input type="text" class="form-input" id="builder-line-name" placeholder="F.eks. Italiensk - Min yndlingsvariant">
+              <label class="form-label" for="builder-line-name">Variation Name</label>
+              <input type="text" class="form-input" id="builder-line-name" placeholder="e.g. Italian - My favorite variation">
             </div>
             <div class="form-group">
-              <label class="form-label" for="builder-line-color">Træn som farve</label>
+              <label class="form-label" for="builder-line-color">Train as Color</label>
               <select class="form-input" id="builder-line-color">
-                <option value="w">Hvid ⚪</option>
-                <option value="b">Sort ⚫</option>
+                <option value="w">White ⚪</option>
+                <option value="b">Black ⚫</option>
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label" for="builder-line-desc">Beskrivelse / Noter (valgfri)</label>
-              <input type="text" class="form-input" id="builder-line-desc" placeholder="F.eks. Skarp plan med tidligt d4 og b4">
+              <label class="form-label" for="builder-line-desc">Description / Notes (optional)</label>
+              <input type="text" class="form-input" id="builder-line-desc" placeholder="e.g. Sharp plan with early d4 and b4">
             </div>
           </div>
           <div class="save-drawer-footer">
             <button class="btn-pill" id="btn-builder-cancel-save">Cancel</button>
-            <button class="btn-pill primary" id="btn-builder-confirm-save">✓ Gem Variant Nu</button>
+            <button class="btn-pill primary" id="btn-builder-confirm-save">✓ Save Variation</button>
           </div>
         </div>
       </div>
@@ -397,10 +397,10 @@
             <span>🔄</span> Flip
           </button>
           <button class="btn-pill" id="btn-review-sound" title="Toggle audio sound in review">
-            <span id="review-sound-icon">🔊</span> Lyd
+            <span id="review-sound-icon">🔊</span> Sound
           </button>
-          <button class="btn-pill active" id="btn-review-show-best" title="Vis/skjul 2 anbefalede trækpile på brættet">
-            <span>🎯 2 Pile</span>
+          <button class="btn-pill active" id="btn-review-show-best" title="Show/hide 2 recommended move arrows on the board">
+            <span>🎯 2 Arrows</span>
           </button>
         </div>
       </div>
@@ -426,7 +426,7 @@
       <div class="branches-bar" id="branches-bar" style="display:none;">
         <div class="branches-label">
           <span>🔀</span>
-          <span>Mulige forgreninger:</span>
+          <span>Available Branches:</span>
         </div>
         <div class="branches-chips-list" id="branches-chips-list">
           <!-- Populated dynamically e.g. [4.b4 Evans Gambit] [4.Ng5 Fried Liver] -->
@@ -560,14 +560,14 @@
             </div>
             <div class="coach-suggestion-box" id="coach-suggestion-box" style="display:none;">
               <div class="coach-suggestion-header" style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">
-                🎯 Anbefalede Træk (2 pile)
+                🎯 Recommended Moves (2 Arrows)
               </div>
               <div class="coach-suggestion-text" id="coach-suggestion-text">
-                Bedste træk: <strong>--</strong>
+                Best move: <strong>--</strong>
               </div>
               <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
                 <button class="btn-pill btn-coach-arrow active" id="btn-coach-toggle-arrow">
-                  <span>🎯</span> Skjul 2 Pile
+                  <span>🎯</span> Hide Arrows
                 </button>
               </div>
             </div>
@@ -674,17 +674,17 @@
             <button class="sound-mood-card" id="mood-hype" data-mood="hype">
               <div class="sound-mood-icon">⚡</div>
               <div class="sound-mood-name">Hype</div>
-              <div class="sound-mood-desc">Skarpe, energetiske lyde til hurtig træning</div>
+              <div class="sound-mood-desc">Crisp, energetic sounds for speed training</div>
             </button>
             <button class="sound-mood-card" id="mood-cozy" data-mood="cozy">
               <div class="sound-mood-icon">🕯️</div>
               <div class="sound-mood-name">Cozy</div>
-              <div class="sound-mood-desc">Bløde, varme lyde til fordybet studie</div>
+              <div class="sound-mood-desc">Soft, warm sounds for deep focus</div>
             </button>
             <button class="sound-mood-card" id="mood-silent" data-mood="silent">
               <div class="sound-mood-icon">🔇</div>
               <div class="sound-mood-name">Tavs</div>
-              <div class="sound-mood-desc">Ingen lyde — fuldstændig ro</div>
+              <div class="sound-mood-desc">No sounds — complete silence</div>
             </button>
             <button class="sound-mood-card" id="mood-custom" data-mood="custom">
               <div class="sound-mood-icon">🎛️</div>
@@ -711,12 +711,12 @@
             <div class="sound-row-info">
               <span class="sound-row-emoji">♟️</span>
               <div>
-                <div class="sound-row-name">Træk</div>
-                <div class="sound-row-desc" id="sound-desc-move">Træklyd ved hvert brik-træk</div>
+                <div class="sound-row-name">Move</div>
+                <div class="sound-row-desc" id="sound-desc-move">Sound played on piece moves</div>
               </div>
             </div>
             <div class="sound-row-controls">
-              <button class="sound-preview-btn" id="preview-move" title="Forhåndsvis lyd">▶</button>
+              <button class="sound-preview-btn" id="preview-move" title="Preview sound">▶</button>
               <label class="sound-toggle-pill" for="toggle-sound-move">
                 <input type="checkbox" id="toggle-sound-move" checked>
                 <span class="sound-toggle-track"></span>
@@ -730,11 +730,11 @@
               <span class="sound-row-emoji">💥</span>
               <div>
                 <div class="sound-row-name">Capture</div>
-                <div class="sound-row-desc" id="sound-desc-capture">Slag-lyd ved brik-tagning</div>
+                <div class="sound-row-desc" id="sound-desc-capture">Sound played on piece captures</div>
               </div>
             </div>
             <div class="sound-row-controls">
-              <button class="sound-preview-btn" id="preview-capture" title="Forhåndsvis lyd">▶</button>
+              <button class="sound-preview-btn" id="preview-capture" title="Preview sound">▶</button>
               <label class="sound-toggle-pill" for="toggle-sound-capture">
                 <input type="checkbox" id="toggle-sound-capture" checked>
                 <span class="sound-toggle-track"></span>
@@ -747,12 +747,12 @@
             <div class="sound-row-info">
               <span class="sound-row-emoji">✅</span>
               <div>
-                <div class="sound-row-name">Korrekt træk</div>
-                <div class="sound-row-desc" id="sound-desc-correct">Positiv feedback ved godt træk</div>
+                <div class="sound-row-name">Correct Move</div>
+                <div class="sound-row-desc" id="sound-desc-correct">Positive sound on correct moves</div>
               </div>
             </div>
             <div class="sound-row-controls">
-              <button class="sound-preview-btn" id="preview-correct" title="Forhåndsvis lyd">▶</button>
+              <button class="sound-preview-btn" id="preview-correct" title="Preview sound">▶</button>
               <label class="sound-toggle-pill" for="toggle-sound-correct">
                 <input type="checkbox" id="toggle-sound-correct" checked>
                 <span class="sound-toggle-track"></span>
@@ -765,12 +765,12 @@
             <div class="sound-row-info">
               <span class="sound-row-emoji">❌</span>
               <div>
-                <div class="sound-row-name">Forkert træk</div>
+                <div class="sound-row-name">Mistake / Inaccuracy</div>
                 <div class="sound-row-desc" id="sound-desc-error">Advarselslyd ved fejl</div>
               </div>
             </div>
             <div class="sound-row-controls">
-              <button class="sound-preview-btn" id="preview-error" title="Forhåndsvis lyd">▶</button>
+              <button class="sound-preview-btn" id="preview-error" title="Preview sound">▶</button>
               <label class="sound-toggle-pill" for="toggle-sound-error">
                 <input type="checkbox" id="toggle-sound-error" checked>
                 <span class="sound-toggle-track"></span>
@@ -783,12 +783,12 @@
             <div class="sound-row-info">
               <span class="sound-row-emoji">🏆</span>
               <div>
-                <div class="sound-row-name">Linje gennemført</div>
+                <div class="sound-row-name">Line Mastered</div>
                 <div class="sound-row-desc" id="sound-desc-complete">Sejrsfanfare ved afsluttet linje</div>
               </div>
             </div>
             <div class="sound-row-controls">
-              <button class="sound-preview-btn" id="preview-complete" title="Forhåndsvis lyd">▶</button>
+              <button class="sound-preview-btn" id="preview-complete" title="Preview sound">▶</button>
               <label class="sound-toggle-pill" for="toggle-sound-complete">
                 <input type="checkbox" id="toggle-sound-complete" checked>
                 <span class="sound-toggle-track"></span>
@@ -799,7 +799,7 @@
       </div>
       <div class="modal-footer">
         <span id="sound-status-label" style="font-size:0.8rem; color:var(--text-muted); flex:1;"></span>
-        <button class="btn-pill" id="btn-close-sound-modal-footer">Gem &amp; Luk</button>
+        <button class="btn-pill" id="btn-close-sound-modal-footer">Save &amp; Close</button>
       </div>
     </div>
   </div>
@@ -998,7 +998,7 @@
       </div>
       <div class="modal-body">
         <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">
-          Forbind din profil fra <strong>Lichess.org</strong> eller <strong>Chess.com</strong> for at hente dine live ratings og importere dine egne partier som træningsrepertoirer.
+          Connect your profile from <strong>Lichess.org</strong> or <strong>Chess.com</strong> to sync live ratings and import your own games as custom training repertoires.
         </p>
         <div class="form-group">
           <label class="form-label" for="profile-platform-select">Platform</label>
@@ -1039,7 +1039,7 @@
       </div>
       <div class="modal-body">
         <p style="font-size:0.82rem; color:var(--text-muted);">
-          Vælg et parti for automatisk at omdanne åbningsfasen til et personligt træningsrepertoire:
+          Select a game to automatically turn its opening moves into a custom training repertoire:
         </p>
         <div class="games-list-container" id="games-list-container">
           <!-- Dynamically populated games cards -->
@@ -1061,13 +1061,13 @@
       <div class="modal-body">
         <div class="exam-grade-card">
           <div class="exam-grade-badge" id="exam-grade-badge">A+</div>
-          <h3 id="exam-grade-title" style="font-size:1.3rem;">Mesterlig Præcision!</h3>
+          <h3 id="exam-grade-title" style="font-size:1.3rem;">Masterful Precision!</h3>
           <p id="exam-grade-desc" style="color:var(--text-muted); font-size:0.9rem;">
-            Du gennemførte eksamenen med 96% nøjagtighed.
+            You completed the exam with 96% accuracy.
           </p>
           <div style="display:flex; gap:16px; margin-top:8px;">
             <div class="stat-chip">
-              <span>🎯 Korrekte træk:</span>
+              <span>🎯 Correct moves:</span>
               <strong id="exam-correct-count">24/25</strong>
             </div>
             <div class="stat-chip">
@@ -1092,28 +1092,28 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label class="form-label" for="pgn-input-folder">Vælg Mappe eller opret ny</label>
-          <input type="text" class="form-input" id="pgn-input-folder" placeholder="F.eks. Mine Hemmelige Våben">
+          <label class="form-label" for="pgn-input-folder">Choose Folder or Create New</label>
+          <input type="text" class="form-input" id="pgn-input-folder" placeholder="e.g. My Secret Weapons">
         </div>
         <div class="form-group">
           <label class="form-label" for="pgn-input-name">Variantens Navn</label>
-          <input type="text" class="form-input" id="pgn-input-name" placeholder="F.eks. Skarpeste modstød">
+          <input type="text" class="form-input" id="pgn-input-name" placeholder="e.g. Sharpest Counter-attack">
         </div>
         <div class="form-group">
-          <label class="form-label" for="pgn-input-color">Træn som farve</label>
+          <label class="form-label" for="pgn-input-color">Train as Color</label>
           <select class="form-input" id="pgn-input-color">
-            <option value="w">Hvid ⚪</option>
-            <option value="b">Sort ⚫</option>
+            <option value="w">White ⚪</option>
+            <option value="b">Black ⚫</option>
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label" for="pgn-input-text">PGN Notationsstreng eller træk</label>
+          <label class="form-label" for="pgn-input-text">PGN Notation String or Moves</label>
           <textarea class="form-textarea" id="pgn-input-text" placeholder="Paste PGN text or move list her, f.eks.:&#10;1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3"></textarea>
         </div>
       </div>
       <div class="modal-footer">
         <button class="btn-pill" id="btn-cancel-pgn">Annuller</button>
-        <button class="btn-pill primary" id="btn-save-pgn">Tilføj til Mappe</button>
+        <button class="btn-pill primary" id="btn-save-pgn">Add to Repertoire</button>
       </div>
     </div>
   </div>
@@ -1156,20 +1156,20 @@
         <p><strong>Nye Funktioner:</strong></p>
         <ul style="margin-left:20px; margin-top:8px; display:flex; flex-direction:column; gap:6px;">
           <li><strong>Game Review:</strong> Partigennemgang ligesom Chess.com med Brilliant moves (!!), Accuracy, eval bar og Coach.</li>
-          <li><strong>Brætstørrelse:</strong> Vælg 640px, 760px, 880px eller det nye 980px XXL format.</li>
-          <li><strong>Temaer:</strong> Skift brættema (Træ, Lichess Grøn, Midnatsblå mv.) og brik-stil via '🎨 Tema'.</li>
-          <li><strong>Hent partier:</strong> Forbind din Lichess eller Chess.com profil for at hente dine egne partier som træningsvarianter!</li>
+          <li><strong>Board Size:</strong> Select 640px, 760px, 880px, 980px XXL, 1100px or 1200px format.</li>
+          <li><strong>Themes:</strong> Change board theme (Wood, Lichess Green, Cyber, etc.) and piece style via '🎨 Themes'.</li>
+          <li><strong>Import Games:</strong> Connect your Lichess or Chess.com profile to import your own games as training lines!</li>
         </ul>
         <div style="margin-top:16px;">
           <strong>Tastaturgenveje:</strong>
           <table style="width:100%; margin-top:8px; border-collapse:collapse; font-size:0.82rem;">
             <tr style="border-bottom:1px solid var(--border-subtle);">
               <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">Mellemrum</td>
-              <td style="padding:6px;">Næste aktive variant / Review næste træk</td>
+              <td style="padding:6px;">Next active line / Review next move</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-subtle);">
-              <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">Venstre / Højre Pil</td>
-              <td style="padding:6px;">Review forrige / næste træk</td>
+              <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">Left / Right Arrow</td>
+              <td style="padding:6px;">Review previous / next move</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border-subtle);">
               <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">R</td>
@@ -1177,17 +1177,17 @@
             </tr>
             <tr style="border-bottom:1px solid var(--border-subtle);">
               <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">H</td>
-              <td style="padding:6px;">Vis hint for næste træk</td>
+              <td style="padding:6px;">Show hint for next move</td>
             </tr>
             <tr>
               <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">F</td>
-              <td style="padding:6px;">Vend brættet (Flip)</td>
+              <td style="padding:6px;">Flip the board</td>
             </tr>
           </table>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn-pill primary" id="btn-ok-help">Forstået!</button>
+        <button class="btn-pill primary" id="btn-ok-help">Got it!</button>
       </div>
     </div>
   </div>

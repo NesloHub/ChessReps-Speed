@@ -10,7 +10,321 @@ const OPENING_FOLDERS = [
     "color": "w",
     "icon": "🏹",
     "eco": "A01-A09",
-    "description": "Hypermodern flank systems: Nimzowitsch-Larsen 1.b3, Bird 1.f4, and Réti 1.Nf3."
+    "description": "Hypervsern flank systems: Nimzowitsch-Larsen 1.b3, Bird 1.f4, and Réti 1.Nf3.",
+    "lines": [
+      {
+        "id": "open-nimzowitsch-larsen-klassisk-variant-1-e5-",
+        "folderId": "folder-larsen-bird-reti",
+        "name": "Nimzowitsch-Larsen: Classical Variation (1...e5)",
+        "eco": "A01",
+        "color": "w",
+        "explanation": "Hypermodern opening starting with b3 e5 Bb2 Nc6. White fianchettos the dark-squared bishop to control the central e5 and d4 squares.",
+        "keyThemes": [
+          "LStrategic Play",
+          "Pres vs e5",
+          "Hypermoderne Strategic Play"
+        ],
+        "moves": [
+          "b3",
+          "e5",
+          "Bb2",
+          "Nc6",
+          "e3",
+          "Nf6",
+          "Bb5",
+          "Bd6",
+          "Ne2",
+          "O-O",
+          "O-O",
+          "Re8",
+          "Ng3",
+          "Bf8",
+          "d4"
+        ]
+      },
+      {
+        "id": "open-nimzowitsch-larsen-engelsk-svar-1-c5-",
+        "folderId": "folder-larsen-bird-reti",
+        "name": "Nimzowitsch-Larsen: English Response (1...c5)",
+        "eco": "A01",
+        "color": "w",
+        "explanation": "Hypermodern opening starting with b3 c5 Bb2 Nc6. White fianchettos the dark-squared bishop to control the central e5 and d4 squares.",
+        "keyThemes": [
+          "Asymmetrisk kamp",
+          "f4 fremstStrategic Play",
+          "FlankelStrategic Play"
+        ],
+        "moves": [
+          "b3",
+          "c5",
+          "Bb2",
+          "Nc6",
+          "e3",
+          "d5",
+          "Bb5",
+          "Bd7",
+          "f4",
+          "Nf6",
+          "Nf3",
+          "e6",
+          "O-O",
+          "Be7",
+          "d3",
+          "O-O"
+        ]
+      },
+      {
+        "id": "open-nimzowitsch-larsen-indisk-variant-1-nf6-",
+        "folderId": "folder-larsen-bird-reti",
+        "name": "Nimzowitsch-Larsen: Indian Variation (1...Nf6)",
+        "eco": "A01",
+        "color": "w",
+        "explanation": "Hypermodern opening starting with b3 Nf6 Bb2 g6. White fianchettos the dark-squared bishop to control the central e5 and d4 squares.",
+        "keyThemes": [
+          "Indisk struktur",
+          "Dobbelt fianchetto",
+          "Diagonalkontrol"
+        ],
+        "moves": [
+          "b3",
+          "Nf6",
+          "Bb2",
+          "g6",
+          "e3",
+          "Bg7",
+          "Nf3",
+          "O-O",
+          "Be2",
+          "d6",
+          "d4",
+          "Nbd7",
+          "O-O",
+          "e5",
+          "c4"
+        ]
+      },
+      {
+        "id": "open-nimzowitsch-larsen-hollandsk-svar-1-f5-",
+        "folderId": "folder-larsen-bird-reti",
+        "name": "Nimzowitsch-Larsen: Dutch Defense Response (1...f5)",
+        "eco": "A01",
+        "color": "w",
+        "explanation": "Hypermodern opening starting with b3 f5 Bb2 Nf6. White fianchettos the dark-squared bishop to control the central e5 and d4 squares.",
+        "keyThemes": [
+          "Diagonal svStrategic Play",
+          "e4 brud",
+          "Fast lStrategic Play"
+        ],
+        "moves": [
+          "b3",
+          "f5",
+          "Bb2",
+          "Nf6",
+          "e3",
+          "e6",
+          "Nf3",
+          "b6",
+          "Be2",
+          "Bb7",
+          "O-O",
+          "Be7",
+          "c4",
+          "O-O",
+          "Nc3",
+          "d6",
+          "d4"
+        ]
+      },
+      {
+        "id": "open-birds-bning-froms-gambit-1-f4-e5-",
+        "folderId": "folder-larsen-bird-reti",
+        "name": "Bird's Opening: From's Gambit (1.f4 e5)",
+        "eco": "A02",
+        "color": "w",
+        "explanation": "Aggressive flank opening initiating with 1.f4. White stakes immediate claim on the e5 outpost, aiming for active kingside piece play.",
+        "keyThemes": [
+          "Froms Gambit",
+          "Kongesikkerhed",
+          "Counterattack"
+        ],
+        "moves": [
+          "f4",
+          "e5",
+          "fxe5",
+          "d6",
+          "exd6",
+          "Bxd6",
+          "Nf3",
+          "g5",
+          "d4",
+          "g4",
+          "Ne5",
+          "Bxe5",
+          "dxe5",
+          "Qxd1+",
+          "Kxd1",
+          "Nc6",
+          "Bf4"
+        ]
+      },
+      {
+        "id": "open-birds-bning-hollandsk-formation-1-d5-",
+        "folderId": "folder-larsen-bird-reti",
+        "name": "Bird's Opening: Dutch Formation (1...d5)",
+        "eco": "A03",
+        "color": "w",
+        "explanation": "Aggressive flank opening initiating with 1.f4. White stakes immediate claim on the e5 outpost, aiming for active kingside piece play.",
+        "keyThemes": [
+          "Omvendt Dutch Defense",
+          "e5 blokade",
+          "KongeflStrategic Play"
+        ],
+        "moves": [
+          "f4",
+          "d5",
+          "Nf3",
+          "Nf6",
+          "e3",
+          "g6",
+          "b3",
+          "Bg7",
+          "Bb2",
+          "O-O",
+          "Be2",
+          "c5",
+          "O-O",
+          "Nc6",
+          "Ne5"
+        ]
+      },
+      {
+        "id": "open-birds-bning-lasker-varianten",
+        "folderId": "folder-larsen-bird-reti",
+        "name": "Bird's Opening: Lasker Variation",
+        "eco": "A03",
+        "color": "w",
+        "explanation": "Aggressive flank opening initiating with 1.f4. White stakes immediate claim on the e5 outpost, aiming for active kingside piece play.",
+        "keyThemes": [
+          "Bishop trade",
+          "Positionsspil",
+          "Central afstivning"
+        ],
+        "moves": [
+          "f4",
+          "d5",
+          "Nf3",
+          "Nf6",
+          "e3",
+          "c5",
+          "Bb5+",
+          "Bd7",
+          "Bxd7+",
+          "Nbxd7",
+          "O-O",
+          "e6",
+          "b3",
+          "Be7",
+          "Bb2",
+          "O-O"
+        ]
+      },
+      {
+        "id": "open-r-ti-bningen-hovedangrebet-2-d4-",
+        "folderId": "folder-larsen-bird-reti",
+        "name": "Réti Opening: Main Attack (2...d4)",
+        "eco": "A09",
+        "color": "w",
+        "explanation": "Flexible hypermodern system (Nf3 d5 c4 d4) exerting indirect central pressure with knight maneuvers and light-square bishop fianchetto.",
+        "keyThemes": [
+          "Hypermodern Attack",
+          "b4 undergravning",
+          "Centrumsmodspil"
+        ],
+        "moves": [
+          "Nf3",
+          "d5",
+          "c4",
+          "d4",
+          "b4",
+          "f6",
+          "e3",
+          "e5",
+          "c5",
+          "a5",
+          "Bc4",
+          "axb4",
+          "Qb3",
+          "Nh6",
+          "exd4"
+        ]
+      },
+      {
+        "id": "open-king-s-indian-attack-kia-hovedlinje-",
+        "folderId": "folder-larsen-bird-reti",
+        "name": "King's Indian Attack (KIA Main Line)",
+        "eco": "A07",
+        "color": "w",
+        "explanation": "Universal attacking weapon with g3, Bg2, and e4, providing an elastic setup and dangerous kingside attacking chances.",
+        "keyThemes": [
+          "KIA",
+          "e4-e5 fremstStrategic Play",
+          "Hvidt kongeflStrategic Play"
+        ],
+        "moves": [
+          "Nf3",
+          "d5",
+          "g3",
+          "Nf6",
+          "Bg2",
+          "e6",
+          "O-O",
+          "Be7",
+          "d3",
+          "O-O",
+          "Nbd2",
+          "c5",
+          "e4",
+          "Nc6",
+          "Re1",
+          "b5",
+          "e5",
+          "Nd7",
+          "Nf1"
+        ]
+      },
+      {
+        "id": "open-r-ti-mod-slavisk-formation-2-c6-",
+        "folderId": "folder-larsen-bird-reti",
+        "name": "Réti vs Slav Defense Formation (2...c6)",
+        "eco": "A09",
+        "color": "w",
+        "explanation": "Flexible hypermodern system (Nf3 d5 c4 c6) exerting indirect central pressure with knight maneuvers and light-square bishop fianchetto.",
+        "keyThemes": [
+          "Flankeudvikling",
+          "Diagonalt pres",
+          "Solidt modspil"
+        ],
+        "moves": [
+          "Nf3",
+          "d5",
+          "c4",
+          "c6",
+          "b3",
+          "Nf6",
+          "g3",
+          "Bf5",
+          "Bg2",
+          "e6",
+          "O-O",
+          "Be7",
+          "Bb2",
+          "O-O",
+          "d3",
+          "h6",
+          "Nbd2"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-irregular",
@@ -18,7 +332,308 @@ const OPENING_FOLDERS = [
     "color": "w",
     "icon": "⚡",
     "eco": "A00",
-    "description": "Grob Attack, Anderssen, Dunst, Mieses, Amar, Ware, and unorthodox first moves."
+    "description": "Grob Attack, Anderssen, Dunst, Mieses, Amar, Ware, and unorthodox first moves.",
+    "lines": [
+      {
+        "id": "open-grobs-angreb-1-g4-",
+        "folderId": "folder-irregular",
+        "name": "Grobs Attack (1.g4)",
+        "eco": "A00",
+        "color": "w",
+        "explanation": "Tournament opening line (g4 d5 Bg2 Bxg4) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Grob",
+          "FlankestStrategic Play",
+          "Advance pStrategic Play"
+        ],
+        "moves": [
+          "g4",
+          "d5",
+          "Bg2",
+          "Bxg4",
+          "c4",
+          "c6",
+          "cxd5",
+          "cxd5",
+          "Qb3",
+          "Nf6",
+          "Nc3",
+          "e6",
+          "Qxb7",
+          "Nbd7",
+          "d4"
+        ]
+      },
+      {
+        "id": "open-anderssens-bning-1-a3-",
+        "folderId": "folder-irregular",
+        "name": "Anderssens Opening (1.a3)",
+        "eco": "A00",
+        "color": "w",
+        "explanation": "Et afventende profilaktisk moves, which tager b4-feltet fra Black's bishop & ofte transponerer til et omvendt siciliansk parti.",
+        "keyThemes": [
+          "Profilakse",
+          "Omvendt Sicilian",
+          "a3-system"
+        ],
+        "moves": [
+          "a3",
+          "e5",
+          "c4",
+          "Nf6",
+          "Nc3",
+          "d5",
+          "cxd5",
+          "Nxd5",
+          "e4",
+          "Nxc3",
+          "bxc3",
+          "Bd6",
+          "Nf3",
+          "O-O",
+          "Bc4"
+        ]
+      },
+      {
+        "id": "open-dunst-bningen-1-nc3-",
+        "folderId": "folder-irregular",
+        "name": "Dunst Opening (1.Nc3)",
+        "eco": "A00",
+        "color": "w",
+        "explanation": "Tournament opening line (Nc3 d5 e4 dxe4) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Fast udvikling",
+          "Nc3",
+          "Centrumskamp"
+        ],
+        "moves": [
+          "Nc3",
+          "d5",
+          "e4",
+          "dxe4",
+          "Nxe4",
+          "e5",
+          "Bc4",
+          "Be7",
+          "Nf3",
+          "Nc6",
+          "d3",
+          "Nf6",
+          "O-O",
+          "O-O"
+        ]
+      },
+      {
+        "id": "open-mieses-bningen-1-d3-",
+        "folderId": "folder-irregular",
+        "name": "Mieses Opening (1.d3)",
+        "eco": "A00",
+        "color": "w",
+        "explanation": "Tournament opening line (d3 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "KIA Setup",
+          "Fleksibel bondestruktur",
+          "Profilakse"
+        ],
+        "moves": [
+          "d3",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "g3",
+          "d5",
+          "Bg2",
+          "Nf6",
+          "O-O",
+          "Be7",
+          "Nbd2",
+          "O-O",
+          "e4",
+          "dxe4",
+          "dxe4"
+        ]
+      },
+      {
+        "id": "open-van-t-kruijs-bningen-1-e3-",
+        "folderId": "folder-irregular",
+        "name": "Van 't Kruijs Opening (1.e3)",
+        "eco": "A00",
+        "color": "w",
+        "explanation": "Tournament opening line (e3 e5 c4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Fleksibilitet",
+          "Hvidfeltskontrol",
+          "Systemspil"
+        ],
+        "moves": [
+          "e3",
+          "e5",
+          "c4",
+          "Nf6",
+          "Nc3",
+          "d5",
+          "cxd5",
+          "Nxd5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "Nxc3",
+          "bxc3",
+          "Bd6",
+          "d4"
+        ]
+      },
+      {
+        "id": "open-amar-bningen-1-nh3-",
+        "folderId": "folder-irregular",
+        "name": "Amar Opening (1.Nh3)",
+        "eco": "A00",
+        "color": "w",
+        "explanation": "Tournament opening line (Nh3 d5 g3 e5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Kantspringer",
+          "Fianchetto forberedelse",
+          "Uortodoks"
+        ],
+        "moves": [
+          "Nh3",
+          "d5",
+          "g3",
+          "e5",
+          "f4",
+          "Bxh3",
+          "Bxh3",
+          "exf4",
+          "O-O",
+          "fxg3",
+          "hxg3",
+          "Nf6",
+          "d3",
+          "Bd6",
+          "Kg2"
+        ]
+      },
+      {
+        "id": "open-ware-bningen-1-a4-",
+        "folderId": "folder-irregular",
+        "name": "Ware Opening (1.a4)",
+        "eco": "A00",
+        "color": "w",
+        "explanation": "Tournament opening line (a4 e5 e4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "TStrategic Play",
+          "Flankeaktivitet",
+          "Uortodoks"
+        ],
+        "moves": [
+          "a4",
+          "e5",
+          "e4",
+          "Nf6",
+          "Nc3",
+          "Bc5",
+          "Nf3",
+          "d6",
+          "Bc4",
+          "Nc6",
+          "d3",
+          "O-O",
+          "h3",
+          "Be6",
+          "O-O"
+        ]
+      },
+      {
+        "id": "open-clemenz-bningen-1-h3-",
+        "folderId": "folder-irregular",
+        "name": "Clemenz Opening (1.h3)",
+        "eco": "A00",
+        "color": "w",
+        "explanation": "Tournament opening line (h3 e5 d3 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Profilakse",
+          "g4 kontrol",
+          "Rolig opbygning"
+        ],
+        "moves": [
+          "h3",
+          "e5",
+          "d3",
+          "d5",
+          "Nf3",
+          "Nc6",
+          "c3",
+          "Nf6",
+          "Nbd2",
+          "Bd6",
+          "e4",
+          "O-O",
+          "Be2",
+          "Re8",
+          "O-O"
+        ]
+      },
+      {
+        "id": "open-barnes-bningen-1-f3-",
+        "folderId": "folder-irregular",
+        "name": "Barnes Opening (1.f3)",
+        "eco": "A00",
+        "color": "w",
+        "explanation": "Tournament opening line (f3 e5 e4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "e4-stStrategic Play",
+          "Utraditionel",
+          "Centrumsbalance"
+        ],
+        "moves": [
+          "f3",
+          "e5",
+          "e4",
+          "Nf6",
+          "Bc4",
+          "Bc5",
+          "Ne2",
+          "Nc6",
+          "c3",
+          "d5",
+          "exd5",
+          "Nxd5",
+          "d4",
+          "exd4",
+          "cxd4"
+        ]
+      },
+      {
+        "id": "open-durkins-angreb-1-na3-",
+        "folderId": "folder-irregular",
+        "name": "Durkins Attack (1.Na3)",
+        "eco": "A00",
+        "color": "w",
+        "explanation": "Tournament opening line (Na3 e5 Nc4 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Na3 til c4",
+          "Ubalance",
+          "SpringermanStrategic Play"
+        ],
+        "moves": [
+          "Na3",
+          "e5",
+          "Nc4",
+          "Nc6",
+          "e4",
+          "Nf6",
+          "d3",
+          "d5",
+          "exd5",
+          "Qxd5",
+          "Nf3",
+          "Bg4",
+          "Be2",
+          "O-O-O",
+          "O-O"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-london",
@@ -26,7 +641,844 @@ const OPENING_FOLDERS = [
     "color": "w",
     "icon": "🏰",
     "eco": "D02",
-    "description": "Comprehensive London arsenal: Classical, Jobava, Rapport, vs c5, vs Bf5, and early c4."
+    "description": "Comprehensive London arsenal: Classical, Jobava, Rapport, vs c5, vs Bf5, and early c4.",
+    "lines": [
+      {
+        "id": "london-main",
+        "name": "Main Line vs 1...d5 (Classical)",
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "Nf6",
+          "e3",
+          "c5",
+          "c3",
+          "Nc6",
+          "Nd2",
+          "e6",
+          "Ngf3",
+          "Bd6",
+          "Bg3",
+          "O-O",
+          "Bd3"
+        ],
+        "eco": "D02",
+        "difficulty": "Beginner",
+        "explanation": "Tournament opening line (d4 d5 Bf4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Panserpyramide i centrum",
+          "StStrategic Play",
+          "Ne5 forpost"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-deep-master",
+        "name": "Deep Main Line (20 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "Nf6",
+          "e3",
+          "c5",
+          "c3",
+          "Nc6",
+          "Nd2",
+          "e6",
+          "Ngf3",
+          "Bd6",
+          "Bg3",
+          "O-O",
+          "Bd3",
+          "b6",
+          "Ne5",
+          "Bb7",
+          "f4",
+          "Ne7"
+        ],
+        "eco": "D02",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (d4 d5 Bf4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Ne5 jernforpost",
+          "f4 Pillsbury Attack",
+          "Bb7 neutralisering"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-kid",
+        "name": "vs King's Indian Defense (g6)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "Bf4",
+          "g6",
+          "e3",
+          "Bg7",
+          "Nf3",
+          "O-O",
+          "Be2",
+          "d6",
+          "h3",
+          "c5",
+          "c3"
+        ],
+        "eco": "A48",
+        "difficulty": "Intermediate",
+        "explanation": "Black fianchetterer. White plays h3 to redde bishopen vs ...Nh5 & bevarer central stabilitet.",
+        "keyThemes": [
+          "h3 bevarer lStrategic Play",
+          "Solid kontrol",
+          "Preventing Black's e5 break"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-jobava",
+        "name": "Jobava London (2.Nc3)",
+        "moves": [
+          "d4",
+          "d5",
+          "Nc3",
+          "Nf6",
+          "Bf4",
+          "c6",
+          "e3",
+          "Bf5",
+          "f3",
+          "e6",
+          "g4",
+          "Bg6",
+          "h4",
+          "h6"
+        ],
+        "eco": "D00",
+        "difficulty": "Intermediate",
+        "explanation": "Solid Queen Pawn system emphasizing harmonious piece development, solid pawn structures, and active piece play.",
+        "keyThemes": [
+          "g4-h4 bondestorm",
+          "Traps Black's light-squared bishop",
+          "Fast Nb5 trussel"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-rapport-jobava",
+        "name": "Rapport-Jobava Queen Trap (15 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "c5",
+          "e3",
+          "Qb6",
+          "Nc3",
+          "cxd4",
+          "exd4",
+          "Nf6",
+          "Nb5",
+          "Na6",
+          "a4",
+          "Bf5",
+          "c3"
+        ],
+        "eco": "D00",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (d4 d5 Bf4 c5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Nc3 & Nb5 modangreb",
+          "c7 gaffeltrussel",
+          "Modspil vs tidlig ...Qb6"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-c5",
+        "name": "vs Steinitz Counterattack (2...c5)",
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "c5",
+          "e3",
+          "Nc6",
+          "c3",
+          "Nf6",
+          "Nd2",
+          "Qb6",
+          "Qb3",
+          "c4",
+          "Qc2"
+        ],
+        "eco": "D02",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (d4 d5 Bf4 c5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Neutraliserer Qb6 pres",
+          "c3 stStrategic Play",
+          "e4 breakthrough forberedes"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-barry",
+        "name": "Barry Attack / Classical Setup (17 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "Nf3",
+          "g6",
+          "Bf4",
+          "Bg7",
+          "e3",
+          "d5",
+          "h3",
+          "O-O",
+          "Be2",
+          "c5",
+          "c3",
+          "Nc6",
+          "O-O",
+          "Qb6",
+          "Qb3"
+        ],
+        "eco": "D02",
+        "difficulty": "Intermediate",
+        "explanation": "Harmonisk opstilling vs Grünfeld Defense/KID strukturer with rolig & stensikker stilling.",
+        "keyThemes": [
+          "Ro & kontrol",
+          "Qb3 modbytte",
+          "Sund stilling"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-deep-vs-e6",
+        "name": "London Deep Line vs e6 (28 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "e6",
+          "e3",
+          "Nf6",
+          "Nf3",
+          "c5",
+          "c3",
+          "Nc6",
+          "Nbd2",
+          "Bd6",
+          "Bg3",
+          "O-O",
+          "Bd3",
+          "b6",
+          "Ne5",
+          "Bb7",
+          "f4",
+          "Ne7",
+          "Qf3",
+          "Nc6",
+          "Nxc6",
+          "Bxc6",
+          "O-O",
+          "Qc7",
+          "Bh4",
+          "Be7",
+          "Rae1",
+          "Qb7",
+          "Qh3",
+          "h6"
+        ],
+        "eco": "D02",
+        "difficulty": "Advanced",
+        "explanation": "Qf3, O-O, and g4 kingside attack against the e6 setup.",
+        "keyThemes": [
+          "Qf3 Attack",
+          "g4 kongesidestorm"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-classical-e6",
+        "name": "Classical Main Line (...e6 & ...Bd6)",
+        "eco": "D02",
+        "difficulty": "Beginner",
+        "explanation": "Den klassiske London-opstilling with e3, c3, Nbd2, Bd3 & Bg3 vs ...e6 & ...Bd6.",
+        "keyThemes": [
+          "c3-e3 pyramide",
+          "LStrategic Play",
+          "Harmonisk udvikling"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "Nf6",
+          "e3",
+          "e6",
+          "Nf3",
+          "Bd6",
+          "Bg3",
+          "O-O",
+          "Nbd2",
+          "c5",
+          "c3",
+          "Nc6",
+          "Bd3"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-vs-early-c5",
+        "name": "vs Early ...c5 (...c5 & ...Nc6)",
+        "eco": "D02",
+        "difficulty": "Intermediate",
+        "explanation": "Black angriber straks center with ...c5. White stabiliserer with c3, Nbd2 & Ngf3.",
+        "keyThemes": [
+          "Central stabilitet",
+          "c3 forstStrategic Play",
+          "Afviser tidligt pres"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "Nf6",
+          "e3",
+          "c5",
+          "c3",
+          "Nc6",
+          "Nd2",
+          "e6",
+          "Ngf3",
+          "Bd6",
+          "Bg3",
+          "O-O",
+          "Bd3"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-qb6-c4",
+        "name": "vs ...Qb6 & ...c4 Taktisk Linje",
+        "eco": "D02",
+        "difficulty": "Intermediate",
+        "explanation": "Blacks queen angriber b2 with ...Qb6. White modsvarer with Qb3, & efter ...c4 movesker queenen til c2.",
+        "keyThemes": [
+          "Qb3 counterplay",
+          "Qc2 manStrategic Play",
+          "Harmless Black flank attack"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "Nf6",
+          "e3",
+          "c5",
+          "c3",
+          "Nc6",
+          "Nd2",
+          "Qb6",
+          "Qb3",
+          "c4",
+          "Qc2"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-vs-bf5",
+        "name": "vs ...Bf5 (Symmetric Bishop Development)",
+        "eco": "D02",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (d4 d5 Bf4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Bishop trade pStrategic Play",
+          "Symmetrisk balance",
+          "Fast dronningeaktivitet"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "Nf6",
+          "e3",
+          "Bf5",
+          "Nf3",
+          "e6",
+          "Bd3",
+          "Bxd3",
+          "Qxd3",
+          "c6",
+          "Nbd2",
+          "Bd6"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-vs-slav-c6",
+        "name": "vs Slav Defense Opstilling (...c6 & ...Bf5)",
+        "eco": "D02",
+        "difficulty": "Middel",
+        "explanation": "Black plays solidt with ...c6 & ...Bf5. White angriber with det aktive c4 instead of c3!",
+        "keyThemes": [
+          "Aktivt c4 fremstStrategic Play",
+          "Pres pStrategic Play",
+          "Kampbetonet London"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "c6",
+          "e3",
+          "Bf5",
+          "Nf3",
+          "e6",
+          "c4",
+          "Bd6",
+          "Bg3",
+          "Nf6",
+          "Nc3",
+          "O-O"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-vs-kid-be2",
+        "name": "vs King's Indian Defense with Be2",
+        "eco": "A48",
+        "difficulty": "Intermediate",
+        "explanation": "Deep dynamic battleground where Black builds an elastic pawn structure before unleashing a fierce kingside pawn storm.",
+        "keyThemes": [
+          "Be2 fleksibilitet",
+          "h3 lStrategic Play",
+          "Forhindrer tempo with e5"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "Bf4",
+          "g6",
+          "Nf3",
+          "Bg7",
+          "e3",
+          "d6",
+          "Be2",
+          "O-O",
+          "O-O",
+          "Nbd7",
+          "h3"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-vs-grunfeld-c3",
+        "name": "vs Grünfeld Defense Defense Opstilling (...g6 & ...d5)",
+        "eco": "D02",
+        "difficulty": "Intermediate",
+        "explanation": "Hypermodern masterpiece allowing White a massive pawn center, which Black systematically attacks with ...c5 and ...Bg7.",
+        "keyThemes": [
+          "c3 dStrategic Play",
+          "Central kontrol",
+          "Rolig fordel"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "Bf4",
+          "g6",
+          "e3",
+          "Bg7",
+          "Nf3",
+          "O-O",
+          "Bd3",
+          "d5",
+          "Nbd2",
+          "c5",
+          "c3",
+          "Nc6",
+          "O-O"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-vs-benoni-d5",
+        "name": "vs Benoni Advance (3.d5 Aktiv Plads)",
+        "eco": "A43",
+        "difficulty": "Advanced",
+        "explanation": "Asymmetric counterattacking system generating active queenside play, open files, and energetic piece activity.",
+        "keyThemes": [
+          "3.d5 pladsvinding",
+          "Cramps Black's knight development",
+          "Dynamisk centrum"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "Bf4",
+          "c5",
+          "d5",
+          "Qb6",
+          "Nc3",
+          "Qxb2",
+          "Bd2",
+          "Qb6",
+          "e4",
+          "d6",
+          "f4"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-jobava-classical",
+        "name": "Jobava-London Fast Attack (2.Nc3 d5 3.Bf4)",
+        "eco": "D00",
+        "difficulty": "Sharp",
+        "explanation": "Solid Queen Pawn system emphasizing harmonious piece development, solid pawn structures, and active piece play.",
+        "keyThemes": [
+          "Springeren pStrategic Play",
+          "Nb5 trussel",
+          "Aggressivt flStrategic Play"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "Nc3",
+          "d5",
+          "Bf4",
+          "e6",
+          "Nb5",
+          "Na6",
+          "e3",
+          "c6",
+          "Nc3"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-jobava-rapport-d5",
+        "name": "Jobava-Rapport 1.d4 d5 2.Nc3 Nf6 3.Bf4",
+        "eco": "D00",
+        "difficulty": "Sharp",
+        "explanation": "Rapports favorit: Fast c3-knight, tidlig e4 eller Nb5 with direkte trusler.",
+        "keyThemes": [
+          "Jobava-Rapport system",
+          "Fast e4 breakthrough",
+          "Konkrete trusler"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "Nc3",
+          "Nf6",
+          "Bf4",
+          "e6",
+          "e3",
+          "c5",
+          "Nb5",
+          "Na6",
+          "c3",
+          "Be7",
+          "a4",
+          "O-O",
+          "Nf3"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-early-c4-hybrid",
+        "name": "London Hybrid with Early c4",
+        "eco": "D02",
+        "difficulty": "Advanced",
+        "explanation": "Solid Queen Pawn system emphasizing harmonious piece development, solid pawn structures, and active piece play.",
+        "keyThemes": [
+          "Dobbelt centralt pres",
+          "Hybrid strategi",
+          "Dronninggambit energi"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "Nf6",
+          "e3",
+          "e6",
+          "Nf3",
+          "c5",
+          "c4",
+          "Nc6",
+          "Nc3",
+          "cxd4",
+          "exd4",
+          "Be7",
+          "Bd3",
+          "O-O"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-vs-dutch",
+        "name": "vs Dutch Defense Defense (1...f5 2.Bf4)",
+        "eco": "A82",
+        "difficulty": "Middel",
+        "explanation": "Aggressive flank response with 1...f5, seizing control of the e4 square and launching active kingside counterplay.",
+        "keyThemes": [
+          "Kontrol over e5",
+          "Restricts Black's kingside",
+          "Active bishoppost"
+        ],
+        "moves": [
+          "d4",
+          "f5",
+          "Bf4",
+          "Nf6",
+          "e3",
+          "e6",
+          "Nf3",
+          "b6",
+          "Bd3",
+          "Bb7",
+          "Nbd2",
+          "Be7",
+          "h3",
+          "O-O"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "london-vs-c6-bf5-c4",
+        "name": "vs ...c6 & ...Bf5 with Aktivt c4",
+        "eco": "D02",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (d4 d5 Bf4 c6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "c4 sprStrategic Play",
+          "Pres vs b7 & d5",
+          "Aktiv stilling"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "Bf4",
+          "c6",
+          "e3",
+          "Bf5",
+          "Nf3",
+          "e6",
+          "c4",
+          "Nf6",
+          "Nc3",
+          "Nbd7",
+          "Qb3",
+          "Qb6",
+          "c5"
+        ],
+        "folderId": "folder-london",
+        "folderName": "London System",
+        "color": "w",
+        "icon": "🏛️"
+      },
+      {
+        "id": "open-trompowsky-angrebet-2-bg5-",
+        "folderId": "folder-london",
+        "name": "Trompowsky Attack (2.Bg5)",
+        "eco": "A45",
+        "color": "w",
+        "explanation": "Direct flank attack with 2.Bg5 against 1...Nf6, pinning the knight and sidestepping conventional mainline theory.",
+        "keyThemes": [
+          "Trompowsky",
+          "Active bishop",
+          "Avoids heavy mainline theory"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "Bg5",
+          "Ne4",
+          "Bf4",
+          "c5",
+          "f3",
+          "Qa5+",
+          "c3",
+          "Nf6",
+          "d5",
+          "Qb6",
+          "Bc1",
+          "e6",
+          "e4",
+          "exd5",
+          "exd5",
+          "d6",
+          "c4",
+          "Be7"
+        ]
+      },
+      {
+        "id": "open-colle-zukertort-systemet",
+        "folderId": "folder-london",
+        "name": "Colle-Zukertort System",
+        "eco": "D05",
+        "color": "w",
+        "explanation": "Solid Queen Pawn system emphasizing harmonious piece development, solid pawn structures, and active piece play.",
+        "keyThemes": [
+          "Colle-Zukertort",
+          "Bb2 Fianchetto",
+          "Kingside attack"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "Nf3",
+          "Nf6",
+          "e3",
+          "e6",
+          "Bd3",
+          "c5",
+          "b3",
+          "Nc6",
+          "O-O",
+          "Bd6",
+          "Bb2",
+          "O-O",
+          "Nbd2",
+          "Qe7",
+          "Ne5",
+          "cxd4",
+          "exd4"
+        ]
+      },
+      {
+        "id": "open-richter-veresov-angrebet-2-nc3-3-bg5-",
+        "folderId": "folder-london",
+        "name": "Richter-Veresov Attack (2.Nc3 & 3.Bg5)",
+        "eco": "D01",
+        "color": "w",
+        "explanation": "Et aggressivt system which kombinerer hurtigt brikspil with e4-bruddet i center.",
+        "keyThemes": [
+          "Richter-Veresov",
+          "Fast Play",
+          "e4 breakthrough"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "Nc3",
+          "Nf6",
+          "Bg5",
+          "Nbd7",
+          "Qd3",
+          "c5",
+          "e4",
+          "dxe4",
+          "Nxe4",
+          "Nxe4",
+          "Qxe4",
+          "cxd4",
+          "Qxd4",
+          "Qa5+",
+          "Bd2",
+          "Qe5+"
+        ]
+      },
+      {
+        "id": "open-blackmar-diemer-gambit-2-e4-",
+        "folderId": "folder-london",
+        "name": "Blackmar-Diemer Gambit (2.e4!?)",
+        "eco": "D00",
+        "color": "w",
+        "explanation": "White forvandler 1.d4 til et vildt attacksspil by ofre to pawns for total developmentsfordel.",
+        "keyThemes": [
+          "Blackmar-Diemer",
+          "Queen's pawn gambit",
+          "Attacksrus"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "e4",
+          "dxe4",
+          "Nc3",
+          "Nf6",
+          "f3",
+          "exf3",
+          "Nxf3",
+          "e6",
+          "Bg5",
+          "Be7",
+          "Bd3",
+          "O-O",
+          "O-O",
+          "Nc6",
+          "Kh1",
+          "b6",
+          "Qe1"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-italian",
@@ -34,7 +1486,440 @@ const OPENING_FOLDERS = [
     "color": "w",
     "icon": "⚔️",
     "eco": "C50-C59",
-    "description": "Giuoco Piano, Pianissimo, Evans Gambit, Fried Liver Attack, and Traxler Counter-Attack."
+    "description": "Giuoco Piano, Pianissimo, Evans Gambit, Fried Liver Attack, and Traxler Counter-Attack.",
+    "lines": [
+      {
+        "id": "fried-liver",
+        "name": "Fried Liver Attack (5...Nxd5? 6.Nxf7!)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Nf6",
+          "Ng5",
+          "d5",
+          "exd5",
+          "Nxd5",
+          "Nxf7",
+          "Kxf7",
+          "Qf3+",
+          "Ke6",
+          "Nc3"
+        ],
+        "eco": "C57",
+        "difficulty": "Beginner",
+        "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
+        "keyThemes": [
+          "Nxf7 kongejagt",
+          "Triple Attack Pressure",
+          "Black's king is stranded in the center"
+        ],
+        "folderId": "folder-italian",
+        "folderName": "Italiensk & Sharp Taktik",
+        "color": "w",
+        "icon": "⚔️"
+      },
+      {
+        "id": "italian-traxler",
+        "name": "vs Traxler Counterattack (16 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Nf6",
+          "Ng5",
+          "Bc5",
+          "Bxf7+",
+          "Ke7",
+          "Bd5",
+          "Rf8",
+          "O-O",
+          "d6",
+          "c3",
+          "Qe8"
+        ],
+        "eco": "C57",
+        "difficulty": "Advanced",
+        "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
+        "keyThemes": [
+          "Bxf7+ tvinger Ke7",
+          "Bd5 bevarer officeren",
+          "Neutraliserer sorts modangreb"
+        ],
+        "folderId": "folder-italian",
+        "folderName": "Italiensk & Sharp Taktik",
+        "color": "w",
+        "icon": "⚔️"
+      },
+      {
+        "id": "evans-gambit",
+        "name": "Evans Gambit (4.b4!)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Bc5",
+          "b4",
+          "Bxb4",
+          "c3",
+          "Ba5",
+          "d4",
+          "exd4",
+          "O-O"
+        ],
+        "eco": "C51",
+        "difficulty": "Intermediate",
+        "explanation": "White sacrifices b-pawnn to erobre center with c3 & d4 & skabe voldsomt developmentstempo.",
+        "keyThemes": [
+          "b4 bondeoffer for tempo",
+          "Fast d4 & Ba3",
+          "Massivt pres vs f7"
+        ],
+        "folderId": "folder-italian",
+        "folderName": "Italiensk & Sharp Taktik",
+        "color": "w",
+        "icon": "⚔️"
+      },
+      {
+        "id": "italian-deep-pianissimo",
+        "name": "Deep Giuoco Pianissimo (18 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Bc5",
+          "c3",
+          "Nf6",
+          "d3",
+          "d6",
+          "O-O",
+          "a6",
+          "Bb3",
+          "Ba7",
+          "Nbd2",
+          "O-O",
+          "h3",
+          "h6",
+          "Re1",
+          "Re8"
+        ],
+        "eco": "C50",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Ba7 & Bb3 bevarer lStrategic Play",
+          "Nbd2-f1-g3 manStrategic Play",
+          "Re1 stStrategic Play"
+        ],
+        "folderId": "folder-italian",
+        "folderName": "Italiensk & Sharp Taktik",
+        "color": "w",
+        "icon": "⚔️"
+      },
+      {
+        "id": "italian-max-lange",
+        "name": "Max Lange / Skotsk Attack (18 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Nf6",
+          "d4",
+          "exd4",
+          "e5",
+          "d5",
+          "Bb5",
+          "Ne4",
+          "Nxd4",
+          "Bd7",
+          "Bxc6",
+          "bxc6",
+          "O-O",
+          "Bc5"
+        ],
+        "eco": "C55",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "d4 & e5 central fremmarch",
+          "Bb5 binding",
+          "Dynamic Play"
+        ],
+        "folderId": "folder-italian",
+        "folderName": "Italiensk & Sharp Taktik",
+        "color": "w",
+        "icon": "⚔️"
+      },
+      {
+        "id": "two-knights-4d3",
+        "name": "Two Knights Defense 4.d3",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Nf6",
+          "d3",
+          "Bc5",
+          "O-O",
+          "d6",
+          "c3",
+          "O-O",
+          "Re1",
+          "a6",
+          "Bb3"
+        ],
+        "eco": "C55",
+        "difficulty": "Intermediate",
+        "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
+        "keyThemes": [
+          "Re1 stStrategic Play",
+          "Harmonisk opstilling",
+          "Sikker konge"
+        ],
+        "folderId": "folder-italian",
+        "folderName": "Italiensk & Sharp Taktik",
+        "color": "w",
+        "icon": "⚔️"
+      },
+      {
+        "id": "italian-deep-main-line",
+        "name": "Italiensk 5.d3 Grandmaster (32 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Bc5",
+          "c3",
+          "Nf6",
+          "d3",
+          "d6",
+          "O-O",
+          "O-O",
+          "Re1",
+          "a6",
+          "Bb3",
+          "Ba7",
+          "Nbd2",
+          "h6",
+          "h3",
+          "Be6",
+          "Bxe6",
+          "fxe6",
+          "Nf1",
+          "Ne7",
+          "Ng3",
+          "Ng6",
+          "a4",
+          "d5",
+          "exd5",
+          "exd5",
+          "d4",
+          "exd4",
+          "cxd4"
+        ],
+        "eco": "C53",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "a4 bondestorm",
+          "d4 breakthrough"
+        ],
+        "folderId": "folder-italian",
+        "folderName": "Italiensk & Sharp Taktik",
+        "color": "w",
+        "icon": "⚔️"
+      },
+      {
+        "id": "open-to-springere-fried-liver-attack-5-nxd5-6-nxf7-",
+        "folderId": "folder-italian",
+        "name": "Two Knights Defense: Fried Liver Attack (5...Nxd5 6.Nxf7!)",
+        "eco": "C57",
+        "color": "w",
+        "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
+        "keyThemes": [
+          "Fried Liver",
+          "King hunt",
+          "Classical taktik"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Nf6",
+          "Ng5",
+          "d5",
+          "exd5",
+          "Nxd5",
+          "Nxf7",
+          "Kxf7",
+          "Qf3+",
+          "Ke6",
+          "Nc3",
+          "Ncb4",
+          "a3",
+          "Nxc2+",
+          "Kd1",
+          "Nxa1",
+          "Nxd5"
+        ]
+      },
+      {
+        "id": "open-to-springere-traxler-modangreb-4-ng5-bc5-",
+        "folderId": "folder-italian",
+        "name": "Two Knights Defense: Traxler Counterattack (4.Ng5 Bc5!!)",
+        "eco": "C57",
+        "color": "b",
+        "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
+        "keyThemes": [
+          "Traxler",
+          "Brutal counterattack",
+          "Fireworks"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Nf6",
+          "Ng5",
+          "Bc5",
+          "Nxf7",
+          "Bxf2+",
+          "Kxf2",
+          "Nxe4+",
+          "Kg1",
+          "Qh4",
+          "g3",
+          "Nxg3",
+          "Nxh8",
+          "Qd4+",
+          "Kg2",
+          "Nxh1"
+        ]
+      },
+      {
+        "id": "open-evans-gambit-accepteret-4-b4-bxb4-",
+        "folderId": "folder-italian",
+        "name": "Evans Gambit Accepted (4.b4 Bxb4)",
+        "eco": "C52",
+        "color": "w",
+        "explanation": "Legendary attacking gambit offering the b4 pawn to gain rapid tempi, control the center, and blast open diagonals.",
+        "keyThemes": [
+          "Evans Gambit",
+          "Fastt centrum",
+          "Classical skak"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Bc5",
+          "b4",
+          "Bxb4",
+          "c3",
+          "Ba5",
+          "d4",
+          "exd4",
+          "O-O",
+          "Nge7",
+          "cxd4",
+          "d5",
+          "exd5",
+          "Nxd5",
+          "Qb3",
+          "Nce7",
+          "Ba3"
+        ]
+      },
+      {
+        "id": "open-skotsk-parti-mieses-hovedlinje-4-nf6-5-nxc6-",
+        "folderId": "folder-italian",
+        "name": "Scotch Game: Mieses Main Line (4...Nf6 5.Nxc6)",
+        "eco": "C45",
+        "color": "w",
+        "explanation": "Direct central confrontation with 3.d4, quickly liquidating central pawns into dynamic, open piece battles.",
+        "keyThemes": [
+          "Mieses",
+          "Open game",
+          "Active piece play"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "d4",
+          "exd4",
+          "Nxd4",
+          "Nf6",
+          "Nxc6",
+          "bxc6",
+          "e5",
+          "Qe7",
+          "Qe2",
+          "Nd5",
+          "c4",
+          "Ba6",
+          "b3",
+          "g6",
+          "f4",
+          "Bg7"
+        ]
+      },
+      {
+        "id": "open-skotsk-gambit-4-bc4-",
+        "folderId": "folder-italian",
+        "name": "Scotch Gambit (4.Bc4)",
+        "eco": "C44",
+        "color": "w",
+        "explanation": "Direct central confrontation with 3.d4, quickly liquidating central pawns into dynamic, open piece battles.",
+        "keyThemes": [
+          "Scotch Gambit",
+          "Fast udvikling",
+          "Central pressure"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "d4",
+          "exd4",
+          "Bc4",
+          "Bc5",
+          "c3",
+          "Nf6",
+          "e5",
+          "d5",
+          "Bb5",
+          "Ne4",
+          "cxd4",
+          "Bb6",
+          "Nc3",
+          "O-O",
+          "Be3"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-ruy-lopez",
@@ -42,7 +1927,398 @@ const OPENING_FOLDERS = [
     "color": "w",
     "icon": "👑",
     "eco": "C60-C99",
-    "description": "Morphy Defense, Marshall Attack, Berlin Defense, Breyer, and Open Spanish."
+    "description": "Morphy Defense, Marshall Attack, Berlin Defense, Breyer, and Open Spanish.",
+    "lines": [
+      {
+        "id": "ruy-lopez-closed",
+        "name": "Morphy Closed Main Line (17 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "a6",
+          "Ba4",
+          "Nf6",
+          "O-O",
+          "Be7",
+          "Re1",
+          "b5",
+          "Bb3",
+          "d6",
+          "c3",
+          "O-O",
+          "h3"
+        ],
+        "eco": "C84",
+        "difficulty": "Intermediate",
+        "explanation": "Classical Ruy Lopez setup: c3 prepares d4 while h3 prevents annoying pins on the knight.",
+        "keyThemes": [
+          "Pressure on c6 and e5",
+          "Re1 and Nbd2-f1-g3 maneuvers",
+          "d4 breakthrough"
+        ],
+        "folderId": "folder-ruy-lopez",
+        "folderName": "Ruy Lopez",
+        "color": "w",
+        "icon": "🏰"
+      },
+      {
+        "id": "ruy-lopez-deep-breyer",
+        "name": "Deep Breyer System (22 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "a6",
+          "Ba4",
+          "Nf6",
+          "O-O",
+          "Be7",
+          "Re1",
+          "b5",
+          "Bb3",
+          "d6",
+          "c3",
+          "O-O",
+          "h3",
+          "Nb8",
+          "d4",
+          "Nbd7",
+          "Nbd2",
+          "Bb7"
+        ],
+        "eco": "C95",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "9...Nb8 Breyer manStrategic Play",
+          "Nbd2 forstStrategic Play",
+          "Bb7 lStrategic Play"
+        ],
+        "folderId": "folder-ruy-lopez",
+        "folderName": "Ruy Lopez",
+        "color": "w",
+        "icon": "🏰"
+      },
+      {
+        "id": "ruy-lopez-marshall",
+        "name": "vs Marshall Attack (24 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "a6",
+          "Ba4",
+          "Nf6",
+          "O-O",
+          "Be7",
+          "Re1",
+          "b5",
+          "Bb3",
+          "O-O",
+          "c3",
+          "d5",
+          "exd5",
+          "Nxd5",
+          "Nxe5",
+          "Nxe5",
+          "Rxe5",
+          "c6",
+          "d4",
+          "Bd6",
+          "Re1",
+          "Qh4",
+          "g3",
+          "Qh3"
+        ],
+        "eco": "C89",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "8...d5 Marshall bondeoffer",
+          "Re1 defensivt trStrategic Play",
+          "g3 stopper mattrusler"
+        ],
+        "folderId": "folder-ruy-lopez",
+        "folderName": "Ruy Lopez",
+        "color": "w",
+        "icon": "🏰"
+      },
+      {
+        "id": "ruy-lopez-archangel",
+        "name": "Archangel / Arkhangelsk (18 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "a6",
+          "Ba4",
+          "Nf6",
+          "O-O",
+          "b5",
+          "Bb3",
+          "Bb7",
+          "Re1",
+          "Bc5",
+          "c3",
+          "d6",
+          "d4",
+          "Bb6"
+        ],
+        "eco": "C78",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Bb7 & Bc5 aggressiv opstilling",
+          "c3 & d4 modstStrategic Play",
+          "Strategic Play"
+        ],
+        "folderId": "folder-ruy-lopez",
+        "folderName": "Ruy Lopez",
+        "color": "w",
+        "icon": "🏰"
+      },
+      {
+        "id": "ruy-lopez-schliemann",
+        "name": "Schliemann / Jaenisch Gambit (16 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "f5",
+          "Nc3",
+          "fxe4",
+          "Nxe4",
+          "d5",
+          "Nxe5",
+          "dxe4",
+          "Nxc6",
+          "Qg5",
+          "Qe2",
+          "Nf6"
+        ],
+        "eco": "C63",
+        "difficulty": "Advanced",
+        "explanation": "Black plays det skarpe 3...f5! White svarer principfast with 4.Nc3 & vinwhich materiale efter 7.Nxc6.",
+        "keyThemes": [
+          "3...f5 modstStrategic Play",
+          "Nxc6 afdStrategic Play",
+          "Qe2 dStrategic Play"
+        ],
+        "folderId": "folder-ruy-lopez",
+        "folderName": "Ruy Lopez",
+        "color": "w",
+        "icon": "🏰"
+      },
+      {
+        "id": "ruy-lopez-exchange",
+        "name": "Exchange Variation (4.Bxc6)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "a6",
+          "Bxc6",
+          "dxc6",
+          "O-O",
+          "f6",
+          "d4",
+          "exd4",
+          "Nxd4",
+          "c5",
+          "Nb3"
+        ],
+        "eco": "C68",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Doubled Pawns vs Black",
+          "Sund 4 vs 3 kongeflStrategic Play",
+          "Slutspilsfordel"
+        ],
+        "folderId": "folder-ruy-lopez",
+        "folderName": "Ruy Lopez",
+        "color": "w",
+        "icon": "🏰"
+      },
+      {
+        "id": "ruy-lopez-zaitsev",
+        "name": "Zaitsev System (30 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "a6",
+          "Ba4",
+          "Nf6",
+          "O-O",
+          "Be7",
+          "Re1",
+          "b5",
+          "Bb3",
+          "d6",
+          "c3",
+          "O-O",
+          "h3",
+          "Bb7",
+          "d4",
+          "Re8",
+          "Nbd2",
+          "Bf8",
+          "a4",
+          "h6",
+          "Bc2",
+          "exd4",
+          "cxd4",
+          "Nb4",
+          "Bb1",
+          "c5",
+          "d5",
+          "Nd7"
+        ],
+        "eco": "C92",
+        "difficulty": "Advanced",
+        "explanation": "Kasparov's favorite setup: Bb7, Re8, and c5 central counterattack.",
+        "keyThemes": [
+          "Bb7 & Re8",
+          "c5 modangreb"
+        ],
+        "folderId": "folder-ruy-lopez",
+        "folderName": "Ruy Lopez",
+        "color": "w",
+        "icon": "🏰"
+      },
+      {
+        "id": "open-spansk-marshall-angrebet-8-d5-",
+        "folderId": "folder-ruy-lopez",
+        "name": "Ruy Lopez: Marshall Attack (8...d5!!)",
+        "eco": "C89",
+        "color": "b",
+        "explanation": "The Spanish classic: White applies indirect pressure on e5 by pinning the knight on c6, leading to deep strategic play.",
+        "keyThemes": [
+          "Marshall Attack",
+          "Legendary pawn sacrifice",
+          "Kingside attack"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "a6",
+          "Ba4",
+          "Nf6",
+          "O-O",
+          "Be7",
+          "Re1",
+          "b5",
+          "Bb3",
+          "O-O",
+          "c3",
+          "d5",
+          "exd5",
+          "Nxd5",
+          "Nxe5",
+          "Nxe5",
+          "Rxe5",
+          "c6",
+          "d4",
+          "Bd6",
+          "Re1",
+          "Qh4",
+          "g3",
+          "Qh3"
+        ]
+      },
+      {
+        "id": "open-spansk-breyer-systemet-9-nb8-",
+        "folderId": "folder-ruy-lopez",
+        "name": "Ruy Lopez: Breyer System (9...Nb8)",
+        "eco": "C95",
+        "color": "b",
+        "explanation": "Black movesker knighten tilbage til b8 to omgruppere den harmonisk til d7, en favorit af Spassky & Karpov.",
+        "keyThemes": [
+          "Breyer",
+          "Regrouping",
+          "Deep positional play"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "a6",
+          "Ba4",
+          "Nf6",
+          "O-O",
+          "Be7",
+          "Re1",
+          "b5",
+          "Bb3",
+          "d6",
+          "c3",
+          "O-O",
+          "h3",
+          "Nb8",
+          "d4",
+          "Nbd7",
+          "Nbd2",
+          "Bb7",
+          "Bc2",
+          "Re8",
+          "Nf1"
+        ]
+      },
+      {
+        "id": "open-spansk-schliemann-jaenisch-gambit-3-f5-",
+        "folderId": "folder-ruy-lopez",
+        "name": "Ruy Lopez: Schliemann-Jaenisch Gambit (3...f5)",
+        "eco": "C63",
+        "color": "b",
+        "explanation": "The Spanish classic: White applies indirect pressure on e5 by pinning the knight on c6, leading to deep strategic play.",
+        "keyThemes": [
+          "Schliemann",
+          "Aggressive f5 push",
+          "Early ubalance"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "f5",
+          "Nc3",
+          "fxe4",
+          "Nxe4",
+          "d5",
+          "Nxe5",
+          "dxe4",
+          "Nxc6",
+          "Qg5",
+          "Qe2",
+          "Nf6",
+          "f4",
+          "Qxf4"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-queens-gambit",
@@ -50,7 +2326,418 @@ const OPENING_FOLDERS = [
     "color": "w",
     "icon": "🛡️",
     "eco": "D06-D69",
-    "description": "Accepted (QGA), Declined (QGD), Tartakower, Cambridge Springs, Albin, and Tarrasch."
+    "description": "Accepted (QGA), Declined (QGD), Tartakower, Cambridge Springs, Albin, and Tarrasch.",
+    "lines": [
+      {
+        "id": "qgd-classical",
+        "name": "QGD Classical (Declined)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Nf6",
+          "Bg5",
+          "Be7",
+          "e3",
+          "O-O",
+          "Nf3",
+          "h6",
+          "Bh4",
+          "b6"
+        ],
+        "eco": "D37",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (d4 d5 c4 e6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Bg5 binding pStrategic Play",
+          "TStrategic Play",
+          "Minoritetsangreb pStrategic Play"
+        ],
+        "folderId": "folder-queens-gambit",
+        "folderName": "Dronninggambit",
+        "color": "w",
+        "icon": "👑"
+      },
+      {
+        "id": "qgd-deep-tartakower",
+        "name": "Deep Tartakower (20 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Nf6",
+          "Bg5",
+          "Be7",
+          "e3",
+          "O-O",
+          "Nf3",
+          "h6",
+          "Bh4",
+          "b6",
+          "cxd5",
+          "Nxd5",
+          "Bxe7",
+          "Qxe7",
+          "Nxd5",
+          "exd5",
+          "Rc1",
+          "Be6"
+        ],
+        "eco": "D58",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (d4 d5 c4 e6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "cxd5 & Nxd5 afbytning",
+          "Rc1 c-linje pres",
+          "Sorts sunde d5-stStrategic Play"
+        ],
+        "folderId": "folder-queens-gambit",
+        "folderName": "Dronninggambit",
+        "color": "w",
+        "icon": "👑"
+      },
+      {
+        "id": "qgd-cambridge-springs",
+        "name": "Cambridge Springs Defense (18 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Nf6",
+          "Bg5",
+          "Nbd7",
+          "e3",
+          "c6",
+          "Nf3",
+          "Qa5",
+          "Nd2",
+          "Bb4",
+          "Qc2",
+          "O-O",
+          "Be2",
+          "e5"
+        ],
+        "eco": "D52",
+        "difficulty": "Advanced",
+        "explanation": "Black lancerer en farlig binding with 6...Qa5 & ...Bb4! White parerer with Nd2 & Qc2 to bevare kontrollen.",
+        "keyThemes": [
+          "Qa5 binding pStrategic Play",
+          "Nd2 neutraliserer trusler",
+          "Counterattack i centrum"
+        ],
+        "folderId": "folder-queens-gambit",
+        "folderName": "Dronninggambit",
+        "color": "w",
+        "icon": "👑"
+      },
+      {
+        "id": "qgd-lasker",
+        "name": "Lasker Defense (18 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Nf6",
+          "Bg5",
+          "Be7",
+          "e3",
+          "O-O",
+          "Nf3",
+          "h6",
+          "Bh4",
+          "Ne4",
+          "Bxe7",
+          "Qxe7",
+          "cxd5",
+          "Nxc3",
+          "bxc3",
+          "exd5"
+        ],
+        "eco": "D56",
+        "difficulty": "Intermediate",
+        "explanation": "World Champion Emanuel Lasker's solid system: exchanging pieces to relieve central pressure.",
+        "keyThemes": [
+          "...Ne4 afbytning",
+          "Aflaster sorts stilling",
+          "Roligt endgame"
+        ],
+        "folderId": "folder-queens-gambit",
+        "folderName": "Dronninggambit",
+        "color": "w",
+        "icon": "👑"
+      },
+      {
+        "id": "qgd-albin-counter",
+        "name": "Albin Countergambit (16 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "e5",
+          "dxe5",
+          "d4",
+          "Nf3",
+          "Nc6",
+          "a3",
+          "Bg4",
+          "Nbd2",
+          "Qe7",
+          "h3",
+          "Bxf3",
+          "Nxf3",
+          "O-O-O"
+        ],
+        "eco": "D08",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (d4 d5 c4 e5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "2...e5 modgambit",
+          "a3 forhindrer Bb4+",
+          "BondeovervStrategic Play"
+        ],
+        "folderId": "folder-queens-gambit",
+        "folderName": "Dronninggambit",
+        "color": "w",
+        "icon": "👑"
+      },
+      {
+        "id": "qga-accepted",
+        "name": "QGA Modtaget (2...dxc4)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "dxc4",
+          "Nf3",
+          "Nf6",
+          "e3",
+          "e6",
+          "Bxc4",
+          "c5",
+          "O-O",
+          "a6",
+          "Qe2"
+        ],
+        "eco": "D27",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (d4 d5 c4 dxc4) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Bxc4 genvinder bonden",
+          "Fast rokeret",
+          "Rd1 lStrategic Play"
+        ],
+        "folderId": "folder-queens-gambit",
+        "folderName": "Dronninggambit",
+        "color": "w",
+        "icon": "👑"
+      },
+      {
+        "id": "qgd-semi-slav-deep",
+        "name": "Anti-Meran Sharp (32 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "c6",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "e6",
+          "e3",
+          "Nbd7",
+          "Bd3",
+          "dxc4",
+          "Bxc4",
+          "b5",
+          "Bd3",
+          "Bb7",
+          "O-O",
+          "a6",
+          "e4",
+          "c5",
+          "e5",
+          "cxd4",
+          "Nxb5",
+          "axb5",
+          "exf6",
+          "gxf6",
+          "Bxb5",
+          "Qb6",
+          "a4",
+          "Bc5",
+          "Bf4",
+          "Ke7",
+          "Re1",
+          "Rhd8"
+        ],
+        "eco": "D47",
+        "difficulty": "Advanced",
+        "explanation": "e5 gennembrud with Nxb5 sacrifice & Qxg2+ taktik.",
+        "keyThemes": [
+          "e5 gennembrud",
+          "Nxb5 offer"
+        ],
+        "folderId": "folder-queens-gambit",
+        "folderName": "Dronninggambit",
+        "color": "w",
+        "icon": "👑"
+      },
+      {
+        "id": "open-dronningegambit-tartakower-system-7-b6-",
+        "folderId": "folder-queens-gambit",
+        "name": "Queen's Gambit: Tartakower System (7...b6)",
+        "eco": "D58",
+        "color": "b",
+        "explanation": "Classical masterpiece with 1.d4 d5 2.c4, challenging Black's central foothold and fighting for total central dominance.",
+        "keyThemes": [
+          "Tartakower",
+          "Active light-square bishop",
+          "Ironclad solidity"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Nf6",
+          "Bg5",
+          "Be7",
+          "e3",
+          "O-O",
+          "Nf3",
+          "h6",
+          "Bh4",
+          "b6",
+          "cxd5",
+          "Nxd5",
+          "Bxe7",
+          "Qxe7",
+          "Nxd5",
+          "exd5",
+          "Rc1",
+          "Be6"
+        ]
+      },
+      {
+        "id": "open-dronningegambit-cambridge-springs-forsvar",
+        "folderId": "folder-queens-gambit",
+        "name": "Queen's Gambit: Cambridge Springs Defense",
+        "eco": "D52",
+        "color": "b",
+        "explanation": "Classical masterpiece with 1.d4 d5 2.c4, challenging Black's central foothold and fighting for total central dominance.",
+        "keyThemes": [
+          "Cambridge Springs",
+          "Counterpressure on c3",
+          "Queen maneuver"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Nf6",
+          "Bg5",
+          "Nbd7",
+          "e3",
+          "c6",
+          "Nf3",
+          "Qa5",
+          "Nd2",
+          "Bb4",
+          "Qc2",
+          "O-O",
+          "Be2",
+          "dxc4",
+          "Bxf6",
+          "Nxf6",
+          "Nxc4"
+        ]
+      },
+      {
+        "id": "open-dronningegambit-albin-modgambit-2-e5-",
+        "folderId": "folder-queens-gambit",
+        "name": "Queen's Gambit: Albin Countergambit (2...e5)",
+        "eco": "D08",
+        "color": "b",
+        "explanation": "Et skarpt counterattack with Lasker-underforvandlingstrapn (e5 efterfulgt af d4 & dxc3).",
+        "keyThemes": [
+          "Albin Countergambit",
+          "Central imbalance",
+          "Underpromotion tactics"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "e5",
+          "dxe5",
+          "d4",
+          "Nf3",
+          "Nc6",
+          "a3",
+          "Bg4",
+          "Nbd2",
+          "Qe7",
+          "h3",
+          "Bxf3",
+          "Nxf3",
+          "O-O-O",
+          "Bf4",
+          "h6",
+          "Qd3",
+          "g5",
+          "Bg3",
+          "Bg7"
+        ]
+      },
+      {
+        "id": "open-tarrasch-forsvar-hovedlinje-med-g3",
+        "folderId": "folder-queens-gambit",
+        "name": "Tarrasch Defense: Main Line with g3",
+        "eco": "D34",
+        "color": "b",
+        "explanation": "Active counter-defense where Black accepts an isolated queen's pawn in exchange for dynamic, unrestricted piece activity.",
+        "keyThemes": [
+          "Tarrasch",
+          "Isolated Queen Pawn (IQP)",
+          "Free piece play"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "e6",
+          "Nc3",
+          "c5",
+          "cxd5",
+          "exd5",
+          "Nf3",
+          "Nc6",
+          "g3",
+          "Nf6",
+          "Bg2",
+          "Be7",
+          "O-O",
+          "O-O",
+          "Bg5",
+          "cxd4",
+          "Nxd4",
+          "h6",
+          "Be3",
+          "Re8"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-vienna",
@@ -58,7 +2745,429 @@ const OPENING_FOLDERS = [
     "color": "w",
     "icon": "🎯",
     "eco": "C25-C49",
-    "description": "Vienna Gambit, King's Gambit, Danish Gambit, Benko, and Frankenstein-Dracula."
+    "description": "Vienna Gambit, King's Gambit, Danish Gambit, Benko, and Frankenstein-Dracula.",
+    "lines": [
+      {
+        "id": "vienna-gambit",
+        "name": "Vienna Gambit (3.f4!)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nc3",
+          "Nf6",
+          "f4",
+          "d5",
+          "fxe5",
+          "Nxe4",
+          "Qf3",
+          "Nc6",
+          "Bb5",
+          "Nxc3",
+          "dxc3"
+        ],
+        "eco": "C29",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (e4 e5 Nc3 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "f4 Strategic Play",
+          "Qf3 centralt pres",
+          "Fast Attack Pressure"
+        ],
+        "folderId": "folder-vienna",
+        "folderName": "Vienna Game & Gambit",
+        "color": "w",
+        "icon": "⚡"
+      },
+      {
+        "id": "vienna-quiet",
+        "name": "Vienna Game Rolig (3.Bc4)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nc3",
+          "Nf6",
+          "Bc4",
+          "Bc5",
+          "d3",
+          "d6",
+          "f4",
+          "Nc6",
+          "Nf3",
+          "Bg4",
+          "h3",
+          "Bxf3",
+          "Qxf3"
+        ],
+        "eco": "C26",
+        "difficulty": "Beginner",
+        "explanation": "Classical, flexible opening with 2.Nc3 preparing f4 or d4, avoiding symmetry while maintaining tactical punch.",
+        "keyThemes": [
+          "Bc4 diagonalsigte vs f7",
+          "f4 Strategic Play",
+          "Bishop pair advantage"
+        ],
+        "folderId": "folder-vienna",
+        "folderName": "Vienna Game & Gambit",
+        "color": "w",
+        "icon": "⚡"
+      },
+      {
+        "id": "kings-gambit-acc",
+        "name": "Kongegambit Modtaget",
+        "moves": [
+          "e4",
+          "e5",
+          "f4",
+          "exf4",
+          "Nf3",
+          "g5",
+          "h4",
+          "g4",
+          "Ne5",
+          "Nf6",
+          "d4",
+          "d6",
+          "Nd3",
+          "Nxe4",
+          "Bxf4"
+        ],
+        "eco": "C39",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (e4 e5 f4 exf4) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Ne5 forpost",
+          "Bxf4 genvinder materiale",
+          "Total kongeflStrategic Play"
+        ],
+        "folderId": "folder-vienna",
+        "folderName": "Vienna Game & Gambit",
+        "color": "w",
+        "icon": "⚡"
+      },
+      {
+        "id": "open-kongens-gambit-kieseritzky-gambit-3-nf3-g5-4-h4-",
+        "folderId": "folder-vienna",
+        "name": "King's Gambit: Kieseritzky Gambit (3.Nf3 g5 4.h4)",
+        "eco": "C39",
+        "color": "w",
+        "explanation": "The wildest romantic attack: White sacrifices a pawn on move 2 and attacks the g5 pawn chain directly.",
+        "keyThemes": [
+          "Kieseritzky",
+          "Kongegambit",
+          "Romantisk skak"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "f4",
+          "exf4",
+          "Nf3",
+          "g5",
+          "h4",
+          "g4",
+          "Ne5",
+          "Nf6",
+          "d4",
+          "d6",
+          "Nd3",
+          "Nxe4",
+          "Bxf4",
+          "Qe7",
+          "Be2",
+          "Bg7",
+          "c3"
+        ]
+      },
+      {
+        "id": "open-kongens-gambit-falkbeer-modgambit-2-d5-",
+        "folderId": "folder-vienna",
+        "name": "King's Gambit: Falkbeer Countergambit (2...d5)",
+        "eco": "C31",
+        "color": "w",
+        "explanation": "Falkbeer Countergambit: Black declines the gambit and counter-strikes directly in the center with 2...d5.",
+        "keyThemes": [
+          "Falkbeer",
+          "Countergambit",
+          "Centrumskamp"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "f4",
+          "d5",
+          "exd5",
+          "e4",
+          "d3",
+          "Nf6",
+          "dxe4",
+          "Nxe4",
+          "Nf3",
+          "Bc5",
+          "Qe2",
+          "Bf5",
+          "Nc3",
+          "Qe7",
+          "Be3",
+          "Bxe3",
+          "Qxe3"
+        ]
+      },
+      {
+        "id": "open-wienerspil-frankenstein-dracula-varianten",
+        "folderId": "folder-vienna",
+        "name": "Vienna Game: Frankenstein-Dracula Variation",
+        "eco": "C27",
+        "color": "w",
+        "explanation": "One of the most explosive openings in chess history with early queen raids and king chases.",
+        "keyThemes": [
+          "Frankenstein-Dracula",
+          "Wild tactics",
+          "Queen attack"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nc3",
+          "Nf6",
+          "Bc4",
+          "Nxe4",
+          "Qh5",
+          "Nd6",
+          "Bb3",
+          "Nc6",
+          "Nb5",
+          "g6",
+          "Qf3",
+          "f5",
+          "Qd5",
+          "Qe7",
+          "Nxc7+",
+          "Kd8",
+          "Nxa8",
+          "b6"
+        ]
+      },
+      {
+        "id": "open-dansk-gambit-nordisk-gambit-",
+        "folderId": "folder-vienna",
+        "name": "Danish Gambit (Nordic Gambit)",
+        "eco": "C21",
+        "color": "w",
+        "explanation": "Ultra-sharp gambit offering two central pawns for razor-sharp diagonals aimed directly at Black's kingside.",
+        "keyThemes": [
+          "Danish Gambit",
+          "Double pawn sacrifice",
+          "Deadly bishops"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "d4",
+          "exd4",
+          "c3",
+          "dxc3",
+          "Bc4",
+          "cxb2",
+          "Bxb2",
+          "d5",
+          "Bxd5",
+          "Nf6",
+          "Bxf7+",
+          "Kxf7",
+          "Qxd8",
+          "Bb4+",
+          "Qd2",
+          "Bxd2+",
+          "Nxd2"
+        ]
+      },
+      {
+        "id": "open-halloween-gambit-4-nxe5-",
+        "folderId": "folder-vienna",
+        "name": "Halloween Gambit (4.Nxe5!?)",
+        "eco": "C47",
+        "color": "w",
+        "explanation": "Sensational tactical gambit sacrificing a knight on e5 to flood the board with an overwhelming central pawn wave.",
+        "keyThemes": [
+          "Halloween Gambit",
+          "Shock sacrifice",
+          "Pawn avalanche"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Nc3",
+          "Nf6",
+          "Nxe5",
+          "Nxe5",
+          "d4",
+          "Ng6",
+          "e5",
+          "Ng8",
+          "Bc4",
+          "d5",
+          "Bxd5",
+          "c6",
+          "Bb3",
+          "Be6",
+          "O-O"
+        ]
+      },
+      {
+        "id": "open-moderne-benoni-klassisk-hovedvariant",
+        "folderId": "folder-vienna",
+        "name": "Modern Benoni: Classical Main Line",
+        "eco": "A70",
+        "color": "b",
+        "explanation": "Hypermodern defense allowing White to occupy the center, followed by dynamic counter-strikes with ...c5 or ...e5.",
+        "keyThemes": [
+          "Moderne Benoni",
+          "Queenside majority",
+          "Dynamic counterplay"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "c5",
+          "d5",
+          "e6",
+          "Nc3",
+          "exd5",
+          "cxd5",
+          "d6",
+          "e4",
+          "g6",
+          "Nf3",
+          "Bg7",
+          "Be2",
+          "O-O",
+          "O-O",
+          "Re8",
+          "Nd2",
+          "Nbd7",
+          "a4",
+          "Ne5",
+          "Qc2",
+          "g5"
+        ]
+      },
+      {
+        "id": "open-benko-gambit-accepteret-hovedlinje",
+        "folderId": "folder-vienna",
+        "name": "Benko Gambit: Accepted Main Line",
+        "eco": "A57",
+        "color": "b",
+        "explanation": "Asymmetric counterattacking system generating active queenside play, open files, and energetic piece activity.",
+        "keyThemes": [
+          "Benko Gambit",
+          "Permanent flank pressure",
+          "a- & b-linjer"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "c5",
+          "d5",
+          "b5",
+          "cxb5",
+          "a6",
+          "bxa6",
+          "g6",
+          "Nc3",
+          "Bxa6",
+          "e4",
+          "Bxf1",
+          "Kxf1",
+          "d6",
+          "Nf3",
+          "Bg7",
+          "g3",
+          "O-O",
+          "Kg2",
+          "Nbd7",
+          "Re1",
+          "Qa5"
+        ]
+      },
+      {
+        "id": "open-budapest-gambit-hovedvariant-4-bf4-",
+        "folderId": "folder-vienna",
+        "name": "Budapest Gambit: Main Line (4.Bf4)",
+        "eco": "A52",
+        "color": "b",
+        "explanation": "Black udfordrer White's center straks with 2...e5 & angriber den fremskudte e5-pawn with alle officerer.",
+        "keyThemes": [
+          "Budapest Gambit",
+          "Pressure on e5",
+          "Fast officerstaktik"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e5",
+          "dxe5",
+          "Ng4",
+          "Bf4",
+          "Nc6",
+          "Nf3",
+          "Bb4+",
+          "Nbd2",
+          "Qe7",
+          "e3",
+          "Ngxe5",
+          "Nxe5",
+          "Nxe5",
+          "Be2",
+          "O-O",
+          "O-O",
+          "Bxd2",
+          "Qxd2",
+          "d6"
+        ]
+      },
+      {
+        "id": "open-englund-gambit-dronningef-lden-3-qe7-",
+        "folderId": "folder-vienna",
+        "name": "Englund Gambit: Queen Trap (3...Qe7)",
+        "eco": "A40",
+        "color": "b",
+        "explanation": "Tricky gambit immediately attacking White's advanced pawn, setting tactical traps and accelerating piece development.",
+        "keyThemes": [
+          "Englund Gambit",
+          "Trapr",
+          "Tactical threats"
+        ],
+        "moves": [
+          "d4",
+          "e5",
+          "dxe5",
+          "Nc6",
+          "Nf3",
+          "Qe7",
+          "Bf4",
+          "Qb4+",
+          "Bd2",
+          "Qxb2",
+          "Nc3",
+          "Bb4",
+          "Rb1",
+          "Qa3",
+          "Rb3",
+          "Qa5",
+          "e4",
+          "Nge7",
+          "a3",
+          "Bxc3",
+          "Bxc3",
+          "Qc5"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-english",
@@ -66,7 +3175,270 @@ const OPENING_FOLDERS = [
     "color": "w",
     "icon": "🦁",
     "eco": "A10-A39",
-    "description": "Symmetrical English, Botvinnik System, Four Knights, and Hedgehog System."
+    "description": "Symmetrical English, Botvinnik System, Four Knights, and Hedgehand System.",
+    "lines": [
+      {
+        "id": "english-reverse-sicilian",
+        "name": "Omvendt Sicilian (1...e5)",
+        "moves": [
+          "c4",
+          "e5",
+          "Nc3",
+          "Nf6",
+          "g3",
+          "d5",
+          "cxd5",
+          "Nxd5",
+          "Bg2",
+          "Nb6",
+          "Nf3",
+          "Nc6",
+          "O-O",
+          "Be7"
+        ],
+        "eco": "A20",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (c4 e5 Nc3 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Bg2 tryk pStrategic Play",
+          "Center control",
+          "Ekstra tempo i forhold til Sicilian"
+        ],
+        "folderId": "folder-english",
+        "folderName": "English Opening",
+        "color": "w",
+        "icon": "🎯"
+      },
+      {
+        "id": "english-symmetrical",
+        "name": "Symmetric English (1...c5)",
+        "moves": [
+          "c4",
+          "c5",
+          "Nc3",
+          "Nc6",
+          "g3",
+          "g6",
+          "Bg2",
+          "Bg7",
+          "Nf3",
+          "Nf6",
+          "O-O",
+          "O-O",
+          "d4",
+          "cxd4",
+          "Nxd4"
+        ],
+        "eco": "A30",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (c4 c5 Nc3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "d4 centralt brud",
+          "LStrategic Play",
+          "Harmonisk officersplacering"
+        ],
+        "folderId": "folder-english",
+        "folderName": "English Opening",
+        "color": "w",
+        "icon": "🎯"
+      },
+      {
+        "id": "english-botvinnik",
+        "name": "Botvinnik System",
+        "moves": [
+          "c4",
+          "e5",
+          "Nc3",
+          "Nc6",
+          "g3",
+          "g6",
+          "Bg2",
+          "Bg7",
+          "e4",
+          "d6",
+          "Nge2",
+          "Nge7",
+          "d3",
+          "O-O",
+          "O-O"
+        ],
+        "eco": "A26",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (c4 e5 Nc3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "d5 jernkontrol",
+          "e4 & c4 klemmer",
+          "f4 gennembrud forberedes"
+        ],
+        "folderId": "folder-english",
+        "folderName": "English Opening",
+        "color": "w",
+        "icon": "🎯"
+      },
+      {
+        "id": "open-engelsk-symmetrisk-hovedvariant-1-c5-",
+        "folderId": "folder-english",
+        "name": "English: Symmetric Main Line (1...c5)",
+        "eco": "A30",
+        "color": "w",
+        "explanation": "Tournament opening line (c4 c5 Nc3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Symmetri",
+          "Kamp om centrum",
+          "Dobbelt fianchetto"
+        ],
+        "moves": [
+          "c4",
+          "c5",
+          "Nc3",
+          "Nc6",
+          "g3",
+          "g6",
+          "Bg2",
+          "Bg7",
+          "Nf3",
+          "Nf6",
+          "O-O",
+          "O-O",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nxd4",
+          "Qxd4"
+        ]
+      },
+      {
+        "id": "open-engelsk-botvinnik-systemet",
+        "folderId": "folder-english",
+        "name": "English: Botvinnik-systemet",
+        "eco": "A26",
+        "color": "w",
+        "explanation": "Tournament opening line (c4 e5 Nc3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Botvinnik System",
+          "d5 kontrol",
+          "f4 fremstStrategic Play"
+        ],
+        "moves": [
+          "c4",
+          "e5",
+          "Nc3",
+          "Nc6",
+          "g3",
+          "g6",
+          "Bg2",
+          "Bg7",
+          "e4",
+          "d6",
+          "Nge2",
+          "f5",
+          "d3",
+          "Nf6",
+          "O-O",
+          "O-O",
+          "Nd5"
+        ]
+      },
+      {
+        "id": "open-engelsk-fire-springeres-variant-four-knights-",
+        "folderId": "folder-english",
+        "name": "English: Fire Springeres Variation (Four Knights)",
+        "eco": "A28",
+        "color": "w",
+        "explanation": "Tournament opening line (c4 e5 Nc3 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Springerudvikling",
+          "Central balance",
+          "Fast Play"
+        ],
+        "moves": [
+          "c4",
+          "e5",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "Nc6",
+          "g3",
+          "Bb4",
+          "Bg2",
+          "O-O",
+          "O-O",
+          "e4",
+          "Ng5",
+          "Bxc3",
+          "bxc3",
+          "Re8",
+          "f3"
+        ]
+      },
+      {
+        "id": "open-engelsk-hedgehog-systemet-pindsvinet-",
+        "folderId": "folder-english",
+        "name": "English: Hedgehog-systemet (Hedgehog)",
+        "eco": "A30",
+        "color": "w",
+        "explanation": "Tournament opening line (c4 c5 Nf3 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Pindsvinet",
+          "Hedgehog formation",
+          "Elastisk forsvar"
+        ],
+        "moves": [
+          "c4",
+          "c5",
+          "Nf3",
+          "Nf6",
+          "Nc3",
+          "e6",
+          "g3",
+          "b6",
+          "Bg2",
+          "Bb7",
+          "O-O",
+          "Be7",
+          "d4",
+          "cxd4",
+          "Qxd4",
+          "d6",
+          "Rd1",
+          "a6",
+          "b3",
+          "Nbd7"
+        ]
+      },
+      {
+        "id": "open-engelsk-mikenas-flohr-angrebet",
+        "folderId": "folder-english",
+        "name": "English: Mikenas-Flohr Attack",
+        "eco": "A18",
+        "color": "w",
+        "explanation": "Tournament opening line (c4 Nf6 Nc3 e6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Earlyt e4",
+          "e5 fremstStrategic Play",
+          "Central pressure"
+        ],
+        "moves": [
+          "c4",
+          "Nf6",
+          "Nc3",
+          "e6",
+          "e4",
+          "d5",
+          "e5",
+          "d4",
+          "exf6",
+          "dxc3",
+          "bxc3",
+          "Qxf6",
+          "d4",
+          "c5",
+          "Nf3",
+          "h6",
+          "Bd3"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-sicilian",
@@ -74,7 +3446,560 @@ const OPENING_FOLDERS = [
     "color": "b",
     "icon": "🐉",
     "eco": "B20-B99",
-    "description": "Najdorf, Dragon Yugoslav, Scheveningen Keres, Grand Prix, Alapin, and Smith-Morra."
+    "description": "Najdorf, Dragon Yugoslav, Scheveningen Keres, Grand Prix, Alapin, and Smith-Morra.",
+    "lines": [
+      {
+        "id": "sicilian-najdorf",
+        "name": "Najdorf Main Line (18 moves)",
+        "moves": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6",
+          "Nc3",
+          "a6",
+          "Be3",
+          "e5",
+          "Nb3",
+          "Be6",
+          "f3",
+          "Be7",
+          "Qd2",
+          "O-O"
+        ],
+        "eco": "B90",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (e4 c5 Nf3 d6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "a6 kontrollerer b5",
+          "e5 centralt modstStrategic Play",
+          "c-linje pres vs Hvids konge"
+        ],
+        "folderId": "folder-sicilian",
+        "folderName": "Sicilian Defense",
+        "color": "b",
+        "icon": "🐉"
+      },
+      {
+        "id": "sicilian-deep-english-attack",
+        "name": "Deep English Attack (28 moves)",
+        "moves": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6",
+          "Nc3",
+          "a6",
+          "Be3",
+          "e5",
+          "Nb3",
+          "Be6",
+          "f3",
+          "Be7",
+          "Qd2",
+          "O-O",
+          "O-O-O",
+          "Nbd7",
+          "g4",
+          "b5",
+          "g5",
+          "b4",
+          "Ne2",
+          "Ne8",
+          "f4",
+          "a5"
+        ],
+        "eco": "B90",
+        "difficulty": "Advanced",
+        "explanation": "Sophisticated flank opening starting with 1.c4. White controls the d5 square from the flank, leading to rich strategic battles.",
+        "keyThemes": [
+          "Modsat rokeret skarphed",
+          "b4 jager springeren vStrategic Play",
+          "a5-a4 storm vs Hvids konge"
+        ],
+        "folderId": "folder-sicilian",
+        "folderName": "Sicilian Defense",
+        "color": "b",
+        "icon": "🐉"
+      },
+      {
+        "id": "sicilian-sveshnikov",
+        "name": "Sveshnikov Main Line (22 moves)",
+        "moves": [
+          "e4",
+          "c5",
+          "Nf3",
+          "Nc6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6",
+          "Nc3",
+          "e5",
+          "Ndb5",
+          "d6",
+          "Bg5",
+          "a6",
+          "Na3",
+          "b5",
+          "Nd5",
+          "Be7",
+          "Bxf6",
+          "Bxf6",
+          "c3",
+          "O-O"
+        ],
+        "eco": "B33",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 c5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "e5 aggressivt centerstStrategic Play",
+          "b5 jager springeren til a3",
+          "LStrategic Play"
+        ],
+        "folderId": "folder-sicilian",
+        "folderName": "Sicilian Defense",
+        "color": "b",
+        "icon": "🐉"
+      },
+      {
+        "id": "sicilian-dragon-yugoslav",
+        "name": "Dragon Yugoslav Attack (22 moves)",
+        "moves": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6",
+          "Nc3",
+          "g6",
+          "Be3",
+          "Bg7",
+          "f3",
+          "O-O",
+          "Qd2",
+          "Nc6",
+          "Bc4",
+          "Bd7",
+          "O-O-O",
+          "Rc8",
+          "Bb3",
+          "Ne5",
+          "h4",
+          "h5"
+        ],
+        "eco": "B78",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 c5 Nf3 d6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "h4-h5 forsvarsblokade",
+          "Rc8 & c-linje pres",
+          "TStrategic Play"
+        ],
+        "folderId": "folder-sicilian",
+        "folderName": "Sicilian Defense",
+        "color": "b",
+        "icon": "🐉"
+      },
+      {
+        "id": "sicilian-taimanov",
+        "name": "Taimanov Fleksibel (18 moves)",
+        "moves": [
+          "e4",
+          "c5",
+          "Nf3",
+          "e6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nc6",
+          "Nc3",
+          "a6",
+          "Be2",
+          "Qc7",
+          "O-O",
+          "Nf6",
+          "Be3",
+          "Bb4",
+          "Na4",
+          "Be7"
+        ],
+        "eco": "B46",
+        "difficulty": "Intermediate",
+        "explanation": "One of the most harmonious Sicilian variations. Black maintains high flexibility and central safety.",
+        "keyThemes": [
+          "Qc7 & a6 harmoni",
+          "Bb4 pres vs e4",
+          "Solid opstilling"
+        ],
+        "folderId": "folder-sicilian",
+        "folderName": "Sicilian Defense",
+        "color": "b",
+        "icon": "🐉"
+      },
+      {
+        "id": "sicilian-alapin",
+        "name": "Anti-Alapin (2.c3 d5!)",
+        "moves": [
+          "e4",
+          "c5",
+          "c3",
+          "d5",
+          "exd5",
+          "Qxd5",
+          "d4",
+          "Nf6",
+          "Nf3",
+          "e6",
+          "Be2",
+          "Be7",
+          "O-O",
+          "O-O"
+        ],
+        "eco": "B22",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (e4 c5 c3 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "2...d5 udnytter c3",
+          "Dronningen centraliseres sikkert",
+          "Harmonisk udvikling"
+        ],
+        "folderId": "folder-sicilian",
+        "folderName": "Sicilian Defense",
+        "color": "b",
+        "icon": "🐉"
+      },
+      {
+        "id": "scheveningen-classical",
+        "name": "Scheveningen Classical (24 moves)",
+        "moves": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6",
+          "Nc3",
+          "e6",
+          "Be2",
+          "Be7",
+          "O-O",
+          "O-O",
+          "f4",
+          "Nc6",
+          "Be3",
+          "a6",
+          "Qe1",
+          "Qc7",
+          "Qg3",
+          "Nxd4",
+          "Bxd4",
+          "b5"
+        ],
+        "eco": "B84",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 c5 Nf3 d6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "e6 solid",
+          "a6-b5 dameflStrategic Play"
+        ],
+        "folderId": "folder-sicilian",
+        "folderName": "Sicilian Defense",
+        "color": "b",
+        "icon": "🐉"
+      },
+      {
+        "id": "sicilian-kan",
+        "name": "Sicilian Kan (4...a6)",
+        "moves": [
+          "e4",
+          "c5",
+          "Nf3",
+          "e6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "a6",
+          "Nc3",
+          "Qc7",
+          "Bd3",
+          "Nf6",
+          "O-O",
+          "Nc6",
+          "Nxc6",
+          "dxc6",
+          "Qe2",
+          "b5"
+        ],
+        "eco": "B41",
+        "difficulty": "Intermediate",
+        "explanation": "a6 bevarer fleksibilitet vs alle White-svar.",
+        "keyThemes": [
+          "a6 fleksibilitet",
+          "b5 ekspansion"
+        ],
+        "folderId": "folder-sicilian",
+        "folderName": "Sicilian Defense",
+        "color": "b",
+        "icon": "🐉"
+      },
+      {
+        "id": "grand-prix-defense",
+        "name": "vs Grand Prix Attack (18 moves)",
+        "moves": [
+          "e4",
+          "c5",
+          "Nc3",
+          "Nc6",
+          "f4",
+          "g6",
+          "Nf3",
+          "Bg7",
+          "Bb5",
+          "Nd4",
+          "O-O",
+          "Nxb5",
+          "Nxb5",
+          "d6",
+          "c3",
+          "a6",
+          "Na3",
+          "Nf6"
+        ],
+        "eco": "B23",
+        "difficulty": "Intermediate",
+        "explanation": "g6-Bg7 & Nd4 neutraliserer Grand Prix f4 presset.",
+        "keyThemes": [
+          "g6-Bg7 forsvar",
+          "Nd4 neutralisering"
+        ],
+        "folderId": "folder-sicilian",
+        "folderName": "Sicilian Defense",
+        "color": "b",
+        "icon": "🐉"
+      },
+      {
+        "id": "open-siciliansk-dragen-yugoslav-angreb-9-bc4-",
+        "folderId": "folder-sicilian",
+        "name": "Sicilian: Dragon - Yugoslav Attack (9.Bc4)",
+        "eco": "B78",
+        "color": "w",
+        "explanation": "The most famous attack in chess history with opposite-side castling. Both sides race to checkmate first on open files.",
+        "keyThemes": [
+          "Yugoslav Attack",
+          "Modsat rokade",
+          "Kingside attack"
+        ],
+        "moves": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6",
+          "Nc3",
+          "g6",
+          "Be3",
+          "Bg7",
+          "f3",
+          "O-O",
+          "Qd2",
+          "Nc6",
+          "Bc4",
+          "Bd7",
+          "O-O-O",
+          "Rc8",
+          "Bb3",
+          "Ne5",
+          "h4",
+          "h5"
+        ]
+      },
+      {
+        "id": "open-siciliansk-scheveningen-keres-angrebet-6-g4-",
+        "folderId": "folder-sicilian",
+        "name": "Sicilian: Scheveningen - Keres Attack (6.g4)",
+        "eco": "B81",
+        "color": "w",
+        "explanation": "Paul Keres' brutal breakthrough with 6.g4 against Black's d6/e6 setup, seizing kingside initiative.",
+        "keyThemes": [
+          "Keres Attack",
+          "6.g4 storm",
+          "Fastt initiativ"
+        ],
+        "moves": [
+          "e4",
+          "c5",
+          "Nf3",
+          "d6",
+          "d4",
+          "cxd4",
+          "Nxd4",
+          "Nf6",
+          "Nc3",
+          "e6",
+          "g4",
+          "h6",
+          "h4",
+          "Nc6",
+          "Rg1",
+          "h5",
+          "gxh5",
+          "Nxh5",
+          "Bg5"
+        ]
+      },
+      {
+        "id": "open-siciliansk-grand-prix-angreb-2-nc3-3-f4-",
+        "folderId": "folder-sicilian",
+        "name": "Sicilian: Grand Prix Attack (2.Nc3 & 3.f4)",
+        "eco": "B23",
+        "color": "w",
+        "explanation": "One of club chess's most dangerous attacking systems with 2.Nc3 and 3.f4, aimed squarely at Black's kingside.",
+        "keyThemes": [
+          "Grand Prix",
+          "f4 Attack",
+          "Early kongeflStrategic Play"
+        ],
+        "moves": [
+          "e4",
+          "c5",
+          "Nc3",
+          "Nc6",
+          "f4",
+          "g6",
+          "Nf3",
+          "Bg7",
+          "Bc4",
+          "e6",
+          "f5",
+          "Nge7",
+          "fxe6",
+          "fxe6",
+          "O-O",
+          "O-O",
+          "d3",
+          "d5",
+          "Bb3"
+        ]
+      },
+      {
+        "id": "open-siciliansk-smith-morra-gambit",
+        "folderId": "folder-sicilian",
+        "name": "Sicilian: Smith-Morra Gambit",
+        "eco": "B21",
+        "color": "w",
+        "explanation": "White sacrifices a pawn with 2.d4 and 3.c3 to tear open the c- and d-files for immediate attacking pressure.",
+        "keyThemes": [
+          "Gambit",
+          "Udviklingsforspring",
+          "Strategic Play"
+        ],
+        "moves": [
+          "e4",
+          "c5",
+          "d4",
+          "cxd4",
+          "c3",
+          "dxc3",
+          "Nxc3",
+          "Nc6",
+          "Nf3",
+          "d6",
+          "Bc4",
+          "e6",
+          "O-O",
+          "Nf6",
+          "Qe2",
+          "Be7",
+          "Rd1",
+          "e5",
+          "Be3",
+          "O-O"
+        ]
+      },
+      {
+        "id": "open-siciliansk-alapin-varianten-2-c3-",
+        "folderId": "folder-sicilian",
+        "name": "Sicilian: Alapin Variation (2.c3)",
+        "eco": "B22",
+        "color": "w",
+        "explanation": "White plays 2.c3 to establish a classical pawn center on d4 and avoid open Sicilian theory.",
+        "keyThemes": [
+          "Alapin",
+          "Solidt centrum",
+          "Classical opbygning"
+        ],
+        "moves": [
+          "e4",
+          "c5",
+          "c3",
+          "Nf6",
+          "e5",
+          "Nd5",
+          "d4",
+          "cxd4",
+          "Nf3",
+          "Nc6",
+          "cxd4",
+          "d6",
+          "Bc4",
+          "Nb6",
+          "Bb5",
+          "dxe5",
+          "Nxe5",
+          "Bd7"
+        ]
+      },
+      {
+        "id": "open-siciliansk-rossolimo-angrebet-3-bb5-",
+        "folderId": "folder-sicilian",
+        "name": "Sicilian: Rossolimo Attack (3.Bb5)",
+        "eco": "B30",
+        "color": "w",
+        "explanation": "A modern elite weapon championed by Carlsen and Caruana, avoiding open Sicilian complications with early Bb5.",
+        "keyThemes": [
+          "Rossolimo",
+          "Bb5 pres",
+          "Strategisk kontrol"
+        ],
+        "moves": [
+          "e4",
+          "c5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "g6",
+          "O-O",
+          "Bg7",
+          "Re1",
+          "e5",
+          "c3",
+          "Nge7",
+          "d4",
+          "cxd4",
+          "cxd4",
+          "exd4",
+          "Bf4",
+          "O-O"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-caro-kann",
@@ -82,7 +4007,773 @@ const OPENING_FOLDERS = [
     "color": "b",
     "icon": "🛡️",
     "eco": "B10-B19",
-    "description": "Classical Capablanca, Karpov, Advance Short & Shirov, Panov-Botvinnik, and Fantasy."
+    "description": "Classical Capablanca, Karpov, Advance Short & Shirov, Panov-Botvinnik, and Fantasy.",
+    "lines": [
+      {
+        "id": "caro-advance",
+        "name": "Advance Variation (14 moves)",
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "e5",
+          "Bf5",
+          "Nf3",
+          "e6",
+          "Be2",
+          "c5",
+          "Be3",
+          "Qb6",
+          "Nc3",
+          "Nc6"
+        ],
+        "eco": "B12",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Bf5 befrier den hvidfeltede lStrategic Play",
+          "c5 modstStrategic Play",
+          "Qb6 pres vs b2"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-deep-advance-main",
+        "name": "Deep Advance Main Line (22 moves)",
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "e5",
+          "Bf5",
+          "Nf3",
+          "e6",
+          "Be2",
+          "c5",
+          "Be3",
+          "Qb6",
+          "Nc3",
+          "Nc6",
+          "O-O",
+          "Qxb2",
+          "Qe1",
+          "cxd4",
+          "Bxd4",
+          "Nxd4",
+          "Nxd4",
+          "Bb4"
+        ],
+        "eco": "B12",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Qxb2 forgiftet bonde",
+          "cxd4 modstStrategic Play",
+          "Bb4 binding pStrategic Play"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-panov",
+        "name": "Panov-Botvinnik Attack (18 moves)",
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "exd5",
+          "cxd5",
+          "c4",
+          "Nf6",
+          "Nc3",
+          "e6",
+          "Nf3",
+          "Bb4",
+          "cxd5",
+          "Nxd5",
+          "Bd2",
+          "Nc6",
+          "Bd3",
+          "O-O"
+        ],
+        "eco": "B14",
+        "difficulty": "Advanced",
+        "explanation": "White plays the aggressive c4 against Black's d5, leading to sharp isolated queen's pawn positions.",
+        "keyThemes": [
+          "Isoleret dronningebonde (IQD)",
+          "Bb4 binding",
+          "Blokade pStrategic Play"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-two-knights",
+        "name": "Two Knights Variation (16 moves)",
+        "moves": [
+          "e4",
+          "c6",
+          "Nc3",
+          "d5",
+          "Nf3",
+          "Bg4",
+          "h3",
+          "Bxf3",
+          "Qxf3",
+          "e6",
+          "d4",
+          "dxe4",
+          "Qxe4",
+          "Nf6",
+          "Qd3",
+          "Be7"
+        ],
+        "eco": "B11",
+        "difficulty": "Intermediate",
+        "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
+        "keyThemes": [
+          "Bg4 binding",
+          "Solid e6/c6 struktur",
+          "Afvisning af komplikationer"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-classical",
+        "name": "Classical (4...Bf5 Capablanca)",
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "Nc3",
+          "dxe4",
+          "Nxe4",
+          "Bf5",
+          "Ng3",
+          "Bg6",
+          "h4",
+          "h6",
+          "Nf3",
+          "Nd7",
+          "h5",
+          "Bh7"
+        ],
+        "eco": "B18",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "h6 giver flugtfelt til lStrategic Play",
+          "Solid bondestruktur",
+          "Black Has No Weaknesses"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-fantasy-variation",
+        "name": "Fantasy Variation 3.f3 (20 moves)",
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "f3",
+          "g6",
+          "Nc3",
+          "Bg7",
+          "Be3",
+          "Qb6",
+          "Qd2",
+          "dxe4",
+          "fxe4",
+          "e5",
+          "dxe5",
+          "Bxe5",
+          "O-O-O",
+          "Bg7",
+          "h4"
+        ],
+        "eco": "B12",
+        "difficulty": "Advanced",
+        "explanation": "3.f3 Fantasy Variation! Black plays g6-Bg7 & Qb6 attack.",
+        "keyThemes": [
+          "3.f3 Fantasy",
+          "g6-Bg7 forsvar"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-classical-capablanca",
+        "name": "Classical Main Line (Capablanca / B18-B19)",
+        "eco": "B18",
+        "difficulty": "Middel",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "LStrategic Play",
+          "Sund bondestruktur",
+          "KongeflStrategic Play"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "Nc3",
+          "dxe4",
+          "Nxe4",
+          "Bf5",
+          "Ng3",
+          "Bg6",
+          "h4",
+          "h6",
+          "Nf3",
+          "Nd7",
+          "h5",
+          "Bh7",
+          "Bd3",
+          "Bxd3",
+          "Qxd3",
+          "e6",
+          "Bd2",
+          "Ngf6",
+          "O-O-O",
+          "Be7"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-karpov-smyslov",
+        "name": "Karpov / Modern Variation (4...Nd7 / B17)",
+        "eco": "B17",
+        "difficulty": "Middel",
+        "explanation": "Hypermodern defense allowing White to occupy the center, followed by dynamic counter-strikes with ...c5 or ...e5.",
+        "keyThemes": [
+          "4...Nd7 forberedelse",
+          "Afbytte pStrategic Play",
+          "Positionel kontrol"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "Nc3",
+          "dxe4",
+          "Nxe4",
+          "Nd7",
+          "Nf3",
+          "Ngf6",
+          "Nxf6+",
+          "Nxf6",
+          "Bc4",
+          "Bf5",
+          "O-O",
+          "e6",
+          "c3",
+          "Be7",
+          "Bf4",
+          "O-O"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-advance-short",
+        "name": "Advance Variation - Short System (3.e5 Bf5 / B12)",
+        "eco": "B12",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "LStrategic Play",
+          "Counterattack vs d4",
+          "C5 underminering"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "e5",
+          "Bf5",
+          "Nf3",
+          "e6",
+          "Be2",
+          "c5",
+          "Be3",
+          "Qb6",
+          "Nc3",
+          "Nc6",
+          "O-O",
+          "Qxb2",
+          "Qe1",
+          "cxd4"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-advance-bayonet-shirov",
+        "name": "Advance Variation - Shirov / Bayonet Attack (4.g4)",
+        "eco": "B12",
+        "difficulty": "Sharp",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "4.g4 agressivt fremstStrategic Play",
+          "e6 offer & modspil",
+          "Dynamisk modangreb"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "e5",
+          "Bf5",
+          "g4",
+          "Bg6",
+          "h4",
+          "h5",
+          "e6",
+          "fxe6",
+          "Bd3",
+          "Bxd3",
+          "Qxd3",
+          "Qd6",
+          "Qg6+",
+          "Kd8"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-advance-tal",
+        "name": "Advance Variation - Tal Attack (4.h4 h5)",
+        "eco": "B12",
+        "difficulty": "Sharp",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "4...h5 stopper g4/h5",
+          "Centrum angribes with c5",
+          "Ne7 springer manStrategic Play"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "e5",
+          "Bf5",
+          "h4",
+          "h5",
+          "c4",
+          "e6",
+          "Nc3",
+          "Ne7",
+          "Nge2",
+          "Nd7",
+          "Ng3",
+          "Bg6"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-panov-botvinnik",
+        "name": "Panov-Botvinnik Attack (4.c4 / B13-B14)",
+        "eco": "B13",
+        "difficulty": "Advanced",
+        "explanation": "White accepts an isolated d-pawn in exchange for rapid piece activity and open central files.",
+        "keyThemes": [
+          "Isoleret dronningebonde (IQP)",
+          "Aktivt brikspil",
+          "Black Blocks d5"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "exd5",
+          "cxd5",
+          "c4",
+          "Nf6",
+          "Nc3",
+          "Nc6",
+          "Nf3",
+          "Bg4",
+          "cxd5",
+          "Nxd5",
+          "Qb3",
+          "Bxf3",
+          "gxf3",
+          "e6",
+          "Qxb7",
+          "Nxd4",
+          "Bb5+",
+          "Nxb5",
+          "Qc6+",
+          "Ke7"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-exchange",
+        "name": "Classical Exchange Variation (Exchange / B13)",
+        "eco": "B13",
+        "difficulty": "Beginner",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Minoritetsangreb with b5-b4",
+          "HalvStrategic Play",
+          "Symmetrisk ro"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "exd5",
+          "cxd5",
+          "Bd3",
+          "Nc6",
+          "c3",
+          "Nf6",
+          "Bf4",
+          "Bg4",
+          "Qb3",
+          "Qc8",
+          "Nd2",
+          "e6",
+          "Ngf3",
+          "Be7",
+          "O-O",
+          "O-O"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-fantasy-tartakower",
+        "name": "Fantasy / Tartakower Variation (3.f3 / B12)",
+        "eco": "B12",
+        "difficulty": "Sharp",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "4...e5 modstStrategic Play",
+          "KStrategic Play",
+          "Strategic Play"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "f3",
+          "dxe4",
+          "fxe4",
+          "e5",
+          "Nf3",
+          "exd4",
+          "Bc4",
+          "Be6",
+          "Bxe6",
+          "fxe6",
+          "O-O",
+          "Nf6"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-bronstein-larsen",
+        "name": "Bronstein-Larsen / Korchnoi Variation (5...gxf6 / B16)",
+        "eco": "B16",
+        "difficulty": "Advanced",
+        "explanation": "Hypermodern opening starting with e4 c6 d4 d5. White fianchettos the dark-squared bishop to control the central e5 and d4 squares.",
+        "keyThemes": [
+          "Strategic Play",
+          "Dynamisk ubalance",
+          "Queenside Castling for Black"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "Nc3",
+          "dxe4",
+          "Nxe4",
+          "Nf6",
+          "Nxf6+",
+          "gxf6",
+          "c3",
+          "Bf5",
+          "Nf3",
+          "e6",
+          "g3",
+          "Nd7",
+          "Bg2",
+          "Qc7",
+          "O-O",
+          "O-O-O"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-accelerated-panov",
+        "name": "Accelereret Panov (2.c4 d5 / B10)",
+        "eco": "B10",
+        "difficulty": "Middel",
+        "explanation": "Tournament opening line (e4 c6 c4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Earlyt c4 trStrategic Play",
+          "Fast d5 afbytning",
+          "Aktiv springer pStrategic Play"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "c4",
+          "d5",
+          "exd5",
+          "cxd5",
+          "cxd5",
+          "Nf6",
+          "Nc3",
+          "Nxd5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "e6",
+          "O-O",
+          "Be7"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-gurgenidze",
+        "name": "Gurgenidze System (3...g6 / B15)",
+        "eco": "B15",
+        "difficulty": "Middel",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "g6 & h5 opstilling",
+          "KongeflStrategic Play",
+          "Hvidfeltet kontrol"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "Nc3",
+          "g6",
+          "e5",
+          "h5",
+          "f4",
+          "Nh6",
+          "Nf3",
+          "Bg4",
+          "Be2",
+          "e6",
+          "Be3",
+          "Nf5"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-hillbilly",
+        "name": "Hillbilly Attack (2.Bc4 d5 3.Bb3 / B10)",
+        "eco": "B10",
+        "difficulty": "Beginner",
+        "explanation": "Tournament opening line (e4 c6 Bc4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Bondegevinst pStrategic Play",
+          "Afvisning af Qh5",
+          "Clear Black Advantage"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "Bc4",
+          "d5",
+          "Bb3",
+          "dxe4",
+          "Qh5",
+          "g6",
+          "Qh4",
+          "Nf6",
+          "f3",
+          "exf3",
+          "Nxf3",
+          "Bg7",
+          "d4",
+          "O-O"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-steinitz-deep-blue",
+        "name": "Steinitz / Deep Blue Counter-move (4...Nd7 5.Ng5 / B17)",
+        "eco": "B17",
+        "difficulty": "Sharp",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "5.Ng5 aggressivt pres",
+          "e6 ofre trusler",
+          "Sorts prStrategic Play"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "Nc3",
+          "dxe4",
+          "Nxe4",
+          "Nd7",
+          "Ng5",
+          "Ngf6",
+          "Bd3",
+          "e6",
+          "N1f3",
+          "Bd6",
+          "Qe2",
+          "h6",
+          "Ne4",
+          "Nxe4",
+          "Qxe4",
+          "Qc7",
+          "Qg4",
+          "Kf8"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-tartakower-exf6",
+        "name": "Tartakower / Korchnoi Main Line (5...exf6 / B15)",
+        "eco": "B15",
+        "difficulty": "Middel",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "5...exf6 Strategic Play",
+          "Fast rokade",
+          "Solidt kongesideforsvar"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "Nc3",
+          "dxe4",
+          "Nxe4",
+          "Nf6",
+          "Nxf6+",
+          "exf6",
+          "c3",
+          "Bd6",
+          "Bd3",
+          "O-O",
+          "Qc2",
+          "Re8+",
+          "Ne2",
+          "h5",
+          "O-O",
+          "Nd7"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      },
+      {
+        "id": "caro-advance-c5-hecht",
+        "name": "Advance Variation with 3...c5 (Hecht-Ree / B12)",
+        "eco": "B12",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Earlyt c5 stStrategic Play",
+          "French-lignende struktur",
+          "Fast genvinding af c5"
+        ],
+        "moves": [
+          "e4",
+          "c6",
+          "d4",
+          "d5",
+          "e5",
+          "c5",
+          "dxc5",
+          "e6",
+          "Be3",
+          "Nd7",
+          "Bb5",
+          "Ne7",
+          "Nf3",
+          "Nc6",
+          "O-O",
+          "Bxc5"
+        ],
+        "folderId": "folder-caro-kann",
+        "folderName": "Caro-Kann Defense",
+        "color": "b",
+        "icon": "🛡️"
+      }
+    ]
   },
   {
     "id": "folder-french",
@@ -90,7 +4781,396 @@ const OPENING_FOLDERS = [
     "color": "b",
     "icon": "🏰",
     "eco": "C00-C19",
-    "description": "Winawer 3...Bb4, Classical, Tarrasch, Advance, Rubinstein, and Milner-Barry Gambit."
+    "description": "Winawer 3...Bb4, Classical, Tarrasch, Advance, Rubinstein, and Milner-Barry Gambit.",
+    "lines": [
+      {
+        "id": "french-winawer",
+        "name": "Winawer (14 moves)",
+        "moves": [
+          "e4",
+          "e6",
+          "d4",
+          "d5",
+          "Nc3",
+          "Bb4",
+          "e5",
+          "c5",
+          "a3",
+          "Bxc3+",
+          "bxc3",
+          "Ne7",
+          "Qg4",
+          "Qc7"
+        ],
+        "eco": "C18",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 e6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Bxc3+ Strategic Play",
+          "Qc7 modangreb pStrategic Play",
+          "Sharp taktisk kamp"
+        ],
+        "folderId": "folder-french",
+        "folderName": "French Defense",
+        "color": "b",
+        "icon": "🏰"
+      },
+      {
+        "id": "french-deep-poisoned-pawn",
+        "name": "Deep Poisoned Pawn (22 moves)",
+        "moves": [
+          "e4",
+          "e6",
+          "d4",
+          "d5",
+          "Nc3",
+          "Bb4",
+          "e5",
+          "c5",
+          "a3",
+          "Bxc3+",
+          "bxc3",
+          "Ne7",
+          "Qg4",
+          "Qc7",
+          "Qxg7",
+          "Rg8",
+          "Qxh7",
+          "cxd4",
+          "Ne2",
+          "Nbc6",
+          "f4",
+          "Bd7"
+        ],
+        "eco": "C18",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 e6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Poisoned Pawn storm",
+          "Rg8 vs Hvids dronning",
+          "cxd4 & Nbc6 central invasion"
+        ],
+        "folderId": "folder-french",
+        "folderName": "French Defense",
+        "color": "b",
+        "icon": "🏰"
+      },
+      {
+        "id": "french-mccutcheon",
+        "name": "McCutcheon Variation (18 moves)",
+        "moves": [
+          "e4",
+          "e6",
+          "d4",
+          "d5",
+          "Nc3",
+          "Nf6",
+          "Bg5",
+          "Bb4",
+          "e5",
+          "h6",
+          "Bd2",
+          "Bxc3",
+          "bxc3",
+          "Ne4",
+          "Qg4",
+          "g6",
+          "Bd3",
+          "Nxd2"
+        ],
+        "eco": "C12",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 e6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "4...Bb4 modstStrategic Play",
+          "Nxd2 Removes White Bishop",
+          "g6 dStrategic Play"
+        ],
+        "folderId": "folder-french",
+        "folderName": "French Defense",
+        "color": "b",
+        "icon": "🏰"
+      },
+      {
+        "id": "french-tarrasch-3nf6",
+        "name": "Tarrasch Closed (18 moves)",
+        "moves": [
+          "e4",
+          "e6",
+          "d4",
+          "d5",
+          "Nd2",
+          "Nf6",
+          "e5",
+          "Nfd7",
+          "Bd3",
+          "c5",
+          "c3",
+          "Nc6",
+          "Ne2",
+          "cxd4",
+          "cxd4",
+          "f6",
+          "exf6",
+          "Nxf6"
+        ],
+        "eco": "C05",
+        "difficulty": "Intermediate",
+        "explanation": "Active counter-defense where Black accepts an isolated queen's pawn in exchange for dynamic, unrestricted piece activity.",
+        "keyThemes": [
+          "...f6 bryder e5",
+          "Nxf6 aktiv genplacering",
+          "Centrumskamp"
+        ],
+        "folderId": "folder-french",
+        "folderName": "French Defense",
+        "color": "b",
+        "icon": "🏰"
+      },
+      {
+        "id": "french-advance",
+        "name": "Advances (Advance 3...c5)",
+        "moves": [
+          "e4",
+          "e6",
+          "d4",
+          "d5",
+          "e5",
+          "c5",
+          "c3",
+          "Nc6",
+          "Nf3",
+          "Qb6",
+          "a3",
+          "c4",
+          "Nbd2",
+          "Na5"
+        ],
+        "eco": "C02",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (e4 e6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "c4 lStrategic Play",
+          "Na5 kontrollerer b3-feltet",
+          "Massivt pres vs d4"
+        ],
+        "folderId": "folder-french",
+        "folderName": "French Defense",
+        "color": "b",
+        "icon": "🏰"
+      },
+      {
+        "id": "french-exchange",
+        "name": "French Exchange (3.exd5)",
+        "moves": [
+          "e4",
+          "e6",
+          "d4",
+          "d5",
+          "exd5",
+          "exd5",
+          "Nf3",
+          "Nf6",
+          "Bd3",
+          "Be7",
+          "O-O",
+          "O-O",
+          "Re1",
+          "Bg4",
+          "c3",
+          "Nbd7",
+          "Nbd2",
+          "Re8"
+        ],
+        "eco": "C01",
+        "difficulty": "Beginner",
+        "explanation": "Exchange Variation gives symmetrisk stilling. White lacks attacksmuligheder.",
+        "keyThemes": [
+          "Symmetrisk stilling",
+          "Calm Play"
+        ],
+        "folderId": "folder-french",
+        "folderName": "French Defense",
+        "color": "b",
+        "icon": "🏰"
+      },
+      {
+        "id": "open-fransk-winawer-hovedvariant-3-nc3-bb4-",
+        "folderId": "folder-french",
+        "name": "French: Winawer Main Line (3.Nc3 Bb4)",
+        "eco": "C18",
+        "color": "b",
+        "explanation": "Black pins White's knight and forces asymmetric, explosive imbalances across both flanks.",
+        "keyThemes": [
+          "Winawer",
+          "Dobbeltbonde pStrategic Play",
+          "Queen attack"
+        ],
+        "moves": [
+          "e4",
+          "e6",
+          "d4",
+          "d5",
+          "Nc3",
+          "Bb4",
+          "e5",
+          "c5",
+          "a3",
+          "Bxc3+",
+          "bxc3",
+          "Ne7",
+          "Qg4",
+          "Qc7",
+          "Qxg7",
+          "Rg8",
+          "Qxh7",
+          "cxd4",
+          "Ne2",
+          "Nbc6"
+        ]
+      },
+      {
+        "id": "open-fransk-tarrasch-hovedvariant-3-nd2-nf6-",
+        "folderId": "folder-french",
+        "name": "French: Tarrasch Main Line (3.Nd2 Nf6)",
+        "eco": "C05",
+        "color": "b",
+        "explanation": "White avoids the Winawer pin with 3.Nd2, keeping the c3 pawn available to support the center.",
+        "keyThemes": [
+          "Tarrasch",
+          "Centrumskamp",
+          "BondekStrategic Play"
+        ],
+        "moves": [
+          "e4",
+          "e6",
+          "d4",
+          "d5",
+          "Nd2",
+          "Nf6",
+          "e5",
+          "Nfd7",
+          "Bd3",
+          "c5",
+          "c3",
+          "Nc6",
+          "Ne2",
+          "cxd4",
+          "cxd4",
+          "Qb6",
+          "Nf3",
+          "f6",
+          "exf6",
+          "Nxf6",
+          "O-O",
+          "Bd6"
+        ]
+      },
+      {
+        "id": "open-fransk-rubinstein-afbytning-3-dxe4-",
+        "folderId": "folder-french",
+        "name": "French: Rubinstein Exchange (3...dxe4)",
+        "eco": "C10",
+        "color": "b",
+        "explanation": "The Rubinstein: Black releases central tension by exchanging on e4, achieving a solid though slightly passive position.",
+        "keyThemes": [
+          "Rubinstein",
+          "Aflastning",
+          "Solidt endgame"
+        ],
+        "moves": [
+          "e4",
+          "e6",
+          "d4",
+          "d5",
+          "Nc3",
+          "dxe4",
+          "Nxe4",
+          "Nd7",
+          "Nf3",
+          "Ngf6",
+          "Nxf6+",
+          "Nxf6",
+          "Bd3",
+          "c5",
+          "dxc5",
+          "Bxc5",
+          "O-O",
+          "O-O",
+          "Bg5"
+        ]
+      },
+      {
+        "id": "open-fransk-mccutcheon-variant-4-bg5-bb4-",
+        "folderId": "folder-french",
+        "name": "French: McCutcheon Variation (4.Bg5 Bb4)",
+        "eco": "C12",
+        "color": "b",
+        "explanation": "A dynamic, counter-attacking line against 4.Bg5, provoking sharp pawn weaknesses.",
+        "keyThemes": [
+          "McCutcheon",
+          "ModstStrategic Play",
+          "Taktiske forviklinger"
+        ],
+        "moves": [
+          "e4",
+          "e6",
+          "d4",
+          "d5",
+          "Nc3",
+          "Nf6",
+          "Bg5",
+          "Bb4",
+          "e5",
+          "h6",
+          "Bd2",
+          "Bxc3",
+          "bxc3",
+          "Ne4",
+          "Qg4",
+          "g6",
+          "Bd3",
+          "Nxd2",
+          "Kxd2"
+        ]
+      },
+      {
+        "id": "open-fransk-milner-barry-gambit",
+        "folderId": "folder-french",
+        "name": "French: Milner-Barry Gambit",
+        "eco": "C02",
+        "color": "b",
+        "explanation": "White sacrifices the d4 pawn in the Advance French to gain a rapid lead in development and open lines against f7.",
+        "keyThemes": [
+          "Milner-Barry",
+          "Centrumsgambit",
+          "Attacksspil"
+        ],
+        "moves": [
+          "e4",
+          "e6",
+          "d4",
+          "d5",
+          "e5",
+          "c5",
+          "c3",
+          "Nc6",
+          "Nf3",
+          "Qb6",
+          "Bd3",
+          "cxd4",
+          "cxd4",
+          "Bd7",
+          "O-O",
+          "Nxd4",
+          "Nxd4",
+          "Qxd4",
+          "Nc3",
+          "a6",
+          "Qe2"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-kid",
@@ -98,7 +5178,372 @@ const OPENING_FOLDERS = [
     "color": "b",
     "icon": "🔥",
     "eco": "E60-E99",
-    "description": "Mar del Plata, Sämisch, Four Pawns Attack, Averbakh, and Fianchetto Variation."
+    "description": "Mar del Plata, Sämisch, Four Pawns Attack, Averbakh, and Fianchetto Variation.",
+    "lines": [
+      {
+        "id": "kid-mar-del-plata",
+        "name": "Mar del Plata Main Line",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "Bg7",
+          "e4",
+          "d6",
+          "Nf3",
+          "O-O",
+          "Be2",
+          "e5",
+          "O-O",
+          "Nc6",
+          "d5",
+          "Ne7",
+          "Ne1",
+          "Nd7"
+        ],
+        "eco": "E97",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "f5-f4 bondestorm vs Hvids konge",
+          "g5-g4 Strategic Play",
+          "Black Active Play"
+        ],
+        "folderId": "folder-kid",
+        "folderName": "King's Indian Defense Defense (KID)",
+        "color": "b",
+        "icon": "🔥"
+      },
+      {
+        "id": "kid-deep-mar-del-plata",
+        "name": "Deep Mar del Plata (24 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "Bg7",
+          "e4",
+          "d6",
+          "Nf3",
+          "O-O",
+          "Be2",
+          "e5",
+          "O-O",
+          "Nc6",
+          "d5",
+          "Ne7",
+          "Ne1",
+          "Nd7",
+          "Be3",
+          "f5",
+          "f3",
+          "f4",
+          "Bf2",
+          "g5"
+        ],
+        "eco": "E97",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "...f4 lukker lStrategic Play",
+          "g5 & h5 bondestorm",
+          "Kingside Attack for Black"
+        ],
+        "folderId": "folder-kid",
+        "folderName": "King's Indian Defense Defense (KID)",
+        "color": "b",
+        "icon": "🔥"
+      },
+      {
+        "id": "kid-four-pawns",
+        "name": "vs Four Pawns Attack (18 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "Bg7",
+          "e4",
+          "d6",
+          "f4",
+          "O-O",
+          "Nf3",
+          "c5",
+          "d5",
+          "e6",
+          "Be2",
+          "exd5",
+          "cxd5",
+          "Bg4",
+          "O-O",
+          "Re8"
+        ],
+        "eco": "E77",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "...c5 & ...e6 sprStrategic Play",
+          "Re8 pres vs e4",
+          "White Overextends"
+        ],
+        "folderId": "folder-kid",
+        "folderName": "King's Indian Defense Defense (KID)",
+        "color": "b",
+        "icon": "🔥"
+      },
+      {
+        "id": "kid-averbakh",
+        "name": "vs Averbakh System (18 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "Bg7",
+          "e4",
+          "d6",
+          "Be2",
+          "O-O",
+          "Bg5",
+          "c5",
+          "d5",
+          "h6",
+          "Bf4",
+          "e6",
+          "Qd2",
+          "exd5",
+          "exd5",
+          "Re8"
+        ],
+        "eco": "E73",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "h6 jager lStrategic Play",
+          "Re8 vs Hvids konge",
+          "Aktivt modspil"
+        ],
+        "folderId": "folder-kid",
+        "folderName": "King's Indian Defense Defense (KID)",
+        "color": "b",
+        "icon": "🔥"
+      },
+      {
+        "id": "kid-samisch-deep",
+        "name": "Sämisch Deep Line (30 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "Bg7",
+          "e4",
+          "d6",
+          "f3",
+          "O-O",
+          "Be3",
+          "c5",
+          "d5",
+          "e6",
+          "Nge2",
+          "exd5",
+          "cxd5",
+          "a6",
+          "Qd2",
+          "b5",
+          "O-O-O",
+          "Nbd7",
+          "Kb1",
+          "Ne5",
+          "Ng3",
+          "h5",
+          "Be2",
+          "h4",
+          "Nf1",
+          "Re8",
+          "Bg5",
+          "Qa5",
+          "Ne3",
+          "b4"
+        ],
+        "eco": "E83",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Mutual Flank Attack",
+          "h5-h4 bondestorm"
+        ],
+        "folderId": "folder-kid",
+        "folderName": "King's Indian Defense Defense (KID)",
+        "color": "b",
+        "icon": "🔥"
+      },
+      {
+        "id": "kid-petrosian",
+        "name": "Petrosian System (22 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "Bg7",
+          "e4",
+          "d6",
+          "Nf3",
+          "O-O",
+          "Be2",
+          "e5",
+          "d5",
+          "Ne8",
+          "Nd2",
+          "f5",
+          "exf5",
+          "gxf5",
+          "O-O",
+          "Nf6",
+          "Nb3",
+          "Na6",
+          "f3",
+          "Nc5"
+        ],
+        "eco": "E92",
+        "difficulty": "Advanced",
+        "explanation": "Petrosian lukker center with d5 & planerer Ne8-f6 omgruppering.",
+        "keyThemes": [
+          "d5 centrumlStrategic Play",
+          "Ne8-f6 omgruppering"
+        ],
+        "folderId": "folder-kid",
+        "folderName": "King's Indian Defense Defense (KID)",
+        "color": "b",
+        "icon": "🔥"
+      },
+      {
+        "id": "open-kongeindisk-mar-del-plata-hovedlinje-9-ne1-",
+        "folderId": "folder-kid",
+        "name": "King's Indian Defense: Mar del Plata Main Line (9.Ne1)",
+        "eco": "E99",
+        "color": "b",
+        "explanation": "Deep dynamic battleground where Black builds an elastic pawn structure before unleashing a fierce kingside pawn storm.",
+        "keyThemes": [
+          "Mar del Plata",
+          "Opposite flank war",
+          "Black mating attack"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "Bg7",
+          "e4",
+          "d6",
+          "Nf3",
+          "O-O",
+          "Be2",
+          "e5",
+          "O-O",
+          "Nc6",
+          "d5",
+          "Ne7",
+          "Ne1",
+          "Nd7",
+          "Be3",
+          "f5",
+          "f3",
+          "f4",
+          "Bf2",
+          "g5"
+        ]
+      },
+      {
+        "id": "open-kongeindisk-s-misch-hovedvariant-5-f3-",
+        "folderId": "folder-kid",
+        "name": "King's Indian Defense: Sämisch Main Line (5.f3)",
+        "eco": "E81",
+        "color": "b",
+        "explanation": "Deep dynamic battleground where Black builds an elastic pawn structure before unleashing a fierce kingside pawn storm.",
+        "keyThemes": [
+          "Sämisch",
+          "f3 solidity",
+          "Opposite side castling"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "Bg7",
+          "e4",
+          "d6",
+          "f3",
+          "O-O",
+          "Be3",
+          "c5",
+          "Nge2",
+          "Nc6",
+          "d5",
+          "Ne5",
+          "Ng3",
+          "e6",
+          "Be2",
+          "exd5",
+          "cxd5",
+          "a6",
+          "a4",
+          "h5"
+        ]
+      },
+      {
+        "id": "open-kongeindisk-four-pawns-attack",
+        "folderId": "folder-kid",
+        "name": "King's Indian Defense: Four Pawns Attack",
+        "eco": "E76",
+        "color": "b",
+        "explanation": "Deep dynamic battleground where Black builds an elastic pawn structure before unleashing a fierce kingside pawn storm.",
+        "keyThemes": [
+          "Four Pawns",
+          "Center undermining",
+          "Sharp Play"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "Bg7",
+          "e4",
+          "d6",
+          "f4",
+          "O-O",
+          "Nf3",
+          "c5",
+          "d5",
+          "e6",
+          "Be2",
+          "exd5",
+          "cxd5",
+          "Re8",
+          "e5",
+          "dxe5",
+          "fxe5",
+          "Ng4",
+          "Bg5",
+          "Qb6"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-scandi",
@@ -106,15 +5551,639 @@ const OPENING_FOLDERS = [
     "color": "b",
     "icon": "❄️",
     "eco": "B01",
-    "description": "Main Line 3...Qa5, Modern 2...Nf6, Portuguese Gambit, Alekhine, and Pirc."
+    "description": "Main Line 3...Qa5, Modern 2...Nf6, Portuguese Gambit, Alekhine, and Pirc.",
+    "lines": [
+      {
+        "id": "scandi-qa5",
+        "name": "Mieses-Kotroc (3...Qa5)",
+        "moves": [
+          "e4",
+          "d5",
+          "exd5",
+          "Qxd5",
+          "Nc3",
+          "Qa5",
+          "d4",
+          "Nf6",
+          "Nf3",
+          "c6",
+          "Bc4",
+          "Bf5",
+          "Bd2",
+          "e6"
+        ],
+        "eco": "B01",
+        "difficulty": "Beginner",
+        "explanation": "Tournament opening line (e4 d5 exd5 Qxd5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Ingen svagheder",
+          "Bf5 er aktiv uden for bondelStrategic Play",
+          "c6 giver flugt for dronningen"
+        ],
+        "folderId": "folder-scandi",
+        "folderName": "Scandinavian Defense Defense",
+        "color": "b",
+        "icon": "❄️"
+      },
+      {
+        "id": "scandi-portuguese",
+        "name": "Portuguese Gambit (2...Nf6 3.d4 Bg4!?)",
+        "moves": [
+          "e4",
+          "d5",
+          "exd5",
+          "Nf6",
+          "d4",
+          "Bg4",
+          "Nf3",
+          "Qxd5",
+          "Be2",
+          "Nc6",
+          "c4",
+          "Qh5",
+          "Be3",
+          "O-O-O",
+          "Nbd2",
+          "e6"
+        ],
+        "eco": "B01",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 d5 exd5 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Bg4 binding",
+          "O-O-O with d-linje pres",
+          "Aggressiv gambit"
+        ],
+        "folderId": "folder-scandi",
+        "folderName": "Scandinavian Defense Defense",
+        "color": "b",
+        "icon": "❄️"
+      },
+      {
+        "id": "scandi-qd6",
+        "name": "Gubinsky-Melts (3...Qd6)",
+        "moves": [
+          "e4",
+          "d5",
+          "exd5",
+          "Qxd5",
+          "Nc3",
+          "Qd6",
+          "d4",
+          "Nf6",
+          "Nf3",
+          "c6",
+          "g3",
+          "Bf5",
+          "Bg2",
+          "e6",
+          "O-O",
+          "Be7"
+        ],
+        "eco": "B01",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (e4 d5 exd5 Qxd5) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Qd6 central kontrol",
+          "Bf5 aktiv udvikling",
+          "Nem & sund stilling"
+        ],
+        "folderId": "folder-scandi",
+        "folderName": "Scandinavian Defense Defense",
+        "color": "b",
+        "icon": "❄️"
+      },
+      {
+        "id": "open-skandinavisk-hovedlinje-3-qa5-",
+        "folderId": "folder-scandi",
+        "name": "Scandinavian Defense: Main Line (3...Qa5)",
+        "eco": "B01",
+        "color": "b",
+        "explanation": "Black places the queen actively on a5 after 2...Qxd5, preparing ...c6 and solid piece development.",
+        "keyThemes": [
+          "Qa5 manStrategic Play",
+          "Solid Caro-struktur",
+          "LStrategic Play"
+        ],
+        "moves": [
+          "e4",
+          "d5",
+          "exd5",
+          "Qxd5",
+          "Nc3",
+          "Qa5",
+          "d4",
+          "Nf6",
+          "Nf3",
+          "c6",
+          "Bc4",
+          "Bf5",
+          "Bd2",
+          "e6",
+          "Nd5",
+          "Qd8",
+          "Nxf6+",
+          "Qxf6"
+        ]
+      },
+      {
+        "id": "open-skandinavisk-moderne-2-nf6",
+        "folderId": "folder-scandi",
+        "name": "Scandinavian Defense: Modern 2...Nf6",
+        "eco": "B01",
+        "color": "b",
+        "explanation": "Modern Scandinavian: Black gambits the d5 pawn temporarily to recapture with a knight, maintaining active piece play.",
+        "keyThemes": [
+          "Fast udvikling",
+          "2...Nf6",
+          "Aktivt modspil"
+        ],
+        "moves": [
+          "e4",
+          "d5",
+          "exd5",
+          "Nf6",
+          "d4",
+          "Nxd5",
+          "Nf3",
+          "g6",
+          "c4",
+          "Nb6",
+          "Nc3",
+          "Bg7",
+          "h3",
+          "O-O",
+          "Be3",
+          "Nc6",
+          "Be2",
+          "e5",
+          "d5"
+        ]
+      },
+      {
+        "id": "open-skandinavisk-portugisisk-gambit-3-bg4-",
+        "folderId": "folder-scandi",
+        "name": "Scandinavian Defense: Portuguese Gambit (3...Bg4)",
+        "eco": "B01",
+        "color": "b",
+        "explanation": "Portuguese Gambit: Black sacrifices a pawn with 3...Bg4 to generate rapid tactical threats and piece activity.",
+        "keyThemes": [
+          "Portugisisk Gambit",
+          "Ofre for udvikling",
+          "Sharpe taktikker"
+        ],
+        "moves": [
+          "e4",
+          "d5",
+          "exd5",
+          "Nf6",
+          "d4",
+          "Bg4",
+          "f3",
+          "Bf5",
+          "Bb5+",
+          "Nbd7",
+          "c4",
+          "e6",
+          "dxe6",
+          "Bxe6",
+          "d5",
+          "Bf5",
+          "Nc3",
+          "Bc5"
+        ]
+      },
+      {
+        "id": "open-alekhines-forsvar-moderne-hovedvariant-4-nf3-",
+        "folderId": "folder-scandi",
+        "name": "Alekhine's Defense: Modern Main Line (4.Nf3)",
+        "eco": "B04",
+        "color": "b",
+        "explanation": "Modern Alekhine: Black lures White's pawns forward, then counters the overextended center with active piece pressure.",
+        "keyThemes": [
+          "Alekhine",
+          "Overekspansion af bStrategic Play",
+          "Counterattack vs centrum"
+        ],
+        "moves": [
+          "e4",
+          "Nf6",
+          "e5",
+          "Nd5",
+          "d4",
+          "d6",
+          "Nf3",
+          "Bg4",
+          "Be2",
+          "c6",
+          "O-O",
+          "Bxf3",
+          "Bxf3",
+          "dxe5",
+          "dxe5",
+          "e6",
+          "Qe2",
+          "Nd7",
+          "c4",
+          "Ne7"
+        ]
+      },
+      {
+        "id": "open-alekhines-forsvar-fire-b-nders-angreb",
+        "folderId": "folder-scandi",
+        "name": "Alekhine's Defense: Four Pawns Attack",
+        "eco": "B03",
+        "color": "b",
+        "explanation": "Four Pawns Attack: White pushes c4, d4, e5, and f4 to conquer the board with brute central force.",
+        "keyThemes": [
+          "Four Pawnss Attack",
+          "Massivt centrum",
+          "Undergravning"
+        ],
+        "moves": [
+          "e4",
+          "Nf6",
+          "e5",
+          "Nd5",
+          "d4",
+          "d6",
+          "c4",
+          "Nb6",
+          "f4",
+          "dxe5",
+          "fxe5",
+          "Nc6",
+          "Be3",
+          "Bf5",
+          "Nc3",
+          "e6",
+          "Nf3",
+          "Be7",
+          "Be2",
+          "O-O"
+        ]
+      },
+      {
+        "id": "open-pirc-forsvar-austrian-attack-4-f4-",
+        "folderId": "folder-scandi",
+        "name": "Pirc Defense: Austrian Attack (4.f4)",
+        "eco": "B09",
+        "color": "b",
+        "explanation": "The Austrian Attack: White's sharpest weapon against the Pirc, establishing pawns on d4, e4, and f4.",
+        "keyThemes": [
+          "Austrian Attack",
+          "f4 storm",
+          "Counterattack vs c5"
+        ],
+        "moves": [
+          "e4",
+          "d6",
+          "d4",
+          "Nf6",
+          "Nc3",
+          "g6",
+          "f4",
+          "Bg7",
+          "Nf3",
+          "O-O",
+          "Bd3",
+          "Na6",
+          "O-O",
+          "c5",
+          "d5",
+          "Rb8",
+          "Kh1",
+          "Bg4"
+        ]
+      },
+      {
+        "id": "open-pirc-forsvar-klassisk-variant-4-nf3-",
+        "folderId": "folder-scandi",
+        "name": "Pirc Defense: Classical Variation (4.Nf3)",
+        "eco": "B08",
+        "color": "b",
+        "explanation": "Classical Pirc: White chooses harmonious, calm development with Nf3 and Be2.",
+        "keyThemes": [
+          "Classical Pirc",
+          "Solid fordel",
+          "Harmonisk opstilling"
+        ],
+        "moves": [
+          "e4",
+          "d6",
+          "d4",
+          "Nf6",
+          "Nc3",
+          "g6",
+          "Nf3",
+          "Bg7",
+          "Be2",
+          "O-O",
+          "O-O",
+          "c6",
+          "a4",
+          "a5",
+          "h3",
+          "Qc7",
+          "Be3",
+          "e5"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-grunfeld",
-    "name": "Grünfeld Defence",
+    "name": "Grünfeld Defense Defence",
     "color": "b",
     "icon": "⚡",
     "eco": "D70-D99",
-    "description": "Modern Exchange with 8.Rb1, Russian System 5.Qb3, and 4.Bf4 systems."
+    "description": "Modern Exchange with 8.Rb1, Russian System 5.Qb3, and 4.Bf4 systems.",
+    "lines": [
+      {
+        "id": "grunfeld-exchange",
+        "name": "Exchange Variation (8.Rb1)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "d5",
+          "cxd5",
+          "Nxd5",
+          "e4",
+          "Nxc3",
+          "bxc3",
+          "Bg7",
+          "Nf3",
+          "c5",
+          "Rb1",
+          "O-O",
+          "Be2"
+        ],
+        "eco": "D85",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Bg7 borer ned i c3",
+          "c5 modstStrategic Play",
+          "MStrategic Play"
+        ],
+        "folderId": "folder-grunfeld",
+        "folderName": "Grünfeld Defense Defense",
+        "color": "b",
+        "icon": "⚡"
+      },
+      {
+        "id": "grunfeld-classical-bf4",
+        "name": "Classical 4.Bf4 (18 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "d5",
+          "Nf3",
+          "Bg7",
+          "Bf4",
+          "O-O",
+          "e3",
+          "c5",
+          "dxc5",
+          "Qa5",
+          "Rc1",
+          "dxc4",
+          "Bxc4",
+          "Qxc5",
+          "Bb3",
+          "Nc6",
+          "O-O",
+          "Qa5"
+        ],
+        "eco": "D93",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Qa5 pres vs c3",
+          "dxc4 & Qxc5 tempo",
+          "Strategic Play"
+        ],
+        "folderId": "folder-grunfeld",
+        "folderName": "Grünfeld Defense Defense",
+        "color": "b",
+        "icon": "⚡"
+      },
+      {
+        "id": "grunfeld-russian",
+        "name": "Russisk System (4.Nf3 Bg7 5.Qb3)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "d5",
+          "Nf3",
+          "Bg7",
+          "Qb3",
+          "dxc4",
+          "Qxc4",
+          "O-O",
+          "e4",
+          "a6",
+          "Be2",
+          "b5",
+          "Qb3",
+          "Bb7"
+        ],
+        "eco": "D96",
+        "difficulty": "Advanced",
+        "explanation": "vs Whites tidlige Qb3 pressure. Black tager c4, rokerer & vinwhich hurtigt counterplay with a6 & b5.",
+        "keyThemes": [
+          "a6 & b5 vinder tempo pStrategic Play",
+          "Bb7 pres vs e4",
+          "Sharp position"
+        ],
+        "folderId": "folder-grunfeld",
+        "folderName": "Grünfeld Defense Defense",
+        "color": "b",
+        "icon": "⚡"
+      },
+      {
+        "id": "grunfeld-exchange-deep",
+        "name": "Exchange Grandmaster (32 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "d5",
+          "cxd5",
+          "Nxd5",
+          "e4",
+          "Nxc3",
+          "bxc3",
+          "Bg7",
+          "Nf3",
+          "c5",
+          "Rb1",
+          "O-O",
+          "Be2",
+          "Nc6",
+          "d5",
+          "Ne5",
+          "Nxe5",
+          "Bxe5",
+          "Qd2",
+          "e6",
+          "c4",
+          "exd5",
+          "cxd5",
+          "f5",
+          "exf5",
+          "Bxf5",
+          "Rxb7",
+          "Rb8"
+        ],
+        "eco": "D85",
+        "difficulty": "Advanced",
+        "explanation": "f4 attack and active knight manoeuvres leading to a complex endgame.",
+        "keyThemes": [
+          "f4 angrebsstart",
+          "Nc4 aktivt"
+        ],
+        "folderId": "folder-grunfeld",
+        "folderName": "Grünfeld Defense Defense",
+        "color": "b",
+        "icon": "⚡"
+      },
+      {
+        "id": "grunfeld-hungarian-deep",
+        "name": "Grünfeld Defense Defense Ungarsk System (30 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "d5",
+          "Bg5",
+          "Ne4",
+          "Bh4",
+          "Nxc3",
+          "bxc3",
+          "dxc4",
+          "e3",
+          "Be6",
+          "a4",
+          "Bg7",
+          "Nf3",
+          "O-O",
+          "Bxc4",
+          "Bxc4",
+          "Qd2",
+          "Bb3",
+          "Rc1",
+          "Bd5",
+          "O-O",
+          "c5",
+          "Rfd1",
+          "cxd4",
+          "cxd4",
+          "Nc6"
+        ],
+        "eco": "D80",
+        "difficulty": "Advanced",
+        "explanation": "Ne4 & Nxc3, Bd5 pres & c5 center attack.",
+        "keyThemes": [
+          "Ne4 & Nxc3",
+          "Bd5 pres"
+        ],
+        "folderId": "folder-grunfeld",
+        "folderName": "Grünfeld Defense Defense",
+        "color": "b",
+        "icon": "⚡"
+      },
+      {
+        "id": "open-gr-nfeld-modern-exchange-med-7-nf3-8-rb1",
+        "folderId": "folder-grunfeld",
+        "name": "Grünfeld Defense Defense: Modern Exchange with 7.Nf3 & 8.Rb1",
+        "eco": "D85",
+        "color": "b",
+        "explanation": "Hypermodern defense allowing White to occupy the center, followed by dynamic counter-strikes with ...c5 or ...e5.",
+        "keyThemes": [
+          "Modern Exchange",
+          "Rb1 activity",
+          "Center vs Diagonals"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "d5",
+          "cxd5",
+          "Nxd5",
+          "e4",
+          "Nxc3",
+          "bxc3",
+          "Bg7",
+          "Nf3",
+          "c5",
+          "Rb1",
+          "O-O",
+          "Be2",
+          "cxd4",
+          "cxd4",
+          "Qa5+",
+          "Bd2",
+          "Qxa2",
+          "O-O",
+          "Bg4"
+        ]
+      },
+      {
+        "id": "open-gr-nfeld-russian-system-5-qb3-",
+        "folderId": "folder-grunfeld",
+        "name": "Grünfeld Defense Defense: Russian System (5.Qb3)",
+        "eco": "D96",
+        "color": "b",
+        "explanation": "Hypermodern masterpiece allowing White a massive pawn center, which Black systematically attacks with ...c5 and ...Bg7.",
+        "keyThemes": [
+          "Russian System",
+          "Qb3 Pressuresure",
+          "Fastt e4 centrum"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "g6",
+          "Nc3",
+          "d5",
+          "Nf3",
+          "Bg7",
+          "Qb3",
+          "dxc4",
+          "Qxc4",
+          "O-O",
+          "e4",
+          "a6",
+          "Be2",
+          "b5",
+          "Qb3",
+          "Bb7",
+          "e5",
+          "Nd5",
+          "O-O",
+          "Nxc3",
+          "bxc3"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-catalan",
@@ -122,7 +6191,172 @@ const OPENING_FOLDERS = [
     "color": "w",
     "icon": "✨",
     "eco": "E00-E09",
-    "description": "Open & Closed Catalan with dynamic kingside fianchetto pressure."
+    "description": "Open & Closed Catalan with dynamic kingside fianchetto pressure.",
+    "lines": [
+      {
+        "id": "catalan-open",
+        "name": "Catalan Open (4...dxc4)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "g3",
+          "d5",
+          "Bg2",
+          "dxc4",
+          "Nf3",
+          "a6",
+          "Ne5",
+          "Bb4+",
+          "Bd2",
+          "Bxd2+",
+          "Nxd2",
+          "c5",
+          "Ndxc4",
+          "O-O",
+          "O-O",
+          "cxd4",
+          "Qb3",
+          "Nbd7",
+          "Rfd1"
+        ],
+        "eco": "E04",
+        "difficulty": "Intermediate",
+        "explanation": "Ne5 and Bg2 exert heavy pressure along the long diagonal.",
+        "keyThemes": [
+          "Bg2 diagonal",
+          "Ne5 central"
+        ],
+        "folderId": "folder-catalan",
+        "folderName": "Catalan Opening",
+        "color": "w",
+        "icon": "🌊"
+      },
+      {
+        "id": "catalan-closed",
+        "name": "Catalan Closed (4...Be7)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "g3",
+          "d5",
+          "Bg2",
+          "Be7",
+          "Nf3",
+          "O-O",
+          "O-O",
+          "dxc4",
+          "Qc2",
+          "a6",
+          "Qxc4",
+          "b5",
+          "Qc2",
+          "Bb7",
+          "Bd2",
+          "Nbd7",
+          "Rc1"
+        ],
+        "eco": "E06",
+        "difficulty": "Intermediate",
+        "explanation": "Bg2 & Rc1 harmoni with Qc2 plan & langvarigt strategisk pres.",
+        "keyThemes": [
+          "Bg2 & Rc1 harmoni",
+          "Langvarigt pres"
+        ],
+        "folderId": "folder-catalan",
+        "folderName": "Catalan Opening",
+        "color": "w",
+        "icon": "🌊"
+      },
+      {
+        "id": "catalan-deep-kramnik",
+        "name": "Catalan Kramnik Deep Line (30 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "g3",
+          "d5",
+          "Bg2",
+          "Be7",
+          "Nf3",
+          "O-O",
+          "O-O",
+          "dxc4",
+          "Qc2",
+          "a6",
+          "Qxc4",
+          "b5",
+          "Qc2",
+          "Bb7",
+          "Bd2",
+          "Nbd7",
+          "Rc1",
+          "Rc8",
+          "a4",
+          "b4",
+          "Na3",
+          "c5",
+          "dxc5",
+          "Nxc5",
+          "Nb5",
+          "axb5",
+          "axb5",
+          "Nfd7"
+        ],
+        "eco": "E06",
+        "difficulty": "Advanced",
+        "explanation": "Kramnik: a4 pawnstorm & Na3-b5 sacrifice i topniveau stil.",
+        "keyThemes": [
+          "a4 bondestorm",
+          "Na3-b5 kombination"
+        ],
+        "folderId": "folder-catalan",
+        "folderName": "Catalan Opening",
+        "color": "w",
+        "icon": "🌊"
+      },
+      {
+        "id": "catalan-neo",
+        "name": "Neo-Catalan (3.g3 uden tidlig c4)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "Nf3",
+          "e6",
+          "g3",
+          "d5",
+          "Bg2",
+          "Be7",
+          "O-O",
+          "O-O",
+          "c4",
+          "dxc4",
+          "Qc2",
+          "a6",
+          "Rd1",
+          "b5",
+          "Nbd2",
+          "Bb7",
+          "Ne5"
+        ],
+        "eco": "E00",
+        "difficulty": "Intermediate",
+        "explanation": "Tournament opening line (d4 Nf6 Nf3 e6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Fast rokade",
+          "Fleksibel c4 timing"
+        ],
+        "folderId": "folder-catalan",
+        "folderName": "Catalan Opening",
+        "color": "w",
+        "icon": "🌊"
+      }
+    ]
   },
   {
     "id": "folder-nimzo-qid",
@@ -130,7 +6364,417 @@ const OPENING_FOLDERS = [
     "color": "b",
     "icon": "🦅",
     "eco": "E20-E59",
-    "description": "Rubinstein 4.e3, Classical 4.Qc2, Bogo-Indian, and Queen's Indian 4.g3."
+    "description": "Rubinstein 4.e3, Classical 4.Qc2, Bando-Indian, and Queen's Indian 4.g3.",
+    "lines": [
+      {
+        "id": "nimzo-classical",
+        "name": "Nimzo Classical 4.Qc2 (24 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "Nc3",
+          "Bb4",
+          "Qc2",
+          "O-O",
+          "a3",
+          "Bxc3+",
+          "Qxc3",
+          "d5",
+          "Nf3",
+          "dxc4",
+          "Qxc4",
+          "b6",
+          "Bg5",
+          "Ba6",
+          "Qc2",
+          "h6",
+          "Bh4",
+          "Nbd7",
+          "e3",
+          "c5",
+          "Bd3"
+        ],
+        "eco": "E34",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (d4 Nf6 c4 e6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "Qc2 undgStrategic Play",
+          "Ba6 diagonal"
+        ],
+        "folderId": "folder-nimzo-qid",
+        "folderName": "Nimzo-Indian Defense & Queen's Indian",
+        "color": "b",
+        "icon": "♟️"
+      },
+      {
+        "id": "nimzo-rubinstein-deep",
+        "name": "Nimzo Rubinstein 4.e3 (30 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "Nc3",
+          "Bb4",
+          "e3",
+          "O-O",
+          "Bd3",
+          "d5",
+          "Nf3",
+          "c5",
+          "O-O",
+          "Nc6",
+          "a3",
+          "Bxc3",
+          "bxc3",
+          "dxc4",
+          "Bxc4",
+          "Qc7",
+          "Bd3",
+          "e5",
+          "Qe2",
+          "Re8",
+          "e4",
+          "cxd4",
+          "cxd4",
+          "exd4",
+          "e5",
+          "Nxe5",
+          "Nxe5",
+          "Rxe5",
+          "Qd1",
+          "Bg4"
+        ],
+        "eco": "E44",
+        "difficulty": "Advanced",
+        "explanation": "Bxc3 gives bishopparet & Black angriber with e5 & cxd4.",
+        "keyThemes": [
+          "Bxc3 lStrategic Play",
+          "e5 centrum sprStrategic Play"
+        ],
+        "folderId": "folder-nimzo-qid",
+        "folderName": "Nimzo-Indian Defense & Queen's Indian",
+        "color": "b",
+        "icon": "♟️"
+      },
+      {
+        "id": "nimzo-saemisch",
+        "name": "Nimzo Sämisch 4.a3 (28 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "Nc3",
+          "Bb4",
+          "a3",
+          "Bxc3+",
+          "bxc3",
+          "O-O",
+          "f3",
+          "c5",
+          "e4",
+          "d5",
+          "cxd5",
+          "exd5",
+          "e5",
+          "Ne8",
+          "f4",
+          "cxd4",
+          "cxd4",
+          "Nc6",
+          "Nf3",
+          "Qd7",
+          "Be3",
+          "b6"
+        ],
+        "eco": "E29",
+        "difficulty": "Advanced",
+        "explanation": "a3 tvinger exchange, f3-e4 massivt center & e5 fremmarch.",
+        "keyThemes": [
+          "f3-e4 centrum",
+          "e5 fremmarch"
+        ],
+        "folderId": "folder-nimzo-qid",
+        "folderName": "Nimzo-Indian Defense & Queen's Indian",
+        "color": "b",
+        "icon": "♟️"
+      },
+      {
+        "id": "nimzo-4nf3",
+        "name": "Nimzo 4.Nf3 with Bg5 (24 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "Nc3",
+          "Bb4",
+          "Nf3",
+          "O-O",
+          "Bg5",
+          "h6",
+          "Bh4",
+          "c5",
+          "e3",
+          "cxd4",
+          "exd4",
+          "d5",
+          "Bd3",
+          "Nc6",
+          "O-O",
+          "dxc4",
+          "Bxc4",
+          "g5",
+          "Bg3",
+          "Ne4"
+        ],
+        "eco": "E47",
+        "difficulty": "Advanced",
+        "explanation": "Bg5 pin & Black angriber with g5 & Ne4.",
+        "keyThemes": [
+          "Bg5 pin",
+          "g5 & Ne4"
+        ],
+        "folderId": "folder-nimzo-qid",
+        "folderName": "Nimzo-Indian Defense & Queen's Indian",
+        "color": "b",
+        "icon": "♟️"
+      },
+      {
+        "id": "qid-main",
+        "name": "Queen's Indian Classical (20 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "Nf3",
+          "b6",
+          "g3",
+          "Ba6",
+          "b3",
+          "Bb4+",
+          "Bd2",
+          "Be7",
+          "Bg2",
+          "c6",
+          "Bc3",
+          "d5",
+          "Ne5",
+          "Nfd7",
+          "Nxd7",
+          "Nxd7",
+          "Nd2",
+          "O-O",
+          "O-O"
+        ],
+        "eco": "E15",
+        "difficulty": "Intermediate",
+        "explanation": "Ba6 attacks the c4 pawn from the flank, supported by b6 and Bb7.",
+        "keyThemes": [
+          "Ba6 pres",
+          "b6 & Bb7 diagonal"
+        ],
+        "folderId": "folder-nimzo-qid",
+        "folderName": "Nimzo-Indian Defense & Queen's Indian",
+        "color": "b",
+        "icon": "♟️"
+      },
+      {
+        "id": "qid-petrosian",
+        "name": "QID Petrosian System (24 moves)",
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "Nf3",
+          "b6",
+          "a3",
+          "Bb7",
+          "Nc3",
+          "d5",
+          "cxd5",
+          "Nxd5",
+          "Qc2",
+          "Be7",
+          "e4",
+          "Nxc3",
+          "bxc3",
+          "c5",
+          "Bb5+",
+          "Nd7",
+          "Bd3",
+          "cxd4",
+          "cxd4",
+          "Rc8"
+        ],
+        "eco": "E12",
+        "difficulty": "Advanced",
+        "explanation": "a3 forhindrer Bb4 & White opbygger massivt e4 center.",
+        "keyThemes": [
+          "a3 vs Bb4",
+          "e4 centrum"
+        ],
+        "folderId": "folder-nimzo-qid",
+        "folderName": "Nimzo-Indian Defense & Queen's Indian",
+        "color": "b",
+        "icon": "♟️"
+      },
+      {
+        "id": "open-nimzo-indisk-rubinstein-hovedlinje-4-e3-",
+        "folderId": "folder-nimzo-qid",
+        "name": "Nimzo-Indian Defense: Rubinstein Main Line (4.e3)",
+        "eco": "E54",
+        "color": "b",
+        "explanation": "Elite Indian defenses focusing on dark-square and light-square control, avoiding weak pawn structures while generating active counterplay.",
+        "keyThemes": [
+          "Rubinstein",
+          "Center control",
+          "Classical balance"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "Nc3",
+          "Bb4",
+          "e3",
+          "O-O",
+          "Bd3",
+          "d5",
+          "Nf3",
+          "c5",
+          "O-O",
+          "Nc6",
+          "a3",
+          "Bxc3",
+          "bxc3",
+          "dxc4",
+          "Bxc4",
+          "Qc7",
+          "Bd3",
+          "e5"
+        ]
+      },
+      {
+        "id": "open-nimzo-indisk-klassisk-4-qc2",
+        "folderId": "folder-nimzo-qid",
+        "name": "Nimzo-Indian Defense: Classical 4.Qc2",
+        "eco": "E32",
+        "color": "b",
+        "explanation": "Elite Indian defenses focusing on dark-square and light-square control, avoiding weak pawn structures while generating active counterplay.",
+        "keyThemes": [
+          "4.Qc2",
+          "Avoids doubled pawns",
+          "Bishop pair advantage"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "Nc3",
+          "Bb4",
+          "Qc2",
+          "O-O",
+          "a3",
+          "Bxc3+",
+          "Qxc3",
+          "b6",
+          "Bg5",
+          "Bb7",
+          "f3",
+          "h6",
+          "Bh4",
+          "d5",
+          "e3",
+          "Nbd7",
+          "cxd5",
+          "Nxd5",
+          "Bxd8",
+          "Nxc3"
+        ]
+      },
+      {
+        "id": "open-bogo-indisk-hovedvariant-4-bd2-",
+        "folderId": "folder-nimzo-qid",
+        "name": "Bogo-Indian Defense: Main Line (4.Bd2)",
+        "eco": "E11",
+        "color": "b",
+        "explanation": "Elite Indian defenses focusing on dark-square and light-square control, avoiding weak pawn structures while generating active counterplay.",
+        "keyThemes": [
+          "Bogo-Indian Defense",
+          "Bishop trade",
+          "Solid central control"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "Nf3",
+          "Bb4+",
+          "Bd2",
+          "Qe7",
+          "g3",
+          "Nc6",
+          "Nc3",
+          "Bxc3",
+          "Bxc3",
+          "Ne4",
+          "Rc1",
+          "O-O",
+          "Bg2",
+          "d6",
+          "d5",
+          "Nxc3",
+          "Rxc3",
+          "Nb8"
+        ]
+      },
+      {
+        "id": "open-dronningindisk-qid-hovedlinje-med-4-g3",
+        "folderId": "folder-nimzo-qid",
+        "name": "Queen's Indian Defense (QID): Main Line with 4.g3",
+        "eco": "E15",
+        "color": "b",
+        "explanation": "Elite Indian defenses focusing on dark-square and light-square control, avoiding weak pawn structures while generating active counterplay.",
+        "keyThemes": [
+          "QID",
+          "Fianchetto Duel",
+          "Hypermodern strategy"
+        ],
+        "moves": [
+          "d4",
+          "Nf6",
+          "c4",
+          "e6",
+          "Nf3",
+          "b6",
+          "g3",
+          "Ba6",
+          "b3",
+          "Bb4+",
+          "Bd2",
+          "Be7",
+          "Bg2",
+          "c6",
+          "Bc3",
+          "d5",
+          "Ne5",
+          "Nfd7",
+          "Nxd7",
+          "Nxd7",
+          "Nd2",
+          "O-O"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-slav",
@@ -138,7 +6782,360 @@ const OPENING_FOLDERS = [
     "color": "b",
     "icon": "🏛️",
     "eco": "D10-D49",
-    "description": "Chebanenko 4...a6, Meran System, Botvinnik Semi-Slav, and Exchange Slav."
+    "description": "Chebanenko 4...a6, Meran System, Botvinnik Semi-Slav, and Exchange Slav.",
+    "lines": [
+      {
+        "id": "slav-main",
+        "name": "Slav Classical (16 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "c6",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "dxc4",
+          "a4",
+          "Bf5",
+          "e3",
+          "e6",
+          "Bxc4",
+          "Bb4",
+          "O-O",
+          "O-O"
+        ],
+        "eco": "D17",
+        "difficulty": "Beginner",
+        "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
+        "keyThemes": [
+          "Bf5 udenfor kStrategic Play",
+          "dxc4 frigjort"
+        ],
+        "folderId": "folder-slav",
+        "folderName": "Slav & Semi-Slav",
+        "color": "b",
+        "icon": "⚓"
+      },
+      {
+        "id": "slav-czech",
+        "name": "Tjekkisk Slav (20 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "c6",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "e6",
+          "e3",
+          "a6",
+          "b3",
+          "b5",
+          "cxd5",
+          "exd5",
+          "Bd3",
+          "Be7",
+          "O-O",
+          "O-O",
+          "Bb2",
+          "Nbd7"
+        ],
+        "eco": "D15",
+        "difficulty": "Intermediate",
+        "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
+        "keyThemes": [
+          "a6 & b5 frigStrategic Play",
+          "Solid e6"
+        ],
+        "folderId": "folder-slav",
+        "folderName": "Slav & Semi-Slav",
+        "color": "b",
+        "icon": "⚓"
+      },
+      {
+        "id": "semi-slav-botvinnik",
+        "name": "Semi-Slav Botvinnik (26 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "c6",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "e6",
+          "Bg5",
+          "dxc4",
+          "e4",
+          "b5",
+          "e5",
+          "h6",
+          "Bh4",
+          "g5",
+          "Nxg5",
+          "hxg5",
+          "Bxg5",
+          "Nbd7",
+          "exf6",
+          "Bb7",
+          "g3",
+          "c5",
+          "dxc5",
+          "Rc8"
+        ],
+        "eco": "D41",
+        "difficulty": "Advanced",
+        "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
+        "keyThemes": [
+          "Nxg5 offer",
+          "g5 bondestorm"
+        ],
+        "folderId": "folder-slav",
+        "folderName": "Slav & Semi-Slav",
+        "color": "b",
+        "icon": "⚓"
+      },
+      {
+        "id": "semi-slav-moscow",
+        "name": "Anti-Moscow Gambit (28 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "c6",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "e6",
+          "Bg5",
+          "h6",
+          "Bh4",
+          "dxc4",
+          "e4",
+          "g5",
+          "Bg3",
+          "b5",
+          "Be2",
+          "Bb7",
+          "h4",
+          "g4",
+          "Ne5",
+          "h5",
+          "O-O",
+          "Nbd7",
+          "Qd2",
+          "Nxe5",
+          "dxe5",
+          "Nd7"
+        ],
+        "eco": "D43",
+        "difficulty": "Advanced",
+        "explanation": "6...h6 & g5: Black plays pawnstorm. White svarer h4 & Ne5.",
+        "keyThemes": [
+          "g5-g4 storm",
+          "h4 svar"
+        ],
+        "folderId": "folder-slav",
+        "folderName": "Slav & Semi-Slav",
+        "color": "b",
+        "icon": "⚓"
+      },
+      {
+        "id": "semi-slav-meran",
+        "name": "Semi-Slav Meran (24 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "c6",
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "e6",
+          "e3",
+          "Nbd7",
+          "Bd3",
+          "dxc4",
+          "Bxc4",
+          "b5",
+          "Bd3",
+          "a6",
+          "e4",
+          "c5",
+          "e5",
+          "cxd4",
+          "Nxb5",
+          "axb5",
+          "exf6",
+          "gxf6",
+          "O-O"
+        ],
+        "eco": "D47",
+        "difficulty": "Advanced",
+        "explanation": "Meran: b5 & a6 frigjort, e4-e5 skaber komplikationer.",
+        "keyThemes": [
+          "b5 & a6 frigjort",
+          "e4-e5 komplikationer"
+        ],
+        "folderId": "folder-slav",
+        "folderName": "Slav & Semi-Slav",
+        "color": "b",
+        "icon": "⚓"
+      },
+      {
+        "id": "slav-exchange",
+        "name": "Slav Exchange + Plan (18 moves)",
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "c6",
+          "Nc3",
+          "Nf6",
+          "cxd5",
+          "cxd5",
+          "Bf4",
+          "Nc6",
+          "e3",
+          "Bf5",
+          "Bd3",
+          "Bxd3",
+          "Qxd3",
+          "e6",
+          "Nge2",
+          "Be7",
+          "O-O"
+        ],
+        "eco": "D10",
+        "difficulty": "Beginner",
+        "explanation": "cxd5 simplificerer & Bf4 aktiv bishop.",
+        "keyThemes": [
+          "Simplificering",
+          "Bf4 aktiv"
+        ],
+        "folderId": "folder-slav",
+        "folderName": "Slav & Semi-Slav",
+        "color": "b",
+        "icon": "⚓"
+      },
+      {
+        "id": "open-slavisk-chebanenko-variant-4-a6-",
+        "folderId": "folder-slav",
+        "name": "Slav Defense: Chebanenko Variation (4...a6)",
+        "eco": "D15",
+        "color": "b",
+        "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
+        "keyThemes": [
+          "Chebanenko",
+          "Flexible a6",
+          "b5 expansion"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "c6",
+          "Nf3",
+          "Nf6",
+          "Nc3",
+          "a6",
+          "e3",
+          "b5",
+          "b3",
+          "Bg4",
+          "Be2",
+          "e6",
+          "O-O",
+          "Nbd7",
+          "h3",
+          "Bh5",
+          "Bb2",
+          "Bd6"
+        ]
+      },
+      {
+        "id": "open-semi-slavisk-meran-hovedvariant",
+        "folderId": "folder-slav",
+        "name": "Semi-Slav Defense: Meran Main Line",
+        "eco": "D48",
+        "color": "b",
+        "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
+        "keyThemes": [
+          "Meran",
+          "b5 & c5 brud",
+          "Tactical fireworks"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "c6",
+          "Nf3",
+          "Nf6",
+          "Nc3",
+          "e6",
+          "e3",
+          "Nbd7",
+          "Bd3",
+          "dxc4",
+          "Bxc4",
+          "b5",
+          "Bd3",
+          "a6",
+          "e4",
+          "c5",
+          "e5",
+          "cxd4",
+          "Nxb5",
+          "axb5",
+          "exf6",
+          "gxf6",
+          "O-O",
+          "Qb6"
+        ]
+      },
+      {
+        "id": "open-semi-slavisk-botvinnik-system-ultra-skarpt-",
+        "folderId": "folder-slav",
+        "name": "Semi-Slav Defense: Botvinnik System (Ultra-Sharpt)",
+        "eco": "D44",
+        "color": "b",
+        "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
+        "keyThemes": [
+          "Botvinnik System",
+          "Tactical frenzy",
+          "Pawn storm"
+        ],
+        "moves": [
+          "d4",
+          "d5",
+          "c4",
+          "c6",
+          "Nf3",
+          "Nf6",
+          "Nc3",
+          "e6",
+          "Bg5",
+          "dxc4",
+          "e4",
+          "b5",
+          "e5",
+          "h6",
+          "Bh4",
+          "g5",
+          "Nxg5",
+          "hxg5",
+          "Bxg5",
+          "Nbd7",
+          "g3",
+          "Bb7",
+          "Bg2",
+          "Qb6"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-petroff-berlin",
@@ -146,7 +7143,273 @@ const OPENING_FOLDERS = [
     "color": "b",
     "icon": "🛡️",
     "eco": "C42",
-    "description": "Petroff Classical, Stafford Gambit, Cochrane Gambit, and Philidor Hanham."
+    "description": "Petroff Classical, Stafford Gambit, Cochrane Gambit, and Philidor Hanham.",
+    "lines": [
+      {
+        "id": "petroff-main",
+        "name": "Petroff Classical (18 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nf6",
+          "Nxe5",
+          "d6",
+          "Nf3",
+          "Nxe4",
+          "d4",
+          "d5",
+          "Bd3",
+          "Nc6",
+          "O-O",
+          "Be7",
+          "Re1",
+          "O-O",
+          "c4"
+        ],
+        "eco": "C42",
+        "difficulty": "Beginner",
+        "explanation": "Classical symmetrical response 2...Nf6, countering White's initiative with immediate central equality and sharp tactical lines.",
+        "keyThemes": [
+          "Nxe4 principfast",
+          "Solid stilling"
+        ],
+        "folderId": "folder-petroff-berlin",
+        "folderName": "Petroff & Berlin Defense",
+        "color": "b",
+        "icon": "🗼"
+      },
+      {
+        "id": "petroff-deep-steinitz",
+        "name": "Petroff Steinitz (28 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nf6",
+          "d4",
+          "exd4",
+          "e5",
+          "Ne4",
+          "Qxd4",
+          "d5",
+          "exd6",
+          "Nxd6",
+          "Nc3",
+          "Nc6",
+          "Qf4",
+          "g6",
+          "Be3",
+          "Bg7",
+          "O-O-O",
+          "O-O",
+          "Bc5",
+          "Be6",
+          "Ne4",
+          "Re8",
+          "Nxd6",
+          "cxd6",
+          "Bxd6",
+          "Qb6"
+        ],
+        "eco": "C43",
+        "difficulty": "Advanced",
+        "explanation": "Steinitz central advance with d4-e5, answered by ...Ne4 and ...f5 counterplay.",
+        "keyThemes": [
+          "e5 fremmarch",
+          "f5 & Ne4 modangreb"
+        ],
+        "folderId": "folder-petroff-berlin",
+        "folderName": "Petroff & Berlin Defense",
+        "color": "b",
+        "icon": "🗼"
+      },
+      {
+        "id": "berlin-main",
+        "name": "Berlin Defense Classical (22 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "Nf6",
+          "O-O",
+          "Nxe4",
+          "d4",
+          "Nd6",
+          "Bxc6",
+          "dxc6",
+          "dxe5",
+          "Nf5",
+          "Qxd8+",
+          "Kxd8",
+          "Nc3",
+          "Ke8",
+          "h3",
+          "Be7",
+          "b3",
+          "h6",
+          "Bb2"
+        ],
+        "eco": "C65",
+        "difficulty": "Advanced",
+        "explanation": "The famous Berlin endgame where Black relies on the bishop pair and a resilient king position.",
+        "keyThemes": [
+          "Dronningebytte",
+          "LStrategic Play"
+        ],
+        "folderId": "folder-petroff-berlin",
+        "folderName": "Petroff & Berlin Defense",
+        "color": "b",
+        "icon": "🗼"
+      },
+      {
+        "id": "berlin-anti",
+        "name": "Anti-Berlin 4.d3 (24 moves)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "Bb5",
+          "Nf6",
+          "d3",
+          "Bc5",
+          "Bxc6",
+          "dxc6",
+          "Nbd2",
+          "O-O",
+          "O-O",
+          "Re8",
+          "Nc4",
+          "Nd7",
+          "Nce3",
+          "Nf8",
+          "Nd5",
+          "f6",
+          "Ne3",
+          "Ne6",
+          "Nc4",
+          "Nd4"
+        ],
+        "eco": "C65",
+        "difficulty": "Advanced",
+        "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
+        "keyThemes": [
+          "d3 undgStrategic Play",
+          "Nd5 stStrategic Play"
+        ],
+        "folderId": "folder-petroff-berlin",
+        "folderName": "Petroff & Berlin Defense",
+        "color": "b",
+        "icon": "🗼"
+      },
+      {
+        "id": "open-petroff-stafford-gambit-3-nc6-",
+        "folderId": "folder-petroff-berlin",
+        "name": "Petroff: Stafford Gambit (3...Nc6!?)",
+        "eco": "C42",
+        "color": "b",
+        "explanation": "Eric Rosen's signature weapon: a venomous pawn sacrifice that lures White into devastating mating nets.",
+        "keyThemes": [
+          "Stafford Gambit",
+          "Venomous traps",
+          "Fastt matangreb"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nf6",
+          "Nxe5",
+          "Nc6",
+          "Nxc6",
+          "dxc6",
+          "d3",
+          "Bc5",
+          "Be2",
+          "h5",
+          "c3",
+          "Ng4",
+          "d4",
+          "Qh4",
+          "g3",
+          "Qf6",
+          "Bf3",
+          "Bb6"
+        ]
+      },
+      {
+        "id": "open-petroff-cochrane-gambit-4-nxf7-",
+        "folderId": "folder-petroff-berlin",
+        "name": "Petroff: Cochrane Gambit (4.Nxf7!)",
+        "eco": "C42",
+        "color": "w",
+        "explanation": "Classical symmetrical response 2...Nf6, countering White's initiative with immediate central equality and sharp tactical lines.",
+        "keyThemes": [
+          "Cochrane Gambit",
+          "Exposed king",
+          "Aggressive initiative"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nf6",
+          "Nxe5",
+          "d6",
+          "Nxf7",
+          "Kxf7",
+          "d4",
+          "c5",
+          "Nc3",
+          "cxd4",
+          "Qxd4",
+          "Be6",
+          "Bf4",
+          "Nc6",
+          "Qd2",
+          "Be7",
+          "O-O-O"
+        ]
+      },
+      {
+        "id": "open-philidor-forsvar-hanham-hovedvariant",
+        "folderId": "folder-petroff-berlin",
+        "name": "Philidor Defense: Hanham Main Line",
+        "eco": "C41",
+        "color": "b",
+        "explanation": "Solid defensive fortress with 2...d6, creating a durable central structure that repels early aggression.",
+        "keyThemes": [
+          "Hanham",
+          "Solid fortress",
+          "Counterattack i centrum"
+        ],
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "d6",
+          "d4",
+          "Nd7",
+          "Bc4",
+          "c6",
+          "O-O",
+          "Be7",
+          "a4",
+          "Ngf6",
+          "Re1",
+          "O-O",
+          "Nc3",
+          "b6",
+          "Ba2",
+          "a6",
+          "h3",
+          "Bb7"
+        ]
+      }
+    ]
   },
   {
     "id": "folder-dutch",
@@ -154,14 +7417,202 @@ const OPENING_FOLDERS = [
     "color": "b",
     "icon": "🇳🇱",
     "eco": "A80-A99",
-    "description": "Stonewall Mainline, Leningrad System, Classical Dutch, and Staunton Gambit."
+    "description": "Stonewall Mainline, Leningrad System, Classical Dutch, and Staunton Gambit.",
+    "lines": [
+      {
+        "id": "dutch-stonewall",
+        "name": "Dutch Defense Stonewall (18 moves)",
+        "moves": [
+          "d4",
+          "f5",
+          "g3",
+          "Nf6",
+          "Bg2",
+          "e6",
+          "c4",
+          "d5",
+          "Nf3",
+          "c6",
+          "O-O",
+          "Be7",
+          "b3",
+          "O-O",
+          "Bb2",
+          "Ne4",
+          "Nc3",
+          "Nd7"
+        ],
+        "eco": "A90",
+        "difficulty": "Intermediate",
+        "explanation": "d5-e6-f5-c6 stonewall with Ne4 center-forpost.",
+        "keyThemes": [
+          "Stonewall struktur",
+          "Ne4 outpost"
+        ],
+        "folderId": "folder-dutch",
+        "folderName": "Dutch Defense Defense",
+        "color": "b",
+        "icon": "🌷"
+      },
+      {
+        "id": "dutch-leningrad",
+        "name": "Leningrad Dutch Defense (24 moves)",
+        "moves": [
+          "d4",
+          "f5",
+          "g3",
+          "Nf6",
+          "Bg2",
+          "g6",
+          "Nf3",
+          "Bg7",
+          "O-O",
+          "O-O",
+          "c4",
+          "d6",
+          "Nc3",
+          "Qe8",
+          "b3",
+          "a5",
+          "Ba3",
+          "Nc6",
+          "d5",
+          "Ne5",
+          "Nxe5",
+          "dxe5",
+          "Qd3"
+        ],
+        "eco": "A81",
+        "difficulty": "Advanced",
+        "explanation": "g6 and Bg7 fianchetto supporting a Qe8-h5-h4 kingside attack plan.",
+        "keyThemes": [
+          "g6-Bg7 fianchetto",
+          "Qe8 and h5 Attack"
+        ],
+        "folderId": "folder-dutch",
+        "folderName": "Dutch Defense Defense",
+        "color": "b",
+        "icon": "🌷"
+      },
+      {
+        "id": "dutch-classical",
+        "name": "Classical Dutch Defense (20 moves)",
+        "moves": [
+          "d4",
+          "e6",
+          "c4",
+          "f5",
+          "g3",
+          "Nf6",
+          "Bg2",
+          "Be7",
+          "Nf3",
+          "O-O",
+          "O-O",
+          "Ne4",
+          "Nc3",
+          "d6",
+          "Nxe4",
+          "fxe4",
+          "Nd2",
+          "d5",
+          "f3",
+          "exf3",
+          "Nxf3",
+          "c6",
+          "Bf4",
+          "Nd7"
+        ],
+        "eco": "A96",
+        "difficulty": "Advanced",
+        "explanation": "Aggressive flank response with 1...f5, seizing control of the e4 square and launching active kingside counterplay.",
+        "keyThemes": [
+          "Ne4 centrumspioner",
+          "fxe4 centrum"
+        ],
+        "folderId": "folder-dutch",
+        "folderName": "Dutch Defense Defense",
+        "color": "b",
+        "icon": "🌷"
+      },
+      {
+        "id": "open-hollandsk-stonewall-hovedvariant",
+        "folderId": "folder-dutch",
+        "name": "Dutch Defense: Stonewall Main Line",
+        "eco": "A95",
+        "color": "b",
+        "explanation": "Aggressive flank response with 1...f5, seizing control of the e4 square and launching active kingside counterplay.",
+        "keyThemes": [
+          "Stonewall",
+          "Central fortress",
+          "Ne4 outpost"
+        ],
+        "moves": [
+          "d4",
+          "f5",
+          "g3",
+          "Nf6",
+          "Bg2",
+          "e6",
+          "Nf3",
+          "d5",
+          "O-O",
+          "Bd6",
+          "c4",
+          "c6",
+          "b3",
+          "Qe7",
+          "Bb2",
+          "O-O",
+          "Nbd2",
+          "b6",
+          "Ne5",
+          "Bb7"
+        ]
+      },
+      {
+        "id": "open-hollandsk-leningrad-hovedvariant",
+        "folderId": "folder-dutch",
+        "name": "Dutch Defense: Leningrad Main Line",
+        "eco": "A88",
+        "color": "b",
+        "explanation": "Kombinerer hollandsk dynamik with kongeindisk fianchetto af g7-bishopen for maksimal counterattackskraft.",
+        "keyThemes": [
+          "Leningrad",
+          "Fianchetto",
+          "Kingside counterattack"
+        ],
+        "moves": [
+          "d4",
+          "f5",
+          "g3",
+          "Nf6",
+          "Bg2",
+          "g6",
+          "Nf3",
+          "Bg7",
+          "O-O",
+          "O-O",
+          "c4",
+          "d6",
+          "Nc3",
+          "Qe8",
+          "d5",
+          "a5",
+          "Nd4",
+          "Na6",
+          "e4",
+          "fxe4"
+        ]
+      }
+    ]
   }
 ];
 
 const OPENINGS_DATA = [
   {
     "id": "london-main",
-    "name": "Hovedvariant mod 1...d5 (Klassisk)",
+    "name": "Main Line vs 1...d5 (Classical)",
     "moves": [
       "d4",
       "d5",
@@ -180,11 +7631,11 @@ const OPENINGS_DATA = [
       "Bd3"
     ],
     "eco": "D02",
-    "difficulty": "Begynder",
-    "explanation": "Klassisk London med c3-e3 pyramide, løberen stærkt på g3 og solid kontrol over e5-feltet.",
+    "difficulty": "Beginner",
+    "explanation": "Tournament opening line (d4 d5 Bf4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Panserpyramide i centrum",
-      "Stærk løber på f4/g3",
+      "StStrategic Play",
       "Ne5 forpost"
     ],
     "folderId": "folder-london",
@@ -194,7 +7645,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-deep-master",
-    "name": "Dybdegående Hovedlinje (20 træk)",
+    "name": "Deep Main Line (20 moves)",
     "moves": [
       "d4",
       "d5",
@@ -218,11 +7669,11 @@ const OPENINGS_DATA = [
       "Ne7"
     ],
     "eco": "D02",
-    "difficulty": "Avanceret",
-    "explanation": "Dyb stormesteropstilling: Efter Sort spiller ...b6 og ...Bb7, etablerer Hvid den frygtede Ne5-blokade forstærket med f4 og forbereder et dødbringende kongesideangreb.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (d4 d5 Bf4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Ne5 jernforpost",
-      "f4 Pillsbury-angreb",
+      "f4 Pillsbury Attack",
       "Bb7 neutralisering"
     ],
     "folderId": "folder-london",
@@ -232,7 +7683,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-kid",
-    "name": "Mod Kongeindisk (g6)",
+    "name": "vs King's Indian Defense (g6)",
     "moves": [
       "d4",
       "Nf6",
@@ -249,12 +7700,12 @@ const OPENINGS_DATA = [
       "c3"
     ],
     "eco": "A48",
-    "difficulty": "Let øvet",
-    "explanation": "Sort fianchetterer. Hvid spiller h3 for at redde løberen mod ...Nh5 og bevarer central stabilitet.",
+    "difficulty": "Intermediate",
+    "explanation": "Black fianchetterer. White plays h3 to redde bishopen vs ...Nh5 & bevarer central stabilitet.",
     "keyThemes": [
-      "h3 bevarer løberen",
+      "h3 bevarer lStrategic Play",
       "Solid kontrol",
-      "Afvisning af sorts e5"
+      "Preventing Black's e5 break"
     ],
     "folderId": "folder-london",
     "folderName": "London System",
@@ -281,12 +7732,12 @@ const OPENINGS_DATA = [
       "h6"
     ],
     "eco": "D00",
-    "difficulty": "Let øvet",
-    "explanation": "Skarp udgave! Hvid spiller 2.Nc3 og starter en tidlig g4-h4 storm mod Sorts løber på g6.",
+    "difficulty": "Intermediate",
+    "explanation": "Solid Queen Pawn system emphasizing harmonious piece development, solid pawn structures, and active piece play.",
     "keyThemes": [
       "g4-h4 bondestorm",
-      "Fanger sorts hvidfeltede løber",
-      "Hurtig Nb5 trussel"
+      "Traps Black's light-squared bishop",
+      "Fast Nb5 trussel"
     ],
     "folderId": "folder-london",
     "folderName": "London System",
@@ -295,7 +7746,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-rapport-jobava",
-    "name": "Rapport-Jobava Dronningefælde (15 træk)",
+    "name": "Rapport-Jobava Queen Trap (15 moves)",
     "moves": [
       "d4",
       "d5",
@@ -314,12 +7765,12 @@ const OPENINGS_DATA = [
       "c3"
     ],
     "eco": "D00",
-    "difficulty": "Avanceret",
-    "explanation": "Hvis Sort angriber b2 med ...Qb6, svarer Hvid med det eksplosive Nc3! Truslen Nb5 med gaffel på c7 er dødelig.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (d4 d5 Bf4 c5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Nc3 og Nb5 modangreb",
+      "Nc3 & Nb5 modangreb",
       "c7 gaffeltrussel",
-      "Modspil mod tidlig ...Qb6"
+      "Modspil vs tidlig ...Qb6"
     ],
     "folderId": "folder-london",
     "folderName": "London System",
@@ -328,7 +7779,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-c5",
-    "name": "Mod Steinitz Modangreb (2...c5)",
+    "name": "vs Steinitz Counterattack (2...c5)",
     "moves": [
       "d4",
       "d5",
@@ -345,12 +7796,12 @@ const OPENINGS_DATA = [
       "Qc2"
     ],
     "eco": "D02",
-    "difficulty": "Let øvet",
-    "explanation": "Sort angriber b2 med tidlig ...Qb6. Hvid neutraliserer med Qb3 og Qc2 og holder centrum låst.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (d4 d5 Bf4 c5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Neutraliserer Qb6 pres",
-      "c3 støtter centrum",
-      "e4 gennembrud forberedes"
+      "c3 stStrategic Play",
+      "e4 breakthrough forberedes"
     ],
     "folderId": "folder-london",
     "folderName": "London System",
@@ -359,7 +7810,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-barry",
-    "name": "Barry Attack / Klassisk Setup (17 træk)",
+    "name": "Barry Attack / Classical Setup (17 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -380,10 +7831,10 @@ const OPENINGS_DATA = [
       "Qb3"
     ],
     "eco": "D02",
-    "difficulty": "Let øvet",
-    "explanation": "Harmonisk opstilling mod Grünfeld/KID strukturer med rolig og stensikker stilling.",
+    "difficulty": "Intermediate",
+    "explanation": "Harmonisk opstilling vs Grünfeld Defense/KID strukturer with rolig & stensikker stilling.",
     "keyThemes": [
-      "Ro og kontrol",
+      "Ro & kontrol",
       "Qb3 modbytte",
       "Sund stilling"
     ],
@@ -394,7 +7845,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-deep-vs-e6",
-    "name": "London Dyblinje mod e6 (28 træk)",
+    "name": "London Deep Line vs e6 (28 moves)",
     "moves": [
       "d4",
       "d5",
@@ -430,10 +7881,10 @@ const OPENINGS_DATA = [
       "h6"
     ],
     "eco": "D02",
-    "difficulty": "Avanceret",
-    "explanation": "Qf3, O-O og g4 kongesideangreb mod e6-opstilling.",
+    "difficulty": "Advanced",
+    "explanation": "Qf3, O-O, and g4 kingside attack against the e6 setup.",
     "keyThemes": [
-      "Qf3 angreb",
+      "Qf3 Attack",
       "g4 kongesidestorm"
     ],
     "folderId": "folder-london",
@@ -443,13 +7894,13 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-classical-e6",
-    "name": "Klassisk Hovedvariant (...e6 & ...Bd6)",
+    "name": "Classical Main Line (...e6 & ...Bd6)",
     "eco": "D02",
-    "difficulty": "Begynder",
-    "explanation": "Den klassiske London-opstilling med e3, c3, Nbd2, Bd3 og Bg3 mod ...e6 og ...Bd6.",
+    "difficulty": "Beginner",
+    "explanation": "Den klassiske London-opstilling with e3, c3, Nbd2, Bd3 & Bg3 vs ...e6 & ...Bd6.",
     "keyThemes": [
       "c3-e3 pyramide",
-      "Løber på g3",
+      "LStrategic Play",
       "Harmonisk udvikling"
     ],
     "moves": [
@@ -476,13 +7927,13 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-vs-early-c5",
-    "name": "Mod Tidlig ...c5 (...c5 & ...Nc6)",
+    "name": "vs Early ...c5 (...c5 & ...Nc6)",
     "eco": "D02",
-    "difficulty": "Let øvet",
-    "explanation": "Sort angriber straks centrum med ...c5. Hvid stabiliserer med c3, Nbd2 og Ngf3.",
+    "difficulty": "Intermediate",
+    "explanation": "Black angriber straks center with ...c5. White stabiliserer with c3, Nbd2 & Ngf3.",
     "keyThemes": [
       "Central stabilitet",
-      "c3 forstærkning",
+      "c3 forstStrategic Play",
       "Afviser tidligt pres"
     ],
     "moves": [
@@ -509,14 +7960,14 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-qb6-c4",
-    "name": "Mod ...Qb6 og ...c4 Taktisk Linje",
+    "name": "vs ...Qb6 & ...c4 Taktisk Linje",
     "eco": "D02",
-    "difficulty": "Let øvet",
-    "explanation": "Sorts dronning angriber b2 med ...Qb6. Hvid modsvarer med Qb3, og efter ...c4 trækker dronningen til c2.",
+    "difficulty": "Intermediate",
+    "explanation": "Blacks queen angriber b2 with ...Qb6. White modsvarer with Qb3, & efter ...c4 movesker queenen til c2.",
     "keyThemes": [
-      "Qb3 modspil",
-      "Qc2 manøvre",
-      "Unyttigt sort fløjangreb"
+      "Qb3 counterplay",
+      "Qc2 manStrategic Play",
+      "Harmless Black flank attack"
     ],
     "moves": [
       "d4",
@@ -540,14 +7991,14 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-vs-bf5",
-    "name": "Mod ...Bf5 (Symmetrisk Løberudvikling)",
+    "name": "vs ...Bf5 (Symmetric Bishop Development)",
     "eco": "D02",
-    "difficulty": "Let øvet",
-    "explanation": "Sort udvikler løberen uden for bondekæden på f5. Hvid bytter af med Bd3 eller spiller mod centrum.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (d4 d5 Bf4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Løberafbytning på d3",
+      "Bishop trade pStrategic Play",
       "Symmetrisk balance",
-      "Hurtig dronningeaktivitet"
+      "Fast dronningeaktivitet"
     ],
     "moves": [
       "d4",
@@ -572,13 +8023,13 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-vs-slav-c6",
-    "name": "Mod Slavisk Opstilling (...c6 & ...Bf5)",
+    "name": "vs Slav Defense Opstilling (...c6 & ...Bf5)",
     "eco": "D02",
     "difficulty": "Middel",
-    "explanation": "Sort spiller solidt med ...c6 og ...Bf5. Hvid angriber med det aktive c4 i stedet for c3!",
+    "explanation": "Black plays solidt with ...c6 & ...Bf5. White angriber with det aktive c4 instead of c3!",
     "keyThemes": [
-      "Aktivt c4 fremstød",
-      "Pres på d5",
+      "Aktivt c4 fremstStrategic Play",
+      "Pres pStrategic Play",
       "Kampbetonet London"
     ],
     "moves": [
@@ -604,14 +8055,14 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-vs-kid-be2",
-    "name": "Mod Kongeindisk med Be2",
+    "name": "vs King's Indian Defense with Be2",
     "eco": "A48",
-    "difficulty": "Let øvet",
-    "explanation": "Mod ...g6 placeres løberen på e2 fremfor d3, så sort ikke kan vinde tempo med et fremtidigt ...e5.",
+    "difficulty": "Intermediate",
+    "explanation": "Deep dynamic battleground where Black builds an elastic pawn structure before unleashing a fierce kingside pawn storm.",
     "keyThemes": [
       "Be2 fleksibilitet",
-      "h3 løberredning",
-      "Forhindrer tempo med e5"
+      "h3 lStrategic Play",
+      "Forhindrer tempo with e5"
     ],
     "moves": [
       "d4",
@@ -635,12 +8086,12 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-vs-grunfeld-c3",
-    "name": "Mod Grünfeld Opstilling (...g6 & ...d5)",
+    "name": "vs Grünfeld Defense Defense Opstilling (...g6 & ...d5)",
     "eco": "D02",
-    "difficulty": "Let øvet",
-    "explanation": "Grünfeld-agtig struktur med ...g6 og ...d5, hvor Hvid opbygger en stenhård c3-mur mod sorts Bg7.",
+    "difficulty": "Intermediate",
+    "explanation": "Hypermodern masterpiece allowing White a massive pawn center, which Black systematically attacks with ...c5 and ...Bg7.",
     "keyThemes": [
-      "c3 dæmmer op for Bg7",
+      "c3 dStrategic Play",
       "Central kontrol",
       "Rolig fordel"
     ],
@@ -668,13 +8119,13 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-vs-benoni-d5",
-    "name": "Mod Benoni Fremstød (3.d5 Aktiv Plads)",
+    "name": "vs Benoni Advance (3.d5 Aktiv Plads)",
     "eco": "A43",
-    "difficulty": "Avanceret",
-    "explanation": "Når sort spiller et tidligt ...c5 mod 2.Bf4, vinder Hvid plads med 3.d5 i stedet for det passive e3.",
+    "difficulty": "Advanced",
+    "explanation": "Asymmetric counterattacking system generating active queenside play, open files, and energetic piece activity.",
     "keyThemes": [
       "3.d5 pladsvinding",
-      "Kvæler sorts springerudvikling",
+      "Cramps Black's knight development",
       "Dynamisk centrum"
     ],
     "moves": [
@@ -699,14 +8150,14 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-jobava-classical",
-    "name": "Jobava-London Hurtig Angreb (2.Nc3 d5 3.Bf4)",
+    "name": "Jobava-London Fast Attack (2.Nc3 d5 3.Bf4)",
     "eco": "D00",
-    "difficulty": "Skarp",
-    "explanation": "Springeren på c3 i stedet for d2 åbner for aggressive planer med Nb5, e4 og g4.",
+    "difficulty": "Sharp",
+    "explanation": "Solid Queen Pawn system emphasizing harmonious piece development, solid pawn structures, and active piece play.",
     "keyThemes": [
-      "Springeren på c3",
+      "Springeren pStrategic Play",
       "Nb5 trussel",
-      "Aggressivt fløjangreb"
+      "Aggressivt flStrategic Play"
     ],
     "moves": [
       "d4",
@@ -730,11 +8181,11 @@ const OPENINGS_DATA = [
     "id": "london-jobava-rapport-d5",
     "name": "Jobava-Rapport 1.d4 d5 2.Nc3 Nf6 3.Bf4",
     "eco": "D00",
-    "difficulty": "Skarp",
-    "explanation": "Rapports favorit: Hurtig c3-springer, tidlig e4 eller Nb5 med direkte trusler.",
+    "difficulty": "Sharp",
+    "explanation": "Rapports favorit: Fast c3-knight, tidlig e4 eller Nb5 with direkte trusler.",
     "keyThemes": [
       "Jobava-Rapport system",
-      "Hurtig e4 gennembrud",
+      "Fast e4 breakthrough",
       "Konkrete trusler"
     ],
     "moves": [
@@ -761,10 +8212,10 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-early-c4-hybrid",
-    "name": "London Hybrid med Tidlig c4",
+    "name": "London Hybrid with Early c4",
     "eco": "D02",
-    "difficulty": "Avanceret",
-    "explanation": "Kombination af London-løberen og det klassiske Dronninggambit c4-pres.",
+    "difficulty": "Advanced",
+    "explanation": "Solid Queen Pawn system emphasizing harmonious piece development, solid pawn structures, and active piece play.",
     "keyThemes": [
       "Dobbelt centralt pres",
       "Hybrid strategi",
@@ -795,14 +8246,14 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-vs-dutch",
-    "name": "Mod Hollandsk Forsvar (1...f5 2.Bf4)",
+    "name": "vs Dutch Defense Defense (1...f5 2.Bf4)",
     "eco": "A82",
     "difficulty": "Middel",
-    "explanation": "Hvid møder 1...f5 med 2.Bf4 for at kontrollere den svækkede e5-diagonal.",
+    "explanation": "Aggressive flank response with 1...f5, seizing control of the e4 square and launching active kingside counterplay.",
     "keyThemes": [
       "Kontrol over e5",
-      "Hæmmer sorts kongefløj",
-      "Aktiv løberpost"
+      "Restricts Black's kingside",
+      "Active bishoppost"
     ],
     "moves": [
       "d4",
@@ -827,13 +8278,13 @@ const OPENINGS_DATA = [
   },
   {
     "id": "london-vs-c6-bf5-c4",
-    "name": "Mod ...c6 og ...Bf5 med Aktivt c4",
+    "name": "vs ...c6 & ...Bf5 with Aktivt c4",
     "eco": "D02",
-    "difficulty": "Avanceret",
-    "explanation": "Sort spiller ...c6 og ...Bf5. Hvid udnytter den manglende d-bonde dækning med et hurtigt c4 og Qb3.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (d4 d5 Bf4 c6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "c4 sprængning",
-      "Pres mod b7 og d5",
+      "c4 sprStrategic Play",
+      "Pres vs b7 & d5",
       "Aktiv stilling"
     ],
     "moves": [
@@ -879,21 +8330,21 @@ const OPENINGS_DATA = [
       "Nc3"
     ],
     "eco": "C57",
-    "difficulty": "Begynder",
-    "explanation": "Det ultimative kongeside-offer! Hvid ofrer springeren på f7 og tvinger Sorts konge ud på åbent bræt.",
+    "difficulty": "Beginner",
+    "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
     "keyThemes": [
       "Nxf7 kongejagt",
-      "Tredobbelt angreb på d5",
-      "Sorts konge er fanget i midten"
+      "Triple Attack Pressure",
+      "Black's king is stranded in the center"
     ],
     "folderId": "folder-italian",
-    "folderName": "Italiensk & Skarp Taktik",
+    "folderName": "Italiensk & Sharp Taktik",
     "color": "w",
     "icon": "⚔️"
   },
   {
     "id": "italian-traxler",
-    "name": "Mod Traxler Modangreb (16 træk)",
+    "name": "vs Traxler Counterattack (16 moves)",
     "moves": [
       "e4",
       "e5",
@@ -913,15 +8364,15 @@ const OPENINGS_DATA = [
       "Qe8"
     ],
     "eco": "C57",
-    "difficulty": "Avanceret",
-    "explanation": "Når Sort svarer på 4.Ng5 med det vilde 4...Bc5! Hvid spiller det kontrollerede 5.Bxf7+! Ke7 6.Bd5 og holder fordelen.",
+    "difficulty": "Advanced",
+    "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
     "keyThemes": [
       "Bxf7+ tvinger Ke7",
       "Bd5 bevarer officeren",
       "Neutraliserer sorts modangreb"
     ],
     "folderId": "folder-italian",
-    "folderName": "Italiensk & Skarp Taktik",
+    "folderName": "Italiensk & Sharp Taktik",
     "color": "w",
     "icon": "⚔️"
   },
@@ -944,21 +8395,21 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "eco": "C51",
-    "difficulty": "Let øvet",
-    "explanation": "Hvid ofrer b-bonden for at erobre centrum med c3 og d4 og skabe voldsomt udviklingstempo.",
+    "difficulty": "Intermediate",
+    "explanation": "White sacrifices b-pawnn to erobre center with c3 & d4 & skabe voldsomt developmentstempo.",
     "keyThemes": [
       "b4 bondeoffer for tempo",
-      "Hurtig d4 og Ba3",
-      "Massivt pres mod f7"
+      "Fast d4 & Ba3",
+      "Massivt pres vs f7"
     ],
     "folderId": "folder-italian",
-    "folderName": "Italiensk & Skarp Taktik",
+    "folderName": "Italiensk & Sharp Taktik",
     "color": "w",
     "icon": "⚔️"
   },
   {
     "id": "italian-deep-pianissimo",
-    "name": "Dybdegående Giuoco Pianissimo (18 træk)",
+    "name": "Deep Giuoco Pianissimo (18 moves)",
     "moves": [
       "e4",
       "e5",
@@ -982,21 +8433,21 @@ const OPENINGS_DATA = [
       "Re8"
     ],
     "eco": "C50",
-    "difficulty": "Avanceret",
-    "explanation": "Carlsens yndlingslinje: Harmoniske profylaktiske træk med a6, Bb3, Ba7, Nbd2 og Re1 med langsigtede manøvrer.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Ba7 og Bb3 bevarer løberne",
-      "Nbd2-f1-g3 manøvre",
-      "Re1 støtter e4"
+      "Ba7 & Bb3 bevarer lStrategic Play",
+      "Nbd2-f1-g3 manStrategic Play",
+      "Re1 stStrategic Play"
     ],
     "folderId": "folder-italian",
-    "folderName": "Italiensk & Skarp Taktik",
+    "folderName": "Italiensk & Sharp Taktik",
     "color": "w",
     "icon": "⚔️"
   },
   {
     "id": "italian-max-lange",
-    "name": "Max Lange / Skotsk Angreb (18 træk)",
+    "name": "Max Lange / Skotsk Attack (18 moves)",
     "moves": [
       "e4",
       "e5",
@@ -1018,15 +8469,15 @@ const OPENINGS_DATA = [
       "Bc5"
     ],
     "eco": "C55",
-    "difficulty": "Avanceret",
-    "explanation": "Hvid sprænger centrum med 4.d4 og 5.e5! Skarp og taktisk linje der overrumpler modstanderen.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "d4 og e5 central fremmarch",
+      "d4 & e5 central fremmarch",
       "Bb5 binding",
-      "Dynamisk spil"
+      "Dynamic Play"
     ],
     "folderId": "folder-italian",
-    "folderName": "Italiensk & Skarp Taktik",
+    "folderName": "Italiensk & Sharp Taktik",
     "color": "w",
     "icon": "⚔️"
   },
@@ -1051,21 +8502,21 @@ const OPENINGS_DATA = [
       "Bb3"
     ],
     "eco": "C55",
-    "difficulty": "Let øvet",
-    "explanation": "Mod Sorts 3...Nf6. Hvid vælger den solide 4.d3 vej med Re1 og forberedelse til d4.",
+    "difficulty": "Intermediate",
+    "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
     "keyThemes": [
-      "Re1 støtter e4",
+      "Re1 stStrategic Play",
       "Harmonisk opstilling",
       "Sikker konge"
     ],
     "folderId": "folder-italian",
-    "folderName": "Italiensk & Skarp Taktik",
+    "folderName": "Italiensk & Sharp Taktik",
     "color": "w",
     "icon": "⚔️"
   },
   {
     "id": "italian-deep-main-line",
-    "name": "Italiensk 5.d3 Stormester (32 træk)",
+    "name": "Italiensk 5.d3 Grandmaster (32 moves)",
     "moves": [
       "e4",
       "e5",
@@ -1102,20 +8553,20 @@ const OPENINGS_DATA = [
       "cxd4"
     ],
     "eco": "C53",
-    "difficulty": "Avanceret",
-    "explanation": "a4 bondestorm og d4 gennembrud efter lang manøvrering.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "a4 bondestorm",
-      "d4 gennembrud"
+      "d4 breakthrough"
     ],
     "folderId": "folder-italian",
-    "folderName": "Italiensk & Skarp Taktik",
+    "folderName": "Italiensk & Sharp Taktik",
     "color": "w",
     "icon": "⚔️"
   },
   {
     "id": "ruy-lopez-closed",
-    "name": "Morphy Lukket Hovedvariant (17 træk)",
+    "name": "Morphy Closed Main Line (17 moves)",
     "moves": [
       "e4",
       "e5",
@@ -1136,21 +8587,21 @@ const OPENINGS_DATA = [
       "h3"
     ],
     "eco": "C84",
-    "difficulty": "Let øvet",
-    "explanation": "Klassisk spansk opstilling: c3 forbereder d4, h3 forhindrer Bg4, og Nbd2-f1-g3 truer kongesiden.",
+    "difficulty": "Intermediate",
+    "explanation": "Classical Ruy Lopez setup: c3 prepares d4 while h3 prevents annoying pins on the knight.",
     "keyThemes": [
-      "Pres mod c6 og e5",
-      "Re1 og Nbd2-f1-g3 manøvre",
-      "d4 gennembrud"
+      "Pressure on c6 and e5",
+      "Re1 and Nbd2-f1-g3 maneuvers",
+      "d4 breakthrough"
     ],
     "folderId": "folder-ruy-lopez",
-    "folderName": "Ruy Lopez / Spansk",
+    "folderName": "Ruy Lopez",
     "color": "w",
     "icon": "🏰"
   },
   {
     "id": "ruy-lopez-deep-breyer",
-    "name": "Dybdegående Breyer System (22 træk)",
+    "name": "Deep Breyer System (22 moves)",
     "moves": [
       "e4",
       "e5",
@@ -1176,21 +8627,21 @@ const OPENINGS_DATA = [
       "Bb7"
     ],
     "eco": "C95",
-    "difficulty": "Avanceret",
-    "explanation": "9...Nb8 Breyer manøvren frigør c-bonden og styrker e5, mens Hvid opbygger maksimalt centralt tryk med d4 og Nbd2.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "9...Nb8 Breyer manøvre",
-      "Nbd2 forstærker centrum",
-      "Bb7 lægger pres på e4"
+      "9...Nb8 Breyer manStrategic Play",
+      "Nbd2 forstStrategic Play",
+      "Bb7 lStrategic Play"
     ],
     "folderId": "folder-ruy-lopez",
-    "folderName": "Ruy Lopez / Spansk",
+    "folderName": "Ruy Lopez",
     "color": "w",
     "icon": "🏰"
   },
   {
     "id": "ruy-lopez-marshall",
-    "name": "Mod Marshall Angrebet (24 træk)",
+    "name": "vs Marshall Attack (24 moves)",
     "moves": [
       "e4",
       "e5",
@@ -1222,21 +8673,21 @@ const OPENINGS_DATA = [
       "Qh3"
     ],
     "eco": "C89",
-    "difficulty": "Avanceret",
-    "explanation": "Det mest berømte modangreb i skak! Sort ofrer en bonde med 8...d5! Hvid modstår angrebet med præcist forsvar: Re1 og g3.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "8...d5 Marshall bondeoffer",
-      "Re1 defensivt træk",
+      "Re1 defensivt trStrategic Play",
       "g3 stopper mattrusler"
     ],
     "folderId": "folder-ruy-lopez",
-    "folderName": "Ruy Lopez / Spansk",
+    "folderName": "Ruy Lopez",
     "color": "w",
     "icon": "🏰"
   },
   {
     "id": "ruy-lopez-archangel",
-    "name": "Archangel / Arkhangelsk (18 træk)",
+    "name": "Archangel / Arkhangelsk (18 moves)",
     "moves": [
       "e4",
       "e5",
@@ -1258,21 +8709,21 @@ const OPENINGS_DATA = [
       "Bb6"
     ],
     "eco": "C78",
-    "difficulty": "Let øvet",
-    "explanation": "Sort udvikler løberen direkte til b7 og c5. Hvid slår igen i midten med c3 og d4.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Bb7 og Bc5 aggressiv opstilling",
-      "c3 og d4 modstød",
-      "Åbent officersspil"
+      "Bb7 & Bc5 aggressiv opstilling",
+      "c3 & d4 modstStrategic Play",
+      "Strategic Play"
     ],
     "folderId": "folder-ruy-lopez",
-    "folderName": "Ruy Lopez / Spansk",
+    "folderName": "Ruy Lopez",
     "color": "w",
     "icon": "🏰"
   },
   {
     "id": "ruy-lopez-schliemann",
-    "name": "Schliemann / Jaenisch Gambit (16 træk)",
+    "name": "Schliemann / Jaenisch Gambit (16 moves)",
     "moves": [
       "e4",
       "e5",
@@ -1292,21 +8743,21 @@ const OPENINGS_DATA = [
       "Nf6"
     ],
     "eco": "C63",
-    "difficulty": "Avanceret",
-    "explanation": "Sort spiller det skarpe 3...f5! Hvid svarer principfast med 4.Nc3 og vinder materiale efter 7.Nxc6.",
+    "difficulty": "Advanced",
+    "explanation": "Black plays det skarpe 3...f5! White svarer principfast with 4.Nc3 & vinwhich materiale efter 7.Nxc6.",
     "keyThemes": [
-      "3...f5 modstød",
-      "Nxc6 afdækket angreb",
-      "Qe2 dækker løberen"
+      "3...f5 modstStrategic Play",
+      "Nxc6 afdStrategic Play",
+      "Qe2 dStrategic Play"
     ],
     "folderId": "folder-ruy-lopez",
-    "folderName": "Ruy Lopez / Spansk",
+    "folderName": "Ruy Lopez",
     "color": "w",
     "icon": "🏰"
   },
   {
     "id": "ruy-lopez-exchange",
-    "name": "Afbytningsvarianten (4.Bxc6)",
+    "name": "Exchange Variation (4.Bxc6)",
     "moves": [
       "e4",
       "e5",
@@ -1325,21 +8776,21 @@ const OPENINGS_DATA = [
       "Nb3"
     ],
     "eco": "C68",
-    "difficulty": "Let øvet",
-    "explanation": "Hvid bytter løberen for at ødelægge Sorts bondestruktur og udnytte sin sunde 4 mod 3 kongefløjsmajoritet i slutspillet.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Dobbeltbonde mod Sort",
-      "Sund 4 mod 3 kongefløjsmajoritet",
+      "Doubled Pawns vs Black",
+      "Sund 4 vs 3 kongeflStrategic Play",
       "Slutspilsfordel"
     ],
     "folderId": "folder-ruy-lopez",
-    "folderName": "Ruy Lopez / Spansk",
+    "folderName": "Ruy Lopez",
     "color": "w",
     "icon": "🏰"
   },
   {
     "id": "ruy-lopez-zaitsev",
-    "name": "Zaitsev System (30 træk)",
+    "name": "Zaitsev System (30 moves)",
     "moves": [
       "e4",
       "e5",
@@ -1375,20 +8826,20 @@ const OPENINGS_DATA = [
       "Nd7"
     ],
     "eco": "C92",
-    "difficulty": "Avanceret",
-    "explanation": "Kasparov yndlingslinje: Bb7-Re8 og c5 centrum modangreb.",
+    "difficulty": "Advanced",
+    "explanation": "Kasparov's favorite setup: Bb7, Re8, and c5 central counterattack.",
     "keyThemes": [
-      "Bb7 og Re8",
+      "Bb7 & Re8",
       "c5 modangreb"
     ],
     "folderId": "folder-ruy-lopez",
-    "folderName": "Ruy Lopez / Spansk",
+    "folderName": "Ruy Lopez",
     "color": "w",
     "icon": "🏰"
   },
   {
     "id": "qgd-classical",
-    "name": "QGD Klassisk (Afvist)",
+    "name": "QGD Classical (Declined)",
     "moves": [
       "d4",
       "d5",
@@ -1406,12 +8857,12 @@ const OPENINGS_DATA = [
       "b6"
     ],
     "eco": "D37",
-    "difficulty": "Let øvet",
-    "explanation": "Klassisk Dronninggambit. Hvid binder springeren med Bg5 og opbygger et solidt centrum med e3 og Rc1.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (d4 d5 c4 e6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Bg5 binding på Nf6",
-      "Tårne til c1 og d1",
-      "Minoritetsangreb på damefløjen"
+      "Bg5 binding pStrategic Play",
+      "TStrategic Play",
+      "Minoritetsangreb pStrategic Play"
     ],
     "folderId": "folder-queens-gambit",
     "folderName": "Dronninggambit",
@@ -1420,7 +8871,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "qgd-deep-tartakower",
-    "name": "Dybdegående Tartakower (20 træk)",
+    "name": "Deep Tartakower (20 moves)",
     "moves": [
       "d4",
       "d5",
@@ -1446,12 +8897,12 @@ const OPENINGS_DATA = [
       "Be6"
     ],
     "eco": "D58",
-    "difficulty": "Avanceret",
-    "explanation": "Tartakower-varianten: Sort løser sin hvidfeltede løber med ...b6 og ...Be6, mens Hvid etablerer pres ned ad c-linjen med Rc1.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (d4 d5 c4 e6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "cxd5 og Nxd5 afbytning",
+      "cxd5 & Nxd5 afbytning",
       "Rc1 c-linje pres",
-      "Sorts sunde d5-støttepunkt"
+      "Sorts sunde d5-stStrategic Play"
     ],
     "folderId": "folder-queens-gambit",
     "folderName": "Dronninggambit",
@@ -1460,7 +8911,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "qgd-cambridge-springs",
-    "name": "Cambridge Springs Forsvar (18 træk)",
+    "name": "Cambridge Springs Defense (18 moves)",
     "moves": [
       "d4",
       "d5",
@@ -1482,12 +8933,12 @@ const OPENINGS_DATA = [
       "e5"
     ],
     "eco": "D52",
-    "difficulty": "Avanceret",
-    "explanation": "Sort lancerer en farlig binding med 6...Qa5 og ...Bb4! Hvid parerer med Nd2 og Qc2 for at bevare kontrollen.",
+    "difficulty": "Advanced",
+    "explanation": "Black lancerer en farlig binding with 6...Qa5 & ...Bb4! White parerer with Nd2 & Qc2 to bevare kontrollen.",
     "keyThemes": [
-      "Qa5 binding på c3",
+      "Qa5 binding pStrategic Play",
       "Nd2 neutraliserer trusler",
-      "Modangreb i centrum"
+      "Counterattack i centrum"
     ],
     "folderId": "folder-queens-gambit",
     "folderName": "Dronninggambit",
@@ -1496,7 +8947,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "qgd-lasker",
-    "name": "Lasker Forsvar (18 træk)",
+    "name": "Lasker Defense (18 moves)",
     "moves": [
       "d4",
       "d5",
@@ -1520,12 +8971,12 @@ const OPENINGS_DATA = [
       "exd5"
     ],
     "eco": "D56",
-    "difficulty": "Let øvet",
-    "explanation": "Verdensmester Emanuel Laskers solide system: afbytning af to officerer med ...Ne4 letter Sorts forsvar.",
+    "difficulty": "Intermediate",
+    "explanation": "World Champion Emanuel Lasker's solid system: exchanging pieces to relieve central pressure.",
     "keyThemes": [
       "...Ne4 afbytning",
       "Aflaster sorts stilling",
-      "Roligt slutspil"
+      "Roligt endgame"
     ],
     "folderId": "folder-queens-gambit",
     "folderName": "Dronninggambit",
@@ -1534,7 +8985,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "qgd-albin-counter",
-    "name": "Albin Modgambit (16 træk)",
+    "name": "Albin Countergambit (16 moves)",
     "moves": [
       "d4",
       "d5",
@@ -1554,12 +9005,12 @@ const OPENINGS_DATA = [
       "O-O-O"
     ],
     "eco": "D08",
-    "difficulty": "Let øvet",
-    "explanation": "Sort ofrer bonden på e5 med 2...e5! Hvid modstår modangrebet med præcist a3 og Nbd2 udvikling.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (d4 d5 c4 e5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "2...e5 modgambit",
       "a3 forhindrer Bb4+",
-      "Bondeovervægt for Hvid"
+      "BondeovervStrategic Play"
     ],
     "folderId": "folder-queens-gambit",
     "folderName": "Dronninggambit",
@@ -1585,12 +9036,12 @@ const OPENINGS_DATA = [
       "Qe2"
     ],
     "eco": "D27",
-    "difficulty": "Let øvet",
-    "explanation": "Sort tager bonden på c4. Hvid genvinder den med Bxc4 og bygger et mægtigt centrum op.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (d4 d5 c4 dxc4) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Bxc4 genvinder bonden",
-      "Hurtig rokeret",
-      "Rd1 lægger pres på d-linjen"
+      "Fast rokeret",
+      "Rd1 lStrategic Play"
     ],
     "folderId": "folder-queens-gambit",
     "folderName": "Dronninggambit",
@@ -1599,7 +9050,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "qgd-semi-slav-deep",
-    "name": "Anti-Meran Skarp (32 træk)",
+    "name": "Anti-Meran Sharp (32 moves)",
     "moves": [
       "d4",
       "d5",
@@ -1637,8 +9088,8 @@ const OPENINGS_DATA = [
       "Rhd8"
     ],
     "eco": "D47",
-    "difficulty": "Avanceret",
-    "explanation": "e5 gennembrud med Nxb5 offer og Qxg2+ taktik.",
+    "difficulty": "Advanced",
+    "explanation": "e5 gennembrud with Nxb5 sacrifice & Qxg2+ taktik.",
     "keyThemes": [
       "e5 gennembrud",
       "Nxb5 offer"
@@ -1650,7 +9101,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "vienna-gambit",
-    "name": "Wienergambit (3.f4!)",
+    "name": "Vienna Gambit (3.f4!)",
     "moves": [
       "e4",
       "e5",
@@ -1667,21 +9118,21 @@ const OPENINGS_DATA = [
       "dxc3"
     ],
     "eco": "C29",
-    "difficulty": "Let øvet",
-    "explanation": "En forbedret Kongegambit. Hvid åbner f-linjen og bruger Qf3 til at skabe massivt centralt tryk.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (e4 e5 Nc3 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "f4 åbner f-linjen for tårnet",
+      "f4 Strategic Play",
       "Qf3 centralt pres",
-      "Hurtig angreb på e5 og d5"
+      "Fast Attack Pressure"
     ],
     "folderId": "folder-vienna",
-    "folderName": "Wienerspil & Gambit",
+    "folderName": "Vienna Game & Gambit",
     "color": "w",
     "icon": "⚡"
   },
   {
     "id": "vienna-quiet",
-    "name": "Wienerspil Rolig (3.Bc4)",
+    "name": "Vienna Game Rolig (3.Bc4)",
     "moves": [
       "e4",
       "e5",
@@ -1700,15 +9151,15 @@ const OPENINGS_DATA = [
       "Qxf3"
     ],
     "eco": "C26",
-    "difficulty": "Begynder",
-    "explanation": "Hvid udvikler Bc4 først og forbereder derefter f4 under mere kontrollerede forhold.",
+    "difficulty": "Beginner",
+    "explanation": "Classical, flexible opening with 2.Nc3 preparing f4 or d4, avoiding symmetry while maintaining tactical punch.",
     "keyThemes": [
-      "Bc4 diagonalsigte mod f7",
-      "f4 åbning",
-      "Løberpar fordel"
+      "Bc4 diagonalsigte vs f7",
+      "f4 Strategic Play",
+      "Bishop pair advantage"
     ],
     "folderId": "folder-vienna",
-    "folderName": "Wienerspil & Gambit",
+    "folderName": "Vienna Game & Gambit",
     "color": "w",
     "icon": "⚡"
   },
@@ -1733,21 +9184,21 @@ const OPENINGS_DATA = [
       "Bxf4"
     ],
     "eco": "C39",
-    "difficulty": "Let øvet",
-    "explanation": "Det vildeste offer på træk 2! Hvid ofrer f-bonden og angriber Sorts kongefløj med Ne5 og Bxf4.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (e4 e5 f4 exf4) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Ne5 forpost",
       "Bxf4 genvinder materiale",
-      "Total kongefløjsangreb"
+      "Total kongeflStrategic Play"
     ],
     "folderId": "folder-vienna",
-    "folderName": "Wienerspil & Gambit",
+    "folderName": "Vienna Game & Gambit",
     "color": "w",
     "icon": "⚡"
   },
   {
     "id": "english-reverse-sicilian",
-    "name": "Omvendt Siciliansk (1...e5)",
+    "name": "Omvendt Sicilian (1...e5)",
     "moves": [
       "c4",
       "e5",
@@ -1765,21 +9216,21 @@ const OPENINGS_DATA = [
       "Be7"
     ],
     "eco": "A20",
-    "difficulty": "Let øvet",
-    "explanation": "Hvid spiller Siciliansk med et ekstra træk i hånden! Bg2 fianchettoen lægger enormt tryk ned ad diagonalen.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (c4 e5 Nc3 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Bg2 tryk på b7",
-      "Centrumskontrol",
-      "Ekstra tempo i forhold til Siciliansk"
+      "Bg2 tryk pStrategic Play",
+      "Center control",
+      "Ekstra tempo i forhold til Sicilian"
     ],
     "folderId": "folder-english",
-    "folderName": "Engelsk Åbning",
+    "folderName": "English Opening",
     "color": "w",
     "icon": "🎯"
   },
   {
     "id": "english-symmetrical",
-    "name": "Symmetrisk Engelsk (1...c5)",
+    "name": "Symmetric English (1...c5)",
     "moves": [
       "c4",
       "c5",
@@ -1798,15 +9249,15 @@ const OPENINGS_DATA = [
       "Nxd4"
     ],
     "eco": "A30",
-    "difficulty": "Let øvet",
-    "explanation": "Sort spejler Hvids træk. Hvid slår igennem med d4 og opnår overlegen officerskoordination.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (c4 c5 Nc3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "d4 centralt brud",
-      "Løberfianchetto kamp",
+      "LStrategic Play",
       "Harmonisk officersplacering"
     ],
     "folderId": "folder-english",
-    "folderName": "Engelsk Åbning",
+    "folderName": "English Opening",
     "color": "w",
     "icon": "🎯"
   },
@@ -1831,21 +9282,21 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "eco": "A26",
-    "difficulty": "Avanceret",
-    "explanation": "Botvinniks yndlingsopstilling: c4, e4 og g3 låser feltet d5 fuldstændigt mod Sort.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (c4 e5 Nc3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "d5 jernkontrol",
-      "e4 og c4 klemmer",
+      "e4 & c4 klemmer",
       "f4 gennembrud forberedes"
     ],
     "folderId": "folder-english",
-    "folderName": "Engelsk Åbning",
+    "folderName": "English Opening",
     "color": "w",
     "icon": "🎯"
   },
   {
     "id": "sicilian-najdorf",
-    "name": "Najdorf Hovedvariant (18 træk)",
+    "name": "Najdorf Main Line (18 moves)",
     "moves": [
       "e4",
       "c5",
@@ -1867,21 +9318,21 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "eco": "B90",
-    "difficulty": "Let øvet",
-    "explanation": "Kasparov og Fischers yndlingsvåben: a6 kontrollerer b5, e5 erobrer centrum, og Sort rokerer i sikkerhed.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (e4 c5 Nf3 d6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "a6 kontrollerer b5",
-      "e5 centralt modstød",
-      "c-linje pres mod Hvids konge"
+      "e5 centralt modstStrategic Play",
+      "c-linje pres vs Hvids konge"
     ],
     "folderId": "folder-sicilian",
-    "folderName": "Siciliansk Forsvar",
+    "folderName": "Sicilian Defense",
     "color": "b",
     "icon": "🐉"
   },
   {
     "id": "sicilian-deep-english-attack",
-    "name": "Dybdegående English Attack (28 træk)",
+    "name": "Deep English Attack (28 moves)",
     "moves": [
       "e4",
       "c5",
@@ -1913,21 +9364,21 @@ const OPENINGS_DATA = [
       "a5"
     ],
     "eco": "B90",
-    "difficulty": "Avanceret",
-    "explanation": "Hvid kaster en g4-g5 bondestorm mod kongen, mens Sort modangriber med b5-b4 og a5 på damefløjen.",
+    "difficulty": "Advanced",
+    "explanation": "Sophisticated flank opening starting with 1.c4. White controls the d5 square from the flank, leading to rich strategic battles.",
     "keyThemes": [
       "Modsat rokeret skarphed",
-      "b4 jager springeren væk",
-      "a5-a4 storm mod Hvids konge"
+      "b4 jager springeren vStrategic Play",
+      "a5-a4 storm vs Hvids konge"
     ],
     "folderId": "folder-sicilian",
-    "folderName": "Siciliansk Forsvar",
+    "folderName": "Sicilian Defense",
     "color": "b",
     "icon": "🐉"
   },
   {
     "id": "sicilian-sveshnikov",
-    "name": "Sveshnikov Hovedvariant (22 træk)",
+    "name": "Sveshnikov Main Line (22 moves)",
     "moves": [
       "e4",
       "c5",
@@ -1953,21 +9404,21 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "eco": "B33",
-    "difficulty": "Avanceret",
-    "explanation": "Magnus Carlsens VM-våben mod Caruana: Sort accepterer en svaghed på d5 til gengæld for enorm dynamisk aktivitet og løberparret.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 c5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "e5 aggressivt centerstød",
+      "e5 aggressivt centerstStrategic Play",
       "b5 jager springeren til a3",
-      "Løberpar dynamik"
+      "LStrategic Play"
     ],
     "folderId": "folder-sicilian",
-    "folderName": "Siciliansk Forsvar",
+    "folderName": "Sicilian Defense",
     "color": "b",
     "icon": "🐉"
   },
   {
     "id": "sicilian-dragon-yugoslav",
-    "name": "Dragen Yugoslav Attack (22 træk)",
+    "name": "Dragon Yugoslav Attack (22 moves)",
     "moves": [
       "e4",
       "c5",
@@ -1995,21 +9446,21 @@ const OPENINGS_DATA = [
       "h5"
     ],
     "eco": "B78",
-    "difficulty": "Avanceret",
-    "explanation": "Det ultimative angreb mod Dragen: Sort blokerer med ...h5 og bruger tårnet på c-linjen til at ofre kvalitet på c3!",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 c5 Nf3 d6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "h4-h5 forsvarsblokade",
-      "Rc8 og c-linje pres",
-      "Tårnofre på c3"
+      "Rc8 & c-linje pres",
+      "TStrategic Play"
     ],
     "folderId": "folder-sicilian",
-    "folderName": "Siciliansk Forsvar",
+    "folderName": "Sicilian Defense",
     "color": "b",
     "icon": "🐉"
   },
   {
     "id": "sicilian-taimanov",
-    "name": "Taimanov Fleksibel (18 træk)",
+    "name": "Taimanov Fleksibel (18 moves)",
     "moves": [
       "e4",
       "c5",
@@ -2031,15 +9482,15 @@ const OPENINGS_DATA = [
       "Be7"
     ],
     "eco": "B46",
-    "difficulty": "Let øvet",
-    "explanation": "En af de mest harmoniske Siciliansk-varianter. Sort holder centrum intakt med e6 og generer Hvids e4-bonde med ...Bb4.",
+    "difficulty": "Intermediate",
+    "explanation": "One of the most harmonious Sicilian variations. Black maintains high flexibility and central safety.",
     "keyThemes": [
-      "Qc7 og a6 harmoni",
-      "Bb4 pres mod e4",
+      "Qc7 & a6 harmoni",
+      "Bb4 pres vs e4",
       "Solid opstilling"
     ],
     "folderId": "folder-sicilian",
-    "folderName": "Siciliansk Forsvar",
+    "folderName": "Sicilian Defense",
     "color": "b",
     "icon": "🐉"
   },
@@ -2063,21 +9514,21 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "eco": "B22",
-    "difficulty": "Let øvet",
-    "explanation": "Mod 2.c3 slår Sort straks i centrum med 2...d5 og overtager initiativet uden modstand.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (e4 c5 c3 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "2...d5 udnytter c3",
       "Dronningen centraliseres sikkert",
       "Harmonisk udvikling"
     ],
     "folderId": "folder-sicilian",
-    "folderName": "Siciliansk Forsvar",
+    "folderName": "Sicilian Defense",
     "color": "b",
     "icon": "🐉"
   },
   {
     "id": "scheveningen-classical",
-    "name": "Scheveningen Klassisk (24 træk)",
+    "name": "Scheveningen Classical (24 moves)",
     "moves": [
       "e4",
       "c5",
@@ -2105,20 +9556,20 @@ const OPENINGS_DATA = [
       "b5"
     ],
     "eco": "B84",
-    "difficulty": "Avanceret",
-    "explanation": "e6 solid centrum med a6-b5 damefløjsangreb.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 c5 Nf3 d6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "e6 solid",
-      "a6-b5 damefløj"
+      "a6-b5 dameflStrategic Play"
     ],
     "folderId": "folder-sicilian",
-    "folderName": "Siciliansk Forsvar",
+    "folderName": "Sicilian Defense",
     "color": "b",
     "icon": "🐉"
   },
   {
     "id": "sicilian-kan",
-    "name": "Siciliansk Kan (4...a6)",
+    "name": "Sicilian Kan (4...a6)",
     "moves": [
       "e4",
       "c5",
@@ -2140,20 +9591,20 @@ const OPENINGS_DATA = [
       "b5"
     ],
     "eco": "B41",
-    "difficulty": "Let øvet",
-    "explanation": "a6 bevarer fleksibilitet mod alle Hvid-svar.",
+    "difficulty": "Intermediate",
+    "explanation": "a6 bevarer fleksibilitet vs alle White-svar.",
     "keyThemes": [
       "a6 fleksibilitet",
       "b5 ekspansion"
     ],
     "folderId": "folder-sicilian",
-    "folderName": "Siciliansk Forsvar",
+    "folderName": "Sicilian Defense",
     "color": "b",
     "icon": "🐉"
   },
   {
     "id": "grand-prix-defense",
-    "name": "Mod Grand Prix Angreb (18 træk)",
+    "name": "vs Grand Prix Attack (18 moves)",
     "moves": [
       "e4",
       "c5",
@@ -2175,20 +9626,20 @@ const OPENINGS_DATA = [
       "Nf6"
     ],
     "eco": "B23",
-    "difficulty": "Let øvet",
-    "explanation": "g6-Bg7 og Nd4 neutraliserer Grand Prix f4 presset.",
+    "difficulty": "Intermediate",
+    "explanation": "g6-Bg7 & Nd4 neutraliserer Grand Prix f4 presset.",
     "keyThemes": [
       "g6-Bg7 forsvar",
       "Nd4 neutralisering"
     ],
     "folderId": "folder-sicilian",
-    "folderName": "Siciliansk Forsvar",
+    "folderName": "Sicilian Defense",
     "color": "b",
     "icon": "🐉"
   },
   {
     "id": "caro-advance",
-    "name": "Advance Variation (14 træk)",
+    "name": "Advance Variation (14 moves)",
     "moves": [
       "e4",
       "c6",
@@ -2206,21 +9657,21 @@ const OPENINGS_DATA = [
       "Nc6"
     ],
     "eco": "B12",
-    "difficulty": "Let øvet",
-    "explanation": "Sort får løberen ud på f5 FØR e6 spilles, og modangriber derefter Hvids d4-bonde med c5.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Bf5 befrier den hvidfeltede løber",
-      "c5 modstød mod Hvids d4",
-      "Qb6 pres mod b2"
+      "Bf5 befrier den hvidfeltede lStrategic Play",
+      "c5 modstStrategic Play",
+      "Qb6 pres vs b2"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-deep-advance-main",
-    "name": "Dybdegående Advance Hovedlinje (22 træk)",
+    "name": "Deep Advance Main Line (22 moves)",
     "moves": [
       "e4",
       "c6",
@@ -2246,21 +9697,21 @@ const OPENINGS_DATA = [
       "Bb4"
     ],
     "eco": "B12",
-    "difficulty": "Avanceret",
-    "explanation": "Sort tager b2-bonden og afbytter på d4, hvorefter ...Bb4 binder Hvids springer på c3!",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Qxb2 forgiftet bonde",
-      "cxd4 modstød",
-      "Bb4 binding på c3"
+      "cxd4 modstStrategic Play",
+      "Bb4 binding pStrategic Play"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-panov",
-    "name": "Panov-Botvinnik Angreb (18 træk)",
+    "name": "Panov-Botvinnik Attack (18 moves)",
     "moves": [
       "e4",
       "c6",
@@ -2282,21 +9733,21 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "eco": "B14",
-    "difficulty": "Avanceret",
-    "explanation": "Hvid spiller det aggressive c4 mod Sorts d5. Sort isolerer Hvids d-bonde og blokerer med Nf6 og Nxd5.",
+    "difficulty": "Advanced",
+    "explanation": "White plays the aggressive c4 against Black's d5, leading to sharp isolated queen's pawn positions.",
     "keyThemes": [
       "Isoleret dronningebonde (IQD)",
       "Bb4 binding",
-      "Blokade på d5"
+      "Blokade pStrategic Play"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-two-knights",
-    "name": "Two Knights Variation (16 træk)",
+    "name": "Two Knights Variation (16 moves)",
     "moves": [
       "e4",
       "c6",
@@ -2316,21 +9767,21 @@ const OPENINGS_DATA = [
       "Be7"
     ],
     "eco": "B11",
-    "difficulty": "Let øvet",
-    "explanation": "En afvisende og solid variant: Sort bytter løberen af for springeren og opbygger et usårligt forsvar.",
+    "difficulty": "Intermediate",
+    "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
     "keyThemes": [
       "Bg4 binding",
       "Solid e6/c6 struktur",
       "Afvisning af komplikationer"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-classical",
-    "name": "Klassisk (4...Bf5 Capablanca)",
+    "name": "Classical (4...Bf5 Capablanca)",
     "moves": [
       "e4",
       "c6",
@@ -2350,21 +9801,21 @@ const OPENINGS_DATA = [
       "Bh7"
     ],
     "eco": "B18",
-    "difficulty": "Let øvet",
-    "explanation": "Sort afbytter på e4 og placerer løberen trygt på g6/h7. Næsten umuligt for Hvid at skabe svagheder.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "h6 giver flugtfelt til løberen",
+      "h6 giver flugtfelt til lStrategic Play",
       "Solid bondestruktur",
-      "Sort har ingen svagheder"
+      "Black Has No Weaknesses"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-fantasy-variation",
-    "name": "Fantasy Varianten 3.f3 (20 træk)",
+    "name": "Fantasy Variation 3.f3 (20 moves)",
     "moves": [
       "e4",
       "c6",
@@ -2387,27 +9838,27 @@ const OPENINGS_DATA = [
       "h4"
     ],
     "eco": "B12",
-    "difficulty": "Avanceret",
-    "explanation": "3.f3 Fantasy Varianten! Sort spiller g6-Bg7 og Qb6 angreb.",
+    "difficulty": "Advanced",
+    "explanation": "3.f3 Fantasy Variation! Black plays g6-Bg7 & Qb6 attack.",
     "keyThemes": [
       "3.f3 Fantasy",
       "g6-Bg7 forsvar"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-classical-capablanca",
-    "name": "Klassisk Hovedvariant (Capablanca / B18-B19)",
+    "name": "Classical Main Line (Capablanca / B18-B19)",
     "eco": "B18",
     "difficulty": "Middel",
-    "explanation": "Capablancas urokkelige favorit. Sort bytter på e4 og placerer løberen aktivt på g6 inden e6 spilles.",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Løber aktiv på g6",
+      "LStrategic Play",
       "Sund bondestruktur",
-      "Kongefløjsstabilitet"
+      "KongeflStrategic Play"
     ],
     "moves": [
       "e4",
@@ -2436,19 +9887,19 @@ const OPENINGS_DATA = [
       "Be7"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-karpov-smyslov",
-    "name": "Karpov / Moderne Variant (4...Nd7 / B17)",
+    "name": "Karpov / Modern Variation (4...Nd7 / B17)",
     "eco": "B17",
     "difficulty": "Middel",
-    "explanation": "Karpovs yndlingssystem. Sort forbereder 5...Ngf6 uden at tillade ødelagt bondestruktur.",
+    "explanation": "Hypermodern defense allowing White to occupy the center, followed by dynamic counter-strikes with ...c5 or ...e5.",
     "keyThemes": [
       "4...Nd7 forberedelse",
-      "Afbytte på f6 uden dobbeltbonde",
+      "Afbytte pStrategic Play",
       "Positionel kontrol"
     ],
     "moves": [
@@ -2474,19 +9925,19 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-advance-short",
-    "name": "Fremstødsvarianten - Short System (3.e5 Bf5 / B12)",
+    "name": "Advance Variation - Short System (3.e5 Bf5 / B12)",
     "eco": "B12",
-    "difficulty": "Avanceret",
-    "explanation": "Hvids mest populære svar i moderne tid. Sort udvikler løberen til f5 og modangriber med ...c5.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Løber uden for kæden",
-      "Modangreb mod d4",
+      "LStrategic Play",
+      "Counterattack vs d4",
       "C5 underminering"
     ],
     "moves": [
@@ -2510,19 +9961,19 @@ const OPENINGS_DATA = [
       "cxd4"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-advance-bayonet-shirov",
-    "name": "Fremstødsvarianten - Shirov / Bayonet Angreb (4.g4)",
+    "name": "Advance Variation - Shirov / Bayonet Attack (4.g4)",
     "eco": "B12",
-    "difficulty": "Skarp",
-    "explanation": "Hvid kaster kongefløjsbønderne frem for at fange Sorts løber. Kræver præcis forsvar med ...h5 og ...fxe6.",
+    "difficulty": "Sharp",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "4.g4 agressivt fremstød",
-      "e6 offer og modspil",
+      "4.g4 agressivt fremstStrategic Play",
+      "e6 offer & modspil",
       "Dynamisk modangreb"
     ],
     "moves": [
@@ -2546,20 +9997,20 @@ const OPENINGS_DATA = [
       "Kd8"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-advance-tal",
-    "name": "Fremstødsvarianten - Tal Angreb (4.h4 h5)",
+    "name": "Advance Variation - Tal Attack (4.h4 h5)",
     "eco": "B12",
-    "difficulty": "Skarp",
-    "explanation": "Tals idé med 4.h4. Sort svarer 4...h5 for at forhindre h5 og fortsætter med ...c5 eller ...e6.",
+    "difficulty": "Sharp",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "4...h5 stopper g4/h5",
-      "Centrum angribes med c5",
-      "Ne7 springer manøvre"
+      "Centrum angribes with c5",
+      "Ne7 springer manStrategic Play"
     ],
     "moves": [
       "e4",
@@ -2580,20 +10031,20 @@ const OPENINGS_DATA = [
       "Bg6"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-panov-botvinnik",
-    "name": "Panov-Botvinnik Angreb (4.c4 / B13-B14)",
+    "name": "Panov-Botvinnik Attack (4.c4 / B13-B14)",
     "eco": "B13",
-    "difficulty": "Avanceret",
-    "explanation": "Hvid ofrer en isoleret d-bonde for fri brikudvikling og hurtigt kongeangreb.",
+    "difficulty": "Advanced",
+    "explanation": "White accepts an isolated d-pawn in exchange for rapid piece activity and open central files.",
     "keyThemes": [
       "Isoleret dronningebonde (IQP)",
       "Aktivt brikspil",
-      "Sort blokerer d5"
+      "Black Blocks d5"
     ],
     "moves": [
       "e4",
@@ -2622,19 +10073,19 @@ const OPENINGS_DATA = [
       "Ke7"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-exchange",
-    "name": "Klassisk Afbytningsvariant (Exchange / B13)",
+    "name": "Classical Exchange Variation (Exchange / B13)",
     "eco": "B13",
-    "difficulty": "Begynder",
-    "explanation": "Hvid bytter på d5 og spiller Bd3. Sort opnår den klassiske minoritetsangrebs-struktur på dronningfløjen.",
+    "difficulty": "Beginner",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Minoritetsangreb med b5-b4",
-      "Halvåben c-linje",
+      "Minoritetsangreb with b5-b4",
+      "HalvStrategic Play",
       "Symmetrisk ro"
     ],
     "moves": [
@@ -2660,20 +10111,20 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-fantasy-tartakower",
-    "name": "Fantasy / Tartakower Variant (3.f3 / B12)",
+    "name": "Fantasy / Tartakower Variation (3.f3 / B12)",
     "eco": "B12",
-    "difficulty": "Skarp",
-    "explanation": "Hvid forstærker e4 med f3. Sort modangriber energisk med 3...dxe4 og 4...e5!",
+    "difficulty": "Sharp",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "4...e5 modstød",
-      "Kæmper om centrum",
-      "Åbner for sorts dronning"
+      "4...e5 modstStrategic Play",
+      "KStrategic Play",
+      "Strategic Play"
     ],
     "moves": [
       "e4",
@@ -2694,20 +10145,20 @@ const OPENINGS_DATA = [
       "Nf6"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-bronstein-larsen",
-    "name": "Bronstein-Larsen / Korchnoi Variant (5...gxf6 / B16)",
+    "name": "Bronstein-Larsen / Korchnoi Variation (5...gxf6 / B16)",
     "eco": "B16",
-    "difficulty": "Avanceret",
-    "explanation": "Sort accepterer en dobbeltbonde på f6 for at få den åbne g-linje og dynamisk modspil mod hvids konge.",
+    "difficulty": "Advanced",
+    "explanation": "Hypermodern opening starting with e4 c6 d4 d5. White fianchettos the dark-squared bishop to control the central e5 and d4 squares.",
     "keyThemes": [
-      "Åben g-linje",
+      "Strategic Play",
       "Dynamisk ubalance",
-      "Lang rokade for sort"
+      "Queenside Castling for Black"
     ],
     "moves": [
       "e4",
@@ -2732,7 +10183,7 @@ const OPENINGS_DATA = [
       "O-O-O"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
@@ -2741,11 +10192,11 @@ const OPENINGS_DATA = [
     "name": "Accelereret Panov (2.c4 d5 / B10)",
     "eco": "B10",
     "difficulty": "Middel",
-    "explanation": "Hvid udfordrer c6-opstillingen direkte på træk 2. Sort får sundt spil med ...d5 og ...Nf6.",
+    "explanation": "Tournament opening line (e4 c6 c4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Tidligt c4 træk",
-      "Hurtig d5 afbytning",
-      "Aktiv springer på d5"
+      "Earlyt c4 trStrategic Play",
+      "Fast d5 afbytning",
+      "Aktiv springer pStrategic Play"
     ],
     "moves": [
       "e4",
@@ -2766,7 +10217,7 @@ const OPENINGS_DATA = [
       "Be7"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
@@ -2775,10 +10226,10 @@ const OPENINGS_DATA = [
     "name": "Gurgenidze System (3...g6 / B15)",
     "eco": "B15",
     "difficulty": "Middel",
-    "explanation": "Sort fianchetterer løberen og planlægger modangreb på de hvide felter med ...h5 og ...Nh6.",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "g6 og h5 opstilling",
-      "Kongefløjsblokade",
+      "g6 & h5 opstilling",
+      "KongeflStrategic Play",
       "Hvidfeltet kontrol"
     ],
     "moves": [
@@ -2800,20 +10251,20 @@ const OPENINGS_DATA = [
       "Nf5"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-hillbilly",
-    "name": "Hillbilly Angreb (2.Bc4 d5 3.Bb3 / B10)",
+    "name": "Hillbilly Attack (2.Bc4 d5 3.Bb3 / B10)",
     "eco": "B10",
-    "difficulty": "Begynder",
-    "explanation": "Aggressivt hvidt gambittræk med tidlig løber. Sort vinder bonden og neutraliserer dronningeangrebet.",
+    "difficulty": "Beginner",
+    "explanation": "Tournament opening line (e4 c6 Bc4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Bondegevinst på e4",
+      "Bondegevinst pStrategic Play",
       "Afvisning af Qh5",
-      "Nem sort fordel"
+      "Clear Black Advantage"
     ],
     "moves": [
       "e4",
@@ -2834,20 +10285,20 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-steinitz-deep-blue",
-    "name": "Steinitz / Deep Blue Modtræk (4...Nd7 5.Ng5 / B17)",
+    "name": "Steinitz / Deep Blue Counter-move (4...Nd7 5.Ng5 / B17)",
     "eco": "B17",
-    "difficulty": "Skarp",
-    "explanation": "Kasparov mod Deep Blue linjen: Hvid springer frem med Ng5 for at lægge pres på e6.",
+    "difficulty": "Sharp",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "5.Ng5 aggressivt pres",
       "e6 ofre trusler",
-      "Sorts præcise forsvar"
+      "Sorts prStrategic Play"
     ],
     "moves": [
       "e4",
@@ -2874,19 +10325,19 @@ const OPENINGS_DATA = [
       "Kf8"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-tartakower-exf6",
-    "name": "Tartakower / Korchnoi Hovedlinje (5...exf6 / B15)",
+    "name": "Tartakower / Korchnoi Main Line (5...exf6 / B15)",
     "eco": "B15",
     "difficulty": "Middel",
-    "explanation": "Sort slår tilbage mod centrum med e-bonden. Giver lynhurtig udvikling og solidt centrum.",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "5...exf6 åbner for løberen",
-      "Hurtig rokade",
+      "5...exf6 Strategic Play",
+      "Fast rokade",
       "Solidt kongesideforsvar"
     ],
     "moves": [
@@ -2912,20 +10363,20 @@ const OPENINGS_DATA = [
       "Nd7"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "caro-advance-c5-hecht",
-    "name": "Fremstødsvarianten med 3...c5 (Hecht-Ree / B12)",
+    "name": "Advance Variation with 3...c5 (Hecht-Ree / B12)",
     "eco": "B12",
-    "difficulty": "Let øvet",
-    "explanation": "Sort springer løbertrækket over og angriber d4 øjeblikkeligt i ægte fransk stil.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (e4 c6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Tidligt c5 stød",
-      "Fransk-lignende struktur",
-      "Hurtig genvinding af c5"
+      "Earlyt c5 stStrategic Play",
+      "French-lignende struktur",
+      "Fast genvinding af c5"
     ],
     "moves": [
       "e4",
@@ -2946,13 +10397,13 @@ const OPENINGS_DATA = [
       "Bxc5"
     ],
     "folderId": "folder-caro-kann",
-    "folderName": "Caro-Kann Forsvar",
+    "folderName": "Caro-Kann Defense",
     "color": "b",
     "icon": "🛡️"
   },
   {
     "id": "french-winawer",
-    "name": "Winawer (14 træk)",
+    "name": "Winawer (14 moves)",
     "moves": [
       "e4",
       "e6",
@@ -2970,21 +10421,21 @@ const OPENINGS_DATA = [
       "Qc7"
     ],
     "eco": "C18",
-    "difficulty": "Avanceret",
-    "explanation": "Sort binder springeren på c3 og ødelægger Hvids bondestruktur med Bxc3+ for vild taktisk kamp.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 e6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Bxc3+ ødelægger bondestruktur",
-      "Qc7 modangreb på c3 og c2",
-      "Skarp taktisk kamp"
+      "Bxc3+ Strategic Play",
+      "Qc7 modangreb pStrategic Play",
+      "Sharp taktisk kamp"
     ],
     "folderId": "folder-french",
-    "folderName": "Fransk Forsvar",
+    "folderName": "French Defense",
     "color": "b",
     "icon": "🏰"
   },
   {
     "id": "french-deep-poisoned-pawn",
-    "name": "Dybdegående Poisoned Pawn (22 træk)",
+    "name": "Deep Poisoned Pawn (22 moves)",
     "moves": [
       "e4",
       "e6",
@@ -3010,21 +10461,21 @@ const OPENINGS_DATA = [
       "Bd7"
     ],
     "eco": "C18",
-    "difficulty": "Avanceret",
-    "explanation": "Hvid tager g7 og h7 bønderne, mens Sort åbner g-linjen, aktiverer tårnet og modangriber på c-linjen!",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 e6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Poisoned Pawn storm",
-      "Rg8 mod Hvids dronning",
-      "cxd4 og Nbc6 central invasion"
+      "Rg8 vs Hvids dronning",
+      "cxd4 & Nbc6 central invasion"
     ],
     "folderId": "folder-french",
-    "folderName": "Fransk Forsvar",
+    "folderName": "French Defense",
     "color": "b",
     "icon": "🏰"
   },
   {
     "id": "french-mccutcheon",
-    "name": "McCutcheon Variation (18 træk)",
+    "name": "McCutcheon Variation (18 moves)",
     "moves": [
       "e4",
       "e6",
@@ -3046,21 +10497,21 @@ const OPENINGS_DATA = [
       "Nxd2"
     ],
     "eco": "C12",
-    "difficulty": "Avanceret",
-    "explanation": "Sort besvarer 4.Bg5 med det aggressive 4...Bb4! Sort fjerner Hvids vigtige løber på d2 og bevarer god struktur.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 e6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "4...Bb4 modstød",
-      "Nxd2 fjerner hvid løber",
-      "g6 dækker kongen"
+      "4...Bb4 modstStrategic Play",
+      "Nxd2 Removes White Bishop",
+      "g6 dStrategic Play"
     ],
     "folderId": "folder-french",
-    "folderName": "Fransk Forsvar",
+    "folderName": "French Defense",
     "color": "b",
     "icon": "🏰"
   },
   {
     "id": "french-tarrasch-3nf6",
-    "name": "Tarrasch Lukket (18 træk)",
+    "name": "Tarrasch Closed (18 moves)",
     "moves": [
       "e4",
       "e6",
@@ -3082,21 +10533,21 @@ const OPENINGS_DATA = [
       "Nxf6"
     ],
     "eco": "C05",
-    "difficulty": "Let øvet",
-    "explanation": "Sort modangriber med ...c5 og ...f6 for at rive Hvids e5-bonde ned og åbne linjer for sine officerer.",
+    "difficulty": "Intermediate",
+    "explanation": "Active counter-defense where Black accepts an isolated queen's pawn in exchange for dynamic, unrestricted piece activity.",
     "keyThemes": [
       "...f6 bryder e5",
       "Nxf6 aktiv genplacering",
       "Centrumskamp"
     ],
     "folderId": "folder-french",
-    "folderName": "Fransk Forsvar",
+    "folderName": "French Defense",
     "color": "b",
     "icon": "🏰"
   },
   {
     "id": "french-advance",
-    "name": "Fremstøds (Advance 3...c5)",
+    "name": "Advances (Advance 3...c5)",
     "moves": [
       "e4",
       "e6",
@@ -3114,21 +10565,21 @@ const OPENINGS_DATA = [
       "Na5"
     ],
     "eco": "C02",
-    "difficulty": "Let øvet",
-    "explanation": "Sort modangriber bunden af Hvids bondekæde på d4 med c5, Nc6 og Qb6.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (e4 e6 d4 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "c4 låser damefløjen",
+      "c4 lStrategic Play",
       "Na5 kontrollerer b3-feltet",
-      "Massivt pres mod d4"
+      "Massivt pres vs d4"
     ],
     "folderId": "folder-french",
-    "folderName": "Fransk Forsvar",
+    "folderName": "French Defense",
     "color": "b",
     "icon": "🏰"
   },
   {
     "id": "french-exchange",
-    "name": "Fransk Afbytning (3.exd5)",
+    "name": "French Exchange (3.exd5)",
     "moves": [
       "e4",
       "e6",
@@ -3150,20 +10601,20 @@ const OPENINGS_DATA = [
       "Re8"
     ],
     "eco": "C01",
-    "difficulty": "Begynder",
-    "explanation": "Afbytningsvarianten giver symmetrisk stilling. Hvid mangler angrebsmuligheder.",
+    "difficulty": "Beginner",
+    "explanation": "Exchange Variation gives symmetrisk stilling. White lacks attacksmuligheder.",
     "keyThemes": [
       "Symmetrisk stilling",
-      "Rolig spil"
+      "Calm Play"
     ],
     "folderId": "folder-french",
-    "folderName": "Fransk Forsvar",
+    "folderName": "French Defense",
     "color": "b",
     "icon": "🏰"
   },
   {
     "id": "kid-mar-del-plata",
-    "name": "Mar del Plata Hovedvariant",
+    "name": "Mar del Plata Main Line",
     "moves": [
       "d4",
       "Nf6",
@@ -3185,21 +10636,21 @@ const OPENINGS_DATA = [
       "Nd7"
     ],
     "eco": "E97",
-    "difficulty": "Avanceret",
-    "explanation": "Den mest berømte kamp i skakhistorien: centrum låses, og Sort starter f5-f4 storm mod Hvids konge!",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "f5-f4 bondestorm mod Hvids konge",
-      "g5-g4 åbner linjer",
-      "Sort spiller på mat!"
+      "f5-f4 bondestorm vs Hvids konge",
+      "g5-g4 Strategic Play",
+      "Black Active Play"
     ],
     "folderId": "folder-kid",
-    "folderName": "Kongeindisk Forsvar (KID)",
+    "folderName": "King's Indian Defense Defense (KID)",
     "color": "b",
     "icon": "🔥"
   },
   {
     "id": "kid-deep-mar-del-plata",
-    "name": "Dybdegående Mar del Plata (24 træk)",
+    "name": "Deep Mar del Plata (24 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -3227,21 +10678,21 @@ const OPENINGS_DATA = [
       "g5"
     ],
     "eco": "E97",
-    "difficulty": "Avanceret",
-    "explanation": "Sort lukker løberen inde med ...f4 og starter den mægtige g5-g4 storm, mens Hvid forsøger at bryde igennem på damefløjen.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "...f4 lukker løberen",
-      "g5 og h5 bondestorm",
-      "Kongeangreb for Sort"
+      "...f4 lukker lStrategic Play",
+      "g5 & h5 bondestorm",
+      "Kingside Attack for Black"
     ],
     "folderId": "folder-kid",
-    "folderName": "Kongeindisk Forsvar (KID)",
+    "folderName": "King's Indian Defense Defense (KID)",
     "color": "b",
     "icon": "🔥"
   },
   {
     "id": "kid-four-pawns",
-    "name": "Mod Fire-Bonders Angrebet (18 træk)",
+    "name": "vs Four Pawns Attack (18 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -3265,21 +10716,21 @@ const OPENINGS_DATA = [
       "Re8"
     ],
     "eco": "E77",
-    "difficulty": "Avanceret",
-    "explanation": "Hvid skubber fire bønder frem! Sort sprænger centrum i stykker med ...c5 og ...e6 og lægger pres på e4 med Re8.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "...c5 og ...e6 sprænger centrum",
-      "Re8 pres mod e4",
-      "Hvid overekspanderer"
+      "...c5 & ...e6 sprStrategic Play",
+      "Re8 pres vs e4",
+      "White Overextends"
     ],
     "folderId": "folder-kid",
-    "folderName": "Kongeindisk Forsvar (KID)",
+    "folderName": "King's Indian Defense Defense (KID)",
     "color": "b",
     "icon": "🔥"
   },
   {
     "id": "kid-averbakh",
-    "name": "Mod Averbakh System (18 træk)",
+    "name": "vs Averbakh System (18 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -3303,21 +10754,21 @@ const OPENINGS_DATA = [
       "Re8"
     ],
     "eco": "E73",
-    "difficulty": "Let øvet",
-    "explanation": "Hvids tidlige Bg5 forstyrres med h6, c5 og e6, hvorefter Sort aktiverer tårnet på e-linjen.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "h6 jager løberen",
-      "Re8 mod Hvids konge",
+      "h6 jager lStrategic Play",
+      "Re8 vs Hvids konge",
       "Aktivt modspil"
     ],
     "folderId": "folder-kid",
-    "folderName": "Kongeindisk Forsvar (KID)",
+    "folderName": "King's Indian Defense Defense (KID)",
     "color": "b",
     "icon": "🔥"
   },
   {
     "id": "kid-samisch-deep",
-    "name": "Sämisch Dyblinje (30 træk)",
+    "name": "Sämisch Deep Line (30 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -3355,20 +10806,20 @@ const OPENINGS_DATA = [
       "b4"
     ],
     "eco": "E83",
-    "difficulty": "Avanceret",
-    "explanation": "Gensidigt angreb: Hvid damefløj, Sort kongesiden med h5-h4.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Gensidigt angreb",
+      "Mutual Flank Attack",
       "h5-h4 bondestorm"
     ],
     "folderId": "folder-kid",
-    "folderName": "Kongeindisk Forsvar (KID)",
+    "folderName": "King's Indian Defense Defense (KID)",
     "color": "b",
     "icon": "🔥"
   },
   {
     "id": "kid-petrosian",
-    "name": "Petrosian System (22 træk)",
+    "name": "Petrosian System (22 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -3396,14 +10847,14 @@ const OPENINGS_DATA = [
       "Nc5"
     ],
     "eco": "E92",
-    "difficulty": "Avanceret",
-    "explanation": "Petrosian lukker centrum med d5 og planerer Ne8-f6 omgruppering.",
+    "difficulty": "Advanced",
+    "explanation": "Petrosian lukker center with d5 & planerer Ne8-f6 omgruppering.",
     "keyThemes": [
-      "d5 centrumlåsning",
+      "d5 centrumlStrategic Play",
       "Ne8-f6 omgruppering"
     ],
     "folderId": "folder-kid",
-    "folderName": "Kongeindisk Forsvar (KID)",
+    "folderName": "King's Indian Defense Defense (KID)",
     "color": "b",
     "icon": "🔥"
   },
@@ -3427,21 +10878,21 @@ const OPENINGS_DATA = [
       "e6"
     ],
     "eco": "B01",
-    "difficulty": "Begynder",
-    "explanation": "Dronningen trækker sig til det sikre a5-felt, hvorefter Sort opbygger c6, Bf5 og e6 uden svagheder.",
+    "difficulty": "Beginner",
+    "explanation": "Tournament opening line (e4 d5 exd5 Qxd5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Ingen svagheder",
-      "Bf5 er aktiv uden for bondelænkene",
+      "Bf5 er aktiv uden for bondelStrategic Play",
       "c6 giver flugt for dronningen"
     ],
     "folderId": "folder-scandi",
-    "folderName": "Skandinavisk Forsvar",
+    "folderName": "Scandinavian Defense Defense",
     "color": "b",
     "icon": "❄️"
   },
   {
     "id": "scandi-portuguese",
-    "name": "Portugisisk Gambit (2...Nf6 3.d4 Bg4!?)",
+    "name": "Portuguese Gambit (2...Nf6 3.d4 Bg4!?)",
     "moves": [
       "e4",
       "d5",
@@ -3461,15 +10912,15 @@ const OPENINGS_DATA = [
       "e6"
     ],
     "eco": "B01",
-    "difficulty": "Avanceret",
-    "explanation": "Sort ofrer ikke tid på dronningen men spiller det aggressive 3...Bg4! Sort rokerer hurtigt langt og stormer centrum.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 d5 exd5 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Bg4 binding",
-      "O-O-O med d-linje pres",
+      "O-O-O with d-linje pres",
       "Aggressiv gambit"
     ],
     "folderId": "folder-scandi",
-    "folderName": "Skandinavisk Forsvar",
+    "folderName": "Scandinavian Defense Defense",
     "color": "b",
     "icon": "❄️"
   },
@@ -3495,21 +10946,21 @@ const OPENINGS_DATA = [
       "Be7"
     ],
     "eco": "B01",
-    "difficulty": "Let øvet",
-    "explanation": "Dronningen på d6 kontrollerer e5 og forhindrer nemme hvide løbertræk.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (e4 d5 exd5 Qxd5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Qd6 central kontrol",
       "Bf5 aktiv udvikling",
-      "Nem og sund stilling"
+      "Nem & sund stilling"
     ],
     "folderId": "folder-scandi",
-    "folderName": "Skandinavisk Forsvar",
+    "folderName": "Scandinavian Defense Defense",
     "color": "b",
     "icon": "❄️"
   },
   {
     "id": "grunfeld-exchange",
-    "name": "Afbytningsvarianten (8.Rb1)",
+    "name": "Exchange Variation (8.Rb1)",
     "moves": [
       "d4",
       "Nf6",
@@ -3530,21 +10981,21 @@ const OPENINGS_DATA = [
       "Be2"
     ],
     "eco": "D85",
-    "difficulty": "Avanceret",
-    "explanation": "Sort bytter på c3 og slår direkte mod Hvids c3-d4 centrum med c5 og løberen på g7.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Bg7 borer ned i c3",
-      "c5 modstød i centrum",
-      "Mægtigt dynamisk modangreb"
+      "c5 modstStrategic Play",
+      "MStrategic Play"
     ],
     "folderId": "folder-grunfeld",
-    "folderName": "Grünfeld Forsvar",
+    "folderName": "Grünfeld Defense Defense",
     "color": "b",
     "icon": "⚡"
   },
   {
     "id": "grunfeld-classical-bf4",
-    "name": "Klassisk 4.Bf4 (18 træk)",
+    "name": "Classical 4.Bf4 (18 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -3570,15 +11021,15 @@ const OPENINGS_DATA = [
       "Qa5"
     ],
     "eco": "D93",
-    "difficulty": "Avanceret",
-    "explanation": "Hvid forstærker med Bf4. Sort modangriber med Qa5 og dxc4 og opnår fri officersudvikling.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (d4 Nf6 c4 g6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Qa5 pres mod c3",
-      "dxc4 og Qxc5 tempo",
-      "Åben linje leg"
+      "Qa5 pres vs c3",
+      "dxc4 & Qxc5 tempo",
+      "Strategic Play"
     ],
     "folderId": "folder-grunfeld",
-    "folderName": "Grünfeld Forsvar",
+    "folderName": "Grünfeld Defense Defense",
     "color": "b",
     "icon": "⚡"
   },
@@ -3606,21 +11057,21 @@ const OPENINGS_DATA = [
       "Bb7"
     ],
     "eco": "D96",
-    "difficulty": "Avanceret",
-    "explanation": "Mod Hvids tidlige Qb3 pres. Sort tager c4, rokerer og vinder hurtigt modspil med a6 og b5.",
+    "difficulty": "Advanced",
+    "explanation": "vs Whites tidlige Qb3 pressure. Black tager c4, rokerer & vinwhich hurtigt counterplay with a6 & b5.",
     "keyThemes": [
-      "a6 og b5 vinder tempo på dronningen",
-      "Bb7 pres mod e4",
-      "Skarp position"
+      "a6 & b5 vinder tempo pStrategic Play",
+      "Bb7 pres vs e4",
+      "Sharp position"
     ],
     "folderId": "folder-grunfeld",
-    "folderName": "Grünfeld Forsvar",
+    "folderName": "Grünfeld Defense Defense",
     "color": "b",
     "icon": "⚡"
   },
   {
     "id": "grunfeld-exchange-deep",
-    "name": "Afbytning Stormester (32 træk)",
+    "name": "Exchange Grandmaster (32 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -3656,20 +11107,20 @@ const OPENINGS_DATA = [
       "Rb8"
     ],
     "eco": "D85",
-    "difficulty": "Avanceret",
-    "explanation": "f4 angreb og Nc4 aktivt spring — komplekst slutspil.",
+    "difficulty": "Advanced",
+    "explanation": "f4 attack and active knight manoeuvres leading to a complex endgame.",
     "keyThemes": [
       "f4 angrebsstart",
       "Nc4 aktivt"
     ],
     "folderId": "folder-grunfeld",
-    "folderName": "Grünfeld Forsvar",
+    "folderName": "Grünfeld Defense Defense",
     "color": "b",
     "icon": "⚡"
   },
   {
     "id": "grunfeld-hungarian-deep",
-    "name": "Grünfeld Ungarsk System (30 træk)",
+    "name": "Grünfeld Defense Defense Ungarsk System (30 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -3703,20 +11154,20 @@ const OPENINGS_DATA = [
       "Nc6"
     ],
     "eco": "D80",
-    "difficulty": "Avanceret",
-    "explanation": "Ne4 og Nxc3, Bd5 pres og c5 centrum angreb.",
+    "difficulty": "Advanced",
+    "explanation": "Ne4 & Nxc3, Bd5 pres & c5 center attack.",
     "keyThemes": [
-      "Ne4 og Nxc3",
+      "Ne4 & Nxc3",
       "Bd5 pres"
     ],
     "folderId": "folder-grunfeld",
-    "folderName": "Grünfeld Forsvar",
+    "folderName": "Grünfeld Defense Defense",
     "color": "b",
     "icon": "⚡"
   },
   {
     "id": "catalan-open",
-    "name": "Katalansk Åben (4...dxc4)",
+    "name": "Catalan Open (4...dxc4)",
     "moves": [
       "d4",
       "Nf6",
@@ -3743,20 +11194,20 @@ const OPENINGS_DATA = [
       "Rfd1"
     ],
     "eco": "E04",
-    "difficulty": "Let øvet",
-    "explanation": "Ne5 og Bg2 diagonal pres langs den lange diagonal.",
+    "difficulty": "Intermediate",
+    "explanation": "Ne5 and Bg2 exert heavy pressure along the long diagonal.",
     "keyThemes": [
       "Bg2 diagonal",
       "Ne5 central"
     ],
     "folderId": "folder-catalan",
-    "folderName": "Katalansk Åbning",
+    "folderName": "Catalan Opening",
     "color": "w",
     "icon": "🌊"
   },
   {
     "id": "catalan-closed",
-    "name": "Katalansk Lukket (4...Be7)",
+    "name": "Catalan Closed (4...Be7)",
     "moves": [
       "d4",
       "Nf6",
@@ -3781,20 +11232,20 @@ const OPENINGS_DATA = [
       "Rc1"
     ],
     "eco": "E06",
-    "difficulty": "Let øvet",
-    "explanation": "Bg2 og Rc1 harmoni med Qc2 plan og langvarigt strategisk pres.",
+    "difficulty": "Intermediate",
+    "explanation": "Bg2 & Rc1 harmoni with Qc2 plan & langvarigt strategisk pres.",
     "keyThemes": [
-      "Bg2 og Rc1 harmoni",
+      "Bg2 & Rc1 harmoni",
       "Langvarigt pres"
     ],
     "folderId": "folder-catalan",
-    "folderName": "Katalansk Åbning",
+    "folderName": "Catalan Opening",
     "color": "w",
     "icon": "🌊"
   },
   {
     "id": "catalan-deep-kramnik",
-    "name": "Katalansk Kramnik Dyblinje (30 træk)",
+    "name": "Catalan Kramnik Deep Line (30 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -3830,20 +11281,20 @@ const OPENINGS_DATA = [
       "Nfd7"
     ],
     "eco": "E06",
-    "difficulty": "Avanceret",
-    "explanation": "Kramnik: a4 bondestorm og Na3-b5 offer i topniveau stil.",
+    "difficulty": "Advanced",
+    "explanation": "Kramnik: a4 pawnstorm & Na3-b5 sacrifice i topniveau stil.",
     "keyThemes": [
       "a4 bondestorm",
       "Na3-b5 kombination"
     ],
     "folderId": "folder-catalan",
-    "folderName": "Katalansk Åbning",
+    "folderName": "Catalan Opening",
     "color": "w",
     "icon": "🌊"
   },
   {
     "id": "catalan-neo",
-    "name": "Neo-Katalansk (3.g3 uden tidlig c4)",
+    "name": "Neo-Catalan (3.g3 uden tidlig c4)",
     "moves": [
       "d4",
       "Nf6",
@@ -3866,20 +11317,20 @@ const OPENINGS_DATA = [
       "Ne5"
     ],
     "eco": "E00",
-    "difficulty": "Let øvet",
-    "explanation": "Rokerer hurtigt og spiller c4 på optimalt tidspunkt.",
+    "difficulty": "Intermediate",
+    "explanation": "Tournament opening line (d4 Nf6 Nf3 e6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Hurtig rokade",
+      "Fast rokade",
       "Fleksibel c4 timing"
     ],
     "folderId": "folder-catalan",
-    "folderName": "Katalansk Åbning",
+    "folderName": "Catalan Opening",
     "color": "w",
     "icon": "🌊"
   },
   {
     "id": "nimzo-classical",
-    "name": "Nimzo Klassisk 4.Qc2 (24 træk)",
+    "name": "Nimzo Classical 4.Qc2 (24 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -3908,20 +11359,20 @@ const OPENINGS_DATA = [
       "Bd3"
     ],
     "eco": "E34",
-    "difficulty": "Avanceret",
-    "explanation": "4.Qc2 undgår dobbeltbønder. Ba6 angriber c4-bonden fra siden.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (d4 Nf6 c4 e6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Qc2 undgår dobbeltbønder",
+      "Qc2 undgStrategic Play",
       "Ba6 diagonal"
     ],
     "folderId": "folder-nimzo-qid",
-    "folderName": "Nimzo-Indisk & Dronningeindisk",
+    "folderName": "Nimzo-Indian Defense & Queen's Indian",
     "color": "b",
     "icon": "♟️"
   },
   {
     "id": "nimzo-rubinstein-deep",
-    "name": "Nimzo Rubinstein 4.e3 (30 træk)",
+    "name": "Nimzo Rubinstein 4.e3 (30 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -3959,20 +11410,20 @@ const OPENINGS_DATA = [
       "Bg4"
     ],
     "eco": "E44",
-    "difficulty": "Avanceret",
-    "explanation": "Bxc3 giver løberparet og Sort angriber med e5 og cxd4.",
+    "difficulty": "Advanced",
+    "explanation": "Bxc3 gives bishopparet & Black angriber with e5 & cxd4.",
     "keyThemes": [
-      "Bxc3 løberpar",
-      "e5 centrum sprænger"
+      "Bxc3 lStrategic Play",
+      "e5 centrum sprStrategic Play"
     ],
     "folderId": "folder-nimzo-qid",
-    "folderName": "Nimzo-Indisk & Dronningeindisk",
+    "folderName": "Nimzo-Indian Defense & Queen's Indian",
     "color": "b",
     "icon": "♟️"
   },
   {
     "id": "nimzo-saemisch",
-    "name": "Nimzo Sämisch 4.a3 (28 træk)",
+    "name": "Nimzo Sämisch 4.a3 (28 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -4002,20 +11453,20 @@ const OPENINGS_DATA = [
       "b6"
     ],
     "eco": "E29",
-    "difficulty": "Avanceret",
-    "explanation": "a3 tvinger afbytning, f3-e4 massivt centrum og e5 fremmarch.",
+    "difficulty": "Advanced",
+    "explanation": "a3 tvinger exchange, f3-e4 massivt center & e5 fremmarch.",
     "keyThemes": [
       "f3-e4 centrum",
       "e5 fremmarch"
     ],
     "folderId": "folder-nimzo-qid",
-    "folderName": "Nimzo-Indisk & Dronningeindisk",
+    "folderName": "Nimzo-Indian Defense & Queen's Indian",
     "color": "b",
     "icon": "♟️"
   },
   {
     "id": "nimzo-4nf3",
-    "name": "Nimzo 4.Nf3 med Bg5 (24 træk)",
+    "name": "Nimzo 4.Nf3 with Bg5 (24 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -4043,20 +11494,20 @@ const OPENINGS_DATA = [
       "Ne4"
     ],
     "eco": "E47",
-    "difficulty": "Avanceret",
-    "explanation": "Bg5 pin og Sort angriber med g5 og Ne4.",
+    "difficulty": "Advanced",
+    "explanation": "Bg5 pin & Black angriber with g5 & Ne4.",
     "keyThemes": [
       "Bg5 pin",
-      "g5 og Ne4"
+      "g5 & Ne4"
     ],
     "folderId": "folder-nimzo-qid",
-    "folderName": "Nimzo-Indisk & Dronningeindisk",
+    "folderName": "Nimzo-Indian Defense & Queen's Indian",
     "color": "b",
     "icon": "♟️"
   },
   {
     "id": "qid-main",
-    "name": "Dronningeindisk Klassisk (20 træk)",
+    "name": "Queen's Indian Classical (20 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -4083,20 +11534,20 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "eco": "E15",
-    "difficulty": "Let øvet",
-    "explanation": "Ba6 angriber c4-bonden fra siden. b6 og Bb7 diagonal.",
+    "difficulty": "Intermediate",
+    "explanation": "Ba6 attacks the c4 pawn from the flank, supported by b6 and Bb7.",
     "keyThemes": [
       "Ba6 pres",
-      "b6 og Bb7 diagonal"
+      "b6 & Bb7 diagonal"
     ],
     "folderId": "folder-nimzo-qid",
-    "folderName": "Nimzo-Indisk & Dronningeindisk",
+    "folderName": "Nimzo-Indian Defense & Queen's Indian",
     "color": "b",
     "icon": "♟️"
   },
   {
     "id": "qid-petrosian",
-    "name": "QID Petrosian System (24 træk)",
+    "name": "QID Petrosian System (24 moves)",
     "moves": [
       "d4",
       "Nf6",
@@ -4124,20 +11575,20 @@ const OPENINGS_DATA = [
       "Rc8"
     ],
     "eco": "E12",
-    "difficulty": "Avanceret",
-    "explanation": "a3 forhindrer Bb4 og Hvid opbygger massivt e4 centrum.",
+    "difficulty": "Advanced",
+    "explanation": "a3 forhindrer Bb4 & White opbygger massivt e4 center.",
     "keyThemes": [
-      "a3 mod Bb4",
+      "a3 vs Bb4",
       "e4 centrum"
     ],
     "folderId": "folder-nimzo-qid",
-    "folderName": "Nimzo-Indisk & Dronningeindisk",
+    "folderName": "Nimzo-Indian Defense & Queen's Indian",
     "color": "b",
     "icon": "♟️"
   },
   {
     "id": "slav-main",
-    "name": "Slav Klassisk (16 træk)",
+    "name": "Slav Classical (16 moves)",
     "moves": [
       "d4",
       "d5",
@@ -4157,10 +11608,10 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "eco": "D17",
-    "difficulty": "Begynder",
-    "explanation": "dxc4 og Bf5 udenfor kæden er Slavs styrke.",
+    "difficulty": "Beginner",
+    "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
     "keyThemes": [
-      "Bf5 udenfor kæden",
+      "Bf5 udenfor kStrategic Play",
       "dxc4 frigjort"
     ],
     "folderId": "folder-slav",
@@ -4170,7 +11621,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "slav-czech",
-    "name": "Tjekkisk Slav (20 træk)",
+    "name": "Tjekkisk Slav (20 moves)",
     "moves": [
       "d4",
       "d5",
@@ -4194,10 +11645,10 @@ const OPENINGS_DATA = [
       "Nbd7"
     ],
     "eco": "D15",
-    "difficulty": "Let øvet",
-    "explanation": "a6 og b5 frigiver damefløjsspil.",
+    "difficulty": "Intermediate",
+    "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
     "keyThemes": [
-      "a6 og b5 frigøring",
+      "a6 & b5 frigStrategic Play",
       "Solid e6"
     ],
     "folderId": "folder-slav",
@@ -4207,7 +11658,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "semi-slav-botvinnik",
-    "name": "Semi-Slav Botvinnik (26 træk)",
+    "name": "Semi-Slav Botvinnik (26 moves)",
     "moves": [
       "d4",
       "d5",
@@ -4237,8 +11688,8 @@ const OPENINGS_DATA = [
       "Rc8"
     ],
     "eco": "D41",
-    "difficulty": "Avanceret",
-    "explanation": "Nxg5 offer starter brutal taktik — den vildeste åbning!",
+    "difficulty": "Advanced",
+    "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
     "keyThemes": [
       "Nxg5 offer",
       "g5 bondestorm"
@@ -4250,7 +11701,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "semi-slav-moscow",
-    "name": "Anti-Moscow Gambit (28 træk)",
+    "name": "Anti-Moscow Gambit (28 moves)",
     "moves": [
       "d4",
       "d5",
@@ -4282,8 +11733,8 @@ const OPENINGS_DATA = [
       "Nd7"
     ],
     "eco": "D43",
-    "difficulty": "Avanceret",
-    "explanation": "6...h6 og g5: Sort spiller bondestorm. Hvid svarer h4 og Ne5.",
+    "difficulty": "Advanced",
+    "explanation": "6...h6 & g5: Black plays pawnstorm. White svarer h4 & Ne5.",
     "keyThemes": [
       "g5-g4 storm",
       "h4 svar"
@@ -4295,7 +11746,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "semi-slav-meran",
-    "name": "Semi-Slav Meran (24 træk)",
+    "name": "Semi-Slav Meran (24 moves)",
     "moves": [
       "d4",
       "d5",
@@ -4324,10 +11775,10 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "eco": "D47",
-    "difficulty": "Avanceret",
-    "explanation": "Meran: b5 og a6 frigjort, e4-e5 skaber komplikationer.",
+    "difficulty": "Advanced",
+    "explanation": "Meran: b5 & a6 frigjort, e4-e5 skaber komplikationer.",
     "keyThemes": [
-      "b5 og a6 frigjort",
+      "b5 & a6 frigjort",
       "e4-e5 komplikationer"
     ],
     "folderId": "folder-slav",
@@ -4337,7 +11788,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "slav-exchange",
-    "name": "Slav Afbytning + Plan (18 træk)",
+    "name": "Slav Exchange + Plan (18 moves)",
     "moves": [
       "d4",
       "d5",
@@ -4360,8 +11811,8 @@ const OPENINGS_DATA = [
       "O-O"
     ],
     "eco": "D10",
-    "difficulty": "Begynder",
-    "explanation": "cxd5 simplificerer og Bf4 aktiv løber.",
+    "difficulty": "Beginner",
+    "explanation": "cxd5 simplificerer & Bf4 aktiv bishop.",
     "keyThemes": [
       "Simplificering",
       "Bf4 aktiv"
@@ -4373,7 +11824,7 @@ const OPENINGS_DATA = [
   },
   {
     "id": "petroff-main",
-    "name": "Petroff Klassisk (18 træk)",
+    "name": "Petroff Classical (18 moves)",
     "moves": [
       "e4",
       "e5",
@@ -4394,20 +11845,20 @@ const OPENINGS_DATA = [
       "c4"
     ],
     "eco": "C42",
-    "difficulty": "Begynder",
-    "explanation": "Nxe4 principfast og Be7 harmoni. Solidt og pålideligt.",
+    "difficulty": "Beginner",
+    "explanation": "Classical symmetrical response 2...Nf6, countering White's initiative with immediate central equality and sharp tactical lines.",
     "keyThemes": [
       "Nxe4 principfast",
       "Solid stilling"
     ],
     "folderId": "folder-petroff-berlin",
-    "folderName": "Petroff & Berlin Forsvar",
+    "folderName": "Petroff & Berlin Defense",
     "color": "b",
     "icon": "🗼"
   },
   {
     "id": "petroff-deep-steinitz",
-    "name": "Petroff Steinitz (28 træk)",
+    "name": "Petroff Steinitz (28 moves)",
     "moves": [
       "e4",
       "e5",
@@ -4439,20 +11890,20 @@ const OPENINGS_DATA = [
       "Qb6"
     ],
     "eco": "C43",
-    "difficulty": "Avanceret",
-    "explanation": "Steinitz angreb d4-e5! Sort svarer Ne4 og f5 modangreb.",
+    "difficulty": "Advanced",
+    "explanation": "Steinitz central advance with d4-e5, answered by ...Ne4 and ...f5 counterplay.",
     "keyThemes": [
       "e5 fremmarch",
-      "f5 og Ne4 modangreb"
+      "f5 & Ne4 modangreb"
     ],
     "folderId": "folder-petroff-berlin",
-    "folderName": "Petroff & Berlin Forsvar",
+    "folderName": "Petroff & Berlin Defense",
     "color": "b",
     "icon": "🗼"
   },
   {
     "id": "berlin-main",
-    "name": "Berlin Forsvar Klassisk (22 træk)",
+    "name": "Berlin Defense Classical (22 moves)",
     "moves": [
       "e4",
       "e5",
@@ -4479,20 +11930,20 @@ const OPENINGS_DATA = [
       "Bb2"
     ],
     "eco": "C65",
-    "difficulty": "Avanceret",
-    "explanation": "Berlin slutspil med løberpar. Sorts sikre stilling.",
+    "difficulty": "Advanced",
+    "explanation": "The famous Berlin endgame where Black relies on the bishop pair and a resilient king position.",
     "keyThemes": [
       "Dronningebytte",
-      "Løberpar i slutspil"
+      "LStrategic Play"
     ],
     "folderId": "folder-petroff-berlin",
-    "folderName": "Petroff & Berlin Forsvar",
+    "folderName": "Petroff & Berlin Defense",
     "color": "b",
     "icon": "🗼"
   },
   {
     "id": "berlin-anti",
-    "name": "Anti-Berlin 4.d3 (24 træk)",
+    "name": "Anti-Berlin 4.d3 (24 moves)",
     "moves": [
       "e4",
       "e5",
@@ -4520,20 +11971,20 @@ const OPENINGS_DATA = [
       "Nd4"
     ],
     "eco": "C65",
-    "difficulty": "Avanceret",
-    "explanation": "4.d3 undgår Berlin-slutspillet. Nc4-Ne3-Nd5 manøvre.",
+    "difficulty": "Advanced",
+    "explanation": "Tournament opening line (e4 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "d3 undgår Berlin",
-      "Nd5 stærk"
+      "d3 undgStrategic Play",
+      "Nd5 stStrategic Play"
     ],
     "folderId": "folder-petroff-berlin",
-    "folderName": "Petroff & Berlin Forsvar",
+    "folderName": "Petroff & Berlin Defense",
     "color": "b",
     "icon": "🗼"
   },
   {
     "id": "dutch-stonewall",
-    "name": "Hollandsk Stonewall (18 træk)",
+    "name": "Dutch Defense Stonewall (18 moves)",
     "moves": [
       "d4",
       "f5",
@@ -4555,20 +12006,20 @@ const OPENINGS_DATA = [
       "Nd7"
     ],
     "eco": "A90",
-    "difficulty": "Let øvet",
-    "explanation": "d5-e6-f5-c6 stonewall med Ne4 centrum-forpost.",
+    "difficulty": "Intermediate",
+    "explanation": "d5-e6-f5-c6 stonewall with Ne4 center-forpost.",
     "keyThemes": [
       "Stonewall struktur",
-      "Ne4 forpost"
+      "Ne4 outpost"
     ],
     "folderId": "folder-dutch",
-    "folderName": "Hollandsk Forsvar",
+    "folderName": "Dutch Defense Defense",
     "color": "b",
     "icon": "🌷"
   },
   {
     "id": "dutch-leningrad",
-    "name": "Leningrad Hollandsk (24 træk)",
+    "name": "Leningrad Dutch Defense (24 moves)",
     "moves": [
       "d4",
       "f5",
@@ -4595,20 +12046,20 @@ const OPENINGS_DATA = [
       "Qd3"
     ],
     "eco": "A81",
-    "difficulty": "Avanceret",
-    "explanation": "g6-Bg7 fianchetto og Qe8-h5-h4 angrebsplan.",
+    "difficulty": "Advanced",
+    "explanation": "g6 and Bg7 fianchetto supporting a Qe8-h5-h4 kingside attack plan.",
     "keyThemes": [
       "g6-Bg7 fianchetto",
-      "Qe8 og h5 angreb"
+      "Qe8 and h5 Attack"
     ],
     "folderId": "folder-dutch",
-    "folderName": "Hollandsk Forsvar",
+    "folderName": "Dutch Defense Defense",
     "color": "b",
     "icon": "🌷"
   },
   {
     "id": "dutch-classical",
-    "name": "Klassisk Hollandsk (20 træk)",
+    "name": "Classical Dutch Defense (20 moves)",
     "moves": [
       "d4",
       "e6",
@@ -4636,28 +12087,28 @@ const OPENINGS_DATA = [
       "Nd7"
     ],
     "eco": "A96",
-    "difficulty": "Avanceret",
-    "explanation": "Ne4 bytter og fxe4 giver centrumsbonde. c5 åbner damefløjen.",
+    "difficulty": "Advanced",
+    "explanation": "Aggressive flank response with 1...f5, seizing control of the e4 square and launching active kingside counterplay.",
     "keyThemes": [
       "Ne4 centrumspioner",
       "fxe4 centrum"
     ],
     "folderId": "folder-dutch",
-    "folderName": "Hollandsk Forsvar",
+    "folderName": "Dutch Defense Defense",
     "color": "b",
     "icon": "🌷"
   },
   {
     "id": "open-grobs-angreb-1-g4-",
     "folderId": "folder-irregular",
-    "name": "Grobs Angreb (1.g4)",
+    "name": "Grobs Attack (1.g4)",
     "eco": "A00",
     "color": "w",
-    "explanation": "Det ultra-aggressive flankefremstød 1.g4, som søger øjeblikkelig ubalance og udvikling af løberen til g2.",
+    "explanation": "Tournament opening line (g4 d5 Bg2 Bxg4) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Grob",
-      "Flankestød",
-      "Fremstød på kongefløjen"
+      "FlankestStrategic Play",
+      "Advance pStrategic Play"
     ],
     "moves": [
       "g4",
@@ -4680,13 +12131,13 @@ const OPENINGS_DATA = [
   {
     "id": "open-anderssens-bning-1-a3-",
     "folderId": "folder-irregular",
-    "name": "Anderssens Åbning (1.a3)",
+    "name": "Anderssens Opening (1.a3)",
     "eco": "A00",
     "color": "w",
-    "explanation": "Et afventende profilaktisk træk, der tager b4-feltet fra sorts løber og ofte transponerer til et omvendt siciliansk parti.",
+    "explanation": "Et afventende profilaktisk moves, which tager b4-feltet fra Black's bishop & ofte transponerer til et omvendt siciliansk parti.",
     "keyThemes": [
       "Profilakse",
-      "Omvendt Siciliansk",
+      "Omvendt Sicilian",
       "a3-system"
     ],
     "moves": [
@@ -4710,12 +12161,12 @@ const OPENINGS_DATA = [
   {
     "id": "open-dunst-bningen-1-nc3-",
     "folderId": "folder-irregular",
-    "name": "Dunst-åbningen (1.Nc3)",
+    "name": "Dunst Opening (1.Nc3)",
     "eco": "A00",
     "color": "w",
-    "explanation": "Udvikler dronningspringeren øjeblikkeligt til c3 og sigter mod hurtigt e4 i centrum.",
+    "explanation": "Tournament opening line (Nc3 d5 e4 dxe4) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Hurtig udvikling",
+      "Fast udvikling",
       "Nc3",
       "Centrumskamp"
     ],
@@ -4739,10 +12190,10 @@ const OPENINGS_DATA = [
   {
     "id": "open-mieses-bningen-1-d3-",
     "folderId": "folder-irregular",
-    "name": "Mieses-åbningen (1.d3)",
+    "name": "Mieses Opening (1.d3)",
     "eco": "A00",
     "color": "w",
-    "explanation": "Et fleksibelt, solidt førstetræk, der forbereder fianchetto eller en King's Indian Attack opstilling.",
+    "explanation": "Tournament opening line (d3 e5 Nf3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "KIA Setup",
       "Fleksibel bondestruktur",
@@ -4769,10 +12220,10 @@ const OPENINGS_DATA = [
   {
     "id": "open-van-t-kruijs-bningen-1-e3-",
     "folderId": "folder-irregular",
-    "name": "Van 't Kruijs-åbningen (1.e3)",
+    "name": "Van 't Kruijs Opening (1.e3)",
     "eco": "A00",
     "color": "w",
-    "explanation": "Åbner straks for den hvidfeltede løber og tillader fleksibel overgang til Engelsk eller Réti.",
+    "explanation": "Tournament opening line (e3 e5 c4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Fleksibilitet",
       "Hvidfeltskontrol",
@@ -4799,10 +12250,10 @@ const OPENINGS_DATA = [
   {
     "id": "open-amar-bningen-1-nh3-",
     "folderId": "folder-irregular",
-    "name": "Amar-åbningen (1.Nh3)",
+    "name": "Amar Opening (1.Nh3)",
     "eco": "A00",
     "color": "w",
-    "explanation": "Udvikler springeren til kanten med henblik på fianchetto med g3 eller centralt springfremstød f4.",
+    "explanation": "Tournament opening line (Nh3 d5 g3 e5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Kantspringer",
       "Fianchetto forberedelse",
@@ -4829,12 +12280,12 @@ const OPENINGS_DATA = [
   {
     "id": "open-ware-bningen-1-a4-",
     "folderId": "folder-irregular",
-    "name": "Ware-åbningen (1.a4)",
+    "name": "Ware Opening (1.a4)",
     "eco": "A00",
     "color": "w",
-    "explanation": "Søger tidlig plads på dronningfløjen og etablerer et aktivt tårnløft Ra3.",
+    "explanation": "Tournament opening line (a4 e5 e4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Tårnløft",
+      "TStrategic Play",
       "Flankeaktivitet",
       "Uortodoks"
     ],
@@ -4859,10 +12310,10 @@ const OPENINGS_DATA = [
   {
     "id": "open-clemenz-bningen-1-h3-",
     "folderId": "folder-irregular",
-    "name": "Clemenz-åbningen (1.h3)",
+    "name": "Clemenz Opening (1.h3)",
     "eco": "A00",
     "color": "w",
-    "explanation": "Afventende flanketræk, der berøver sorts brikker g4-feltet og forbereder et solidt centrum.",
+    "explanation": "Tournament opening line (h3 e5 d3 d5) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Profilakse",
       "g4 kontrol",
@@ -4889,12 +12340,12 @@ const OPENINGS_DATA = [
   {
     "id": "open-barnes-bningen-1-f3-",
     "folderId": "folder-irregular",
-    "name": "Barnes-åbningen (1.f3)",
+    "name": "Barnes Opening (1.f3)",
     "eco": "A00",
     "color": "w",
-    "explanation": "Støtter e4-feltet direkte fra start og åbner for usædvanlige positionelle manøvrer.",
+    "explanation": "Tournament opening line (f3 e5 e4 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "e4-støtte",
+      "e4-stStrategic Play",
       "Utraditionel",
       "Centrumsbalance"
     ],
@@ -4919,14 +12370,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-durkins-angreb-1-na3-",
     "folderId": "folder-irregular",
-    "name": "Durkins Angreb (1.Na3)",
+    "name": "Durkins Attack (1.Na3)",
     "eco": "A00",
     "color": "w",
-    "explanation": "Springerudvikling til a3, der hurtigt søger c4 eller c2 med støtte til flankefremstød.",
+    "explanation": "Tournament opening line (Na3 e5 Nc4 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Na3 til c4",
       "Ubalance",
-      "Springermanøvre"
+      "SpringermanStrategic Play"
     ],
     "moves": [
       "Na3",
@@ -4949,14 +12400,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-nimzowitsch-larsen-klassisk-variant-1-e5-",
     "folderId": "folder-larsen-bird-reti",
-    "name": "Nimzowitsch-Larsen: Klassisk Variant (1...e5)",
+    "name": "Nimzowitsch-Larsen: Classical Variation (1...e5)",
     "eco": "A01",
     "color": "w",
-    "explanation": "Hvid fianchetterer dronningeløberen til b2 og lægger et umiddelbart laser-pres på sorts centrale e5-bonde.",
+    "explanation": "Hypermodern opening starting with b3 e5 Bb2 Nc6. White fianchettos the dark-squared bishop to control the central e5 and d4 squares.",
     "keyThemes": [
-      "Løber på b2",
-      "Pres mod e5",
-      "Hypermoderne åbning"
+      "LStrategic Play",
+      "Pres vs e5",
+      "Hypermoderne Strategic Play"
     ],
     "moves": [
       "b3",
@@ -4979,14 +12430,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-nimzowitsch-larsen-engelsk-svar-1-c5-",
     "folderId": "folder-larsen-bird-reti",
-    "name": "Nimzowitsch-Larsen: Engelsk Svar (1...c5)",
+    "name": "Nimzowitsch-Larsen: English Response (1...c5)",
     "eco": "A01",
     "color": "w",
-    "explanation": "Sort svarer med det asymmetriske c5, hvortil hvid opbygger central kontrol med e3, f4 og Nf3.",
+    "explanation": "Hypermodern opening starting with b3 c5 Bb2 Nc6. White fianchettos the dark-squared bishop to control the central e5 and d4 squares.",
     "keyThemes": [
       "Asymmetrisk kamp",
-      "f4 fremstød",
-      "Flankeløber"
+      "f4 fremstStrategic Play",
+      "FlankelStrategic Play"
     ],
     "moves": [
       "b3",
@@ -5010,10 +12461,10 @@ const OPENINGS_DATA = [
   {
     "id": "open-nimzowitsch-larsen-indisk-variant-1-nf6-",
     "folderId": "folder-larsen-bird-reti",
-    "name": "Nimzowitsch-Larsen: Indisk Variant (1...Nf6)",
+    "name": "Nimzowitsch-Larsen: Indian Variation (1...Nf6)",
     "eco": "A01",
     "color": "w",
-    "explanation": "Sort spiller det elastiske Nf6 og g6, mens hvid kontrollerer diagonalerne med e3 og d3.",
+    "explanation": "Hypermodern opening starting with b3 Nf6 Bb2 g6. White fianchettos the dark-squared bishop to control the central e5 and d4 squares.",
     "keyThemes": [
       "Indisk struktur",
       "Dobbelt fianchetto",
@@ -5040,14 +12491,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-nimzowitsch-larsen-hollandsk-svar-1-f5-",
     "folderId": "folder-larsen-bird-reti",
-    "name": "Nimzowitsch-Larsen: Hollandsk Svar (1...f5)",
+    "name": "Nimzowitsch-Larsen: Dutch Defense Response (1...f5)",
     "eco": "A01",
     "color": "w",
-    "explanation": "Sort søger plads på kongefløjen med f5, men hvid udnytter den åbne h1-a8 diagonal effektivt.",
+    "explanation": "Hypermodern opening starting with b3 f5 Bb2 Nf6. White fianchettos the dark-squared bishop to control the central e5 and d4 squares.",
     "keyThemes": [
-      "Diagonal svækkelse",
+      "Diagonal svStrategic Play",
       "e4 brud",
-      "Hurtig løberaktivitet"
+      "Fast lStrategic Play"
     ],
     "moves": [
       "b3",
@@ -5072,14 +12523,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-birds-bning-froms-gambit-1-f4-e5-",
     "folderId": "folder-larsen-bird-reti",
-    "name": "Birds Åbning: Froms Gambit (1.f4 e5)",
+    "name": "Bird's Opening: From's Gambit (1.f4 e5)",
     "eco": "A02",
     "color": "w",
-    "explanation": "Et ekstremt skarpt modangreb fra sort, der ofrer e-bonden for lynhurtig brikudvikling og kongeangreb.",
+    "explanation": "Aggressive flank opening initiating with 1.f4. White stakes immediate claim on the e5 outpost, aiming for active kingside piece play.",
     "keyThemes": [
       "Froms Gambit",
       "Kongesikkerhed",
-      "Modangreb"
+      "Counterattack"
     ],
     "moves": [
       "f4",
@@ -5104,14 +12555,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-birds-bning-hollandsk-formation-1-d5-",
     "folderId": "folder-larsen-bird-reti",
-    "name": "Birds Åbning: Hollandsk Formation (1...d5)",
+    "name": "Bird's Opening: Dutch Formation (1...d5)",
     "eco": "A03",
     "color": "w",
-    "explanation": "Hvid spiller den omvendte hollandske struktur med f4, e3, Nf3 og b3/Bb2 med stærk kontrol over e5-feltet.",
+    "explanation": "Aggressive flank opening initiating with 1.f4. White stakes immediate claim on the e5 outpost, aiming for active kingside piece play.",
     "keyThemes": [
-      "Omvendt Hollandsk",
+      "Omvendt Dutch Defense",
       "e5 blokade",
-      "Kongefløjsfremstød"
+      "KongeflStrategic Play"
     ],
     "moves": [
       "f4",
@@ -5134,12 +12585,12 @@ const OPENINGS_DATA = [
   {
     "id": "open-birds-bning-lasker-varianten",
     "folderId": "folder-larsen-bird-reti",
-    "name": "Birds Åbning: Lasker-varianten",
+    "name": "Bird's Opening: Lasker Variation",
     "eco": "A03",
     "color": "w",
-    "explanation": "Sort søger hurtig afbytning af løbere med Bb5+ Bd7 for at dæmpe hvids kongefløjsinitiativ.",
+    "explanation": "Aggressive flank opening initiating with 1.f4. White stakes immediate claim on the e5 outpost, aiming for active kingside piece play.",
     "keyThemes": [
-      "Løberafbytning",
+      "Bishop trade",
       "Positionsspil",
       "Central afstivning"
     ],
@@ -5165,12 +12616,12 @@ const OPENINGS_DATA = [
   {
     "id": "open-r-ti-bningen-hovedangrebet-2-d4-",
     "folderId": "folder-larsen-bird-reti",
-    "name": "Réti Åbningen: Hovedangrebet (2...d4)",
+    "name": "Réti Opening: Main Attack (2...d4)",
     "eco": "A09",
     "color": "w",
-    "explanation": "Sort accepterer pladsfordelen i centrum med d4, hvorefter hvid undergraver med b4 og e3.",
+    "explanation": "Flexible hypermodern system (Nf3 d5 c4 d4) exerting indirect central pressure with knight maneuvers and light-square bishop fianchetto.",
     "keyThemes": [
-      "Hypermoderne angreb",
+      "Hypermodern Attack",
       "b4 undergravning",
       "Centrumsmodspil"
     ],
@@ -5195,14 +12646,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-king-s-indian-attack-kia-hovedlinje-",
     "folderId": "folder-larsen-bird-reti",
-    "name": "King's Indian Attack (KIA Hovedlinje)",
+    "name": "King's Indian Attack (KIA Main Line)",
     "eco": "A07",
     "color": "w",
-    "explanation": "Hvids universelle våben med g3, Bg2, d3, O-O og e4, efterfulgt af et massivt kongefløjsangreb.",
+    "explanation": "Universal attacking weapon with g3, Bg2, and e4, providing an elastic setup and dangerous kingside attacking chances.",
     "keyThemes": [
       "KIA",
-      "e4-e5 fremstød",
-      "Hvidt kongefløjsangreb"
+      "e4-e5 fremstStrategic Play",
+      "Hvidt kongeflStrategic Play"
     ],
     "moves": [
       "Nf3",
@@ -5229,10 +12680,10 @@ const OPENINGS_DATA = [
   {
     "id": "open-r-ti-mod-slavisk-formation-2-c6-",
     "folderId": "folder-larsen-bird-reti",
-    "name": "Réti mod Slavisk Formation (2...c6)",
+    "name": "Réti vs Slav Defense Formation (2...c6)",
     "eco": "A09",
     "color": "w",
-    "explanation": "Sort støtter d5 solidt med c6. Hvid opbygger med b3, Bb2 og g3 med pres mod centrum.",
+    "explanation": "Flexible hypermodern system (Nf3 d5 c4 c6) exerting indirect central pressure with knight maneuvers and light-square bishop fianchetto.",
     "keyThemes": [
       "Flankeudvikling",
       "Diagonalt pres",
@@ -5261,10 +12712,10 @@ const OPENINGS_DATA = [
   {
     "id": "open-engelsk-symmetrisk-hovedvariant-1-c5-",
     "folderId": "folder-english",
-    "name": "Engelsk: Symmetrisk Hovedvariant (1...c5)",
+    "name": "English: Symmetric Main Line (1...c5)",
     "eco": "A30",
     "color": "w",
-    "explanation": "Begge parter spejler hinanden med c5 og fianchetto, hvilket fører til en dyb positionel kamp om d5/d4.",
+    "explanation": "Tournament opening line (c4 c5 Nc3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Symmetri",
       "Kamp om centrum",
@@ -5293,14 +12744,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-engelsk-botvinnik-systemet",
     "folderId": "folder-english",
-    "name": "Engelsk: Botvinnik-systemet",
+    "name": "English: Botvinnik-systemet",
     "eco": "A26",
     "color": "w",
-    "explanation": "En solid fæstning skabt af Mikhail Botvinnik med c4, e4, d3, g3 og Nge2 med massiv kontrol over d5.",
+    "explanation": "Tournament opening line (c4 e5 Nc3 Nc6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Botvinnik System",
       "d5 kontrol",
-      "f4 fremstød"
+      "f4 fremstStrategic Play"
     ],
     "moves": [
       "c4",
@@ -5325,14 +12776,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-engelsk-fire-springeres-variant-four-knights-",
     "folderId": "folder-english",
-    "name": "Engelsk: Fire Springeres Variant (Four Knights)",
+    "name": "English: Fire Springeres Variation (Four Knights)",
     "eco": "A28",
     "color": "w",
-    "explanation": "Klassisk åbning med lynhurtig springerudvikling og direkte spil mod sorts Bb4-udvikling.",
+    "explanation": "Tournament opening line (c4 e5 Nc3 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Springerudvikling",
       "Central balance",
-      "Hurtigt spil"
+      "Fast Play"
     ],
     "moves": [
       "c4",
@@ -5357,10 +12808,10 @@ const OPENINGS_DATA = [
   {
     "id": "open-engelsk-hedgehog-systemet-pindsvinet-",
     "folderId": "folder-english",
-    "name": "Engelsk: Hedgehog-systemet (Pindsvinet)",
+    "name": "English: Hedgehog-systemet (Hedgehog)",
     "eco": "A30",
     "color": "w",
-    "explanation": "Sorts berømte fleksible pindsvin-opstilling på 6. række med a6, b6, d6 og e6, parat til eksplosivt modbrud.",
+    "explanation": "Tournament opening line (c4 c5 Nf3 Nf6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
       "Pindsvinet",
       "Hedgehog formation",
@@ -5392,14 +12843,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-engelsk-mikenas-flohr-angrebet",
     "folderId": "folder-english",
-    "name": "Engelsk: Mikenas-Flohr Angrebet",
+    "name": "English: Mikenas-Flohr Attack",
     "eco": "A18",
     "color": "w",
-    "explanation": "Hvid spiller det aggressive e4 mod Anglo-indisk opstilling og søger hurtigt et generende fremstød med e5.",
+    "explanation": "Tournament opening line (c4 Nf6 Nc3 e6) featuring active piece development, solid pawn control, and strategic counterplay.",
     "keyThemes": [
-      "Tidligt e4",
-      "e5 fremstød",
-      "Centralt pres"
+      "Earlyt e4",
+      "e5 fremstStrategic Play",
+      "Central pressure"
     ],
     "moves": [
       "c4",
@@ -5424,14 +12875,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-siciliansk-dragen-yugoslav-angreb-9-bc4-",
     "folderId": "folder-sicilian",
-    "name": "Siciliansk: Dragen - Yugoslav Angreb (9.Bc4)",
+    "name": "Sicilian: Dragon - Yugoslav Attack (9.Bc4)",
     "eco": "B78",
     "color": "w",
-    "explanation": "Det mest berømte angreb i skakhistorien med modsat rettede rokader, g4-h4 storm og ofre på h-linjen.",
+    "explanation": "The most famous attack in chess history with opposite-side castling. Both sides race to checkmate first on open files.",
     "keyThemes": [
       "Yugoslav Attack",
       "Modsat rokade",
-      "Kongeangreb"
+      "Kingside attack"
     ],
     "moves": [
       "e4",
@@ -5463,14 +12914,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-siciliansk-scheveningen-keres-angrebet-6-g4-",
     "folderId": "folder-sicilian",
-    "name": "Siciliansk: Scheveningen - Keres Angrebet (6.g4)",
+    "name": "Sicilian: Scheveningen - Keres Attack (6.g4)",
     "eco": "B81",
     "color": "w",
-    "explanation": "Paul Keres' brutale idé med 6.g4 mod d6/e6 formationen for at fordrive sorts springer på f6 lynhurtigt.",
+    "explanation": "Paul Keres' brutal breakthrough with 6.g4 against Black's d6/e6 setup, seizing kingside initiative.",
     "keyThemes": [
       "Keres Attack",
       "6.g4 storm",
-      "Hurtigt initiativ"
+      "Fastt initiativ"
     ],
     "moves": [
       "e4",
@@ -5497,14 +12948,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-siciliansk-grand-prix-angreb-2-nc3-3-f4-",
     "folderId": "folder-sicilian",
-    "name": "Siciliansk: Grand Prix Angreb (2.Nc3 & 3.f4)",
+    "name": "Sicilian: Grand Prix Attack (2.Nc3 & 3.f4)",
     "eco": "B23",
     "color": "w",
-    "explanation": "En af klubspillerens farligste angrebslinjer med f4, Bc4 og hurtigt kongefløjsangreb mod sort.",
+    "explanation": "One of club chess's most dangerous attacking systems with 2.Nc3 and 3.f4, aimed squarely at Black's kingside.",
     "keyThemes": [
       "Grand Prix",
-      "f4 angreb",
-      "Tidlig kongefløjsstorm"
+      "f4 Attack",
+      "Early kongeflStrategic Play"
     ],
     "moves": [
       "e4",
@@ -5531,14 +12982,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-siciliansk-smith-morra-gambit",
     "folderId": "folder-sicilian",
-    "name": "Siciliansk: Smith-Morra Gambit",
+    "name": "Sicilian: Smith-Morra Gambit",
     "eco": "B21",
     "color": "w",
-    "explanation": "Hvid ofrer en bonde med 2.d4 og 3.c3 for at få åbne linjer (c og d) og enorm udviklingsfordel.",
+    "explanation": "White sacrifices a pawn with 2.d4 and 3.c3 to tear open the c- and d-files for immediate attacking pressure.",
     "keyThemes": [
       "Gambit",
       "Udviklingsforspring",
-      "Åbne linjer"
+      "Strategic Play"
     ],
     "moves": [
       "e4",
@@ -5566,14 +13017,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-siciliansk-alapin-varianten-2-c3-",
     "folderId": "folder-sicilian",
-    "name": "Siciliansk: Alapin Varianten (2.c3)",
+    "name": "Sicilian: Alapin Variation (2.c3)",
     "eco": "B22",
     "color": "w",
-    "explanation": "Hvid spiller 2.c3 for at opbygge et stærkt klassisk bondecentrum med d4, hvilket neutraliserer mange sicilianske giftige linjer.",
+    "explanation": "White plays 2.c3 to establish a classical pawn center on d4 and avoid open Sicilian theory.",
     "keyThemes": [
       "Alapin",
       "Solidt centrum",
-      "Klassisk opbygning"
+      "Classical opbygning"
     ],
     "moves": [
       "e4",
@@ -5599,10 +13050,10 @@ const OPENINGS_DATA = [
   {
     "id": "open-siciliansk-rossolimo-angrebet-3-bb5-",
     "folderId": "folder-sicilian",
-    "name": "Siciliansk: Rossolimo Angrebet (3.Bb5)",
+    "name": "Sicilian: Rossolimo Attack (3.Bb5)",
     "eco": "B30",
     "color": "w",
-    "explanation": "Moderne top-våben brugt af Carlsen og Caruana, der undgår åbne linjer og presser sorts springer på c6.",
+    "explanation": "A modern elite weapon championed by Carlsen and Caruana, avoiding open Sicilian complications with early Bb5.",
     "keyThemes": [
       "Rossolimo",
       "Bb5 pres",
@@ -5632,14 +13083,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-fransk-winawer-hovedvariant-3-nc3-bb4-",
     "folderId": "folder-french",
-    "name": "Fransk: Winawer Hovedvariant (3.Nc3 Bb4)",
+    "name": "French: Winawer Main Line (3.Nc3 Bb4)",
     "eco": "C18",
     "color": "b",
-    "explanation": "Sort pinner hvids springer og fremtvinger en asymmetrisk, skarp stilling med 7.Qg4.",
+    "explanation": "Black pins White's knight and forces asymmetric, explosive imbalances across both flanks.",
     "keyThemes": [
       "Winawer",
-      "Dobbeltbonde på c3",
-      "Dronningangreb"
+      "Dobbeltbonde pStrategic Play",
+      "Queen attack"
     ],
     "moves": [
       "e4",
@@ -5667,14 +13118,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-fransk-tarrasch-hovedvariant-3-nd2-nf6-",
     "folderId": "folder-french",
-    "name": "Fransk: Tarrasch Hovedvariant (3.Nd2 Nf6)",
+    "name": "French: Tarrasch Main Line (3.Nd2 Nf6)",
     "eco": "C05",
     "color": "b",
-    "explanation": "Hvid undgår Winawer-pinningen med 3.Nd2, hvorefter sort angriber hvids bondekæde med c5.",
+    "explanation": "White avoids the Winawer pin with 3.Nd2, keeping the c3 pawn available to support the center.",
     "keyThemes": [
       "Tarrasch",
       "Centrumskamp",
-      "Bondekæde"
+      "BondekStrategic Play"
     ],
     "moves": [
       "e4",
@@ -5704,14 +13155,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-fransk-rubinstein-afbytning-3-dxe4-",
     "folderId": "folder-french",
-    "name": "Fransk: Rubinstein Afbytning (3...dxe4)",
+    "name": "French: Rubinstein Exchange (3...dxe4)",
     "eco": "C10",
     "color": "b",
-    "explanation": "Sort letter det centrale pres ved at bytte på e4 og udvikler solidt mod centrum.",
+    "explanation": "The Rubinstein: Black releases central tension by exchanging on e4, achieving a solid though slightly passive position.",
     "keyThemes": [
       "Rubinstein",
       "Aflastning",
-      "Solidt slutspil"
+      "Solidt endgame"
     ],
     "moves": [
       "e4",
@@ -5738,13 +13189,13 @@ const OPENINGS_DATA = [
   {
     "id": "open-fransk-mccutcheon-variant-4-bg5-bb4-",
     "folderId": "folder-french",
-    "name": "Fransk: McCutcheon Variant (4.Bg5 Bb4)",
+    "name": "French: McCutcheon Variation (4.Bg5 Bb4)",
     "eco": "C12",
     "color": "b",
-    "explanation": "En meget skarp og dynamisk modlinje mod hvids klassiske 4.Bg5.",
+    "explanation": "A dynamic, counter-attacking line against 4.Bg5, provoking sharp pawn weaknesses.",
     "keyThemes": [
       "McCutcheon",
-      "Modstød",
+      "ModstStrategic Play",
       "Taktiske forviklinger"
     ],
     "moves": [
@@ -5772,14 +13223,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-fransk-milner-barry-gambit",
     "folderId": "folder-french",
-    "name": "Fransk: Milner-Barry Gambit",
+    "name": "French: Milner-Barry Gambit",
     "eco": "C02",
     "color": "b",
-    "explanation": "Hvid ofrer d4-bonden i Fremstødsvarianten for et lynhurtigt angreb mod sorts kongefløj.",
+    "explanation": "White sacrifices the d4 pawn in the Advance French to gain a rapid lead in development and open lines against f7.",
     "keyThemes": [
       "Milner-Barry",
       "Centrumsgambit",
-      "Angrebsspil"
+      "Attacksspil"
     ],
     "moves": [
       "e4",
@@ -5808,14 +13259,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-skandinavisk-hovedlinje-3-qa5-",
     "folderId": "folder-scandi",
-    "name": "Skandinavisk: Hovedlinje (3...Qa5)",
+    "name": "Scandinavian Defense: Main Line (3...Qa5)",
     "eco": "B01",
     "color": "b",
-    "explanation": "Sort placerer dronningen aktivt på a5 efter at have slået på d5, og etablerer en stærk lysfeltet løber på f5.",
+    "explanation": "Black places the queen actively on a5 after 2...Qxd5, preparing ...c6 and solid piece development.",
     "keyThemes": [
-      "Qa5 manøvre",
+      "Qa5 manStrategic Play",
       "Solid Caro-struktur",
-      "Løber til f5"
+      "LStrategic Play"
     ],
     "moves": [
       "e4",
@@ -5841,12 +13292,12 @@ const OPENINGS_DATA = [
   {
     "id": "open-skandinavisk-moderne-2-nf6",
     "folderId": "folder-scandi",
-    "name": "Skandinavisk: Moderne 2...Nf6",
+    "name": "Scandinavian Defense: Modern 2...Nf6",
     "eco": "B01",
     "color": "b",
-    "explanation": "Sort genvinder bonden med springeren i stedet for dronningen for at bevare et fleksibelt spil.",
+    "explanation": "Modern Scandinavian: Black gambits the d5 pawn temporarily to recapture with a knight, maintaining active piece play.",
     "keyThemes": [
-      "Hurtig udvikling",
+      "Fast udvikling",
       "2...Nf6",
       "Aktivt modspil"
     ],
@@ -5875,14 +13326,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-skandinavisk-portugisisk-gambit-3-bg4-",
     "folderId": "folder-scandi",
-    "name": "Skandinavisk: Portugisisk Gambit (3...Bg4)",
+    "name": "Scandinavian Defense: Portuguese Gambit (3...Bg4)",
     "eco": "B01",
     "color": "b",
-    "explanation": "Sort ofrer en bonde i 2...Nf6 linjen med et voldsomt angreb mod hvids d4-centrum og konge.",
+    "explanation": "Portuguese Gambit: Black sacrifices a pawn with 3...Bg4 to generate rapid tactical threats and piece activity.",
     "keyThemes": [
       "Portugisisk Gambit",
       "Ofre for udvikling",
-      "Skarpe taktikker"
+      "Sharpe taktikker"
     ],
     "moves": [
       "e4",
@@ -5908,14 +13359,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-alekhines-forsvar-moderne-hovedvariant-4-nf3-",
     "folderId": "folder-scandi",
-    "name": "Alekhines Forsvar: Moderne Hovedvariant (4.Nf3)",
+    "name": "Alekhine's Defense: Modern Main Line (4.Nf3)",
     "eco": "B04",
     "color": "b",
-    "explanation": "Sort provokerer hvids bønder frem til e5, men undgår overekspansion og angriber centrum med Bg4.",
+    "explanation": "Modern Alekhine: Black lures White's pawns forward, then counters the overextended center with active piece pressure.",
     "keyThemes": [
       "Alekhine",
-      "Overekspansion af bønder",
-      "Modangreb mod centrum"
+      "Overekspansion af bStrategic Play",
+      "Counterattack vs centrum"
     ],
     "moves": [
       "e4",
@@ -5943,12 +13394,12 @@ const OPENINGS_DATA = [
   {
     "id": "open-alekhines-forsvar-fire-b-nders-angreb",
     "folderId": "folder-scandi",
-    "name": "Alekhines Forsvar: Fire Bønders Angreb",
+    "name": "Alekhine's Defense: Four Pawns Attack",
     "eco": "B03",
     "color": "b",
-    "explanation": "Hvid skubber samtlige centrale bønder frem: c4, d4, e5 og f4 i et forsøg på at knuse sorts springer.",
+    "explanation": "Four Pawns Attack: White pushes c4, d4, e5, and f4 to conquer the board with brute central force.",
     "keyThemes": [
-      "Fire Bønders Angreb",
+      "Four Pawnss Attack",
       "Massivt centrum",
       "Undergravning"
     ],
@@ -5978,14 +13429,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-pirc-forsvar-austrian-attack-4-f4-",
     "folderId": "folder-scandi",
-    "name": "Pirc Forsvar: Austrian Attack (4.f4)",
+    "name": "Pirc Defense: Austrian Attack (4.f4)",
     "eco": "B09",
     "color": "b",
-    "explanation": "Hvids skarpeste våben mod Pirc-forsvaret med fremstød af f-, e- og d-bønderne.",
+    "explanation": "The Austrian Attack: White's sharpest weapon against the Pirc, establishing pawns on d4, e4, and f4.",
     "keyThemes": [
       "Austrian Attack",
       "f4 storm",
-      "Modangreb mod c5"
+      "Counterattack vs c5"
     ],
     "moves": [
       "e4",
@@ -6011,12 +13462,12 @@ const OPENINGS_DATA = [
   {
     "id": "open-pirc-forsvar-klassisk-variant-4-nf3-",
     "folderId": "folder-scandi",
-    "name": "Pirc Forsvar: Klassisk Variant (4.Nf3)",
+    "name": "Pirc Defense: Classical Variation (4.Nf3)",
     "eco": "B08",
     "color": "b",
-    "explanation": "Hvid vælger harmonisk udvikling af officererne med Be2 og O-O, hvilket giver langvarigt positionelt pres.",
+    "explanation": "Classical Pirc: White chooses harmonious, calm development with Nf3 and Be2.",
     "keyThemes": [
-      "Klassisk Pirc",
+      "Classical Pirc",
       "Solid fordel",
       "Harmonisk opstilling"
     ],
@@ -6044,10 +13495,10 @@ const OPENINGS_DATA = [
   {
     "id": "open-kongens-gambit-kieseritzky-gambit-3-nf3-g5-4-h4-",
     "folderId": "folder-vienna",
-    "name": "Kongens Gambit: Kieseritzky Gambit (3.Nf3 g5 4.h4)",
+    "name": "King's Gambit: Kieseritzky Gambit (3.Nf3 g5 4.h4)",
     "eco": "C39",
     "color": "w",
-    "explanation": "Den romantiske skaktids vildeste angreb, hvor hvid ofrer f-bonden og angriber på kongefløjen.",
+    "explanation": "The wildest romantic attack: White sacrifices a pawn on move 2 and attacks the g5 pawn chain directly.",
     "keyThemes": [
       "Kieseritzky",
       "Kongegambit",
@@ -6078,13 +13529,13 @@ const OPENINGS_DATA = [
   {
     "id": "open-kongens-gambit-falkbeer-modgambit-2-d5-",
     "folderId": "folder-vienna",
-    "name": "Kongens Gambit: Falkbeer Modgambit (2...d5)",
+    "name": "King's Gambit: Falkbeer Countergambit (2...d5)",
     "eco": "C31",
     "color": "w",
-    "explanation": "Sort afslår gambitten og slår direkte tilbage i centrum med 2...d5 og 3...e4.",
+    "explanation": "Falkbeer Countergambit: Black declines the gambit and counter-strikes directly in the center with 2...d5.",
     "keyThemes": [
       "Falkbeer",
-      "Modgambit",
+      "Countergambit",
       "Centrumskamp"
     ],
     "moves": [
@@ -6112,14 +13563,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-wienerspil-frankenstein-dracula-varianten",
     "folderId": "folder-vienna",
-    "name": "Wienerspil: Frankenstein-Dracula Varianten",
+    "name": "Vienna Game: Frankenstein-Dracula Variation",
     "eco": "C27",
     "color": "w",
-    "explanation": "En af de mest taktisk eksplosive åbninger overhovedet med tidligt dronningeangreb og officersofre.",
+    "explanation": "One of the most explosive openings in chess history with early queen raids and king chases.",
     "keyThemes": [
       "Frankenstein-Dracula",
-      "Kaotisk taktik",
-      "Dronningangreb"
+      "Wild tactics",
+      "Queen attack"
     ],
     "moves": [
       "e4",
@@ -6147,14 +13598,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-dansk-gambit-nordisk-gambit-",
     "folderId": "folder-vienna",
-    "name": "Dansk Gambit (Nordisk Gambit)",
+    "name": "Danish Gambit (Nordic Gambit)",
     "eco": "C21",
     "color": "w",
-    "explanation": "Hvid ofrer to hele bønder på c3 og b2 for at få to mægtige løbere pegende direkte mod sorts kongestilling.",
+    "explanation": "Ultra-sharp gambit offering two central pawns for razor-sharp diagonals aimed directly at Black's kingside.",
     "keyThemes": [
-      "Dansk Gambit",
-      "Dobbelt bondeoffer",
-      "Morderiske løbere"
+      "Danish Gambit",
+      "Double pawn sacrifice",
+      "Deadly bishops"
     ],
     "moves": [
       "e4",
@@ -6184,11 +13635,11 @@ const OPENINGS_DATA = [
     "name": "Halloween Gambit (4.Nxe5!?)",
     "eco": "C47",
     "color": "w",
-    "explanation": "Et vanvittigt, chockerende springer-offer på e5 i Fire Springerspil for at oversvømme centrum med bønder.",
+    "explanation": "Sensational tactical gambit sacrificing a knight on e5 to flood the board with an overwhelming central pawn wave.",
     "keyThemes": [
       "Halloween Gambit",
-      "Chokoffer",
-      "Bondeoversvømmelse"
+      "Shock sacrifice",
+      "Pawn avalanche"
     ],
     "moves": [
       "e4",
@@ -6215,14 +13666,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-to-springere-fried-liver-attack-5-nxd5-6-nxf7-",
     "folderId": "folder-italian",
-    "name": "To Springere: Fried Liver Attack (5...Nxd5 6.Nxf7!)",
+    "name": "Two Knights Defense: Fried Liver Attack (5...Nxd5 6.Nxf7!)",
     "eco": "C57",
     "color": "w",
-    "explanation": "Klassikeren over dem alle: Hvid ofrer springeren på f7 for at trække sorts konge ud i en dødelig krydsild.",
+    "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
     "keyThemes": [
       "Fried Liver",
-      "Kongejagt",
-      "Klassisk taktik"
+      "King hunt",
+      "Classical taktik"
     ],
     "moves": [
       "e4",
@@ -6251,14 +13702,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-to-springere-traxler-modangreb-4-ng5-bc5-",
     "folderId": "folder-italian",
-    "name": "To Springere: Traxler Modangreb (4.Ng5 Bc5!!)",
+    "name": "Two Knights Defense: Traxler Counterattack (4.Ng5 Bc5!!)",
     "eco": "C57",
     "color": "b",
-    "explanation": "Sort ignorerer fuldstændig truslen mod f7 og modangriber direkte mod hvids f2-felt med frygtløse ofre.",
+    "explanation": "High-octane tactical clash with rapid piece battles around the weak f7 square, producing explosive tactical complications.",
     "keyThemes": [
       "Traxler",
-      "Brutalt modangreb",
-      "Fyrværkeri"
+      "Brutal counterattack",
+      "Fireworks"
     ],
     "moves": [
       "e4",
@@ -6286,14 +13737,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-evans-gambit-accepteret-4-b4-bxb4-",
     "folderId": "folder-italian",
-    "name": "Evans Gambit Accepteret (4.b4 Bxb4)",
+    "name": "Evans Gambit Accepted (4.b4 Bxb4)",
     "eco": "C52",
     "color": "w",
-    "explanation": "Kaptajn Evans' legendariske bondeoffer for at dominere centrum og åbne diagonaler for dronning og løber.",
+    "explanation": "Legendary attacking gambit offering the b4 pawn to gain rapid tempi, control the center, and blast open diagonals.",
     "keyThemes": [
       "Evans Gambit",
-      "Hurtigt centrum",
-      "Klassisk skak"
+      "Fastt centrum",
+      "Classical skak"
     ],
     "moves": [
       "e4",
@@ -6322,14 +13773,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-skotsk-parti-mieses-hovedlinje-4-nf6-5-nxc6-",
     "folderId": "folder-italian",
-    "name": "Skotsk Parti: Mieses Hovedlinje (4...Nf6 5.Nxc6)",
+    "name": "Scotch Game: Mieses Main Line (4...Nf6 5.Nxc6)",
     "eco": "C45",
     "color": "w",
-    "explanation": "Kasparovs foretrukne våben i VM-matcher: tidlig åbning af centrum med d4 og afbytning på c6.",
+    "explanation": "Direct central confrontation with 3.d4, quickly liquidating central pawns into dynamic, open piece battles.",
     "keyThemes": [
       "Mieses",
-      "Åbent spil",
-      "Aktiv officersplacering"
+      "Open game",
+      "Active piece play"
     ],
     "moves": [
       "e4",
@@ -6357,14 +13808,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-skotsk-gambit-4-bc4-",
     "folderId": "folder-italian",
-    "name": "Skotsk Gambit (4.Bc4)",
+    "name": "Scotch Gambit (4.Bc4)",
     "eco": "C44",
     "color": "w",
-    "explanation": "I stedet for at genvinde bonden på d4 satser hvid på hurtig udvikling og skarpt pres mod f7.",
+    "explanation": "Direct central confrontation with 3.d4, quickly liquidating central pawns into dynamic, open piece battles.",
     "keyThemes": [
-      "Skotsk Gambit",
-      "Hurtig udvikling",
-      "Centralt pres"
+      "Scotch Gambit",
+      "Fast udvikling",
+      "Central pressure"
     ],
     "moves": [
       "e4",
@@ -6391,14 +13842,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-spansk-marshall-angrebet-8-d5-",
     "folderId": "folder-ruy-lopez",
-    "name": "Spansk: Marshall Angrebet (8...d5!!)",
+    "name": "Ruy Lopez: Marshall Attack (8...d5!!)",
     "eco": "C89",
     "color": "b",
-    "explanation": "Frank Marshalls udødelige bondeoffer i Spansk, som giver sort et uimodståeligt kongeangreb.",
+    "explanation": "The Spanish classic: White applies indirect pressure on e5 by pinning the knight on c6, leading to deep strategic play.",
     "keyThemes": [
-      "Marshall Angreb",
-      "Legendarisk bondeoffer",
-      "Kongeangreb"
+      "Marshall Attack",
+      "Legendary pawn sacrifice",
+      "Kingside attack"
     ],
     "moves": [
       "e4",
@@ -6434,14 +13885,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-spansk-breyer-systemet-9-nb8-",
     "folderId": "folder-ruy-lopez",
-    "name": "Spansk: Breyer Systemet (9...Nb8)",
+    "name": "Ruy Lopez: Breyer System (9...Nb8)",
     "eco": "C95",
     "color": "b",
-    "explanation": "Sort trækker springeren tilbage til b8 for at omgruppere den harmonisk til d7, en favorit af Spassky og Karpov.",
+    "explanation": "Black movesker knighten tilbage til b8 to omgruppere den harmonisk til d7, en favorit af Spassky & Karpov.",
     "keyThemes": [
       "Breyer",
-      "Omgruppering",
-      "Dybt positionelt spil"
+      "Regrouping",
+      "Deep positional play"
     ],
     "moves": [
       "e4",
@@ -6474,14 +13925,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-spansk-schliemann-jaenisch-gambit-3-f5-",
     "folderId": "folder-ruy-lopez",
-    "name": "Spansk: Schliemann-Jaenisch Gambit (3...f5)",
+    "name": "Ruy Lopez: Schliemann-Jaenisch Gambit (3...f5)",
     "eco": "C63",
     "color": "b",
-    "explanation": "Et ultra-aggressivt modstød mod den spanske løber, der åbner f-linjen med det samme.",
+    "explanation": "The Spanish classic: White applies indirect pressure on e5 by pinning the knight on c6, leading to deep strategic play.",
     "keyThemes": [
       "Schliemann",
-      "Aggressiv f5",
-      "Tidlig ubalance"
+      "Aggressive f5 push",
+      "Early ubalance"
     ],
     "moves": [
       "e4",
@@ -6510,11 +13961,11 @@ const OPENINGS_DATA = [
     "name": "Petroff: Stafford Gambit (3...Nc6!?)",
     "eco": "C42",
     "color": "b",
-    "explanation": "Eric Rosens yndlingsvåben: et giftigt bondeoffer der lokker hvid i utallige hurtige matfælder.",
+    "explanation": "Eric Rosen's signature weapon: a venomous pawn sacrifice that lures White into devastating mating nets.",
     "keyThemes": [
       "Stafford Gambit",
-      "Giftige fælder",
-      "Hurtigt matangreb"
+      "Venomous traps",
+      "Fastt matangreb"
     ],
     "moves": [
       "e4",
@@ -6545,11 +13996,11 @@ const OPENINGS_DATA = [
     "name": "Petroff: Cochrane Gambit (4.Nxf7!)",
     "eco": "C42",
     "color": "w",
-    "explanation": "Et spektakulært spekulativt officersoffer mod sorts kongestilling for to bønder og totalt initiativ.",
+    "explanation": "Classical symmetrical response 2...Nf6, countering White's initiative with immediate central equality and sharp tactical lines.",
     "keyThemes": [
       "Cochrane Gambit",
-      "Kongeafklædning",
-      "Aggressivt initiativ"
+      "Exposed king",
+      "Aggressive initiative"
     ],
     "moves": [
       "e4",
@@ -6576,14 +14027,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-philidor-forsvar-hanham-hovedvariant",
     "folderId": "folder-petroff-berlin",
-    "name": "Philidor Forsvar: Hanham Hovedvariant",
+    "name": "Philidor Defense: Hanham Main Line",
     "eco": "C41",
     "color": "b",
-    "explanation": "En klippefast opstilling med d6, Nbd7 og Be7, som modstår ethvert forsøg på hurtigt gennembrud.",
+    "explanation": "Solid defensive fortress with 2...d6, creating a durable central structure that repels early aggression.",
     "keyThemes": [
       "Hanham",
-      "Solid fæstning",
-      "Modangreb i centrum"
+      "Solid fortress",
+      "Counterattack i centrum"
     ],
     "moves": [
       "e4",
@@ -6611,14 +14062,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-dronningegambit-tartakower-system-7-b6-",
     "folderId": "folder-queens-gambit",
-    "name": "Dronningegambit: Tartakower System (7...b6)",
+    "name": "Queen's Gambit: Tartakower System (7...b6)",
     "eco": "D58",
     "color": "b",
-    "explanation": "Brugt af Fischer, Kasparov og Carlsen. Sort løser sin hvidfeltede løbers problem med b6 og Bb7.",
+    "explanation": "Classical masterpiece with 1.d4 d5 2.c4, challenging Black's central foothold and fighting for total central dominance.",
     "keyThemes": [
       "Tartakower",
-      "Hvidfeltsløber aktiv",
-      "Uimodståelig soliditet"
+      "Active light-square bishop",
+      "Ironclad solidity"
     ],
     "moves": [
       "d4",
@@ -6648,14 +14099,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-dronningegambit-cambridge-springs-forsvar",
     "folderId": "folder-queens-gambit",
-    "name": "Dronningegambit: Cambridge Springs Forsvar",
+    "name": "Queen's Gambit: Cambridge Springs Defense",
     "eco": "D52",
     "color": "b",
-    "explanation": "Sort modangriber på dronningfløjen med Qa5 og Bb4 og fanger ofte hvids løber på g5 i taktiske problemer.",
+    "explanation": "Classical masterpiece with 1.d4 d5 2.c4, challenging Black's central foothold and fighting for total central dominance.",
     "keyThemes": [
       "Cambridge Springs",
-      "Modpres på c3",
-      "Dronningemanøvre"
+      "Counterpressure on c3",
+      "Queen maneuver"
     ],
     "moves": [
       "d4",
@@ -6684,14 +14135,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-dronningegambit-albin-modgambit-2-e5-",
     "folderId": "folder-queens-gambit",
-    "name": "Dronningegambit: Albin Modgambit (2...e5)",
+    "name": "Queen's Gambit: Albin Countergambit (2...e5)",
     "eco": "D08",
     "color": "b",
-    "explanation": "Et skarpt modangreb med Lasker-underforvandlingsfælden (e5 efterfulgt af d4 og dxc3).",
+    "explanation": "Et skarpt counterattack with Lasker-underforvandlingstrapn (e5 efterfulgt af d4 & dxc3).",
     "keyThemes": [
-      "Albin Modgambit",
-      "Central ubalance",
-      "Underforvandlingstaktikker"
+      "Albin Countergambit",
+      "Central imbalance",
+      "Underpromotion tactics"
     ],
     "moves": [
       "d4",
@@ -6721,14 +14172,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-tarrasch-forsvar-hovedlinje-med-g3",
     "folderId": "folder-queens-gambit",
-    "name": "Tarrasch Forsvar: Hovedlinje med g3",
+    "name": "Tarrasch Defense: Main Line with g3",
     "eco": "D34",
     "color": "b",
-    "explanation": "Siegbert Tarraschs stolte forsvar: sort accepterer en isoleret d-bonde for aktivt officersspil.",
+    "explanation": "Active counter-defense where Black accepts an isolated queen's pawn in exchange for dynamic, unrestricted piece activity.",
     "keyThemes": [
       "Tarrasch",
-      "Isoleret d-bonde (IQP)",
-      "Frit brikspil"
+      "Isolated Queen Pawn (IQP)",
+      "Free piece play"
     ],
     "moves": [
       "d4",
@@ -6758,14 +14209,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-slavisk-chebanenko-variant-4-a6-",
     "folderId": "folder-slav",
-    "name": "Slavisk: Chebanenko Variant (4...a6)",
+    "name": "Slav Defense: Chebanenko Variation (4...a6)",
     "eco": "D15",
     "color": "b",
-    "explanation": "Det ultra-populære b5-forberedelsestræk 4...a6, der giver sort stor fleksibilitet og faste felter.",
+    "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
     "keyThemes": [
       "Chebanenko",
-      "Fleksibel a6",
-      "b5 udvidelse"
+      "Flexible a6",
+      "b5 expansion"
     ],
     "moves": [
       "d4",
@@ -6793,14 +14244,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-semi-slavisk-meran-hovedvariant",
     "folderId": "folder-slav",
-    "name": "Semi-Slavisk: Meran Hovedvariant",
+    "name": "Semi-Slav Defense: Meran Main Line",
     "eco": "D48",
     "color": "b",
-    "explanation": "En af skakkens mest dybsindige åbninger: sort slår på c4 og ekspanderer lynhurtigt med b5 og c5.",
+    "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
     "keyThemes": [
       "Meran",
-      "b5 og c5 brud",
-      "Taktisk fyrværkeri"
+      "b5 & c5 brud",
+      "Tactical fireworks"
     ],
     "moves": [
       "d4",
@@ -6834,14 +14285,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-semi-slavisk-botvinnik-system-ultra-skarpt-",
     "folderId": "folder-slav",
-    "name": "Semi-Slavisk: Botvinnik System (Ultra-Skarpt)",
+    "name": "Semi-Slav Defense: Botvinnik System (Ultra-Sharpt)",
     "eco": "D44",
     "color": "b",
-    "explanation": "Den vildeste gren af Semi-Slavisk, hvor sort ofrer dronningefløjen for en ustoppelig bondemasse.",
+    "explanation": "Ironclad defense bolstering d5 with c6, avoiding early weaknesses and preparing explosive breaks with ...e5 or ...b5.",
     "keyThemes": [
       "Botvinnik System",
-      "Taktisk vanvid",
-      "Bondevalse"
+      "Tactical frenzy",
+      "Pawn storm"
     ],
     "moves": [
       "d4",
@@ -6873,14 +14324,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-trompowsky-angrebet-2-bg5-",
     "folderId": "folder-london",
-    "name": "Trompowsky Angrebet (2.Bg5)",
+    "name": "Trompowsky Attack (2.Bg5)",
     "eco": "A45",
     "color": "w",
-    "explanation": "Hvid undgår al almindelig teori mod 1...Nf6 og pinner straks springeren med løberen.",
+    "explanation": "Direct flank attack with 2.Bg5 against 1...Nf6, pinning the knight and sidestepping conventional mainline theory.",
     "keyThemes": [
       "Trompowsky",
-      "Aktiv løber",
-      "Undgår teoritunge linjer"
+      "Active bishop",
+      "Avoids heavy mainline theory"
     ],
     "moves": [
       "d4",
@@ -6908,14 +14359,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-colle-zukertort-systemet",
     "folderId": "folder-london",
-    "name": "Colle-Zukertort Systemet",
+    "name": "Colle-Zukertort System",
     "eco": "D05",
     "color": "w",
-    "explanation": "En harmonisk opbygning med e3, Bd3, b3 og Bb2, som ofte kulminerer i et knusende løberoffer på h7.",
+    "explanation": "Solid Queen Pawn system emphasizing harmonious piece development, solid pawn structures, and active piece play.",
     "keyThemes": [
       "Colle-Zukertort",
-      "Bb2 fianchetto",
-      "Kongeangreb"
+      "Bb2 Fianchetto",
+      "Kingside attack"
     ],
     "moves": [
       "d4",
@@ -6942,14 +14393,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-richter-veresov-angrebet-2-nc3-3-bg5-",
     "folderId": "folder-london",
-    "name": "Richter-Veresov Angrebet (2.Nc3 & 3.Bg5)",
+    "name": "Richter-Veresov Attack (2.Nc3 & 3.Bg5)",
     "eco": "D01",
     "color": "w",
-    "explanation": "Et aggressivt system der kombinerer hurtigt brikspil med e4-bruddet i centrum.",
+    "explanation": "Et aggressivt system which kombinerer hurtigt brikspil with e4-bruddet i center.",
     "keyThemes": [
       "Richter-Veresov",
-      "Hurtigt spil",
-      "e4 gennembrud"
+      "Fast Play",
+      "e4 breakthrough"
     ],
     "moves": [
       "d4",
@@ -6978,11 +14429,11 @@ const OPENINGS_DATA = [
     "name": "Blackmar-Diemer Gambit (2.e4!?)",
     "eco": "D00",
     "color": "w",
-    "explanation": "Hvid forvandler 1.d4 til et vildt angrebsspil ved at ofre to bønder for total udviklingsfordel.",
+    "explanation": "White forvandler 1.d4 til et vildt attacksspil by ofre to pawns for total developmentsfordel.",
     "keyThemes": [
       "Blackmar-Diemer",
-      "Dronningbondegambit",
-      "Angrebsrus"
+      "Queen's pawn gambit",
+      "Attacksrus"
     ],
     "moves": [
       "d4",
@@ -7009,14 +14460,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-hollandsk-stonewall-hovedvariant",
     "folderId": "folder-dutch",
-    "name": "Hollandsk: Stonewall Hovedvariant",
+    "name": "Dutch Defense: Stonewall Main Line",
     "eco": "A95",
     "color": "b",
-    "explanation": "En urokkelig fæstning i centrum med bønder på c6, d5, e6 og f5 med kontrol over Ne4.",
+    "explanation": "Aggressive flank response with 1...f5, seizing control of the e4 square and launching active kingside counterplay.",
     "keyThemes": [
       "Stonewall",
-      "Centrumsfæstning",
-      "Ne4 forpost"
+      "Central fortress",
+      "Ne4 outpost"
     ],
     "moves": [
       "d4",
@@ -7044,14 +14495,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-hollandsk-leningrad-hovedvariant",
     "folderId": "folder-dutch",
-    "name": "Hollandsk: Leningrad Hovedvariant",
+    "name": "Dutch Defense: Leningrad Main Line",
     "eco": "A88",
     "color": "b",
-    "explanation": "Kombinerer hollandsk dynamik med kongeindisk fianchetto af g7-løberen for maksimal modangrebskraft.",
+    "explanation": "Kombinerer hollandsk dynamik with kongeindisk fianchetto af g7-bishopen for maksimal counterattackskraft.",
     "keyThemes": [
       "Leningrad",
       "Fianchetto",
-      "Kongefløjsmodangreb"
+      "Kingside counterattack"
     ],
     "moves": [
       "d4",
@@ -7079,14 +14530,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-kongeindisk-mar-del-plata-hovedlinje-9-ne1-",
     "folderId": "folder-kid",
-    "name": "Kongeindisk: Mar del Plata Hovedlinje (9.Ne1)",
+    "name": "King's Indian Defense: Mar del Plata Main Line (9.Ne1)",
     "eco": "E99",
     "color": "b",
-    "explanation": "Den mest berømte konfrontation i skak: hvid stormer dronningfløjen, mens sort lancerer et brutalt matangreb mod hvids konge med f5-f4 og g5-g4.",
+    "explanation": "Deep dynamic battleground where Black builds an elastic pawn structure before unleashing a fierce kingside pawn storm.",
     "keyThemes": [
       "Mar del Plata",
-      "Gensidig fløjkrig",
-      "Sort matangreb"
+      "Opposite flank war",
+      "Black mating attack"
     ],
     "moves": [
       "d4",
@@ -7118,14 +14569,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-kongeindisk-s-misch-hovedvariant-5-f3-",
     "folderId": "folder-kid",
-    "name": "Kongeindisk: Sämisch Hovedvariant (5.f3)",
+    "name": "King's Indian Defense: Sämisch Main Line (5.f3)",
     "eco": "E81",
     "color": "b",
-    "explanation": "Hvid befæster e4-bonden med f3 og forbereder ofte lang rokade med et mægtigt kongeangreb mod sort.",
+    "explanation": "Deep dynamic battleground where Black builds an elastic pawn structure before unleashing a fierce kingside pawn storm.",
     "keyThemes": [
       "Sämisch",
-      "f3 soliditet",
-      "Modsat rettede rokader"
+      "f3 solidity",
+      "Opposite side castling"
     ],
     "moves": [
       "d4",
@@ -7157,14 +14608,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-kongeindisk-four-pawns-attack",
     "folderId": "folder-kid",
-    "name": "Kongeindisk: Four Pawns Attack",
+    "name": "King's Indian Defense: Four Pawns Attack",
     "eco": "E76",
     "color": "b",
-    "explanation": "Hvid skubber alle fire bønder frem for at knuse sorts stilling, men sort undergraver lynhurtigt med c5.",
+    "explanation": "Deep dynamic battleground where Black builds an elastic pawn structure before unleashing a fierce kingside pawn storm.",
     "keyThemes": [
-      "Fire Bønder",
-      "Centrumsundergravning",
-      "Skarpt spil"
+      "Four Pawns",
+      "Center undermining",
+      "Sharp Play"
     ],
     "moves": [
       "d4",
@@ -7196,14 +14647,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-nimzo-indisk-rubinstein-hovedlinje-4-e3-",
     "folderId": "folder-nimzo-qid",
-    "name": "Nimzo-Indisk: Rubinstein Hovedlinje (4.e3)",
+    "name": "Nimzo-Indian Defense: Rubinstein Main Line (4.e3)",
     "eco": "E54",
     "color": "b",
-    "explanation": "Hvids mest klassiske og pålidelige svar, som fører til dybe strategiske kampe om centrum.",
+    "explanation": "Elite Indian defenses focusing on dark-square and light-square control, avoiding weak pawn structures while generating active counterplay.",
     "keyThemes": [
       "Rubinstein",
-      "Centrumskontrol",
-      "Klassisk balance"
+      "Center control",
+      "Classical balance"
     ],
     "moves": [
       "d4",
@@ -7233,14 +14684,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-nimzo-indisk-klassisk-4-qc2",
     "folderId": "folder-nimzo-qid",
-    "name": "Nimzo-Indisk: Klassisk 4.Qc2",
+    "name": "Nimzo-Indian Defense: Classical 4.Qc2",
     "eco": "E32",
     "color": "b",
-    "explanation": "Hvids mest populære træk i moderne stormesterskak: undgår svækkelsen af c3-bonden ved at slå igen med dronningen.",
+    "explanation": "Elite Indian defenses focusing on dark-square and light-square control, avoiding weak pawn structures while generating active counterplay.",
     "keyThemes": [
       "4.Qc2",
-      "Undgår dobbeltbonde",
-      "Løberpar fordel"
+      "Avoids doubled pawns",
+      "Bishop pair advantage"
     ],
     "moves": [
       "d4",
@@ -7272,14 +14723,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-bogo-indisk-hovedvariant-4-bd2-",
     "folderId": "folder-nimzo-qid",
-    "name": "Bogo-Indisk: Hovedvariant (4.Bd2)",
+    "name": "Bogo-Indian Defense: Main Line (4.Bd2)",
     "eco": "E11",
     "color": "b",
-    "explanation": "Sort giver en skak på b4 i stedet for at binde springeren, og følger op med hurtig omgruppering med Qe7.",
+    "explanation": "Elite Indian defenses focusing on dark-square and light-square control, avoiding weak pawn structures while generating active counterplay.",
     "keyThemes": [
-      "Bogo-Indisk",
-      "Løberafbytning",
-      "Solid central kontrol"
+      "Bogo-Indian Defense",
+      "Bishop trade",
+      "Solid central control"
     ],
     "moves": [
       "d4",
@@ -7309,14 +14760,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-dronningindisk-qid-hovedlinje-med-4-g3",
     "folderId": "folder-nimzo-qid",
-    "name": "Dronningindisk (QID): Hovedlinje med 4.g3",
+    "name": "Queen's Indian Defense (QID): Main Line with 4.g3",
     "eco": "E15",
     "color": "b",
-    "explanation": "En af skakkens mest solide elite-åbninger med kontrol over de lange diagonaler og e4-feltet.",
+    "explanation": "Elite Indian defenses focusing on dark-square and light-square control, avoiding weak pawn structures while generating active counterplay.",
     "keyThemes": [
       "QID",
-      "Fianchetto duel",
-      "Hypermoderne strategi"
+      "Fianchetto Duel",
+      "Hypermodern strategy"
     ],
     "moves": [
       "d4",
@@ -7346,14 +14797,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-gr-nfeld-modern-exchange-med-7-nf3-8-rb1",
     "folderId": "folder-grunfeld",
-    "name": "Grünfeld: Modern Exchange med 7.Nf3 & 8.Rb1",
+    "name": "Grünfeld Defense Defense: Modern Exchange with 7.Nf3 & 8.Rb1",
     "eco": "D85",
     "color": "b",
-    "explanation": "Det mest moderne våben mod Grünfeld. Hvid flytter tårnet væk fra sorts g7-løber og lægger pres på b7.",
+    "explanation": "Hypermodern defense allowing White to occupy the center, followed by dynamic counter-strikes with ...c5 or ...e5.",
     "keyThemes": [
       "Modern Exchange",
-      "Rb1 aktivitet",
-      "Centrum vs Diagonaler"
+      "Rb1 activity",
+      "Center vs Diagonals"
     ],
     "moves": [
       "d4",
@@ -7385,14 +14836,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-gr-nfeld-russian-system-5-qb3-",
     "folderId": "folder-grunfeld",
-    "name": "Grünfeld: Russian System (5.Qb3)",
+    "name": "Grünfeld Defense Defense: Russian System (5.Qb3)",
     "eco": "D96",
     "color": "b",
-    "explanation": "Hvid presser d5-feltet omgående med dronningen og forbereder et stort centralt centrum med e4.",
+    "explanation": "Hypermodern masterpiece allowing White a massive pawn center, which Black systematically attacks with ...c5 and ...Bg7.",
     "keyThemes": [
       "Russian System",
-      "Qb3 pres",
-      "Hurtigt e4 centrum"
+      "Qb3 Pressuresure",
+      "Fastt e4 centrum"
     ],
     "moves": [
       "d4",
@@ -7423,14 +14874,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-moderne-benoni-klassisk-hovedvariant",
     "folderId": "folder-vienna",
-    "name": "Moderne Benoni: Klassisk Hovedvariant",
+    "name": "Modern Benoni: Classical Main Line",
     "eco": "A70",
     "color": "b",
-    "explanation": "Sort skaber asymmetrisk dynamik med en bondemajoritet på dronningfløjen mod hvids centrum.",
+    "explanation": "Hypermodern defense allowing White to occupy the center, followed by dynamic counter-strikes with ...c5 or ...e5.",
     "keyThemes": [
       "Moderne Benoni",
-      "Dronningfløjsmajoritet",
-      "Dynamisk modspil"
+      "Queenside majority",
+      "Dynamic counterplay"
     ],
     "moves": [
       "d4",
@@ -7462,14 +14913,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-benko-gambit-accepteret-hovedlinje",
     "folderId": "folder-vienna",
-    "name": "Benko Gambit: Accepteret Hovedlinje",
+    "name": "Benko Gambit: Accepted Main Line",
     "eco": "A57",
     "color": "b",
-    "explanation": "Sort ofrer en bonde med 3...b5 og 4...a6 for at sikre sig permanent, lammende pres på a- og b-linjerne.",
+    "explanation": "Asymmetric counterattacking system generating active queenside play, open files, and energetic piece activity.",
     "keyThemes": [
       "Benko Gambit",
-      "Permanent fløjt pres",
-      "a- og b-linjer"
+      "Permanent flank pressure",
+      "a- & b-linjer"
     ],
     "moves": [
       "d4",
@@ -7501,14 +14952,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-budapest-gambit-hovedvariant-4-bf4-",
     "folderId": "folder-vienna",
-    "name": "Budapest Gambit: Hovedvariant (4.Bf4)",
+    "name": "Budapest Gambit: Main Line (4.Bf4)",
     "eco": "A52",
     "color": "b",
-    "explanation": "Sort udfordrer hvids centrum straks med 2...e5 og angriber den fremskudte e5-bonde med alle officerer.",
+    "explanation": "Black udfordrer White's center straks with 2...e5 & angriber den fremskudte e5-pawn with alle officerer.",
     "keyThemes": [
       "Budapest Gambit",
-      "Pres på e5",
-      "Hurtig officerstaktik"
+      "Pressure on e5",
+      "Fast officerstaktik"
     ],
     "moves": [
       "d4",
@@ -7538,14 +14989,14 @@ const OPENINGS_DATA = [
   {
     "id": "open-englund-gambit-dronningef-lden-3-qe7-",
     "folderId": "folder-vienna",
-    "name": "Englund Gambit: Dronningefælden (3...Qe7)",
+    "name": "Englund Gambit: Queen Trap (3...Qe7)",
     "eco": "A40",
     "color": "b",
-    "explanation": "En berygtet lynskak-gambit der sætter et utal af dødbringende fælder mod b2- og c1-felterne.",
+    "explanation": "Tricky gambit immediately attacking White's advanced pawn, setting tactical traps and accelerating piece development.",
     "keyThemes": [
       "Englund Gambit",
-      "Fælder",
-      "Taktiske trusler"
+      "Trapr",
+      "Tactical threats"
     ],
     "moves": [
       "d4",
