@@ -69,6 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const parsed = JSON.parse(savedSelectedLines);
       state.selectedLineIds = new Set(parsed);
       state.selectedLineIds.add('caro-advance-botvinnik-carls-c5');
+      state.selectedLineIds.add('london-accelerated-main-nf6');
+      state.selectedLineIds.add('london-accelerated-bf5');
     } catch (e) {}
   }
   if (!hasEverSaved && state.selectedLineIds.size === 0) {
@@ -744,6 +746,8 @@ document.addEventListener('DOMContentLoaded', () => {
     state.currentFolder = folder;
     state.currentLine = line;
     state.boardFlipped = (folder.color === 'b');
+    if (!state.expandedFolderIds) state.expandedFolderIds = new Set();
+    state.expandedFolderIds.add(folder.id);
     if (line.gameMeta) {
       state.reviewGameMeta = line.gameMeta;
     }
@@ -3197,6 +3201,9 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => {
       const isCurrentFolder = card.dataset.folderId === currentFolderId;
       card.classList.toggle('active', isCurrentFolder);
+      if (isCurrentFolder) {
+        card.classList.add('expanded');
+      }
     });
 
     // Update line items
@@ -3215,17 +3222,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeLineEl = el.foldersTree.querySelector('.line-item.active');
     if (!activeLineEl) return;
 
-    const tree = el.foldersTree;
-    const lineOffsetTop = activeLineEl.offsetTop;
-    const treeScrollTop = tree.scrollTop;
-    const treeHeight = tree.clientHeight;
-
-    if (lineOffsetTop < treeScrollTop + 30 || lineOffsetTop > treeScrollTop + treeHeight - 50) {
-      const prevX = window.scrollX;
-      const prevY = window.scrollY;
-      tree.scrollTop = Math.max(0, lineOffsetTop - (treeHeight / 2));
-      if (window.scrollX !== prevX || window.scrollY !== prevY) {
-        window.scrollTo(prevX, prevY);
+    const panelBody = document.querySelector('#panel-left .panel-body') || el.foldersTree;
+    if (panelBody) {
+      const lineTop = activeLineEl.offsetTop;
+      const scrollY = panelBody.scrollTop;
+      const h = panelBody.clientHeight;
+      if (lineTop < scrollY + 40 || lineTop > scrollY + h - 60) {
+        panelBody.scrollTop = Math.max(0, lineTop - (h / 2));
       }
     }
   }
@@ -3245,7 +3248,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isSearching = !!(state.searchQuery && state.searchQuery.trim().length > 0);
     if (!state.expandedFolderIds) {
-      state.expandedFolderIds = new Set();
+      state.expandedFolderIds = new Set(['folder-london', 'folder-caro-kann', 'folder-italian']);
       if (state.currentFolder) state.expandedFolderIds.add(state.currentFolder.id);
     }
 

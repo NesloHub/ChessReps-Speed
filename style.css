@@ -413,19 +413,15 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
   padding: 12px 14px;
   flex: 1;
   min-height: 0;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  overflow-y: auto !important;
+  overflow-x: hidden;
 }
 
 #standard-left-panel {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  flex: 1;
-  min-height: 0;
-  height: 100%;
-  overflow: hidden;
+  gap: 10px;
+  width: 100%;
 }
 
 /* 4 Mode Tabs */
@@ -687,13 +683,8 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  flex: 1;
-  min-height: 0;
-  overflow-y: scroll !important;
-  overflow-x: hidden;
-  padding-right: 6px;
-  scroll-behavior: auto !important;
-  overscroll-behavior: auto;
+  width: 100%;
+  padding-right: 2px;
 }
 
 .folders-tree::-webkit-scrollbar { width: 7px; }
