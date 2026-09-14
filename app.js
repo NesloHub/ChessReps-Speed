@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const allOpenings = window.OPENINGS_DATA || [];
   const initialFolders = (window.OPENING_FOLDERS || []).map(f => ({
     ...f,
-    lines: (f.lines && f.lines.length > 0) ? f.lines : allOpenings.filter(o => o.folderId === f.id)
+    lines: allOpenings.filter(o => o.folderId === f.id)
   }));
 
   // Application State
@@ -73,17 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
       state.selectedLineIds.add('london-accelerated-bf5');
     } catch (e) {}
   }
-  if (!hasEverSaved && state.selectedLineIds.size === 0) {
-    // By default on first launch, activate Italian, London, and Caro-Kann
-    const initialFolderIds = ['folder-italian', 'folder-london', 'folder-caro-kann'];
+  if (!hasEverSaved || state.selectedLineIds.size <= 4) {
+    // By default activate all variations of London System and Caro-Kann Defence for immediate multi-opening training!
+    const initialFolderIds = ['folder-london', 'folder-caro-kann'];
     state.folders.forEach(f => {
       if (initialFolderIds.includes(f.id)) {
         (f.lines || []).forEach(l => state.selectedLineIds.add(l.id));
       }
     });
-    if (state.selectedLineIds.size === 0) {
-      state.folders.slice(0, 3).forEach(f => (f.lines || []).forEach(l => state.selectedLineIds.add(l.id)));
-    }
     localStorage.setItem('chessreps_has_saved_selection', 'true');
     localStorage.setItem('chessreps_selected_lines', JSON.stringify([...state.selectedLineIds]));
   }
@@ -2907,11 +2904,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const pct = Math.round((correct / total) * 100);
 
     let grade = 'A+';
-    let title = 'Grandmaster Niveau!';
+    let title = 'Grandmaster Level!';
     let xpBonus = 200;
 
     if (pct < 60) { grade = 'D'; title = 'Need more practice in Learn mode'; xpBonus = 20; }
-    else if (pct < 75) { grade = 'C'; title = 'Godkendt indsats!'; xpBonus = 50; }
+    else if (pct < 75) { grade = 'C'; title = 'Solid Performance!'; xpBonus = 50; }
     else if (pct < 90) { grade = 'B+'; title = 'Well played!'; xpBonus = 100; }
     else if (pct < 98) { grade = 'A'; title = 'Outstanding precision!'; xpBonus = 150; }
 
@@ -3233,7 +3230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function renderFoldersTree() {
+    function renderFoldersTree() {
     const folders = getFilteredFolders();
     el.foldersTree.innerHTML = '';
 
@@ -3248,16 +3245,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isSearching = !!(state.searchQuery && state.searchQuery.trim().length > 0);
     if (!state.expandedFolderIds) {
-      state.expandedFolderIds = new Set(['folder-london', 'folder-caro-kann', 'folder-italian']);
+      state.expandedFolderIds = new Set(['folder-london', 'folder-caro-kann']);
       if (state.currentFolder) state.expandedFolderIds.add(state.currentFolder.id);
     }
 
     folders.forEach(folder => {
       const isFolderActive = state.currentFolder && state.currentFolder.id === folder.id;
       let isExpanded = false;
-      if (isSearching) {
-        isExpanded = true;
-      } else if (state.allFoldersExpanded) {
+      if (isSearching || state.allFoldersExpanded) {
         isExpanded = true;
       } else {
         isExpanded = state.expandedFolderIds.has(folder.id);
@@ -3276,12 +3271,13 @@ document.addEventListener('DOMContentLoaded', () => {
       header.className = 'folder-header';
       header.innerHTML = `
         <div class="folder-title-left">
-          <input type="checkbox" class="folder-checkbox" data-folder-id="${folder.id}" title="Toggle all variations in ${folder.name}" ${isAllChecked ? 'checked' : ''}>
-          <span class="folder-icon">${folder.icon || '📁'}</span>
+          <input type="checkbox" class="folder-checkbox" data-folder-id="${folder.id}" title="Toggle all ${folder.lines.length} variations in ${folder.name}" ${isAllChecked ? 'checked' : ''}>
+          <span class="folder-color-badge" title="${folder.color === 'w' ? 'White Repertoire' : 'Black Repertoire'}">${folder.color === 'w' ? '⚪' : '⚫'}</span>
           <span class="folder-name">${folder.name}</span>
+          <span class="folder-eco-tag">${folder.eco || ''}</span>
         </div>
         <div class="folder-title-right">
-          <span class="folder-count-pill" title="${checkedInFolder} of ${folder.lines.length} active">${checkedInFolder}/${folder.lines.length}</span>
+          <span class="folder-count-pill ${checkedInFolder > 0 ? 'has-active' : ''}">${checkedInFolder}/${folder.lines.length} active</span>
           <span class="folder-chevron">▶</span>
         </div>
       `;
@@ -3304,12 +3300,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      header.addEventListener('click', () => {
+      // Click anywhere on header expands the folder and selects it
+      header.addEventListener('click', (e) => {
+        if (e.target.closest('.folder-checkbox')) return;
+        
         const nowExpanded = card.classList.toggle('expanded');
         if (nowExpanded) {
           state.expandedFolderIds.add(folder.id);
         } else {
           state.expandedFolderIds.delete(folder.id);
+        }
+
+        // Switch to first line of this folder if not already current
+        if (!state.currentFolder || state.currentFolder.id !== folder.id) {
+          if (folder.lines && folder.lines.length > 0) {
+            selectFolderAndLine(folder.id, folder.lines[0].id);
+          }
         }
       });
 
@@ -3317,15 +3323,52 @@ document.addEventListener('DOMContentLoaded', () => {
       const linesContainer = document.createElement('div');
       linesContainer.className = 'folder-lines';
 
+      // Toolbar inside folder: Quick Select All / Deselect All
+      const toolbar = document.createElement('div');
+      toolbar.className = 'folder-lines-toolbar';
+      toolbar.innerHTML = `
+        <span class="folder-lines-count-label">${folder.lines.length} Variations</span>
+        <div class="folder-lines-actions">
+          <button type="button" class="btn-folder-action btn-folder-select-all" title="Select all ${folder.lines.length} variations for training">✓ Select All</button>
+          <button type="button" class="btn-folder-action clear btn-folder-clear-all" title="Deselect all variations in this folder">✕ Deselect</button>
+        </div>
+      `;
+
+      toolbar.querySelector('.btn-folder-select-all')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        folder.lines.forEach(l => state.selectedLineIds.add(l.id));
+        saveSelectedLines();
+        renderFoldersTree();
+        updatePlaylistCount();
+      });
+
+      toolbar.querySelector('.btn-folder-clear-all')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        folder.lines.forEach(l => state.selectedLineIds.delete(l.id));
+        saveSelectedLines();
+        renderFoldersTree();
+        updatePlaylistCount();
+      });
+
+      linesContainer.appendChild(toolbar);
+
       folder.lines.forEach(line => {
         const isLineActive = state.currentLine && state.currentLine.id === line.id;
         const isChecked = state.selectedLineIds.has(line.id);
         const lineInfo = window.srsManager.getLineInfo(line.id);
 
         let stageClass = 'stage-ny';
-        if (lineInfo.stage === 'I gang') stageClass = 'stage-igang';
-        if (lineInfo.stage === 'Intermediate' || lineInfo.stage === 'Intermediate') stageClass = 'stage-ovet';
-        if (lineInfo.stage === 'Mastered' || lineInfo.stage === 'Mestret') stageClass = 'stage-mestret';
+        let stageLabel = 'New';
+        if (lineInfo.stage === 'I gang' || lineInfo.stage === 'In Progress') {
+          stageClass = 'stage-igang';
+          stageLabel = 'In Progress';
+        } else if (lineInfo.stage === 'Intermediate' || lineInfo.stage === 'Intermediate') {
+          stageClass = 'stage-ovet';
+          stageLabel = 'Practiced';
+        } else if (lineInfo.stage === 'Mastered' || lineInfo.stage === 'Mestret') {
+          stageClass = 'stage-mestret';
+          stageLabel = 'Mastered';
+        }
 
         const lineEl = document.createElement('div');
         lineEl.className = `line-item ${isLineActive ? 'active' : ''}`;
@@ -3334,11 +3377,13 @@ document.addEventListener('DOMContentLoaded', () => {
         lineEl.innerHTML = `
           <div class="line-left-group">
             <input type="checkbox" class="line-checkbox" data-line-id="${line.id}" ${isChecked ? 'checked' : ''} title="Check to include in active training">
-            <span class="line-name">${line.name}</span>
+            <div class="line-details-stack">
+              <span class="line-name">${line.name}</span>
+              <span class="line-meta">${line.eco || folder.eco || ''} • ${line.moves.length} moves</span>
+            </div>
           </div>
-          <div style="display:flex; align-items:center; gap:4px; flex-shrink:0;">
-            <span class="badge-moves" title="${line.moves.length} moves depth">${line.moves.length}t</span>
-            <span class="badge-stage ${stageClass}">${lineInfo.stage}</span>
+          <div class="line-right-group">
+            <span class="badge-stage ${stageClass}">${stageLabel}</span>
           </div>
         `;
 
@@ -3366,12 +3411,13 @@ document.addEventListener('DOMContentLoaded', () => {
               fCb.indeterminate = updatedPartial;
             }
             if (fPill) {
-              fPill.textContent = `${updatedCheckedInFolder}/${folder.lines.length}`;
+              fPill.textContent = `${updatedCheckedInFolder}/${folder.lines.length} active`;
+              fPill.classList.toggle('has-active', updatedCheckedInFolder > 0);
             }
           });
         }
 
-        // Click line to play
+        // Click line to play immediately
         lineEl.addEventListener('click', (e) => {
           e.stopPropagation();
           state.selectedLineIds.add(line.id);
