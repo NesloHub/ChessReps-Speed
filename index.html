@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ChessReps Speed Trainer - Train your chess opening repertoires at blitz speed with spaced repetition and instant feedback.">
+  <title>ChessReps Speed Trainer | Speed Chess Opening Trainer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body class="theme-slate">
+
+  <!-- App Header -->
+  <header class="app-header" id="app-header">
+    <div class="brand-wrapper" id="brand-home-btn" title="Go to Home">
+      <div class="brand-logo" id="brand-logo">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 22H5V20H19V22M17.5 18H6.5L7.3 15.6C6.5 14.8 6 13.7 6 12.5C6 11.4 6.4 10.4 7.1 9.6L6 3H9.2L10.3 7.4C10.8 7.1 11.4 7 12 7S13.2 7.1 13.7 7.4L14.8 3H18L16.9 9.6C17.6 10.4 18 11.4 18 12.5C18 13.7 17.5 14.8 16.7 15.6L17.5 18Z" />
+        </svg>
+      </div>
+      <div>
+        <div class="brand-title">
+          <span>ChessReps</span>
+          <span class="brand-badge">Speed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gamification & Stats Pill Strip -->
+    <div class="stats-strip" id="stats-strip">
+      <!-- Streak -->
+      <div class="stat-chip streak-chip" id="chip-streak" title="Current unbroken streak of correct moves">
+        <span class="stat-icon" id="streak-icon">🔥</span>
+        <span class="stat-label">Streak</span>
+        <span class="stat-val" id="stat-streak">0</span>
+      </div>
+
+      <!-- Total Reps -->
+      <div class="stat-chip" id="chip-reps" title="Total completed reps today">
+        <span class="stat-icon">⚡</span>
+        <span class="stat-label">Reps</span>
+        <span class="stat-val" id="stat-reps">0</span>
+      </div>
+
+      <!-- Accuracy -->
+      <div class="stat-chip" id="chip-accuracy" title="Move accuracy">
+        <span class="stat-icon">🎯</span>
+        <span class="stat-label">Accuracy</span>
+        <span class="stat-val" id="stat-accuracy">100%</span>
+      </div>
+
+      <!-- Speed / Pace -->
+      <div class="stat-chip" id="chip-speed" title="Training pace in moves per minute">
+        <span class="stat-icon">⏱️</span>
+        <span class="stat-label">Pace</span>
+        <span class="stat-val" id="stat-pace">0 moves/min</span>
+      </div>
+
+      <!-- Level & XP -->
+      <div class="stat-chip" id="chip-level" title="Player level and XP">
+        <span class="stat-icon">🏆</span>
+        <span class="stat-label">Level</span>
+        <span class="stat-val" id="stat-level">Lv. 1 (<span id="stat-xp">0</span> XP)</span>
+      </div>
+    </div>
+
+    <!-- Header Quick Actions & Profile -->
+    <div class="header-actions" id="header-actions">
+      <!-- Profile Widget Container (Lichess/Chess.com) -->
+      <div id="header-profile-container">
+        <button class="btn-pill" id="btn-open-profile-modal" style="padding: 6px 12px; font-size:0.78rem;">
+          <span>🔗</span> Link Profile
+        </button>
+      </div>
+
+      <!-- Theme Customizer Button -->
+      <button class="btn-pill" id="btn-open-theme-modal" title="Customize board and piece appearance" style="padding: 6px 12px; font-size:0.78rem;">
+        <span>🎨</span> Themes
+      </button>
+
+      <button class="btn-icon" id="btn-sound-settings" title="Sound effects and audio feedback">
+        <svg viewBox="0 0 24 24" id="sound-icon">
+          <path d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zm-2.5 9.77l-4.5-4.5H3v7h4l4.5 4.5v-7z"/>
+        </svg>
+      </button>
+      <button class="btn-icon" id="btn-import-pgn-modal" title="Import PGN or build repertoire">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+        </svg>
+      </button>
+      <button class="btn-icon" id="btn-help-modal" title="Help & Keyboard Shortcuts">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Layout (Big Tournament Board) -->
+  <main class="main-container" id="main-container">
+    
+    <!-- LEFT PANEL: Training Modes & Openings Library by Folders -->
+    <aside class="panel" id="panel-left">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>📁</span>
+          <span>Repertoire Library</span>
+        </div>
+      </div>
+      <div class="panel-body">
+        <!-- 4 Mode Switchers -->
+        <div class="mode-tabs" id="mode-tabs">
+          <button class="mode-tab tab-drill active" id="mode-tab-drill" data-mode="drill" title="Fast repetition drill mode with automatic opponent replies">
+            <span>⚡ Drill</span>
+          </button>
+          <button class="mode-tab tab-learn" id="mode-tab-learn" data-mode="learn" title="Learn with opening theory, key ideas and move explanations">
+            <span>📖 Learn</span>
+          </button>
+          <button class="mode-tab tab-test" id="mode-tab-test" data-mode="test" title="Exam mode with no hints - graded at completion">
+            <span>🎓 Exam</span>
+          </button>
+          <button class="mode-tab tab-mistakes" id="mode-tab-mistakes" data-mode="mistakes" title="Træn de træk du tidligere lavede fejl på">
+            <span>🎯 Fejlbank (<span id="badge-mistakes-count">0</span>)</span>
+          </button>
+          <button class="mode-tab tab-builder" id="mode-tab-builder" data-mode="builder" title="Byg dit eget repertoire træk for træk">
+            <span>🔨 Build PGN</span>
+          </button>
+          <button class="mode-tab tab-review" id="mode-tab-review" data-mode="review" title="Chess.com-style Game Review with evaluations, accuracy scores and Coach">
+            <span>🔍 Review</span>
+          </button>
+        </div>
+
+        <!-- Standard Left Panel Content (Library, filters, folders) -->
+        <div id="standard-left-panel" style="display:flex; flex-direction:column; gap:10px;">
+          <!-- Color Filter (White / Black / All) -->
+          <div class="color-filters" id="color-filters">
+            <button class="filter-btn active" id="filter-all" data-filter="all">Alle</button>
+            <button class="filter-btn" id="filter-w" data-filter="w">Hvid ⚪</button>
+            <button class="filter-btn" id="filter-b" data-filter="b">Sort ⚫</button>
+          </div>
+
+          <!-- Folder Controls: Random in folder, Branch Prompt toggle & Multi-select actions -->
+          <div class="folder-controls-bar" id="folder-controls-bar">
+            <label class="toggle-switch-label" for="toggle-random-folder" title="Vælg automatisk en ny tilfældig variant inden for samme mappe ved afslutning">
+              <input type="checkbox" id="toggle-random-folder" class="toggle-switch-input" checked>
+              <span>🎲 Tilfældig</span>
+            </label>
+            <label class="toggle-switch-label" for="toggle-prompt-branch" title="Spørg om du vil skifte, hvis du spiller et alternativt træk i repertoiret">
+              <input type="checkbox" id="toggle-prompt-branch" class="toggle-switch-input" checked>
+              <span>❓ Spørg ved linjeskift</span>
+            </label>
+          </div>
+
+          <!-- Quick Repertoire Search Bar -->
+          <div class="repertoire-search-box" id="repertoire-search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="input-search-openings" placeholder="Søg variant, åbning, træk (f.eks. Najdorf, dyb, c5)..." autocomplete="off">
+            <button id="btn-clear-search" class="btn-clear-search" style="display:none;" title="Ryd søgning">✕</button>
+          </div>
+
+          <!-- Playlist Selection Actions (Select all / Deselect all & Expand all) -->
+          <div class="playlist-actions-bar" id="playlist-actions-bar">
+            <div class="playlist-actions-left">
+              <span id="playlist-count-label">Aktive varianter</span>
+              <button class="playlist-btn-link toggle-folders-btn" id="btn-toggle-all-folders" title="Expand or collapse all opening folders">📂 Expand All</button>
+            </div>
+            <div class="playlist-actions-right">
+              <button class="playlist-btn-link" id="btn-select-all-lines">Vælg alle</button>
+              <span style="color:var(--border-subtle)">|</span>
+              <button class="playlist-btn-link" id="btn-deselect-all-lines">Fravælg alle</button>
+            </div>
+          </div>
+
+          <!-- Accordion Folders Tree -->
+          <div class="folders-tree" id="folders-tree">
+            <!-- Dynamically populated folders and lines with checkboxes by app.js -->
+          </div>
+        </div>
+
+        <!-- Dedicated Game Review Sidebar (PGN upload, free analysis, sample games) -->
+        <div class="review-sidebar-panel" id="review-sidebar-panel" style="display:none; flex-direction:column; gap:12px;">
+          <!-- PGN File Upload -->
+          <div class="review-sidebar-card">
+            <div style="font-weight:700; font-size:0.85rem; margin-bottom:6px; color:var(--text-main);">
+              📂 Load or Upload PGN
+            </div>
+            <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:10px; line-height:1.4;">
+              Upload your own game file (.pgn) or paste notation for complete review and coaching.
+            </p>
+            <input type="file" id="review-file-input" accept=".pgn,.txt" style="display:none;">
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <button class="btn-pill primary" id="btn-trigger-upload-pgn" style="width:100%; justify-content:center;">
+                <span>📁</span> Upload .PGN Game File
+              </button>
+              <button class="btn-pill" id="btn-trigger-paste-pgn" style="width:100%; justify-content:center;">
+                <span>📋</span> Paste PGN Text
+              </button>
+              <button class="btn-pill" id="btn-start-free-analysis" style="width:100%; justify-content:center;">
+                <span>♟️</span> Free Board (Play Both Sides)
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Famous Games to Review -->
+          <div class="review-sidebar-card">
+            <div style="font-weight:700; font-size:0.82rem; margin-bottom:8px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">
+              ⭐ Famous Games &amp; Openings
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <button class="btn-sample-game" id="btn-quick-opera">
+                <div style="font-weight:700; color:var(--color-cyan);">Morphy's Opera Game (1858)</div>
+                <div style="font-size:0.7rem; color:var(--text-dim)">Brilliant sacrifices &amp; mate in 17 moves</div>
+              </button>
+              <button class="btn-sample-game" id="btn-quick-immortal">
+                <div style="font-weight:700; color:var(--color-emerald);">Anderssen's Immortal Game</div>
+                <div style="font-size:0.7rem; color:var(--text-dim)">Double rook + queen sacrifice mate</div>
+              </button>
+              <button class="btn-sample-game" id="btn-quick-london">
+                <div style="font-weight:700; color:var(--color-amber);">London System Classical</div>
+                <div style="font-size:0.7rem; color:var(--text-dim)">Solid opening theory review</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CENTER: Arena & Big Tournament Chessboard -->
+    <section class="center-arena" id="center-arena">
+      
+      <!-- Arena Top Bar with Board Size Selector -->
+      <div class="arena-top-bar" id="arena-top-bar">
+        <div style="font-size:0.85rem; font-weight:700; color:var(--text-muted); display:flex; align-items:center; gap:6px;">
+          <span>⚡ Training Arena</span>
+        </div>
+
+        <!-- Board Size Picker (M, L, XL, XXL, XXXL, MAX) -->
+        <div class="board-size-picker" id="board-size-picker" title="Select chessboard size">
+          <span class="size-label">Board:</span>
+          <button class="btn-board-size" data-size="md" id="size-md">640</button>
+          <button class="btn-board-size active" data-size="lg" id="size-lg">760</button>
+          <button class="btn-board-size" data-size="xl" id="size-xl">880</button>
+          <button class="btn-board-size" data-size="xxl" id="size-xxl">980</button>
+          <button class="btn-board-size" data-size="xxxl" id="size-xxxl">1100</button>
+          <button class="btn-board-size" data-size="max" id="size-max">1200</button>
+        </div>
+      </div>
+
+      <!-- Interactive Feedback Banner (Fixed height to prevent board jumping) -->
+      <div class="feedback-banner state-ready" id="feedback-banner">
+        <div class="feedback-content" id="feedback-content">
+          <span class="feedback-icon" id="feedback-icon">👋</span>
+          <span class="feedback-text" id="feedback-text">Make a move on the board to begin speed training!</span>
+        </div>
+        <button class="banner-hint-btn" id="btn-hint" title="Show the correct move (Key: H)">
+          💡 Hint
+        </button>
+      </div>
+
+      <!-- Interactive PGN Repertoire Builder Panel (Shown in Builder Mode) -->
+      <div class="builder-panel" id="builder-panel" style="display:none;">
+        <div class="builder-header">
+          <div class="builder-title-badge">
+            <span class="builder-icon">🔨</span>
+            <span>PGN Repertoire Builder</span>
+          </div>
+          <div class="builder-status-badge" id="builder-status-text">
+            Move 1 • White to move
+          </div>
+        </div>
+
+        <!-- Live PGN Display Box -->
+        <div class="builder-pgn-box">
+          <div class="builder-pgn-header">
+            <span class="builder-pgn-title">📜 Generated PGN String:</span>
+            <span class="builder-moves-count" id="builder-moves-count">0 træk</span>
+          </div>
+          <div class="builder-pgn-content" id="builder-pgn-display">
+            <span class="builder-empty-hint">Move pieces on the board to construct your custom variation for both White and Black...</span>
+          </div>
+        </div>
+
+        <!-- Builder Control Actions Bar -->
+        <div class="builder-actions-row">
+          <button class="btn-pill" id="btn-builder-undo" title="Undo last move">
+            <span>⬅</span> Undo
+          </button>
+          <button class="btn-pill" id="btn-builder-reset" title="Reset board to starting position">
+            <span>↺</span> Reset
+          </button>
+          <button class="btn-pill" id="btn-builder-copy" title="Copy PGN notation to clipboard">
+            <span>📋</span> Copy PGN
+          </button>
+          <button class="btn-pill primary" id="btn-builder-save" title="Save this line into your repertoire">
+            <span>💾</span> Save to Repertoire
+          </button>
+        </div>
+
+        <!-- Save-to-Repertoire Drawer Form -->
+        <div class="builder-save-drawer" id="builder-save-drawer" style="display:none;">
+          <div class="save-drawer-header">
+            <strong>📁 Save Variation to Repertoire</strong>
+            <button class="btn-icon" id="btn-builder-close-drawer" style="width:28px; height:28px;">✕</button>
+          </div>
+          <div class="save-drawer-grid">
+            <div class="form-group">
+              <label class="form-label" for="builder-folder-select">Mappe i Repertoiret</label>
+              <select class="form-input" id="builder-folder-select">
+                <!-- Dynamically populated from state.folders -->
+              </select>
+              <input type="text" class="form-input" id="builder-new-folder-input" placeholder="Navn på ny mappe..." style="display:none; margin-top:6px;">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="builder-line-name">Variantens Navn</label>
+              <input type="text" class="form-input" id="builder-line-name" placeholder="F.eks. Italiensk - Min yndlingsvariant">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="builder-line-color">Træn som farve</label>
+              <select class="form-input" id="builder-line-color">
+                <option value="w">Hvid ⚪</option>
+                <option value="b">Sort ⚫</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="builder-line-desc">Beskrivelse / Noter (valgfri)</label>
+              <input type="text" class="form-input" id="builder-line-desc" placeholder="F.eks. Skarp plan med tidligt d4 og b4">
+            </div>
+          </div>
+          <div class="save-drawer-footer">
+            <button class="btn-pill" id="btn-builder-cancel-save">Cancel</button>
+            <button class="btn-pill primary" id="btn-builder-confirm-save">✓ Gem Variant Nu</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BIG Chessboard Container with Dynamic Sizing & Player Info Cards -->
+      <div class="board-column-wrap" id="board-column-wrap">
+        <!-- Top Player Card (Black / Opponent by default, or White when flipped) -->
+        <div class="player-board-card player-top" id="player-card-top" style="display:none;">
+          <div class="player-card-left">
+            <span class="player-card-avatar" id="player-avatar-top">⚫</span>
+            <span class="player-card-name" id="player-name-top">Opponent</span>
+            <span class="player-card-elo" id="player-elo-top"></span>
+          </div>
+          <div class="player-card-right" id="player-captured-top">
+            <span class="player-card-tag tag-black" id="player-tag-top">Black</span>
+          </div>
+        </div>
+
+        <div class="board-arena-layout" id="board-arena-layout">
+          <!-- Chess.com-style Vertical Evaluation Bar -->
+          <div class="eval-bar-wrapper" id="eval-bar-wrapper" style="display:none;" title="Game Evaluation Bar">
+            <div class="eval-bar" id="eval-bar">
+              <div class="eval-bar-fill-black" id="eval-bar-fill-black"></div>
+              <div class="eval-bar-fill-white" id="eval-bar-fill-white" style="height:50%;"></div>
+              <div class="eval-bar-score" id="eval-bar-score">0.0</div>
+            </div>
+          </div>
+
+          <div class="board-wrapper board-size-lg" id="board-wrapper">
+            <div class="chessboard" id="chessboard">
+              <!-- 64 squares generated dynamically -->
+            </div>
+            <canvas id="arrow-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Bottom Player Card (White / Player by default, or Black when flipped) -->
+        <div class="player-board-card player-bottom" id="player-card-bottom" style="display:none;">
+          <div class="player-card-left">
+            <span class="player-card-avatar" id="player-avatar-bottom">⚪</span>
+            <span class="player-card-name" id="player-name-bottom">Player</span>
+            <span class="player-card-elo" id="player-elo-bottom"></span>
+          </div>
+          <div class="player-card-right" id="player-captured-bottom">
+            <span class="player-card-tag tag-white" id="player-tag-bottom">White</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dedicated Game Review Stepper & Mistake Jump Bar -->
+      <div class="review-controls-bar" id="review-controls-bar" style="display:none;">
+        <div class="review-stepper-group">
+          <button class="btn-review-step" id="btn-review-first" title="First Move (|◀)">⏮</button>
+          <button class="btn-review-step" id="btn-review-prev" title="Previous Move (◀)">◀</button>
+          <button class="btn-review-step primary" id="btn-review-next" title="Next Move (▶)">▶</button>
+          <button class="btn-review-step" id="btn-review-last" title="Last Move (▶|)">⏭</button>
+        </div>
+        <div class="review-action-group">
+          <button class="btn-pill warning" id="btn-review-next-mistake" title="Jump to next Inaccuracy, Mistake, or Blunder">
+            <span>⚠️ Next Mistake</span>
+          </button>
+          <button class="btn-pill" id="btn-review-autoplay" title="Auto-play moves">
+            <span id="review-autoplay-icon">▶ Auto</span>
+          </button>
+          <button class="btn-pill" id="btn-review-flip" title="Flip the board (Key: F)">
+            <span>🔄</span> Flip
+          </button>
+          <button class="btn-pill" id="btn-review-sound" title="Toggle audio sound in review">
+            <span id="review-sound-icon">🔊</span> Lyd
+          </button>
+          <button class="btn-pill active" id="btn-review-show-best" title="Vis/skjul 2 anbefalede trækpile på brættet">
+            <span>🎯 2 Pile</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Control Bar Below Board -->
+      <div class="board-controls" id="board-controls">
+        <div class="control-btn-group">
+          <button class="btn-pill" id="btn-flip-board" title="Flip the board (Key: F)">
+            <span>🔄</span> Flip Board
+          </button>
+          <button class="btn-pill" id="btn-restart-rep" title="Restart this line from start (Key: R)">
+            <span>↺</span> Restart Line
+          </button>
+        </div>
+        <div class="control-btn-group">
+          <button class="btn-pill primary" id="btn-next-random" title="Next active variation (Key: Space)">
+            <span>Next Line ⚡</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Position Branches Bar (Placed below board controls so board position never jumps!) -->
+      <div class="branches-bar" id="branches-bar" style="display:none;">
+        <div class="branches-label">
+          <span>🔀</span>
+          <span>Mulige forgreninger:</span>
+        </div>
+        <div class="branches-chips-list" id="branches-chips-list">
+          <!-- Populated dynamically e.g. [4.b4 Evans Gambit] [4.Ng5 Fried Liver] -->
+        </div>
+      </div>
+
+      <!-- Alternative Line Switch Prompt (Placed below board controls so board position never jumps!) -->
+      <div class="alt-line-prompt" id="alt-line-prompt">
+        <!-- Dynamically populated with single or multiple variation choices -->
+      </div>
+    </section>
+
+    <!-- RIGHT PANEL: Current Line Details, Learning Notes, Timeline & Speed Control OR Game Review Panel -->
+    <aside class="panel right-panel" id="panel-right">
+      
+      <!-- Repertoire Details Card -->
+      <div class="panel-header" id="panel-right-header">
+        <div class="panel-title" id="panel-right-title">
+          <span>♟️</span>
+          <span id="panel-right-title-text">Active Variation</span>
+        </div>
+        <span class="eco-pill" id="hero-eco">D02</span>
+      </div>
+
+      <div class="panel-body" style="display:flex; flex-direction:column; gap:14px;">
+        
+        <!-- Standard Repertoire & Learning View -->
+        <div id="standard-panel-content" style="display:flex; flex-direction:column; gap:14px;">
+          <div class="repertoire-hero" id="repertoire-hero">
+            <div class="hero-header">
+              <h2 class="hero-title" id="hero-title">London System: Main Line</h2>
+            </div>
+            <p class="hero-desc" id="hero-desc">
+              Classic London setup with rapid Bf4, solid c3-e3 pyramid and harmonious piece development.
+            </p>
+            <div class="theme-tags" id="hero-themes">
+              <span class="theme-tag">Solid Pyramid</span>
+              <span class="theme-tag">Active Bishop</span>
+            </div>
+          </div>
+
+          <!-- Learning Mode Move Explanation Box -->
+          <div class="learning-box" id="learning-box">
+            <div class="learning-title">
+              <span>📖</span>
+              <span>Key Ideas &amp; Plans</span>
+            </div>
+            <div class="learning-text" id="learning-move-note">
+              Move 1: White takes central control with 1.d4.
+            </div>
+            <div class="learning-nav">
+              <button class="btn-pill" id="btn-learn-prev" style="padding:4px 10px; font-size:0.75rem;">⏮ Previous</button>
+              <button class="btn-pill" id="btn-learn-next" style="padding:4px 10px; font-size:0.75rem;">⏭ Next</button>
+            </div>
+          </div>
+
+          <!-- Move History / Notation Box -->
+          <div>
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;">
+              Move Sequence &amp; Notation
+            </div>
+            <div class="notation-box" id="notation-box">
+              <div class="notation-grid" id="notation-grid">
+                <!-- Dynamically populated move timeline -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Speed & Timing Controls -->
+          <div class="speed-control" id="speed-control">
+            <div class="speed-header">
+              <span>Opponent Reply Speed:</span>
+              <span id="speed-label-val" style="color: var(--color-cyan); font-weight: 700;">Fast (200ms)</span>
+            </div>
+            <div class="speed-btns">
+              <button class="speed-btn" data-delay="60" id="speed-instant">Lightning (60ms)</button>
+              <button class="speed-btn active" data-delay="200" id="speed-fast">Fast (200ms)</button>
+              <button class="speed-btn" data-delay="500" id="speed-normal">Normal (500ms)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dedicated Chess.com-style Game Review Panel -->
+        <div id="review-panel-content" style="display:none; flex-direction:column; gap:14px;">
+          
+          <!-- Accuracy Scores Card (White vs Black CAPS) -->
+          <div class="review-header-card" id="review-header-card">
+            <div class="review-scores-row">
+              <div class="review-player-acc white">
+                <div class="acc-label">⚪ White</div>
+                <div class="acc-pct" id="review-acc-white">--%</div>
+                <div class="acc-bar-wrap"><div class="acc-bar-fill" id="review-bar-white" style="width:0%;"></div></div>
+              </div>
+              <div class="review-vs-badge">VS</div>
+              <div class="review-player-acc black">
+                <div class="acc-label">⚫ Black</div>
+                <div class="acc-pct" id="review-acc-black">--%</div>
+                <div class="acc-bar-wrap"><div class="acc-bar-fill" id="review-bar-black" style="width:0%;"></div></div>
+              </div>
+            </div>
+            <div class="review-game-meta" id="review-game-meta">
+              Ready to review game
+            </div>
+            <div class="review-actions-row">
+              <button class="btn-pill" id="btn-review-reload" title="Re-run review analysis">🔄 Re-analyze</button>
+              <button class="btn-pill" id="btn-review-paste-pgn" title="Paste any custom PGN to review">📋 Paste PGN</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Opening Identification Banner -->
+          <div class="review-opening-banner" id="review-opening-banner" style="display:none;">
+            <span>📖</span>
+            <span id="review-opening-text">Opening: London System (D02)</span>
+          </div>
+
+          <!-- Coach Section (Grandmaster Coach with Avatar & Explanations) -->
+          <div class="coach-container" id="coach-container">
+            <div class="coach-header">
+              <div class="coach-avatar-wrap">
+                <div class="coach-avatar">🧙‍♂️</div>
+                <div class="coach-status-dot"></div>
+              </div>
+              <div class="coach-meta">
+                <div class="coach-name">Grandmaster Coach</div>
+                <div class="coach-badge badge-best" id="coach-verdict-badge">★ Best Move</div>
+              </div>
+              <div class="coach-eval-pill" id="coach-eval-pill">+0.0</div>
+            </div>
+            <div class="coach-speech-bubble" id="coach-speech-bubble">
+              Analyzing game moves and calculating grandmaster insights...
+            </div>
+            <div class="coach-suggestion-box" id="coach-suggestion-box" style="display:none;">
+              <div class="coach-suggestion-header" style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">
+                🎯 Anbefalede Træk (2 pile)
+              </div>
+              <div class="coach-suggestion-text" id="coach-suggestion-text">
+                Bedste træk: <strong>--</strong>
+              </div>
+              <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;">
+                <button class="btn-pill btn-coach-arrow active" id="btn-coach-toggle-arrow">
+                  <span>🎯</span> Skjul 2 Pile
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Move Classification Breakdown Table (Chess.com table) -->
+          <div class="classification-breakdown-card" id="classification-breakdown-card">
+            <div class="breakdown-title">
+              <span>📊 Move Breakdown</span>
+            </div>
+            <div class="breakdown-table">
+              <div class="breakdown-header-row">
+                <span>Classification</span>
+                <span>White</span>
+                <span>Black</span>
+              </div>
+              <div class="breakdown-row" data-class="brilliant">
+                <span class="badge-tag-wrap"><span class="badge-mini badge-brilliant">!!</span> Brilliant</span>
+                <span class="count-val" id="count-w-brilliant">0</span>
+                <span class="count-val" id="count-b-brilliant">0</span>
+              </div>
+              <div class="breakdown-row" data-class="great">
+                <span class="badge-tag-wrap"><span class="badge-mini badge-great">!</span> Great</span>
+                <span class="count-val" id="count-w-great">0</span>
+                <span class="count-val" id="count-b-great">0</span>
+              </div>
+              <div class="breakdown-row" data-class="best">
+                <span class="badge-tag-wrap"><span class="badge-mini badge-best">★</span> Best</span>
+                <span class="count-val" id="count-w-best">0</span>
+                <span class="count-val" id="count-b-best">0</span>
+              </div>
+              <div class="breakdown-row" data-class="excellent">
+                <span class="badge-tag-wrap"><span class="badge-mini badge-excellent">✔</span> Excellent</span>
+                <span class="count-val" id="count-w-excellent">0</span>
+                <span class="count-val" id="count-b-excellent">0</span>
+              </div>
+              <div class="breakdown-row" data-class="good">
+                <span class="badge-tag-wrap"><span class="badge-mini badge-good">👍</span> Good</span>
+                <span class="count-val" id="count-w-good">0</span>
+                <span class="count-val" id="count-b-good">0</span>
+              </div>
+              <div class="breakdown-row" data-class="book">
+                <span class="badge-tag-wrap"><span class="badge-mini badge-book">📖</span> Book</span>
+                <span class="count-val" id="count-w-book">0</span>
+                <span class="count-val" id="count-b-book">0</span>
+              </div>
+              <div class="breakdown-row" data-class="inaccuracy">
+                <span class="badge-tag-wrap"><span class="badge-mini badge-inaccuracy">?!</span> Inaccuracy</span>
+                <span class="count-val" id="count-w-inaccuracy">0</span>
+                <span class="count-val" id="count-b-inaccuracy">0</span>
+              </div>
+              <div class="breakdown-row" data-class="mistake">
+                <span class="badge-tag-wrap"><span class="badge-mini badge-mistake">?</span> Mistake</span>
+                <span class="count-val" id="count-w-mistake">0</span>
+                <span class="count-val" id="count-b-mistake">0</span>
+              </div>
+              <div class="breakdown-row" data-class="blunder">
+                <span class="badge-tag-wrap"><span class="badge-mini badge-blunder">??</span> Blunder</span>
+                <span class="count-val" id="count-w-blunder">0</span>
+                <span class="count-val" id="count-b-blunder">0</span>
+              </div>
+              <div class="breakdown-row" data-class="missed_win">
+                <span class="badge-tag-wrap"><span class="badge-mini badge-missed_win">❌</span> Missed Win</span>
+                <span class="count-val" id="count-w-missed_win">0</span>
+                <span class="count-val" id="count-b-missed_win">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review Interactive Move List -->
+          <div class="review-timeline-card">
+            <div class="breakdown-title">
+              <span>📜 Analyzed Moves</span>
+              <span id="review-current-move-label" style="font-size:0.75rem; color:var(--color-cyan); font-family:'JetBrains Mono';">Move 1</span>
+            </div>
+            <div class="review-moves-list" id="review-moves-list">
+              <!-- Dynamically populated move rows with badges -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- Drag Ghost element for smooth drag & drop -->
+  <div id="drag-ghost"></div>
+
+  <!-- MODAL: Sound Settings -->
+  <div class="modal-backdrop" id="modal-sound">
+    <div class="modal-dialog" style="max-width:520px;">
+      <div class="modal-header">
+        <h3 style="font-size:1.15rem; font-weight:700;">🔊 Lydindstillinger</h3>
+        <button class="modal-close" id="btn-close-sound-modal" aria-label="Luk">✕</button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Mood Presets -->
+        <div style="margin-bottom:20px;">
+          <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;">🎭 Stemning</div>
+          <div class="sound-mood-grid" id="sound-mood-grid">
+            <button class="sound-mood-card" id="mood-hype" data-mood="hype">
+              <div class="sound-mood-icon">⚡</div>
+              <div class="sound-mood-name">Hype</div>
+              <div class="sound-mood-desc">Skarpe, energetiske lyde til hurtig træning</div>
+            </button>
+            <button class="sound-mood-card" id="mood-cozy" data-mood="cozy">
+              <div class="sound-mood-icon">🕯️</div>
+              <div class="sound-mood-name">Cozy</div>
+              <div class="sound-mood-desc">Bløde, varme lyde til fordybet studie</div>
+            </button>
+            <button class="sound-mood-card" id="mood-silent" data-mood="silent">
+              <div class="sound-mood-icon">🔇</div>
+              <div class="sound-mood-name">Tavs</div>
+              <div class="sound-mood-desc">Ingen lyde — fuldstændig ro</div>
+            </button>
+            <button class="sound-mood-card" id="mood-custom" data-mood="custom">
+              <div class="sound-mood-icon">🎛️</div>
+              <div class="sound-mood-name">Tilpasset</div>
+              <div class="sound-mood-desc">Styr hvert lydelement individuelt</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Master Volume -->
+        <div style="margin-bottom:18px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+            <span style="font-size:0.82rem; font-weight:600; color:var(--text-sub);">🔊 Masterlydstyrke</span>
+            <span id="master-vol-label" style="font-size:0.82rem; font-weight:700; color:var(--accent-primary); min-width:36px; text-align:right;">60%</span>
+          </div>
+          <input type="range" id="master-volume" class="sound-slider" min="0" max="100" value="60" step="5">
+        </div>
+
+        <div id="sound-custom-panel">
+          <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">🎚️ Individuelle lyde</div>
+
+          <!-- Move Sound -->
+          <div class="sound-row" id="sound-row-move">
+            <div class="sound-row-info">
+              <span class="sound-row-emoji">♟️</span>
+              <div>
+                <div class="sound-row-name">Træk</div>
+                <div class="sound-row-desc" id="sound-desc-move">Træklyd ved hvert brik-træk</div>
+              </div>
+            </div>
+            <div class="sound-row-controls">
+              <button class="sound-preview-btn" id="preview-move" title="Forhåndsvis lyd">▶</button>
+              <label class="sound-toggle-pill" for="toggle-sound-move">
+                <input type="checkbox" id="toggle-sound-move" checked>
+                <span class="sound-toggle-track"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Capture Sound -->
+          <div class="sound-row" id="sound-row-capture">
+            <div class="sound-row-info">
+              <span class="sound-row-emoji">💥</span>
+              <div>
+                <div class="sound-row-name">Capture</div>
+                <div class="sound-row-desc" id="sound-desc-capture">Slag-lyd ved brik-tagning</div>
+              </div>
+            </div>
+            <div class="sound-row-controls">
+              <button class="sound-preview-btn" id="preview-capture" title="Forhåndsvis lyd">▶</button>
+              <label class="sound-toggle-pill" for="toggle-sound-capture">
+                <input type="checkbox" id="toggle-sound-capture" checked>
+                <span class="sound-toggle-track"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Correct Sound -->
+          <div class="sound-row" id="sound-row-correct">
+            <div class="sound-row-info">
+              <span class="sound-row-emoji">✅</span>
+              <div>
+                <div class="sound-row-name">Korrekt træk</div>
+                <div class="sound-row-desc" id="sound-desc-correct">Positiv feedback ved godt træk</div>
+              </div>
+            </div>
+            <div class="sound-row-controls">
+              <button class="sound-preview-btn" id="preview-correct" title="Forhåndsvis lyd">▶</button>
+              <label class="sound-toggle-pill" for="toggle-sound-correct">
+                <input type="checkbox" id="toggle-sound-correct" checked>
+                <span class="sound-toggle-track"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Error Sound -->
+          <div class="sound-row" id="sound-row-error">
+            <div class="sound-row-info">
+              <span class="sound-row-emoji">❌</span>
+              <div>
+                <div class="sound-row-name">Forkert træk</div>
+                <div class="sound-row-desc" id="sound-desc-error">Advarselslyd ved fejl</div>
+              </div>
+            </div>
+            <div class="sound-row-controls">
+              <button class="sound-preview-btn" id="preview-error" title="Forhåndsvis lyd">▶</button>
+              <label class="sound-toggle-pill" for="toggle-sound-error">
+                <input type="checkbox" id="toggle-sound-error" checked>
+                <span class="sound-toggle-track"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Complete Sound -->
+          <div class="sound-row" id="sound-row-complete">
+            <div class="sound-row-info">
+              <span class="sound-row-emoji">🏆</span>
+              <div>
+                <div class="sound-row-name">Linje gennemført</div>
+                <div class="sound-row-desc" id="sound-desc-complete">Sejrsfanfare ved afsluttet linje</div>
+              </div>
+            </div>
+            <div class="sound-row-controls">
+              <button class="sound-preview-btn" id="preview-complete" title="Forhåndsvis lyd">▶</button>
+              <label class="sound-toggle-pill" for="toggle-sound-complete">
+                <input type="checkbox" id="toggle-sound-complete" checked>
+                <span class="sound-toggle-track"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span id="sound-status-label" style="font-size:0.8rem; color:var(--text-muted); flex:1;"></span>
+        <button class="btn-pill" id="btn-close-sound-modal-footer">Gem &amp; Luk</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modal-theme">
+    <div class="modal-dialog" style="max-width: 620px;">
+      <div class="modal-header">
+        <h3 style="font-size:1.15rem; font-weight:700;">🎨 Customize Board &amp; Pieces</h3>
+        <button class="btn-icon" id="btn-close-theme" style="width:32px; height:32px;">✕</button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Chessboard Theme Selection -->
+        <div>
+          <label class="form-label" style="margin-bottom:8px; display:block;">Select Chessboard Theme</label>
+          <div class="theme-options-grid" id="theme-board-options">
+            <div class="theme-card-option" data-board-theme="wood">
+              <div class="theme-mini-board" style="background:#b58863; border:2px solid #5c3822;">
+                <div style="background:#f0dab5"></div><div style="background:#b58863"></div>
+                <div style="background:#b58863"></div><div style="background:#f0dab5"></div>
+              </div>
+              <div>
+                <strong>Master Carved Wood</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Maple &amp; walnut grain with timber frame</div>
+              </div>
+            </div>
+            <div class="theme-card-option active" data-board-theme="slate">
+              <div class="theme-mini-board" style="background:#5b6f84;">
+                <div style="background:#edf2f7"></div><div style="background:#5b6f84"></div>
+                <div style="background:#5b6f84"></div><div style="background:#edf2f7"></div>
+              </div>
+              <div>
+                <strong>Tournament Slate</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">High-contrast modern slate</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-board-theme="green">
+              <div class="theme-mini-board" style="background:#779952;">
+                <div style="background:#edeed1"></div><div style="background:#779952"></div>
+                <div style="background:#779952"></div><div style="background:#edeed1"></div>
+              </div>
+              <div>
+                <strong>Lichess Green</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Classic tournament emerald</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-board-theme="ocean">
+              <div class="theme-mini-board" style="background:#4b7399;">
+                <div style="background:#eae9d2"></div><div style="background:#4b7399"></div>
+                <div style="background:#4b7399"></div><div style="background:#eae9d2"></div>
+              </div>
+              <div>
+                <strong>Midnight Ocean</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Deep marine navy &amp; parchment</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-board-theme="cyber">
+              <div class="theme-mini-board" style="background:#090e1a;">
+                <div style="background:#1e293b"></div><div style="background:#090e1a"></div>
+                <div style="background:#090e1a"></div><div style="background:#1e293b"></div>
+              </div>
+              <div>
+                <strong>Cyber Obsidian</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Neon dark high-tech contrast</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Piece Set (Geometry & Silhouette) Selection -->
+        <div style="margin-top:14px;">
+          <label class="form-label" style="margin-bottom:8px; display:block;">Select Chess Piece Set (Distinguishable Design)</label>
+          <div class="theme-options-grid piece-sets-grid" id="theme-piece-set-options">
+            <div class="theme-card-option" data-piece-set="woodcraft">
+              <div class="piece-preview-icon" data-set-preview="woodcraft">
+                <span style="font-size:1.6rem;">♞</span>
+              </div>
+              <div>
+                <strong>Master Woodcraft</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Natural carved timber with 3D sheen</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-piece-set="clarity">
+              <div class="piece-preview-icon" data-set-preview="clarity">
+                <span style="font-size:1.6rem;">♘</span>
+              </div>
+              <div>
+                <strong>Clarity Pro</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Ultra-sharp tournament silhouette (Easy to see)</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-piece-set="dubrovnik">
+              <div class="piece-preview-icon" data-set-preview="dubrovnik">
+                <span style="font-size:1.6rem;">♞</span>
+              </div>
+              <div>
+                <strong>Dubrovnik 1950</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Fischer championship classic</div>
+              </div>
+            </div>
+            <div class="theme-card-option active" data-piece-set="staunton">
+              <div class="piece-preview-icon" data-set-preview="staunton">
+                <span style="font-size:1.6rem;">♞</span>
+              </div>
+              <div>
+                <strong>Staunton Classic</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">International tournament standard</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-piece-set="neo">
+              <div class="piece-preview-icon" data-set-preview="neo">
+                <span style="font-size:1.6rem;">♘</span>
+              </div>
+              <div>
+                <strong>Neo Modern</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Streamlined smooth profiles</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-piece-set="alpha">
+              <div class="piece-preview-icon" data-set-preview="alpha">
+                <span style="font-size:1.6rem;">♞</span>
+              </div>
+              <div>
+                <strong>Alpha Book</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Print &amp; publication diagram style</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-piece-set="geometric">
+              <div class="piece-preview-icon" data-set-preview="geometric">
+                <span style="font-size:1.6rem;">▲</span>
+              </div>
+              <div>
+                <strong>Geometric</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Sleek minimalist angular cuts</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-piece-set="fantasy">
+              <div class="piece-preview-icon" data-set-preview="fantasy">
+                <span style="font-size:1.6rem;">♛</span>
+              </div>
+              <div>
+                <strong>Fantasy Medieval</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Historic carved styling</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Piece Color & Shading Tone Selection -->
+        <div style="margin-top:14px;">
+          <label class="form-label" style="margin-bottom:8px; display:block;">Piece Color &amp; Shading Tone</label>
+          <div class="theme-options-grid" id="theme-piece-options">
+            <div class="theme-card-option active" data-piece-theme="standard">
+              <span style="font-size:1.6rem;">⚪</span>
+              <div>
+                <strong>Standard</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Classic white &amp; dark graphite</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-piece-theme="contrast">
+              <span style="font-size:1.6rem; color:#38bdf8;">🔷</span>
+              <div>
+                <strong>High Contrast</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Crisp black &amp; white with cyan glow</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-piece-theme="wood">
+              <span style="font-size:1.6rem; color:#f59e0b;">🪵</span>
+              <div>
+                <strong>Warm Wood Grain</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Golden birch &amp; dark walnut</div>
+              </div>
+            </div>
+            <div class="theme-card-option" data-piece-theme="cyber">
+              <span style="font-size:1.6rem; color:#10b981;">⚡</span>
+              <div>
+                <strong>Cyber Neon</strong>
+                <div style="font-size:0.72rem; color:var(--text-dim)">Emerald &amp; deep ocean glow</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-pill primary" id="btn-apply-theme" style="width:100%;">Apply Theme &amp; Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Lichess / Chess.com Profile Linking & Games -->
+  <div class="modal-backdrop" id="modal-profile">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 style="font-size:1.15rem; font-weight:700;">🔗 Tilknyt Skakprofil</h3>
+        <button class="btn-icon" id="btn-close-profile" style="width:32px; height:32px;">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">
+          Forbind din profil fra <strong>Lichess.org</strong> eller <strong>Chess.com</strong> for at hente dine live ratings og importere dine egne partier som træningsrepertoirer.
+        </p>
+        <div class="form-group">
+          <label class="form-label" for="profile-platform-select">Platform</label>
+          <select class="form-input" id="profile-platform-select">
+            <option value="lichess">Lichess.org</option>
+            <option value="chesscom">Chess.com</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="profile-username-input">Username</label>
+          <input type="text" class="form-input" id="profile-username-input" placeholder="F.eks. MagnusCarlsen">
+        </div>
+        <div id="profile-loading-indicator" style="display:none; color:var(--color-cyan); font-size:0.85rem; font-weight:600;">
+          ⏳ Henter profil og ratings fra API...
+        </div>
+        <div id="profile-error-message" style="display:none; color:var(--color-rose); font-size:0.85rem;"></div>
+
+        <!-- Action to fetch online games -->
+        <div id="profile-games-section" style="display:none; margin-top:8px; border-top:1px solid var(--border-subtle); padding-top:12px;">
+          <button class="btn-pill primary" id="btn-fetch-user-games" style="width:100%; justify-content:center;">
+            <span>📥</span> Hent mine seneste online partier
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-pill" id="btn-unlink-profile" style="display:none; color:var(--color-rose);">Afbryd Forbindelse</button>
+        <button class="btn-pill primary" id="btn-fetch-profile">Hent & Tilknyt Profil</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: User Fetched Games List -->
+  <div class="modal-backdrop" id="modal-games">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 style="font-size:1.15rem; font-weight:700;">📥 Dine Seneste Partier</h3>
+        <button class="btn-icon" id="btn-close-games" style="width:32px; height:32px;">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.82rem; color:var(--text-muted);">
+          Vælg et parti for automatisk at omdanne åbningsfasen til et personligt træningsrepertoire:
+        </p>
+        <div class="games-list-container" id="games-list-container">
+          <!-- Dynamically populated games cards -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-pill" id="btn-cancel-games">Luk</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Exam Scorecard & Grade -->
+  <div class="modal-backdrop" id="modal-exam">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 style="font-size:1.15rem; font-weight:700;">🎓 Eksamensresultat</h3>
+        <button class="btn-icon" id="btn-close-exam" style="width:32px; height:32px;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="exam-grade-card">
+          <div class="exam-grade-badge" id="exam-grade-badge">A+</div>
+          <h3 id="exam-grade-title" style="font-size:1.3rem;">Mesterlig Præcision!</h3>
+          <p id="exam-grade-desc" style="color:var(--text-muted); font-size:0.9rem;">
+            Du gennemførte eksamenen med 96% nøjagtighed.
+          </p>
+          <div style="display:flex; gap:16px; margin-top:8px;">
+            <div class="stat-chip">
+              <span>🎯 Korrekte træk:</span>
+              <strong id="exam-correct-count">24/25</strong>
+            </div>
+            <div class="stat-chip">
+              <span>⭐ Optjent XP:</span>
+              <strong id="exam-xp-gained" style="color:var(--color-emerald);">+150 XP</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-pill primary" id="btn-ok-exam">Continue Training</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PGN Import & Custom Repertoire -->
+  <div class="modal-backdrop" id="modal-pgn">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 style="font-size:1.15rem; font-weight:700;">📥 Importer eget PGN Repertoire</h3>
+        <button class="btn-icon" id="btn-close-pgn" style="width:32px; height:32px;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="pgn-input-folder">Vælg Mappe eller opret ny</label>
+          <input type="text" class="form-input" id="pgn-input-folder" placeholder="F.eks. Mine Hemmelige Våben">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="pgn-input-name">Variantens Navn</label>
+          <input type="text" class="form-input" id="pgn-input-name" placeholder="F.eks. Skarpeste modstød">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="pgn-input-color">Træn som farve</label>
+          <select class="form-input" id="pgn-input-color">
+            <option value="w">Hvid ⚪</option>
+            <option value="b">Sort ⚫</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="pgn-input-text">PGN Notationsstreng eller træk</label>
+          <textarea class="form-textarea" id="pgn-input-text" placeholder="Paste PGN text or move list her, f.eks.:&#10;1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-pill" id="btn-cancel-pgn">Annuller</button>
+        <button class="btn-pill primary" id="btn-save-pgn">Tilføj til Mappe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Paste PGN to Review -->
+  <div class="modal-backdrop" id="modal-review-pgn">
+    <div class="modal-dialog" style="max-width:560px;">
+      <div class="modal-header">
+        <h3 style="font-size:1.15rem; font-weight:700;">🔍 Review Custom Game (PGN)</h3>
+        <button class="modal-close" id="btn-close-review-pgn-modal" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5; margin-bottom:12px;">
+          Paste a PGN or move sequence to generate an instant Chess.com-style Game Review with accuracy CAPS scores, move classifications, and coach explanations.
+        </p>
+        <div class="form-group">
+          <label class="form-label" for="review-pgn-input">PGN / Move Notation</label>
+          <textarea class="form-input" id="review-pgn-input" rows="6" placeholder="e.g. 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Ba5 6. d4 exd4 7. O-O ..."></textarea>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:8px;">
+          <button class="btn-pill" id="btn-sample-opera-game" style="font-size:0.75rem;">🎭 Load Morphy's Opera Game</button>
+          <button class="btn-pill" id="btn-sample-immortal-game" style="font-size:0.75rem;">⚡ Load Immortal Game</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-pill" id="btn-cancel-review-pgn">Cancel</button>
+        <button class="btn-pill primary" id="btn-submit-review-pgn">Start Game Review 🚀</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Help & Keyboard Shortcuts -->
+  <div class="modal-backdrop" id="modal-help">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 style="font-size:1.15rem; font-weight:700;">⚡ Tastaturgenveje & Tips</h3>
+        <button class="btn-icon" id="btn-close-help" style="width:32px; height:32px;">✕</button>
+      </div>
+      <div class="modal-body" style="font-size:0.88rem; line-height:1.6;">
+        <p><strong>Nye Funktioner:</strong></p>
+        <ul style="margin-left:20px; margin-top:8px; display:flex; flex-direction:column; gap:6px;">
+          <li><strong>Game Review:</strong> Partigennemgang ligesom Chess.com med Brilliant moves (!!), Accuracy, eval bar og Coach.</li>
+          <li><strong>Brætstørrelse:</strong> Vælg 640px, 760px, 880px eller det nye 980px XXL format.</li>
+          <li><strong>Temaer:</strong> Skift brættema (Træ, Lichess Grøn, Midnatsblå mv.) og brik-stil via '🎨 Tema'.</li>
+          <li><strong>Hent partier:</strong> Forbind din Lichess eller Chess.com profil for at hente dine egne partier som træningsvarianter!</li>
+        </ul>
+        <div style="margin-top:16px;">
+          <strong>Tastaturgenveje:</strong>
+          <table style="width:100%; margin-top:8px; border-collapse:collapse; font-size:0.82rem;">
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">Mellemrum</td>
+              <td style="padding:6px;">Næste aktive variant / Review næste træk</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">Venstre / Højre Pil</td>
+              <td style="padding:6px;">Review forrige / næste træk</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">R</td>
+              <td style="padding:6px;">Restart current line</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">H</td>
+              <td style="padding:6px;">Vis hint for næste træk</td>
+            </tr>
+            <tr>
+              <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">F</td>
+              <td style="padding:6px;">Vend brættet (Flip)</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-pill primary" id="btn-ok-help">Forstået!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts in dependency order -->
+  <script src="vendor/chess.js"></script>
+  <script src="pieces.js"></script>
+  <script src="audio.js"></script>
+  <script src="openings-data.js"></script>
+  <script src="srs-manager.js"></script>
+  <script src="stockfish-engine.js"></script>
+  <script src="game-review.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
