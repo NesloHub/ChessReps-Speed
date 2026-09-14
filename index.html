@@ -145,9 +145,13 @@
               <input type="checkbox" id="toggle-random-folder" class="toggle-switch-input" checked>
               <span>🎲 Random</span>
             </label>
-            <label class="toggle-switch-label" for="toggle-prompt-branch" title="Prompt to switch line if you play an alternative move from your repertoire">
-              <input type="checkbox" id="toggle-prompt-branch" class="toggle-switch-input" checked>
-              <span>❓ Prompt on Branch</span>
+            <label class="toggle-switch-label" for="toggle-free-branch" title="Free Line Switch: When you play any alternative move from your repertoire, automatically switch to that line and keep playing without stopping">
+              <input type="checkbox" id="toggle-free-branch" class="toggle-switch-input" checked>
+              <span>⚡ Free Switch</span>
+            </label>
+            <label class="toggle-switch-label" for="toggle-prompt-branch" title="Prompt to switch line if you play an alternative move from your repertoire (when Free Switch is disabled)">
+              <input type="checkbox" id="toggle-prompt-branch" class="toggle-switch-input">
+              <span>❓ Prompt</span>
             </label>
           </div>
 
@@ -256,6 +260,26 @@
           💡 Hint
         </button>
       </div>
+
+      <!-- Listudy-Style Progressive Depth Learning Bar -->
+      <div class="progressive-depth-card" id="progressive-depth-card">
+        <div class="progressive-header">
+          <div class="progressive-stage-meta">
+            <span class="progressive-badge" id="prog-stage-badge">🌱 Stage 1</span>
+            <span class="progressive-depth-text" id="prog-depth-text">Learning Moves 1–4 of 20 (20%)</span>
+          </div>
+          <div class="progressive-controls">
+            <label class="progressive-toggle-label" title="Progressive Depth Mode: Learn the opening step-by-step in chunks just like Listudy">
+              <input type="checkbox" id="toggle-progressive-depth" class="toggle-switch-input" checked>
+              <span>🌱 Step-by-Step (Listudy Mode)</span>
+            </label>
+          </div>
+        </div>
+        <div class="progressive-track-wrap">
+          <div class="progressive-track-fill" id="prog-track-fill" style="width: 20%;"></div>
+        </div>
+      </div>
+
 
       <!-- Interactive PGN Repertoire Builder Panel (Shown in Builder Mode) -->
       <div class="builder-panel" id="builder-panel" style="display:none;">
@@ -766,7 +790,7 @@
               <span class="sound-row-emoji">❌</span>
               <div>
                 <div class="sound-row-name">Mistake / Inaccuracy</div>
-                <div class="sound-row-desc" id="sound-desc-error">Advarselslyd ved fejl</div>
+                <div class="sound-row-desc" id="sound-desc-error">Alert sound played on incorrect moves</div>
               </div>
             </div>
             <div class="sound-row-controls">
@@ -784,7 +808,7 @@
               <span class="sound-row-emoji">🏆</span>
               <div>
                 <div class="sound-row-name">Line Mastered</div>
-                <div class="sound-row-desc" id="sound-desc-complete">Sejrsfanfare ved afsluttet linje</div>
+                <div class="sound-row-desc" id="sound-desc-complete">Celebratory fanfare upon mastering a line</div>
               </div>
             </div>
             <div class="sound-row-controls">
@@ -993,7 +1017,7 @@
   <div class="modal-backdrop" id="modal-profile">
     <div class="modal-dialog">
       <div class="modal-header">
-        <h3 style="font-size:1.15rem; font-weight:700;">🔗 Tilknyt Skakprofil</h3>
+        <h3 style="font-size:1.15rem; font-weight:700;">🔗 Connect Chess Profile</h3>
         <button class="btn-icon" id="btn-close-profile" style="width:32px; height:32px;">✕</button>
       </div>
       <div class="modal-body">
@@ -1009,23 +1033,23 @@
         </div>
         <div class="form-group">
           <label class="form-label" for="profile-username-input">Username</label>
-          <input type="text" class="form-input" id="profile-username-input" placeholder="F.eks. MagnusCarlsen">
+          <input type="text" class="form-input" id="profile-username-input" placeholder="e.g. MagnusCarlsen">
         </div>
         <div id="profile-loading-indicator" style="display:none; color:var(--color-cyan); font-size:0.85rem; font-weight:600;">
-          ⏳ Henter profil og ratings fra API...
+          ⏳ Fetching profile and live ratings from API...
         </div>
         <div id="profile-error-message" style="display:none; color:var(--color-rose); font-size:0.85rem;"></div>
 
         <!-- Action to fetch online games -->
         <div id="profile-games-section" style="display:none; margin-top:8px; border-top:1px solid var(--border-subtle); padding-top:12px;">
           <button class="btn-pill primary" id="btn-fetch-user-games" style="width:100%; justify-content:center;">
-            <span>📥</span> Hent mine seneste online partier
+            <span>📥</span> Fetch My Recent Online Games
           </button>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn-pill" id="btn-unlink-profile" style="display:none; color:var(--color-rose);">Afbryd Forbindelse</button>
-        <button class="btn-pill primary" id="btn-fetch-profile">Hent & Tilknyt Profil</button>
+        <button class="btn-pill" id="btn-unlink-profile" style="display:none; color:var(--color-rose);">Disconnect Profile</button>
+        <button class="btn-pill primary" id="btn-fetch-profile">Sync & Connect Profile</button>
       </div>
     </div>
   </div>
@@ -1034,7 +1058,7 @@
   <div class="modal-backdrop" id="modal-games">
     <div class="modal-dialog">
       <div class="modal-header">
-        <h3 style="font-size:1.15rem; font-weight:700;">📥 Dine Seneste Partier</h3>
+        <h3 style="font-size:1.15rem; font-weight:700;">📥 Your Recent Games</h3>
         <button class="btn-icon" id="btn-close-games" style="width:32px; height:32px;">✕</button>
       </div>
       <div class="modal-body">
@@ -1155,7 +1179,7 @@
       <div class="modal-body" style="font-size:0.88rem; line-height:1.6;">
         <p><strong>Nye Funktioner:</strong></p>
         <ul style="margin-left:20px; margin-top:8px; display:flex; flex-direction:column; gap:6px;">
-          <li><strong>Game Review:</strong> Partigennemgang ligesom Chess.com med Brilliant moves (!!), Accuracy, eval bar og Coach.</li>
+          <li><strong>Game Review:</strong> Full game review with Brilliant moves (!!), Accuracy scores, eval bar and Coach.</li>
           <li><strong>Board Size:</strong> Select 640px, 760px, 880px, 980px XXL, 1100px or 1200px format.</li>
           <li><strong>Themes:</strong> Change board theme (Wood, Lichess Green, Cyber, etc.) and piece style via '🎨 Themes'.</li>
           <li><strong>Import Games:</strong> Connect your Lichess or Chess.com profile to import your own games as training lines!</li>

@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     pendingAlternativeLine: null,
     pendingAlternativeMove: null,
     promptOnBranch: localStorage.getItem('chessreps_prompt_branch') === 'true',
+    freeLineSwitch: localStorage.getItem('chessreps_free_switch') !== 'false',
+    progressiveDepthEnabled: localStorage.getItem('chessreps_progressive_depth') !== 'false',
+    lineProgress: JSON.parse(localStorage.getItem('chessreps_line_progress') || '{}'),
     opponentTimeoutId: null,
     searchQuery: '',
     allFoldersExpanded: false,
@@ -112,6 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btnToggleAllFolders: document.getElementById('btn-toggle-all-folders'),
     toggleRandomFolder: document.getElementById('toggle-random-folder'),
     togglePromptBranch: document.getElementById('toggle-prompt-branch'),
+    toggleFreeBranch: document.getElementById('toggle-free-branch'),
+    progressiveDepthCard: document.getElementById('progressive-depth-card'),
+    progStageBadge: document.getElementById('prog-stage-badge'),
+    progDepthText: document.getElementById('prog-depth-text'),
+    progTrackFill: document.getElementById('prog-track-fill'),
+    toggleProgressiveDepth: document.getElementById('toggle-progressive-depth'),
     branchesBar: document.getElementById('branches-bar'),
     branchesChipsList: document.getElementById('branches-chips-list'),
     playlistCountLabel: document.getElementById('playlist-count-label'),
@@ -638,6 +647,79 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+
+  // =========================================================
+  // Listudy-Style Progressive Depth Learning System
+  // =========================================================
+  function getLineTargetDepth(line) {
+    if (!line || !line.moves || line.moves.length === 0) return 0;
+    if (!state.progressiveDepthEnabled) {
+      return line.moves.length;
+    }
+    const total = line.moves.length;
+    const saved = state.lineProgress[line.id];
+    if (saved && typeof saved === 'number' && saved >= 4) {
+      return Math.min(saved, total);
+    }
+    const initialDepth = Math.min(4, total);
+    state.lineProgress[line.id] = initialDepth;
+    return initialDepth;
+  }
+
+  function updateProgressiveBar() {
+    if (!el.progressiveDepthCard || !state.currentLine) return;
+
+    const total = state.currentLine.moves ? state.currentLine.moves.length : 0;
+    if (total === 0) {
+      el.progressiveDepthCard.style.display = 'none';
+      return;
+    }
+    el.progressiveDepthCard.style.display = 'flex';
+
+    if (!state.progressiveDepthEnabled) {
+      el.progStageBadge.textContent = '⚡ Full Line';
+      el.progStageBadge.className = 'progressive-badge';
+      el.progStageBadge.style.background = 'rgba(6, 182, 212, 0.2)';
+      el.progStageBadge.style.color = 'var(--color-cyan)';
+      el.progStageBadge.style.borderColor = 'rgba(6, 182, 212, 0.4)';
+
+      const current = state.moveIndex;
+      const pct = Math.round((current / total) * 100);
+      el.progDepthText.textContent = `Move ${current} of ${total} (${pct}%) • Full Training`;
+      el.progTrackFill.style.width = `${pct}%`;
+      el.progTrackFill.style.background = 'linear-gradient(90deg, #06b6d4, #3b82f6)';
+      return;
+    }
+
+    const targetDepth = getLineTargetDepth(state.currentLine);
+    const isMastered = targetDepth >= total;
+    const stageNum = Math.ceil(targetDepth / 4);
+    const maxStages = Math.ceil(total / 4);
+
+    if (isMastered) {
+      el.progStageBadge.textContent = '🏆 Mastered!';
+      el.progStageBadge.className = 'progressive-badge mastered';
+      el.progStageBadge.style.background = 'rgba(245, 158, 11, 0.2)';
+      el.progStageBadge.style.color = '#f59e0b';
+      el.progStageBadge.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+      el.progDepthText.textContent = `All ${total} Moves Mastered (100%) • Stage ${maxStages}/${maxStages}`;
+      el.progTrackFill.style.width = '100%';
+      el.progTrackFill.style.background = 'linear-gradient(90deg, #10b981, #f59e0b)';
+    } else {
+      el.progStageBadge.textContent = `🌱 Stage ${stageNum}/${maxStages}`;
+      el.progStageBadge.className = 'progressive-badge';
+      el.progStageBadge.style.background = 'rgba(16, 185, 129, 0.2)';
+      el.progStageBadge.style.color = 'var(--color-emerald)';
+      el.progStageBadge.style.borderColor = 'rgba(16, 185, 129, 0.35)';
+
+      const pct = Math.round((targetDepth / total) * 100);
+      el.progDepthText.textContent = `Target: Moves 1–${targetDepth} of ${total} (${pct}%) • Current: ${state.moveIndex}/${targetDepth}`;
+      const fillPct = Math.round((state.moveIndex / total) * 100);
+      el.progTrackFill.style.width = `${Math.max(pct, fillPct)}%`;
+      el.progTrackFill.style.background = 'linear-gradient(90deg, #10b981, #06b6d4)';
+    }
+  }
+
   // =========================================================
   // Folder & Line Selection
   // =========================================================
@@ -672,6 +754,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderNotationTimeline();
     updatePlaylistCount();
     updateAvailableBranches();
+    updateProgressiveBar();
   }
 
   function resetRep() {
@@ -704,6 +787,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderNotationTimeline();
     updateLearningBox();
     updateAvailableBranches();
+    updateProgressiveBar();
 
     if (!state.currentFolder || !state.currentLine) return;
 
@@ -724,8 +808,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Chessboard Rendering
   // =========================================================
   function renderBoard() {
-    el.chessboard.innerHTML = '';
-    
+    const prevScrollX = window.scrollX;
+    const prevScrollY = window.scrollY;
+
+    const frag = document.createDocumentFragment();
     const files = state.boardFlipped ? ['h','g','f','e','d','c','b','a'] : ['a','b','c','d','e','f','g','h'];
     const ranks = state.boardFlipped ? [1,2,3,4,5,6,7,8] : [8,7,6,5,4,3,2,1];
 
@@ -800,9 +886,16 @@ document.addEventListener('DOMContentLoaded', () => {
           sqDiv.appendChild(pieceDiv);
         }
 
-        el.chessboard.appendChild(sqDiv);
+        frag.appendChild(sqDiv);
       });
     });
+
+    el.chessboard.replaceChildren(frag);
+
+    // Keep window scroll 100% steady and unchanged
+    if (window.scrollX !== prevScrollX || window.scrollY !== prevScrollY) {
+      window.scrollTo(prevScrollX, prevScrollY);
+    }
   }
 
   // =========================================================
@@ -2136,6 +2229,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (state.isWaitingOpponent) return;
 
     const sq = e.target.closest('.square');
+    if (sq) {
+      e.preventDefault();
+    }
     if (!sq) return;
     const clickedSquare = sq.dataset.square;
     const piece = state.chess.get(clickedSquare);
@@ -2167,6 +2263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dist = Math.hypot(e.clientX - pointerStartPos.x, e.clientY - pointerStartPos.y);
     if (dist > 6) {
       isPointerDragging = true;
+      e.preventDefault();
       state.selectedSquare = state.draggedSquare;
       const moves = state.chess.moves({ square: state.draggedSquare, verbose: true });
       state.legalMovesForSelected = moves.map(m => m.to);
@@ -2272,8 +2369,10 @@ document.addEventListener('DOMContentLoaded', () => {
       updateLearningBox();
       updateAvailableBranches();
 
-      // Check if line complete
-      if (state.moveIndex >= state.currentLine.moves.length) {
+      // Check if progressive stage or line complete
+      updateProgressiveBar();
+      const currentTargetDepth = getLineTargetDepth(state.currentLine);
+      if (state.moveIndex >= currentTargetDepth) {
         handleLineComplete();
         return;
       }
@@ -2287,16 +2386,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if it matches an alternative known line in the same folder or other folders!
     const matchingAlternatives = findMatchingLinesForMove(moveObj.san);
     if (matchingAlternatives.length > 0) {
-      // Temporarily revert the move in chess.js
       state.chess.undo();
 
+      // Free Line Switch mode: seamless instant transition without popup
+      if (state.freeLineSwitch) {
+        const preferred = matchingAlternatives.find(m => m.isCurrentFolder) || matchingAlternatives[0];
+        const statsResult = window.srsManager.recordMoveAttempt(
+          true,
+          preferred.lineId,
+          preferred.targetMoveIndex,
+          moveObj.san,
+          moveObj.san
+        );
+        if (state.soundToggles.correct) window.chessAudio.playCorrect(statsResult.streak);
+        updateStatsDisplay();
+
+        switchToAlternativeLine(preferred);
+        return;
+      }
+
       if (!state.promptOnBranch) {
-        // Auto-branch without stopping
         switchToAlternativeLine(matchingAlternatives[0]);
         return;
       }
 
-      // Prompt the user with choices
+      // Prompt the user with choices (English)
       state.pendingAlternativeMove = {
         from,
         to,
@@ -2310,13 +2424,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="alt-prompt-header">
             <span style="font-size:1.3rem;">💡</span>
             <div class="alt-prompt-text">
-              You played <strong>${moveObj.san}</strong>! It belongs to <strong>${alt.lineName}</strong> i <em>${alt.folderName}</em>.<br>
-              Switch to this line and continue?
+              You played <strong>${moveObj.san}</strong>! It belongs to <strong>${alt.lineName}</strong> in <em>${alt.folderName}</em>.<br>
+              Switch to this variation and continue?
             </div>
           </div>
           <div class="alt-prompt-actions">
             <button class="btn-switch-confirm" id="btn-switch-confirm-single">
-              <span>✓</span> Ja, skift linje (${alt.lineName})
+              <span>✓</span> Yes, switch line (${alt.lineName})
             </button>
             <button class="btn-switch-cancel" id="btn-switch-cancel-single">
               <span>✕</span> No, try again
@@ -2552,12 +2666,18 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLearningBox();
     updateAvailableBranches();
     renderBoard();
+    updateProgressiveBar();
+
+    if (state.lastMove && state.lastMove.to) {
+      flashSquare(state.lastMove.to, 'correct-pulse');
+    }
 
     if (state.soundToggles.move) window.chessAudio.playMove();
-    setBanner('state-correct', '✨', `Switched to <strong>${chosenMatch.lineName}</strong>! Continuing...`);
+    setBanner('state-correct', '⚡', `Switched to <strong>${chosenMatch.lineName}</strong>! Playing on...`);
 
-    // If line complete or trigger opponent move / player turn
-    if (state.moveIndex >= state.currentLine.moves.length) {
+    // Check progressive depth or full completion
+    const altTargetDepth = getLineTargetDepth(state.currentLine);
+    if (state.moveIndex >= altTargetDepth) {
       handleLineComplete();
     } else {
       const isUserTurn = state.chess.turn() === state.currentFolder.color;
@@ -2592,7 +2712,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     state.opponentTimeoutId = setTimeout(() => {
       state.opponentTimeoutId = null;
-      if (state.moveIndex >= state.currentLine.moves.length) {
+      const targetDepthBefore = getLineTargetDepth(state.currentLine);
+      if (state.moveIndex >= targetDepthBefore) {
         state.isWaitingOpponent = false;
         handleLineComplete();
         return;
@@ -2620,7 +2741,9 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLearningBox();
         updateAvailableBranches();
 
-        if (state.moveIndex >= state.currentLine.moves.length) {
+        updateProgressiveBar();
+        const targetDepthAfter = getLineTargetDepth(state.currentLine);
+        if (state.moveIndex >= targetDepthAfter) {
           handleLineComplete();
         } else {
           const userColorName = state.currentFolder.color === 'w' ? 'White' : 'Black';
@@ -2639,9 +2762,47 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleLineComplete() {
     if (state.soundToggles.complete) window.chessAudio.playComplete();
     window.srsManager.resolveMistake(state.currentLine.id);
-    window.srsManager.addXp(50);
+
+    const total = state.currentLine.moves ? state.currentLine.moves.length : 0;
+    const currentTarget = getLineTargetDepth(state.currentLine);
+
+    // Progressive Depth Learning Mode (Listudy style):
+    if (state.progressiveDepthEnabled && currentTarget < total) {
+      const nextTarget = Math.min(currentTarget + 4, total);
+      state.lineProgress[state.currentLine.id] = nextTarget;
+      localStorage.setItem('chessreps_line_progress', JSON.stringify(state.lineProgress));
+
+      window.srsManager.addXp(35);
+      updateStatsDisplay();
+      updateProgressiveBar();
+
+      const isFull = nextTarget >= total;
+      if (isFull) {
+        setBanner(
+          'state-complete',
+          '🏆',
+          `<strong>Milestone Mastered!</strong> Reached full depth (${total} moves)! (+35 XP)`
+        );
+      } else {
+        setBanner(
+          'state-complete',
+          '🌱',
+          `<strong>Stage ${Math.ceil(currentTarget / 4)} Complete!</strong> Unlocked next chunk up to move ${nextTarget}! (+35 XP)`
+        );
+      }
+
+      // Re-drill the line from move 1 up to the new expanded depth
+      setTimeout(() => {
+        resetRep();
+      }, 700);
+      return;
+    }
+
+    // Full line completed
+    window.srsManager.addXp(60);
     updateStatsDisplay();
     updateActiveFolderAndLineInTree();
+    updateProgressiveBar();
 
     if (state.trainingMode === 'test') {
       state.examStats.linesCompleted++;
@@ -2655,11 +2816,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setBanner(
       'state-complete',
       '🎉',
-      `<strong>Mastered!</strong> You completed ${state.currentLine.name}! (+50 XP)`
+      `<strong>Mastered!</strong> You completed ${state.currentLine.name}! (+60 XP)`
     );
 
-    // Fast auto-advance to next line across all training modes
-    const delay = state.trainingMode === 'learn' ? 600 : 250;
+    // Auto-advance to next line in folder
+    const delay = state.trainingMode === 'learn' ? 600 : 350;
     setTimeout(() => {
       advanceLineInFolder();
     }, delay);
@@ -3014,13 +3175,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeLineEl = el.foldersTree.querySelector('.line-item.active');
     if (!activeLineEl) return;
 
-    const containerRect = el.foldersTree.getBoundingClientRect();
-    const lineRect = activeLineEl.getBoundingClientRect();
+    const tree = el.foldersTree;
+    const lineOffsetTop = activeLineEl.offsetTop;
+    const treeScrollTop = tree.scrollTop;
+    const treeHeight = tree.clientHeight;
 
-    // Check if line is outside the visible area of the sidebar scroll container
-    if (lineRect.top < containerRect.top + 40 || lineRect.bottom > containerRect.bottom - 40) {
-      const offset = (lineRect.top - containerRect.top) - (containerRect.clientHeight / 2);
-      el.foldersTree.scrollTop += offset;
+    if (lineOffsetTop < treeScrollTop + 30 || lineOffsetTop > treeScrollTop + treeHeight - 50) {
+      const prevX = window.scrollX;
+      const prevY = window.scrollY;
+      tree.scrollTop = Math.max(0, lineOffsetTop - (treeHeight / 2));
+      if (window.scrollX !== prevX || window.scrollY !== prevY) {
+        window.scrollTo(prevX, prevY);
+      }
     }
   }
 
@@ -3156,7 +3322,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderNotationTimeline() {
     if (!state.currentLine) return;
-    el.notationGrid.innerHTML = '';
+    const frag = document.createDocumentFragment();
 
     const moves = state.currentLine.moves;
     const movePairsCount = Math.ceil(moves.length / 2);
@@ -3169,7 +3335,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const numSpan = document.createElement('span');
       numSpan.className = 'notation-num';
       numSpan.textContent = `${moveNum}.`;
-      el.notationGrid.appendChild(numSpan);
+      frag.appendChild(numSpan);
 
       const whiteSpan = document.createElement('span');
       whiteSpan.className = 'notation-move';
@@ -3178,7 +3344,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (whiteIdx === state.moveIndex && state.currentFolder.color === 'w') {
         whiteSpan.classList.add('pending-user');
       }
-      el.notationGrid.appendChild(whiteSpan);
+      frag.appendChild(whiteSpan);
 
       const blackSpan = document.createElement('span');
       blackSpan.className = 'notation-move';
@@ -3187,8 +3353,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (blackIdx === state.moveIndex && state.currentFolder.color === 'b') {
         blackSpan.classList.add('pending-user');
       }
-      el.notationGrid.appendChild(blackSpan);
+      frag.appendChild(blackSpan);
     }
+
+    el.notationGrid.replaceChildren(frag);
   }
 
   function updateStatsDisplay() {
@@ -3225,14 +3393,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       el.headerProfileContainer.innerHTML = `
         <div style="display:flex; align-items:center; gap:8px;">
-          <div class="profile-pill" id="profile-pill-badge" title="Tilknyttet ${p.platform}: ${p.username}">
+          <div class="profile-pill" id="profile-pill-badge" title="Connected to ${p.platform}: ${p.username}">
             ${avatarHtml}
             <strong>${p.title ? p.title + ' ' : ''}${p.username}</strong>
             <span class="profile-platform-badge">${p.platform === 'lichess' ? 'Lichess' : 'Chess.com'}</span>
             <span style="font-size:0.75rem; color:var(--color-amber); font-weight:700;">⚡${p.blitz || p.rapid || 1500}</span>
           </div>
-          <button class="btn-pill" id="btn-header-games" title="Hent seneste partier fra din profil" style="padding: 6px 10px; font-size:0.75rem; background:rgba(6,182,212,0.15); border-color:var(--color-cyan); color:var(--color-cyan);">
-            <span>📥</span> Partier
+          <button class="btn-pill" id="btn-header-games" title="Fetch recent games from your profile" style="padding: 6px 10px; font-size:0.75rem; background:rgba(6,182,212,0.15); border-color:var(--color-cyan); color:var(--color-cyan);">
+            <span>📥</span> Games
           </button>
         </div>
       `;
@@ -3244,7 +3412,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       el.headerProfileContainer.innerHTML = `
         <button class="btn-pill" id="btn-open-profile-modal" style="padding: 6px 12px; font-size:0.78rem;">
-          <span>🔗</span> Tilknyt Profil
+          <span>🔗</span> Connect Profile
         </button>
       `;
       document.getElementById('btn-open-profile-modal')?.addEventListener('click', openProfileModal);
@@ -3271,7 +3439,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const username = el.profileUsernameInput.value.trim();
 
     if (!username) {
-      showProfileError('Indtast venligst et brugernavn.');
+      showProfileError('Please enter a username.');
       return;
     }
 
@@ -3283,7 +3451,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (platform === 'lichess') {
         const res = await fetch(`https://lichess.org/api/user/${encodeURIComponent(username)}`);
-        if (!res.ok) throw new Error(`Lichess bruger '${username}' blev ikke fundet.`);
+        if (!res.ok) throw new Error(`Lichess user '${username}' not found.`);
         const data = await res.json();
 
         profileData = {
@@ -3298,7 +3466,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         // Chess.com Public API
         const userRes = await fetch(`https://api.chess.com/pub/player/${encodeURIComponent(username.toLowerCase())}`);
-        if (!userRes.ok) throw new Error(`Chess.com bruger '${username}' blev ikke fundet.`);
+        if (!userRes.ok) throw new Error(`Chess.com user '${username}' not found.`);
         const uData = await userRes.json();
 
         let statsData = {};
@@ -3328,12 +3496,12 @@ document.addEventListener('DOMContentLoaded', () => {
       setBanner(
         'state-correct',
         '✅',
-        `Profil for <strong>${profileData.username}</strong> er tilknyttet! (Blitz: ${profileData.blitz || '-'} | Rapid: ${profileData.rapid || '-'})`
+        `Profile for <strong>${profileData.username}</strong> connected! (Blitz: ${profileData.blitz || '-'} | Rapid: ${profileData.rapid || '-'})`
       );
 
     } catch (err) {
       el.profileLoadingIndicator.style.display = 'none';
-      showProfileError(err.message || 'Der opstod en fejl under hentning af profilen.');
+      showProfileError(err.message || 'Error fetching profile.');
     }
   }
 
@@ -3342,7 +3510,7 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem('chessreps_linked_profile');
     el.modalProfile.classList.remove('open');
     renderProfileWidget();
-    setBanner('state-ready', '🔗', 'Skakprofil er nu afbrudt.');
+    setBanner('state-ready', '🔗', 'Chess profile disconnected.');
   }
 
   function showProfileError(msg) {
@@ -3367,8 +3535,8 @@ document.addEventListener('DOMContentLoaded', () => {
     el.gamesListContainer.innerHTML = `
       <div style="text-align:center; padding:32px 16px; color:var(--color-cyan);">
         <div style="font-size:2.2rem; margin-bottom:10px;">⏳</div>
-        <div style="font-size:0.95rem; font-weight:700;">Henter seneste partier for <strong>${p.username}</strong>...</div>
-        <div style="font-size:0.8rem; color:var(--text-dim); margin-top:4px;">Kontakter ${p.platform === 'lichess' ? 'Lichess.org API' : 'Chess.com Public API'}</div>
+        <div style="font-size:0.95rem; font-weight:700;">Fetching recent games for <strong>${p.username}</strong>...</div>
+        <div style="font-size:0.8rem; color:var(--text-dim); margin-top:4px;">Connecting to ${p.platform === 'lichess' ? 'Lichess.org API' : 'Chess.com Public API'}</div>
       </div>
     `;
 
@@ -3378,7 +3546,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (p.platform === 'lichess') {
         const url = `https://lichess.org/api/games/user/${encodeURIComponent(p.username)}?max=15&opening=true&moves=true&perfType=bullet,blitz,rapid,classical`;
         const res = await fetch(url, { headers: { 'Accept': 'application/x-ndjson' } });
-        if (!res.ok) throw new Error(`Kunne ikke hente partier fra Lichess (${res.status}).`);
+        if (!res.ok) throw new Error(`Could not fetch games from Lichess (${res.status}).`);
         
         const text = await res.text();
         const lines = text.trim().split('\n').filter(l => l.trim().length > 0);
@@ -3396,14 +3564,14 @@ document.addEventListener('DOMContentLoaded', () => {
               const opponent = isUserWhite ? blackUser : whiteUser;
               const opponentRating = isUserWhite ? blackRating : whiteRating;
               
-              let resultStr = 'Remis';
+              let resultStr = 'Draw';
               let resultColor = 'color-amber';
               if (g.winner) {
                 if (g.winner === 'white') {
-                  resultStr = isUserWhite ? '🏆 Vundet' : '❌ Tabt';
+                  resultStr = isUserWhite ? '🏆 Won' : '❌ Lost';
                   resultColor = isUserWhite ? 'color-emerald' : 'color-rose';
                 } else {
-                  resultStr = isUserWhite ? '❌ Tabt' : '🏆 Vundet';
+                  resultStr = isUserWhite ? '❌ Lost' : '🏆 Won';
                   resultColor = isUserWhite ? 'color-rose' : 'color-emerald';
                 }
               }
@@ -3417,11 +3585,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 opponentRating,
                 resultStr,
                 resultColor,
-                openingName: g.opening?.name || 'Skakparti',
+                openingName: g.opening?.name || 'Chess Game',
                 eco: g.opening?.eco || 'PGN',
                 moves: moveTokens,
                 speed: g.speed || 'blitz',
-                date: g.createdAt ? new Date(g.createdAt).toLocaleDateString('da-DK') : 'Nyligt'
+                date: g.createdAt ? new Date(g.createdAt).toLocaleDateString('en-US') : 'Recent'
               });
             }
           } catch (err) {}
@@ -3429,7 +3597,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         // Chess.com
         const archRes = await fetch(`https://api.chess.com/pub/player/${encodeURIComponent(p.username.toLowerCase())}/games/archives`);
-        if (!archRes.ok) throw new Error(`Kunne ikke hente arkiv fra Chess.com (${archRes.status}).`);
+        if (!archRes.ok) throw new Error(`Could not fetch archives from Chess.com (${archRes.status}).`);
         const archData = await archRes.json();
         
         if (!archData.archives || archData.archives.length === 0) {
@@ -3456,7 +3624,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Parse ECO & Opening Name from PGN headers
           let eco = 'PGN';
-          let openingName = 'Skakparti';
+          let openingName = 'Chess Game';
           const ecoMatch = g.pgn.match(/\[ECO "(.*?)"\]/);
           if (ecoMatch) eco = ecoMatch[1];
           const ecoUrlMatch = g.pgn.match(/\[ECOUrl "(.*?)"\]/);
@@ -3466,17 +3634,17 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           // Result
-          let resultStr = 'Remis';
+          let resultStr = 'Draw';
           let resultColor = 'color-amber';
           const userResult = isUserWhite ? g.white?.result : g.black?.result;
           if (userResult === 'win') {
-            resultStr = '🏆 Vundet';
+            resultStr = '🏆 Won';
             resultColor = 'color-emerald';
           } else if (['agreed', 'repetition', 'timevsinsufficient', 'stalemate'].includes(userResult)) {
-            resultStr = '🤝 Remis';
+            resultStr = '🤝 Draw';
             resultColor = 'color-amber';
           } else {
-            resultStr = '❌ Tabt';
+            resultStr = '❌ Lost';
             resultColor = 'color-rose';
           }
 
@@ -3500,7 +3668,7 @@ document.addEventListener('DOMContentLoaded', () => {
             eco,
             moves: tokens,
             speed: g.time_class || 'blitz',
-            date: 'Arkiv'
+            date: 'Archive'
           });
         });
       }
@@ -3560,8 +3728,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (err) {
       el.gamesListContainer.innerHTML = `
         <div style="padding:16px; border:1px solid var(--color-rose); background:rgba(244,63,94,0.1); border-radius:var(--radius-md);">
-          <div style="font-weight:700; color:var(--color-rose); margin-bottom:6px;">⚠️ Fejl under hentning:</div>
-          <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.4;">${err.message || 'Kunne ikke forbinde til serveren.'}</div>
+          <div style="font-weight:700; color:var(--color-rose); margin-bottom:6px;">⚠️ Error fetching games:</div>
+          <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.4;">${err.message || 'Could not connect to server.'}</div>
           <div style="margin-top:14px; display:flex; gap:8px;">
             <button class="btn-pill" id="btn-retry-games">🔄 Try Again</button>
             <button class="btn-pill primary" id="btn-load-demo-game">⚡ Load Magnus Carlsen Master Game</button>
@@ -3572,7 +3740,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('btn-retry-games')?.addEventListener('click', fetchUserGames);
       document.getElementById('btn-load-demo-game')?.addEventListener('click', () => {
         importGameAsRepertoire({
-          openingName: 'Siciliansk Sveshnikov (Carlsen vs Caruana)',
+          openingName: 'Sicilian Sveshnikov (Carlsen vs Caruana)',
           eco: 'B33',
           userColor: 'b',
           opponent: 'Fabiano Caruana (2828)',
@@ -3604,7 +3772,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Keep opening phase (up to 20 moves / 10 full turns)
     const repertoireMoves = validMoves.slice(0, 20);
 
-    // Target Folder: "Mine Online Partier"
+    // Target Folder: "My Online Games"
     let targetFolder = state.folders.find(f => f.id === 'folder-online-games');
     if (!targetFolder) {
       targetFolder = {
@@ -3625,7 +3793,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: `${game.openingName} (vs ${game.opponent})`,
       moves: repertoireMoves,
       eco: game.eco || 'PGN',
-      difficulty: 'Eget Parti',
+      difficulty: 'Personal Game',
       explanation: `This repertoire is extracted from a game as ${game.userColor === 'w' ? 'White' : 'Black'} vs ${game.opponent}. Drill it until your opening moves are flawless!`,
       gameMeta: {
         whiteName: game.userColor === 'w' ? (game.username || 'You') : game.opponent,

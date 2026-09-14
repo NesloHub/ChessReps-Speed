@@ -137,6 +137,11 @@ html {
   scrollbar-gutter: stable;
   overflow-y: scroll;
   height: 100%;
+  overflow-anchor: none !important;
+}
+
+body, .main-container, .center-arena, .board-wrapper, .chessboard, .board-column-wrap, .panel, .panel-body {
+  overflow-anchor: none !important;
 }
 
 body {
@@ -838,11 +843,12 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
 .center-arena {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
   width: 100%;
-  position: sticky;
-  top: 76px;
+  margin: 0 auto;
+  min-height: 980px;
+  contain: layout style;
 }
 
 /* Arena Top Controls: Board Size Selector */
@@ -1262,31 +1268,41 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
 /* BIG Tournament Chessboard Container with Dynamic Sizes including XXL (980px) */
 .board-wrapper {
   width: 760px;
+  height: 760px;
+  min-width: 760px;
+  min-height: 760px;
   max-width: 100%;
-  aspect-ratio: 1 / 1;
   position: relative;
   border-radius: var(--radius-md);
   box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.9), 0 0 0 5px #1c2b44;
   overflow: hidden;
-  user-select: none;
-  touch-action: none;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: none !important;
   flex-shrink: 0;
+  contain: strict;
 }
 
-.board-wrapper.board-size-md { width: 640px; max-width: 100%; }
-.board-wrapper.board-size-lg { width: 760px; max-width: 100%; }
-.board-wrapper.board-size-xl { width: 880px; max-width: 100%; }
-.board-wrapper.board-size-xxl { width: 980px; max-width: 100%; }
-.board-wrapper.board-size-xxxl { width: 1100px; max-width: 100%; }
-.board-wrapper.board-size-max { width: 1200px; max-width: 100%; }
+.board-wrapper.board-size-md { width: 640px; height: 640px; min-width: 640px; min-height: 640px; }
+.board-wrapper.board-size-lg { width: 760px; height: 760px; min-width: 760px; min-height: 760px; }
+.board-wrapper.board-size-xl { width: 880px; height: 880px; min-width: 880px; min-height: 880px; }
+.board-wrapper.board-size-xxl { width: 980px; height: 980px; min-width: 980px; min-height: 980px; }
+.board-wrapper.board-size-xxxl { width: 1100px; height: 1100px; min-width: 1100px; min-height: 1100px; }
+.board-wrapper.board-size-max { width: 1200px; height: 1200px; min-width: 1200px; min-height: 1200px; }
 
 .chessboard {
   width: 100%;
   height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
   background-color: var(--board-dark);
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: none !important;
+  contain: strict;
 }
 
 .square {
@@ -1297,6 +1313,9 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
   width: 100%;
   height: 100%;
   cursor: pointer;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: none !important;
 }
 
 .square.light { background-color: var(--board-light); }
@@ -2864,3 +2883,85 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
 }
 
 
+
+
+/* =========================================================
+   Listudy-Style Progressive Depth Learning Card
+   ========================================================= */
+
+.progressive-depth-card {
+  width: 100%;
+  height: 46px;
+  min-height: 46px;
+  max-height: 46px;
+  box-sizing: border-box;
+  padding: 6px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.progressive-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.progressive-stage-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progressive-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 1px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--color-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.progressive-depth-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.progressive-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.progressive-track-wrap {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.progressive-track-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--color-emerald), var(--color-cyan));
+  box-shadow: 0 0 10px var(--color-emerald-glow);
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
