@@ -1192,11 +1192,16 @@
     </div>
   </div>
 
-  <!-- Scripts in dependency order with resilient CDN fallback -->
-  <script src="vendor/chess.js"></script>
+  <!-- Scripts in dependency order with multi-tier fallback -->
+  <script src="chess.js"></script>
   <script>
     if (typeof Chess === 'undefined') {
-      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0-beta.6/chess.min.js"><\/script>');
+      document.write('<script src="vendor/chess.js"><\/script>');
+    }
+  </script>
+  <script>
+    if (typeof Chess === 'undefined') {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"><\/script>');
     }
   </script>
   <script src="pieces.js"></script>

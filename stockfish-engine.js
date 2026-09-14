@@ -40,10 +40,25 @@
       }
 
       try {
-        // Create Web Worker for stockfish.js
-        this.worker = new Worker('vendor/stockfish.js');
+        // Try stockfish.js in root or vendor/
+        try {
+          this.worker = new Worker('stockfish.js');
+        } catch (e) {
+          this.worker = new Worker('vendor/stockfish.js');
+        }
         this.worker.onmessage = (e) => this.handleMessage(e.data);
         this.worker.onerror = (err) => {
+          if (!this.retriedWithVendor) {
+            this.retriedWithVendor = true;
+            try {
+              this.worker = new Worker('vendor/stockfish.js');
+              this.worker.onmessage = (e) => this.handleMessage(e.data);
+              this.worker.postMessage('uci');
+              this.worker.postMessage('setoption name MultiPV value 2');
+              this.worker.postMessage('isready');
+              return;
+            } catch (e) {}
+          }
           console.warn('Stockfish Worker error:', err);
           this.isReady = false;
         };

@@ -319,6 +319,14 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProfileWidget();
 
     bindReviewEvents();
+
+    // Render openings folder tree in sidebar
+    try {
+      renderFoldersTree();
+    } catch (err) {
+      console.warn('renderFoldersTree error:', err);
+    }
+
     // Select initial folder and its first line safely
     const initialFolder = (state.folders && state.folders.length > 0)
       ? (state.folders.find(f => f.lines && f.lines.length > 0) || state.folders[0])
@@ -327,10 +335,16 @@ document.addEventListener('DOMContentLoaded', () => {
       ? initialFolder.lines[0]
       : null;
     if (initialFolder && initialLine) {
-      selectFolderAndLine(initialFolder.id, initialLine.id);
+      try {
+        selectFolderAndLine(initialFolder.id, initialLine.id);
+      } catch (err) {
+        console.warn('selectFolderAndLine error:', err);
+        renderBoard();
+      }
+    } else {
+      renderBoard();
     }
 
-    renderFoldersTree();
     updatePlaylistCount();
     updateAvailableBranches();
 
@@ -671,7 +685,12 @@ document.addEventListener('DOMContentLoaded', () => {
       state.opponentTimeoutId = null;
     }
 
-    state.chess.reset();
+    if (!state.chess && typeof window.Chess !== 'undefined') {
+      state.chess = new window.Chess();
+    }
+    if (state.chess && state.chess.reset) {
+      state.chess.reset();
+    }
     state.moveIndex = 0;
     state.selectedSquare = null;
     state.legalMovesForSelected = [];
@@ -765,14 +784,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Move dot or capture ring
         if (state.legalMovesForSelected.includes(squareId)) {
-          const targetPiece = state.chess.get(squareId);
+          const targetPiece = state.chess ? state.chess.get(squareId) : null;
           const indicator = document.createElement('div');
           indicator.className = targetPiece ? 'capture-ring' : 'move-dot';
           sqDiv.appendChild(indicator);
         }
 
         // Piece
-        const piece = state.chess.get(squareId);
+        const piece = state.chess ? state.chess.get(squareId) : null;
         if (piece) {
           const pieceDiv = document.createElement('div');
           pieceDiv.className = 'piece';
