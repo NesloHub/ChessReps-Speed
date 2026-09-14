@@ -68,11 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const parsed = JSON.parse(savedSelectedLines);
       state.selectedLineIds = new Set(parsed);
+      state.selectedLineIds.add('caro-advance-botvinnik-carls-c5');
     } catch (e) {}
   }
   if (!hasEverSaved && state.selectedLineIds.size === 0) {
     // By default on first launch, activate Italian, London, and Caro-Kann
-    const initialFolderIds = ['folder-italian', 'folder-london', 'folder-caro'];
+    const initialFolderIds = ['folder-italian', 'folder-london', 'folder-caro-kann'];
     state.folders.forEach(f => {
       if (initialFolderIds.includes(f.id)) {
         (f.lines || []).forEach(l => state.selectedLineIds.add(l.id));
@@ -912,6 +913,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Interactive User Moves & Transposition Detection
   // =========================================================
   function bindEvents() {
+    // Mouse wheel scrolling anywhere in Repertoire Library panel
+    const panelLeft = document.getElementById('panel-left') || document.getElementById('standard-left-panel');
+    if (panelLeft && el.foldersTree) {
+      panelLeft.addEventListener('wheel', (e) => {
+        el.foldersTree.scrollTop += e.deltaY;
+      }, { passive: true });
+    }
+
     // Board clicks & pointerdown
     el.chessboard.addEventListener('click', handleSquareClick);
     el.chessboard.addEventListener('pointerdown', handlePointerDown);
@@ -2813,7 +2822,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (state.trainingMode === 'test') {
       state.examStats.linesCompleted++;
-      const activeLines = getActiveLinesInCurrentFolder();
+      const activeLines = getAllActiveSelectedLines();
       if (state.examStats.linesCompleted >= activeLines.length) {
         finishExam();
         return;

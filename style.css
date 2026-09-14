@@ -692,7 +692,7 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
   overflow-y: scroll !important;
   overflow-x: hidden;
   padding-right: 6px;
-  scroll-behavior: smooth;
+  scroll-behavior: auto !important;
   overscroll-behavior: auto;
 }
 
@@ -705,16 +705,14 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   background: var(--bg-secondary);
-  overflow: hidden;
-  transition: all 0.2s ease;
+  overflow: visible;
+  transition: border-color 0.2s ease;
 }
 
 .folder-card.active { border-color: var(--border-accent); }
 
 .folder-header {
-  position: sticky;
-  top: 0;
-  z-index: 5;
+  position: relative;
   padding: 10px 12px;
   cursor: pointer;
   display: flex;
@@ -722,7 +720,7 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
   justify-content: space-between;
   gap: 8px;
   background: #152238;
-  backdrop-filter: blur(8px);
+  border-radius: var(--radius-md);
   border-bottom: 1px solid transparent;
   transition: background 0.15s;
 }
