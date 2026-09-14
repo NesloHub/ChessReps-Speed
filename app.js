@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
 
   // Application State
+  const ChessCtor = window.Chess || (typeof require !== 'undefined' ? (require('./vendor/chess.js').Chess || require('./vendor/chess.js')) : null);
   const state = {
-    chess: new window.Chess(),
+    chess: ChessCtor ? new ChessCtor() : null,
     folders: initialFolders,
     currentFolder: null,
     currentLine: null,
@@ -501,11 +502,27 @@ document.addEventListener('DOMContentLoaded', () => {
     state.boardSize = size;
     localStorage.setItem('chessreps_board_size', size);
 
-    el.boardWrapper.classList.remove(
-      'board-size-md', 'board-size-lg', 'board-size-xl',
-      'board-size-xxl', 'board-size-xxxl', 'board-size-max'
-    );
-    el.boardWrapper.classList.add(`board-size-${size}`);
+    const sizePxMap = {
+      md: '640px',
+      lg: '760px',
+      xl: '880px',
+      xxl: '980px',
+      xxxl: '1100px',
+      max: '1200px'
+    };
+    const curPx = sizePxMap[size] || '760px';
+
+    if (el.boardWrapper) {
+      el.boardWrapper.classList.remove(
+        'board-size-md', 'board-size-lg', 'board-size-xl',
+        'board-size-xxl', 'board-size-xxxl', 'board-size-max'
+      );
+      el.boardWrapper.classList.add(`board-size-${size}`);
+      el.boardWrapper.style.width = curPx;
+    }
+
+    if (el.playerCardTop) el.playerCardTop.style.maxWidth = curPx;
+    if (el.playerCardBottom) el.playerCardBottom.style.maxWidth = curPx;
 
     el.btnBoardSizes.forEach(btn => {
       btn.classList.toggle('active', btn.dataset.size === size);
@@ -738,7 +755,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // King in check
-        if (state.chess.inCheck()) {
+        const isKingInCheck = state.chess && (state.chess.inCheck ? state.chess.inCheck() : (state.chess.in_check ? state.chess.in_check() : false));
+        if (isKingInCheck) {
           const pieceOnSq = state.chess.get(squareId);
           if (pieceOnSq && pieceOnSq.type === 'k' && pieceOnSq.color === state.chess.turn()) {
             sqDiv.classList.add('in-check');

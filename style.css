@@ -1235,7 +1235,8 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
 
 /* BIG Tournament Chessboard Container with Dynamic Sizes including XXL (980px) */
 .board-wrapper {
-  width: 100%;
+  width: 760px;
+  max-width: 100%;
   aspect-ratio: 1 / 1;
   position: relative;
   border-radius: var(--radius-md);
@@ -1243,15 +1244,15 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
   overflow: hidden;
   user-select: none;
   touch-action: none;
-  transition: max-width 0.25s ease;
+  transition: width 0.25s ease, max-width 0.25s ease;
 }
 
-.board-wrapper.board-size-md { max-width: 640px; }
-.board-wrapper.board-size-lg { max-width: 760px; }
-.board-wrapper.board-size-xl { max-width: 880px; }
-.board-wrapper.board-size-xxl { max-width: 980px; }
-.board-wrapper.board-size-xxxl { max-width: 1100px; }
-.board-wrapper.board-size-max { max-width: 1200px; }
+.board-wrapper.board-size-md { width: 640px; max-width: 100%; }
+.board-wrapper.board-size-lg { width: 760px; max-width: 100%; }
+.board-wrapper.board-size-xl { width: 880px; max-width: 100%; }
+.board-wrapper.board-size-xxl { width: 980px; max-width: 100%; }
+.board-wrapper.board-size-xxxl { width: 1100px; max-width: 100%; }
+.board-wrapper.board-size-max { width: 1200px; max-width: 100%; }
 
 .chessboard {
   width: 100%;
@@ -2145,13 +2146,12 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
   align-items: center;
   gap: 8px;
   width: 100%;
-  max-width: fit-content;
   margin: 0 auto;
 }
 
 .player-board-card {
-  width: 100%;
-  align-self: stretch;
+  width: 760px;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
