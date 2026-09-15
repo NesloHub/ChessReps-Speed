@@ -1,4 +1,5 @@
 const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
@@ -17,6 +18,73 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
+  // 1. Chess.com API Proxy to bypass browser User-Agent restrictions and CORS/firewall blocks
+  if (req.url.startsWith('/api/chesscom/')) {
+    let subPath = req.url.replace('/api/chesscom/', '').replace(/^\/+/, '');
+    // If client passed a full URL encoded or raw
+    if (subPath.startsWith('http')) {
+      subPath = subPath.replace(/^https?:\/\/api\.chess\.com\/pub\/?/i, '');
+    }
+    const targetUrl = 'https://api.chess.com/pub/' + subPath;
+
+    const proxyReq = https.get(targetUrl, {
+      headers: {
+        'User-Agent': 'ChessReps-Trainer-App (https://github.com/chessreps; contact@chessreps.com)',
+        'Accept': 'application/json'
+      }
+    }, (upstreamRes) => {
+      res.writeHead(upstreamRes.statusCode, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Cache-Control': 'no-store, no-cache, must-revalidate'
+      });
+      upstreamRes.pipe(res);
+    });
+
+    proxyReq.on('error', (err) => {
+      res.writeHead(502, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*'
+      });
+      res.end(JSON.stringify({ error: 'Proxy error: ' + err.message }));
+    });
+    return;
+  }
+
+  // 2. Lichess API Proxy
+  if (req.url.startsWith('/api/lichess/')) {
+    let subPath = req.url.replace('/api/lichess/', '').replace(/^\/+/, '');
+    if (subPath.startsWith('http')) {
+      subPath = subPath.replace(/^https?:\/\/lichess\.org\/api\/?/i, '');
+    }
+    const targetUrl = 'https://lichess.org/api/' + subPath;
+
+    const proxyReq = https.get(targetUrl, {
+      headers: {
+        'User-Agent': 'ChessReps-Trainer-App (https://github.com/chessreps)',
+        'Accept': req.headers['accept'] || 'application/json'
+      }
+    }, (upstreamRes) => {
+      res.writeHead(upstreamRes.statusCode, {
+        'Content-Type': upstreamRes.headers['content-type'] || 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'no-store, no-cache, must-revalidate'
+      });
+      upstreamRes.pipe(res);
+    });
+
+    proxyReq.on('error', (err) => {
+      res.writeHead(502, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*'
+      });
+      res.end(JSON.stringify({ error: 'Proxy error: ' + err.message }));
+    });
+    return;
+  }
+
+  // 3. Static File Server
   let reqPath = req.url.split('?')[0];
   if (reqPath === '/') reqPath = '/index.html';
   

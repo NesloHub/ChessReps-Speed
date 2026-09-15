@@ -93,24 +93,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } catch (e) {}
 
-  // Merge custom openings into folders
+  // Merge custom openings and imported online games into folders
   const customList = window.srsManager.getCustomOpenings();
   if (customList.length > 0) {
-    let customFolder = state.folders.find(f => f.id === 'folder-custom');
-    if (!customFolder) {
-      customFolder = {
-        id: 'folder-custom',
-        name: 'My PGN Repertoires',
-        color: 'w',
-        icon: '📁',
-        eco: 'PGN',
-        description: 'Your own imported PGN opening lines.',
-        lines: []
-      };
-      state.folders.push(customFolder);
-    }
-    customFolder.lines.push(...customList);
-    customList.forEach(l => state.selectedLineIds.add(l.id));
+    customList.forEach(item => {
+      const targetFolderId = item.folderId || 'folder-custom';
+      let f = state.folders.find(x => x.id === targetFolderId);
+      if (!f) {
+        f = {
+          id: targetFolderId,
+          name: item.folderName || (targetFolderId === 'folder-online-games' ? 'My Online Games' : 'My PGN Repertoires'),
+          color: item.color || item.userColor || 'w',
+          icon: targetFolderId === 'folder-online-games' ? '🌐' : '📁',
+          eco: item.eco || 'PGN',
+          description: 'Your own imported personal opening lines.',
+          lines: []
+        };
+        state.folders.unshift(f);
+      }
+      if (!f.lines.some(existing => existing.id === item.id)) {
+        f.lines.push(item);
+      }
+      state.selectedLineIds.add(item.id);
+    });
   }
 
   // DOM Elements
@@ -2808,11 +2813,9 @@ document.addEventListener('DOMContentLoaded', () => {
         );
       }
 
-      // Move on to the next random line from the ACTIVE playlist (across all marked folders).
-      // Progressive depth is stored per line id, so the line will continue at its new depth
-      // next time it is drawn from the playlist.
+      // Re-drill the line from move 1 up to the new expanded depth
       setTimeout(() => {
-        advanceLineInFolder();
+        resetRep();
       }, 700);
       return;
     }
@@ -2875,23 +2878,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let nextItem = null;
-    const currentLineId = state.currentLine ? state.currentLine.id : null;
-
     if (state.randomWithinFolder) {
-      // Pick randomly among all active selected lines across ALL marked folders!
+      // Pick randomly among all active selected lines across all chosen folders!
+      const currentLineId = state.currentLine ? state.currentLine.id : null;
       const others = activeSelected.filter(item => item.line.id !== currentLineId);
-      const basePool = others.length > 0 ? others : activeSelected;
-
-      // When the playlist spans several openings (folders), prefer switching opening
-      // so training interleaves the marked repertoires instead of repeating one folder.
-      const currentFolderId = state.currentFolder ? state.currentFolder.id : null;
-      const crossFolderPool = basePool.filter(item => item.folder.id !== currentFolderId);
-      const pool = crossFolderPool.length > 0 ? crossFolderPool : basePool;
-
+      const pool = others.length > 0 ? others : activeSelected;
       nextItem = pool[Math.floor(Math.random() * pool.length)];
     } else {
+      const currentLineId = state.currentLine ? state.currentLine.id : null;
       const currentIdx = activeSelected.findIndex(item => item.line.id === currentLineId);
-      const nextIdx = currentIdx === -1 ? 0 : (currentIdx + 1) % activeSelected.length;
+      const nextIdx = (currentIdx + 1) % activeSelected.length;
       nextItem = activeSelected[nextIdx];
     }
 
@@ -3562,12 +3558,91 @@ document.addEventListener('DOMContentLoaded', () => {
     el.modalProfile.classList.add('open');
   }
 
+  // =========================================================
+  // Robust Chess.com / Lichess API & PGN Helpers
+  // =========================================================
+  async function fetchChessCom(endpointOrUrl) {
+    let cleanPath = endpointOrUrl.replace(/^https?:\/\/api\.chess\.com\/pub\/?/i, '').replace(/^\/+/, '');
+    
+    // 1. Try local server proxy (automatically handles User-Agent and CORS headers)
+    try {
+      const proxyUrl = '/api/chesscom/' + cleanPath;
+      const res = await fetch(proxyUrl);
+      if (res.ok) {
+        return await res.json();
+      }
+    } catch (e) {
+      // Local proxy not available, fall back to direct request
+    }
+
+    // 2. Try direct fetch
+    const directUrl = 'https://api.chess.com/pub/' + cleanPath;
+    const directRes = await fetch(directUrl);
+    if (!directRes.ok) {
+      const err = new Error('Chess.com API request failed with status ' + directRes.status);
+      err.status = directRes.status;
+      throw err;
+    }
+    return await directRes.json();
+  }
+
+  function extractMovesFromPgn(pgnString) {
+    if (!pgnString || typeof pgnString !== 'string') return [];
+    
+    // Attempt 1: Native Chess.js loadPgn / load_pgn
+    try {
+      const ChessConstructor = window.Chess || (typeof require !== 'undefined' ? (require('./vendor/chess.js').Chess || require('./vendor/chess.js')) : null);
+      if (ChessConstructor) {
+        const c = new ChessConstructor();
+        if (typeof c.loadPgn === 'function') {
+          c.loadPgn(pgnString);
+          const hist = c.history();
+          if (hist && hist.length >= 2) return hist;
+        } else if (typeof c.load_pgn === 'function') {
+          c.load_pgn(pgnString);
+          const hist = c.history();
+          if (hist && hist.length >= 2) return hist;
+        }
+      }
+    } catch (e) {}
+
+    // Attempt 2: Resilient fallback sanitizer (handles clock tags, comments, move numbers with dots)
+    try {
+      let s = pgnString.replace(/\[[\s\S]*?\]/g, ' ');
+      s = s.replace(/\{[\s\S]*?\}/g, ' ');
+      s = s.replace(/\([\s\S]*?\)/g, ' ');
+      s = s.replace(/\$\d+/g, ' ');
+      s = s.replace(/\d+\.{1,3}/g, ' ');
+      s = s.replace(/1-0|0-1|1\/2-1\/2|\*/g, ' ');
+      const rawTokens = s.split(/\s+/).filter(t => t.trim().length > 0 && !t.includes('.') && t !== '*');
+
+      const ChessConstructor = window.Chess || (typeof require !== 'undefined' ? (require('./vendor/chess.js').Chess || require('./vendor/chess.js')) : null);
+      if (ChessConstructor) {
+        const c2 = new ChessConstructor();
+        const valid = [];
+        for (const t of rawTokens) {
+          const cleaned = t.replace(/[?!]/g, '');
+          try {
+            const m = c2.move(cleaned) || c2.move(t);
+            if (m) valid.push(m.san);
+            else break;
+          } catch (err) {
+            break;
+          }
+        }
+        return valid;
+      }
+    } catch (e) {}
+
+    return [];
+  }
+
   async function handleProfileFetch() {
     const platform = el.profilePlatformSelect.value;
     const username = el.profileUsernameInput.value.trim();
 
     if (!username) {
-      showProfileError('Please enter a username.');
+      showProfileError('Please enter your username.');
       return;
     }
 
@@ -3589,18 +3664,17 @@ document.addEventListener('DOMContentLoaded', () => {
           avatar: data.profile && data.profile.avatarUrl ? data.profile.avatarUrl : null,
           blitz: data.perfs && data.perfs.blitz ? data.perfs.blitz.rating : null,
           rapid: data.perfs && data.perfs.rapid ? data.perfs.rapid.rating : null,
+          bullet: data.perfs && data.perfs.bullet ? data.perfs.bullet.rating : null,
           puzzles: data.perfs && data.perfs.puzzle ? data.perfs.puzzle.rating : null
         };
       } else {
-        // Chess.com Public API
-        const userRes = await fetch(`https://api.chess.com/pub/player/${encodeURIComponent(username.toLowerCase())}`);
-        if (!userRes.ok) throw new Error(`Chess.com user '${username}' not found.`);
-        const uData = await userRes.json();
+        // Chess.com Public API with local proxy & fallback
+        const uData = await fetchChessCom(`player/${encodeURIComponent(username.toLowerCase())}`);
+        if (!uData || !uData.username) throw new Error(`Chess.com user '${username}' not found.`);
 
         let statsData = {};
         try {
-          const statsRes = await fetch(`https://api.chess.com/pub/player/${encodeURIComponent(username.toLowerCase())}/stats`);
-          if (statsRes.ok) statsData = await statsRes.json();
+          statsData = await fetchChessCom(`player/${encodeURIComponent(username.toLowerCase())}/stats`);
         } catch (err) {}
 
         profileData = {
@@ -3608,9 +3682,10 @@ document.addEventListener('DOMContentLoaded', () => {
           username: uData.username,
           title: uData.title || '',
           avatar: uData.avatar || null,
-          blitz: statsData.chess_blitz && statsData.chess_blitz.last ? statsData.chess_blitz.last.rating : null,
-          rapid: statsData.chess_rapid && statsData.chess_rapid.last ? statsData.chess_rapid.last.rating : null,
-          puzzles: statsData.tactics && statsData.tactics.highest ? statsData.tactics.highest.rating : null
+          blitz: statsData?.chess_blitz?.last?.rating || null,
+          rapid: statsData?.chess_rapid?.last?.rating || null,
+          bullet: statsData?.chess_bullet?.last?.rating || null,
+          puzzles: statsData?.tactics?.highest?.rating || null
         };
       }
 
@@ -3629,7 +3704,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch (err) {
       el.profileLoadingIndicator.style.display = 'none';
-      showProfileError(err.message || 'Error fetching profile.');
+      showProfileError(err.message || 'Error connecting to profile.');
     }
   }
 
@@ -3652,7 +3727,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function fetchUserGames() {
     if (!state.linkedProfile) {
       openProfileModal();
-      showProfileError('Connect your account first to fetch your personal games.');
+      showProfileError('Connect your Chess.com or Lichess account first.');
       return;
     }
 
@@ -3661,10 +3736,10 @@ document.addEventListener('DOMContentLoaded', () => {
     el.modalGames.classList.add('open');
 
     el.gamesListContainer.innerHTML = `
-      <div style="text-align:center; padding:32px 16px; color:var(--color-cyan);">
-        <div style="font-size:2.2rem; margin-bottom:10px;">⏳</div>
-        <div style="font-size:0.95rem; font-weight:700;">Fetching recent games for <strong>${p.username}</strong>...</div>
-        <div style="font-size:0.8rem; color:var(--text-dim); margin-top:4px;">Connecting to ${p.platform === 'lichess' ? 'Lichess.org API' : 'Chess.com Public API'}</div>
+      <div style="text-align:center; padding:36px 16px; color:var(--color-cyan);">
+        <div style="font-size:2.4rem; margin-bottom:12px; animation: pulse 1.2s infinite ease-in-out;">⏳</div>
+        <div style="font-size:1rem; font-weight:700;">Fetching recent games for <strong>${p.username}</strong>...</div>
+        <div style="font-size:0.8rem; color:var(--text-dim); margin-top:6px;">Connecting to ${p.platform === 'lichess' ? 'Lichess.org API' : 'Chess.com Public API'}</div>
       </div>
     `;
 
@@ -3672,14 +3747,14 @@ document.addEventListener('DOMContentLoaded', () => {
       let games = [];
 
       if (p.platform === 'lichess') {
-        const url = `https://lichess.org/api/games/user/${encodeURIComponent(p.username)}?max=15&opening=true&moves=true&perfType=bullet,blitz,rapid,classical`;
+        const url = `https://lichess.org/api/games/user/${encodeURIComponent(p.username)}?max=20&opening=true&moves=true&perfType=bullet,blitz,rapid,classical`;
         const res = await fetch(url, { headers: { 'Accept': 'application/x-ndjson' } });
         if (!res.ok) throw new Error(`Could not fetch games from Lichess (${res.status}).`);
         
         const text = await res.text();
         const lines = text.trim().split('\n').filter(l => l.trim().length > 0);
         
-        lines.forEach(l => {
+        lines.forEach((l, idx) => {
           try {
             const g = JSON.parse(l);
             if (g && g.moves) {
@@ -3706,9 +3781,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
               const moveTokens = g.moves.split(/\s+/).filter(m => m.length > 0);
               games.push({
-                id: g.id,
+                id: 'lichess-' + (g.id || idx),
                 platform: 'lichess',
                 userColor,
+                userRating: isUserWhite ? whiteRating : blackRating,
+                username: p.username,
                 opponent,
                 opponentRating,
                 resultStr,
@@ -3723,22 +3800,33 @@ document.addEventListener('DOMContentLoaded', () => {
           } catch (err) {}
         });
       } else {
-        // Chess.com
-        const archRes = await fetch(`https://api.chess.com/pub/player/${encodeURIComponent(p.username.toLowerCase())}/games/archives`);
-        if (!archRes.ok) throw new Error(`Could not fetch archives from Chess.com (${archRes.status}).`);
-        const archData = await archRes.json();
+        // Chess.com: Fetch archives list
+        const archData = await fetchChessCom(`player/${encodeURIComponent(p.username.toLowerCase())}/games/archives`);
         
         if (!archData.archives || archData.archives.length === 0) {
-          throw new Error('No archived games found for this profile.');
+          throw new Error(`No archived games found for '${p.username}'. Play a game on Chess.com first!`);
         }
 
-        const latestArchive = archData.archives[archData.archives.length - 1];
-        const gamesRes = await fetch(latestArchive);
-        if (!gamesRes.ok) throw new Error('Could not fetch monthly games from Chess.com.');
-        const gamesData = await gamesRes.json();
+        // Search the most recent monthly archives (up to last 3 months) to ensure games are found
+        let rawList = [];
+        const reversedArchives = [...archData.archives].reverse();
+        for (const archUrl of reversedArchives.slice(0, 3)) {
+          try {
+            const gData = await fetchChessCom(archUrl);
+            if (gData && gData.games && gData.games.length > 0) {
+              rawList.push(...gData.games);
+              if (rawList.length >= 25) break;
+            }
+          } catch(err) {}
+        }
 
-        const rawList = (gamesData.games || []).slice(-15).reverse();
-        rawList.forEach((g, idx) => {
+        if (rawList.length === 0) {
+          throw new Error(`No recent games found for '${p.username}'.`);
+        }
+
+        // Process recent games (most recent first)
+        const recentGames = rawList.slice(-20).reverse();
+        recentGames.forEach((g, idx) => {
           if (!g.pgn) return;
 
           const whiteUser = g.white?.username || 'White';
@@ -3750,8 +3838,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const opponent = isUserWhite ? blackUser : whiteUser;
           const opponentRating = isUserWhite ? blackRating : whiteRating;
 
-          // Parse ECO & Opening Name from PGN headers
-          let eco = 'PGN';
+          // Parse ECO & Opening Name
+          let eco = g.eco ? g.eco.split('/').pop() : 'PGN';
           let openingName = 'Chess Game';
           const ecoMatch = g.pgn.match(/\[ECO "(.*?)"\]/);
           if (ecoMatch) eco = ecoMatch[1];
@@ -3768,7 +3856,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (userResult === 'win') {
             resultStr = '🏆 Won';
             resultColor = 'color-emerald';
-          } else if (['agreed', 'repetition', 'timevsinsufficient', 'stalemate'].includes(userResult)) {
+          } else if (['agreed', 'repetition', 'timevsinsufficient', 'stalemate', '50move'].includes(userResult)) {
             resultStr = '🤝 Draw';
             resultColor = 'color-amber';
           } else {
@@ -3776,66 +3864,73 @@ document.addEventListener('DOMContentLoaded', () => {
             resultColor = 'color-rose';
           }
 
-          // Clean PGN moves
-          let cleanPgn = g.pgn.replace(/\[.*?\]/g, '');
-          cleanPgn = cleanPgn.replace(/\{.*?\}/g, '');
-          cleanPgn = cleanPgn.replace(/\(.*?\)/g, '');
-          cleanPgn = cleanPgn.replace(/\d+\./g, ' ');
-          cleanPgn = cleanPgn.replace(/1-0|0-1|1\/2-1\/2|\*/g, '');
-          const tokens = cleanPgn.split(/\s+/).filter(t => t.length > 0);
+          const moves = extractMovesFromPgn(g.pgn);
+          if (moves.length < 2) return;
 
           games.push({
-            id: 'chesscom-' + idx,
+            id: 'chesscom-' + idx + '-' + Date.now(),
             platform: 'chesscom',
             userColor,
+            userRating: isUserWhite ? whiteRating : blackRating,
+            username: p.username,
             opponent,
             opponentRating,
             resultStr,
             resultColor,
             openingName,
             eco,
-            moves: tokens,
+            moves,
+            pgn: g.pgn,
             speed: g.time_class || 'blitz',
-            date: 'Archive'
+            date: g.end_time ? new Date(g.end_time * 1000).toLocaleDateString('en-US') : 'Recent'
           });
         });
       }
 
       if (games.length === 0) {
         el.gamesListContainer.innerHTML = `
-          <div style="text-align:center; padding:24px; color:var(--text-muted);">
-            No games found for this profile. Try playing a game on ${p.platform === 'lichess' ? 'Lichess' : 'Chess.com'} first!
+          <div style="text-align:center; padding:28px 16px; color:var(--text-muted);">
+            <div style="font-size:2rem; margin-bottom:8px;">♟️</div>
+            <div style="font-weight:700; color:var(--text-main);">No games found for ${p.username}</div>
+            <p style="font-size:0.8rem; margin-top:4px;">Play a game on ${p.platform === 'lichess' ? 'Lichess' : 'Chess.com'} or paste a PGN directly.</p>
+            <div style="margin-top:14px;">
+              <button class="btn-pill primary" id="btn-open-pgn-from-games">📋 Paste Custom PGN Instead</button>
+            </div>
           </div>
         `;
+        document.getElementById('btn-open-pgn-from-games')?.addEventListener('click', () => {
+          el.modalGames.classList.remove('open');
+          openPgnModal();
+        });
         return;
       }
 
-      // Render games list
+      // Render games list with high-contrast cards
       el.gamesListContainer.innerHTML = games.map((game, idx) => {
         const colorBadge = game.userColor === 'w'
           ? `<span class="badge-stage stage-mestret">⚪ White</span>`
           : `<span class="badge-stage stage-ovet">⚫ Black</span>`;
 
         return `
-          <div class="game-item-card">
-            <div style="display:flex; flex-direction:column; gap:4px; min-width:0; flex:1;">
+          <div class="game-item-card" style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; background:rgba(21,34,56,0.7); border:1px solid rgba(46,69,109,0.5); border-radius:10px; margin-bottom:8px; transition:border-color 0.2s;">
+            <div style="display:flex; flex-direction:column; gap:5px; min-width:0; flex:1;">
               <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                <strong style="font-size:0.92rem;">${game.openingName}</strong>
-                <span class="eco-pill">${game.eco}</span>
+                <strong style="font-size:0.92rem; color:#f8fafc;">${game.openingName}</strong>
+                <span class="folder-eco-tag">${game.eco}</span>
                 ${colorBadge}
                 <span style="font-size:0.75rem; font-weight:700; color:var(--${game.resultColor});">${game.resultStr}</span>
               </div>
-              <div class="game-info-meta" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <div class="game-info-meta" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; font-size:0.76rem; color:#94a3b8;">
                 <span>vs <strong>${game.opponent}</strong> (${game.opponentRating})</span>
                 <span>•</span>
-                <span>${game.speed}</span>
+                <span style="text-transform:capitalize;">${game.speed}</span>
                 <span>•</span>
                 <span>${game.moves.length} moves</span>
                 <span>•</span>
                 <span>${game.date}</span>
               </div>
             </div>
-            <button class="btn-pill primary btn-import-game" data-game-idx="${idx}" style="font-size:0.8rem; padding:7px 14px; flex-shrink:0;">
+            <button class="btn-pill primary btn-import-game" data-game-idx="${idx}" style="font-size:0.8rem; padding:8px 16px; flex-shrink:0; cursor:pointer;">
               <span>⚡</span> Train as Repertoire
             </button>
           </div>
@@ -3855,17 +3950,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch (err) {
       el.gamesListContainer.innerHTML = `
-        <div style="padding:16px; border:1px solid var(--color-rose); background:rgba(244,63,94,0.1); border-radius:var(--radius-md);">
-          <div style="font-weight:700; color:var(--color-rose); margin-bottom:6px;">⚠️ Error fetching games:</div>
-          <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.4;">${err.message || 'Could not connect to server.'}</div>
-          <div style="margin-top:14px; display:flex; gap:8px;">
+        <div style="padding:18px; border:1px solid var(--color-rose); background:rgba(244,63,94,0.1); border-radius:var(--radius-md);">
+          <div style="font-weight:700; color:var(--color-rose); margin-bottom:6px; font-size:0.95rem;">⚠️ Could not fetch games:</div>
+          <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.4;">${err.message || 'Error connecting to server.'}</div>
+          <div style="margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;">
             <button class="btn-pill" id="btn-retry-games">🔄 Try Again</button>
-            <button class="btn-pill primary" id="btn-load-demo-game">⚡ Load Magnus Carlsen Master Game</button>
+            <button class="btn-pill" id="btn-open-paste-pgn">📋 Paste PGN Directly</button>
+            <button class="btn-pill primary" id="btn-load-demo-game">⚡ Load Demo Grandmaster Game</button>
           </div>
         </div>
       `;
 
       document.getElementById('btn-retry-games')?.addEventListener('click', fetchUserGames);
+      document.getElementById('btn-open-paste-pgn')?.addEventListener('click', () => {
+        el.modalGames.classList.remove('open');
+        openPgnModal();
+      });
       document.getElementById('btn-load-demo-game')?.addEventListener('click', () => {
         importGameAsRepertoire({
           openingName: 'Sicilian Sveshnikov (Carlsen vs Caruana)',
@@ -3879,26 +3979,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function importGameAsRepertoire(game) {
-    // Validate moves with Chess.js
-    const testChess = new window.Chess();
-    const validMoves = [];
-    for (const move of game.moves) {
-      try {
-        const res = testChess.move(move);
-        if (res) validMoves.push(res.san);
-        else break;
-      } catch (e) {
-        break;
-      }
-    }
+    const validMoves = (game.moves && game.moves.length >= 2)
+      ? game.moves
+      : extractMovesFromPgn(game.pgn || '');
 
-    if (validMoves.length < 2) {
-      alert('Game does not contain enough valid moves for training.');
+    if (!validMoves || validMoves.length < 2) {
+      alert('This game does not contain enough valid moves for training.');
       return;
     }
 
-    // Keep opening phase (up to 20 moves / 10 full turns)
-    const repertoireMoves = validMoves.slice(0, 20);
+    // Keep opening phase (up to 24 moves / 12 full turns)
+    const repertoireMoves = validMoves.slice(0, 24);
 
     // Target Folder: "My Online Games"
     let targetFolder = state.folders.find(f => f.id === 'folder-online-games');
@@ -3906,45 +3997,49 @@ document.addEventListener('DOMContentLoaded', () => {
       targetFolder = {
         id: 'folder-online-games',
         name: 'My Online Games',
-        color: game.userColor,
+        color: game.userColor || 'w',
         icon: '🌐',
         eco: game.eco || 'PGN',
         description: 'Your own online games transformed into interactive opening repertoires.',
         lines: []
       };
-      state.folders.push(targetFolder);
+      state.folders.unshift(targetFolder);
     }
 
     const lineId = 'line-game-' + Date.now();
+    const lineName = `${game.openingName} (vs ${game.opponent})`;
     const newLine = {
       id: lineId,
-      name: `${game.openingName} (vs ${game.opponent})`,
+      folderId: targetFolder.id,
+      folderName: targetFolder.name,
+      name: lineName,
       moves: repertoireMoves,
       eco: game.eco || 'PGN',
+      color: game.userColor || 'w',
       difficulty: 'Personal Game',
-      explanation: `This repertoire is extracted from a game as ${game.userColor === 'w' ? 'White' : 'Black'} vs ${game.opponent}. Drill it until your opening moves are flawless!`,
+      explanation: `Extracted from a ${game.speed || 'game'} as ${game.userColor === 'w' ? 'White' : 'Black'} vs ${game.opponent} (${game.resultStr}). Practice until your opening moves are automatic!`,
       gameMeta: {
         whiteName: game.userColor === 'w' ? (game.username || 'You') : game.opponent,
         blackName: game.userColor === 'b' ? (game.username || 'You') : game.opponent,
-        whiteElo: game.userColor === 'w' ? (game.userRating ? String(game.userRating) : '') : (game.opponentRating ? String(game.opponentRating) : ''),
-        blackElo: game.userColor === 'b' ? (game.userRating ? String(game.userRating) : '') : (game.opponentRating ? String(game.opponentRating) : '')
+        whiteElo: game.userColor === 'w' ? String(game.userRating || '') : String(game.opponentRating || ''),
+        blackElo: game.userColor === 'b' ? String(game.userRating || '') : String(game.opponentRating || '')
       },
-      keyThemes: [`Played vs ${game.opponent}`, `${repertoireMoves.length} moves`]
+      keyThemes: [`vs ${game.opponent}`, `${repertoireMoves.length} moves`, game.eco || 'PGN']
     };
 
-    targetFolder.lines.push(newLine);
+    targetFolder.lines.unshift(newLine);
     state.selectedLineIds.add(newLine.id);
     saveSelectedLines();
 
-    window.srsManager.addCustomOpening({
-      ...newLine,
-      folderId: targetFolder.id,
-      folderName: targetFolder.name
-    });
+    window.srsManager.addCustomOpening(newLine);
 
     el.modalGames.classList.remove('open');
+    if (!state.expandedFolderIds) state.expandedFolderIds = new Set();
+    state.expandedFolderIds.add(targetFolder.id);
+
     renderFoldersTree();
     selectFolderAndLine(targetFolder.id, newLine.id);
+    updatePlaylistCount();
 
     setBanner(
       'state-correct',
@@ -3952,6 +4047,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `Game <strong>${newLine.name}</strong> successfully added to your repertoire!`
     );
   }
+
 
   // =========================================================
   // PGN Import Handler
