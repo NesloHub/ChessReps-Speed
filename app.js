@@ -2808,9 +2808,11 @@ document.addEventListener('DOMContentLoaded', () => {
         );
       }
 
-      // Re-drill the line from move 1 up to the new expanded depth
+      // Move on to the next random line from the ACTIVE playlist (across all marked folders).
+      // Progressive depth is stored per line id, so the line will continue at its new depth
+      // next time it is drawn from the playlist.
       setTimeout(() => {
-        resetRep();
+        advanceLineInFolder();
       }, 700);
       return;
     }
@@ -2873,16 +2875,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let nextItem = null;
+    const currentLineId = state.currentLine ? state.currentLine.id : null;
+
     if (state.randomWithinFolder) {
-      // Pick randomly among all active selected lines across all chosen folders!
-      const currentLineId = state.currentLine ? state.currentLine.id : null;
+      // Pick randomly among all active selected lines across ALL marked folders!
       const others = activeSelected.filter(item => item.line.id !== currentLineId);
-      const pool = others.length > 0 ? others : activeSelected;
+      const basePool = others.length > 0 ? others : activeSelected;
+
+      // When the playlist spans several openings (folders), prefer switching opening
+      // so training interleaves the marked repertoires instead of repeating one folder.
+      const currentFolderId = state.currentFolder ? state.currentFolder.id : null;
+      const crossFolderPool = basePool.filter(item => item.folder.id !== currentFolderId);
+      const pool = crossFolderPool.length > 0 ? crossFolderPool : basePool;
+
       nextItem = pool[Math.floor(Math.random() * pool.length)];
     } else {
-      const currentLineId = state.currentLine ? state.currentLine.id : null;
       const currentIdx = activeSelected.findIndex(item => item.line.id === currentLineId);
-      const nextIdx = (currentIdx + 1) % activeSelected.length;
+      const nextIdx = currentIdx === -1 ? 0 : (currentIdx + 1) % activeSelected.length;
       nextItem = activeSelected[nextIdx];
     }
 
