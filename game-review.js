@@ -434,6 +434,9 @@
         let title = 'Good';
 
         const isTurnBest = bestMove && (bestMove.san === playedSan);
+        // "Only move" detection: gap between best and 2nd-best candidate is decisive
+        const isOnlyGoodMove = isTurnBest && secondBestMove &&
+          Math.abs((bestMove.evalScore || 0) - (secondBestMove.evalScore || 0)) >= 150;
 
         if (oppMatingMove) {
           classification = 'blunder';
@@ -450,6 +453,11 @@
           glyph = '📖';
           glyphColor = '#d97706';
           title = 'Book Move';
+        } else if (isTurnBest && evalDiff <= 12 && isOnlyGoodMove) {
+          classification = 'great';
+          glyph = '!';
+          glyphColor = '#1d4ed8';
+          title = 'Great Move';
         } else if (isTurnBest && evalDiff <= 12) {
           classification = 'best';
           glyph = '★';
