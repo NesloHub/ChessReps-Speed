@@ -1643,6 +1643,52 @@ h1, h2, h3, h4, .brand, .stat-val, .panel-title {
 
 .btn-pill.primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
+/* Training Side Selector (Auto / White / Black) */
+.side-selector-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2px;
+  gap: 2px;
+}
+
+.btn-side {
+  border: none !important;
+  background: transparent !important;
+  padding: 6px 11px !important;
+  font-size: 0.8rem !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-muted) !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn-side:hover {
+  color: var(--text-main) !important;
+  background: var(--bg-card-hover) !important;
+}
+
+.btn-side.active {
+  background: var(--color-cyan, #06b6d4) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.4) !important;
+}
+
+.line-color-dot {
+  font-size: 0.72rem;
+  margin-right: 5px;
+  opacity: 0.9;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* =========================================================
    Right Panel: Details, Learning Notes, Notation, Speed
    ========================================================= */

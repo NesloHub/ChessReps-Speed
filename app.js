@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     moveIndex: 0,
     trainingMode: 'drill', // 'drill' | 'learn' | 'test' | 'mistakes'
     colorFilter: 'all',    // 'all' | 'w' | 'b'
+    trainingSide: localStorage.getItem('chessreps_training_side') || 'auto', // 'auto' | 'w' | 'b'
     randomWithinFolder: true,
     boardSize: localStorage.getItem('chessreps_board_size') || 'lg', // 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl' | 'max'
     boardTheme: localStorage.getItem('chessreps_board_theme') || 'slate',
@@ -167,6 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btnBoardSizes: document.querySelectorAll('.btn-board-size'),
 
     // Quick Board Controls
+    sideSelectorWrap: document.getElementById('side-selector-wrap'),
+    btnSideAuto: document.getElementById('btn-side-auto'),
+    btnSideW: document.getElementById('btn-side-w'),
+    btnSideB: document.getElementById('btn-side-b'),
     btnFlipBoard: document.getElementById('btn-flip-board'),
     btnRestartRep: document.getElementById('btn-restart-rep'),
     btnNextRandom: document.getElementById('btn-next-random'),
@@ -340,6 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCanvas();
     bindEvents();
     updateStatsDisplay();
+    updateSideButtons();
     renderProfileWidget();
 
     bindReviewEvents();
@@ -736,6 +742,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================
+  // Training Side (Auto / White / Black) Management
+  // =========================================================
+  function getUserColor() {
+    if (state.trainingSide === 'w') return 'w';
+    if (state.trainingSide === 'b') return 'b';
+    // 'auto': use line color if available, else folder color
+    if (state.currentLine && state.currentLine.color) return state.currentLine.color;
+    if (state.currentFolder && state.currentFolder.color) return state.currentFolder.color;
+    return 'w';
+  }
+
+  function updateSideButtons() {
+    const cur = state.trainingSide || 'auto';
+    if (el.btnSideAuto) el.btnSideAuto.classList.toggle('active', cur === 'auto');
+    if (el.btnSideW) el.btnSideW.classList.toggle('active', cur === 'w');
+    if (el.btnSideB) el.btnSideB.classList.toggle('active', cur === 'b');
+  }
+
+  function setTrainingSide(side) {
+    if (!['auto', 'w', 'b'].includes(side)) return;
+    state.trainingSide = side;
+    localStorage.setItem('chessreps_training_side', side);
+    updateSideButtons();
+
+    const userColor = getUserColor();
+    state.boardFlipped = (userColor === 'b');
+    renderBoard();
+    updatePlayerCards();
+    resetRep();
+
+    const sideLabels = { auto: 'Auto (Repertoire default)', w: 'White ⚪', b: 'Black ⚫' };
+    setBanner('state-ready', '⚡', `Training side set to <strong>${sideLabels[side]}</strong>`);
+  }
+
+  // =========================================================
   // Folder & Line Selection
   // =========================================================
   function selectFolderAndLine(folderId, lineId) {
@@ -747,7 +788,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     state.currentFolder = folder;
     state.currentLine = line;
-    state.boardFlipped = (folder.color === 'b');
+    state.boardFlipped = (getUserColor() === 'b');
+    updateSideButtons();
     if (!state.expandedFolderIds) state.expandedFolderIds = new Set();
     state.expandedFolderIds.add(folder.id);
     if (line.gameMeta) {
@@ -808,15 +850,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!state.currentFolder || !state.currentLine) return;
 
+    const userColor = getUserColor();
+    const userColorName = userColor === 'w' ? 'White' : 'Black';
+
     // If training as Black, opponent (White) makes the first move!
-    if (state.currentFolder.color === 'b') {
+    if (userColor === 'b') {
       setBanner('state-ready', '⏳', 'White opens the game...');
       makeOpponentMove();
     } else {
       if (state.trainingMode === 'learn') {
         showLearningMove();
       } else {
-        setBanner('state-ready', '⚡', `Your turn as White in <strong>${state.currentLine.name}</strong>!`);
+        setBanner('state-ready', '⚡', `Your turn as ${userColorName} in <strong>${state.currentLine.name}</strong>!`);
       }
     }
   }
@@ -949,6 +994,11 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('chessreps_prompt_branch', e.target.checked);
       });
     }
+
+    // Training Side Selector Buttons
+    if (el.btnSideAuto) el.btnSideAuto.addEventListener('click', () => setTrainingSide('auto'));
+    if (el.btnSideW) el.btnSideW.addEventListener('click', () => setTrainingSide('w'));
+    if (el.btnSideB) el.btnSideB.addEventListener('click', () => setTrainingSide('b'));
 
     // Unified Board Flip
     el.btnFlipBoard.addEventListener('click', toggleBoardFlip);
@@ -1305,6 +1355,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (state.trainingMode !== 'test' && state.trainingMode !== 'builder') showHint();
       } else if (e.key.toLowerCase() === 'f') {
         toggleBoardFlip();
+      } else if (e.key.toLowerCase() === 'w') {
+        if (state.trainingMode !== 'builder') setTrainingSide('w');
+      } else if (e.key.toLowerCase() === 'b') {
+        if (state.trainingMode !== 'builder') setTrainingSide('b');
       } else if (e.key.toLowerCase() === 'z' && (e.ctrlKey || e.metaKey)) {
         if (state.trainingMode === 'builder') undoBuilderMove();
       }
@@ -1868,23 +1922,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function toggleBoardFlip() {
-    state.boardFlipped = !state.boardFlipped;
-    renderBoard();
-    updatePlayerCards();
+    if (state.trainingMode === 'review' || state.trainingMode === 'builder') {
+      state.boardFlipped = !state.boardFlipped;
+      renderBoard();
+      updatePlayerCards();
 
-    if (state.trainingMode === 'review') {
-      const curMove = (state.reviewData && state.reviewMoveIndex > 0) ? state.reviewData.moves[state.reviewMoveIndex - 1] : null;
-      updateEvalBar(curMove ? curMove.evalScore : 0, curMove ? curMove.mateIn : null);
-      if (state.showCoachArrow && curMove) {
-        renderCoachArrows(curMove);
-      } else {
-        clearArrowCanvas();
+      if (state.trainingMode === 'review') {
+        const curMove = (state.reviewData && state.reviewMoveIndex > 0) ? state.reviewData.moves[state.reviewMoveIndex - 1] : null;
+        updateEvalBar(curMove ? curMove.evalScore : 0, curMove ? curMove.mateIn : null);
+        if (state.showCoachArrow && curMove) {
+          renderCoachArrows(curMove);
+        } else {
+          clearArrowCanvas();
+        }
       }
-    } else if (state.hintArrow) {
-      drawArrow(state.hintArrow.from, state.hintArrow.to);
-    } else {
-      clearArrowCanvas();
+      return;
     }
+
+    // In training modes: toggle active playing side so the user plays the pieces at the bottom
+    const curColor = getUserColor();
+    const nextSide = curColor === 'w' ? 'b' : 'w';
+    setTrainingSide(nextSide);
   }
 
   function updateCoachDisplay(moveInfo) {
@@ -2220,7 +2278,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (state.trainingMode === 'builder' || state.trainingMode === 'review') {
         canSelectPiece = (piece.color === state.chess.turn());
       } else {
-        const userColor = state.currentFolder ? state.currentFolder.color : 'w';
+        const userColor = getUserColor();
         canSelectPiece = (piece.color === userColor && piece.color === state.chess.turn());
       }
     }
@@ -2260,7 +2318,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (state.trainingMode === 'builder' || state.trainingMode === 'review') {
         canMovePiece = (piece.color === state.chess.turn());
       } else {
-        const userColor = state.currentFolder ? state.currentFolder.color : 'w';
+        const userColor = getUserColor();
         canMovePiece = (piece.color === userColor && piece.color === state.chess.turn());
       }
     }
@@ -2549,14 +2607,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const matches = [];
 
     // Prioritize current folder, then same-color folders
+    const myColor = getUserColor();
     const foldersToSearch = [
       state.currentFolder,
-      ...state.folders.filter(f => f.id !== state.currentFolder.id && f.color === state.currentFolder.color)
+      ...state.folders.filter(f => f.id !== state.currentFolder.id && (f.color === myColor || (f.lines && f.lines.some(l => (l.color || f.color) === myColor))))
     ];
 
     for (const folder of foldersToSearch) {
       for (const line of folder.lines) {
         if (line.id === state.currentLine.id) continue;
+        const lineColor = line.color || folder.color || 'w';
+        if (lineColor !== myColor) continue;
         if (line.moves.length >= targetMoveIndex) {
           const matchesHistory = history.every((m, idx) => m === line.moves[idx]);
           if (matchesHistory && line.moves[state.moveIndex] === playedSan) {
@@ -2587,9 +2648,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const expectedCurrentSan = state.currentLine.moves[state.moveIndex];
     const branches = [];
 
+    const myColor = getUserColor();
     const foldersToScan = [
       state.currentFolder,
-      ...state.folders.filter(f => f.id !== state.currentFolder.id && f.color === state.currentFolder.color)
+      ...state.folders.filter(f => f.id !== state.currentFolder.id && (f.color === myColor || (f.lines && f.lines.some(l => (l.color || f.color) === myColor))))
     ];
 
     const seenMoves = new Set();
@@ -2598,6 +2660,8 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const folder of foldersToScan) {
       for (const line of folder.lines) {
         if (line.id === state.currentLine.id) continue;
+        const lineColor = line.color || folder.color || 'w';
+        if (lineColor !== myColor) continue;
         if (line.moves.length > state.moveIndex) {
           const matchesHistory = currentHistory.every((m, idx) => m === line.moves[idx]);
           if (matchesHistory) {
@@ -2655,7 +2719,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetFolder = state.folders.find(f => f.id === chosenMatch.folderId) || state.currentFolder;
     state.currentFolder = targetFolder;
     state.currentLine = chosenMatch.line;
-    state.boardFlipped = (state.currentFolder.color === 'b');
+    state.boardFlipped = (getUserColor() === 'b');
 
     // Fast-forward chess engine up to targetMoveIndex
     state.chess.reset();
@@ -2702,12 +2766,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (state.moveIndex >= altTargetDepth) {
       handleLineComplete();
     } else {
-      const isUserTurn = state.chess.turn() === state.currentFolder.color;
+      const isUserTurn = state.chess.turn() === getUserColor();
       if (isUserTurn) {
         if (state.trainingMode === 'learn') {
           showLearningMove();
         } else {
-          const userColorName = state.currentFolder.color === 'w' ? 'White' : 'Black';
+          const userColorName = getUserColor() === 'w' ? 'White' : 'Black';
           setBanner('state-ready', '⚡', `Your turn as ${userColorName} in <strong>${state.currentLine.name}</strong>!`);
         }
       } else {
@@ -2768,7 +2832,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (state.moveIndex >= targetDepthAfter) {
           handleLineComplete();
         } else {
-          const userColorName = state.currentFolder.color === 'w' ? 'White' : 'Black';
+          const userColorName = getUserColor() === 'w' ? 'White' : 'Black';
           if (state.trainingMode === 'learn') {
             showLearningMove();
           } else {
@@ -2851,10 +2915,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function getAllActiveSelectedLines() {
     const list = [];
     state.folders.forEach(folder => {
-      if (state.colorFilter === 'w' && folder.color !== 'w') return;
-      if (state.colorFilter === 'b' && folder.color !== 'b') return;
-
       (folder.lines || []).forEach(line => {
+        const lineColor = line.color || folder.color || 'w';
+        if (state.colorFilter === 'w' && lineColor !== 'w') return;
+        if (state.colorFilter === 'b' && lineColor !== 'b') return;
+
         if (state.selectedLineIds.has(line.id)) {
           list.push({ folder, line });
         }
@@ -3141,8 +3206,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function getFilteredFolders() {
     let list = state.folders;
 
-    if (state.colorFilter === 'w') list = list.filter(f => f.color === 'w');
-    else if (state.colorFilter === 'b') list = list.filter(f => f.color === 'b');
+    if (state.colorFilter === 'w') {
+      list = list.filter(f => f.color === 'w' || (f.lines && f.lines.some(l => (l.color || f.color) === 'w')));
+    } else if (state.colorFilter === 'b') {
+      list = list.filter(f => f.color === 'b' || (f.lines && f.lines.some(l => (l.color || f.color) === 'b')));
+    }
 
     if (state.trainingMode === 'mistakes') {
       const mistakeIds = window.srsManager.getMistakeOpeningIds();
@@ -3328,20 +3396,24 @@ document.addEventListener('DOMContentLoaded', () => {
       const linesContainer = document.createElement('div');
       linesContainer.className = 'folder-lines';
 
+      const displayLines = (state.colorFilter === 'all')
+        ? folder.lines
+        : folder.lines.filter(l => (l.color || folder.color || 'w') === state.colorFilter);
+
       // Toolbar inside folder: Quick Select All / Deselect All
       const toolbar = document.createElement('div');
       toolbar.className = 'folder-lines-toolbar';
       toolbar.innerHTML = `
-        <span class="folder-lines-count-label">${folder.lines.length} Variations</span>
+        <span class="folder-lines-count-label">${displayLines.length} Variations</span>
         <div class="folder-lines-actions">
-          <button type="button" class="btn-folder-action btn-folder-select-all" title="Select all ${folder.lines.length} variations for training">✓ Select All</button>
+          <button type="button" class="btn-folder-action btn-folder-select-all" title="Select all ${displayLines.length} variations for training">✓ Select All</button>
           <button type="button" class="btn-folder-action clear btn-folder-clear-all" title="Deselect all variations in this folder">✕ Deselect</button>
         </div>
       `;
 
       toolbar.querySelector('.btn-folder-select-all')?.addEventListener('click', (e) => {
         e.stopPropagation();
-        folder.lines.forEach(l => state.selectedLineIds.add(l.id));
+        displayLines.forEach(l => state.selectedLineIds.add(l.id));
         saveSelectedLines();
         renderFoldersTree();
         updatePlaylistCount();
@@ -3349,7 +3421,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       toolbar.querySelector('.btn-folder-clear-all')?.addEventListener('click', (e) => {
         e.stopPropagation();
-        folder.lines.forEach(l => state.selectedLineIds.delete(l.id));
+        displayLines.forEach(l => state.selectedLineIds.delete(l.id));
         saveSelectedLines();
         renderFoldersTree();
         updatePlaylistCount();
@@ -3357,17 +3429,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       linesContainer.appendChild(toolbar);
 
-      folder.lines.forEach(line => {
+      displayLines.forEach(line => {
         const isLineActive = state.currentLine && state.currentLine.id === line.id;
         const isChecked = state.selectedLineIds.has(line.id);
         const lineInfo = window.srsManager.getLineInfo(line.id);
+        const lineColor = line.color || folder.color || 'w';
+        const colorDot = lineColor === 'w' ? '⚪' : '⚫';
+        const colorName = lineColor === 'w' ? 'White' : 'Black';
 
         let stageClass = 'stage-ny';
         let stageLabel = 'New';
         if (lineInfo.stage === 'I gang' || lineInfo.stage === 'In Progress') {
           stageClass = 'stage-igang';
           stageLabel = 'In Progress';
-        } else if (lineInfo.stage === 'Intermediate' || lineInfo.stage === 'Intermediate') {
+        } else if (lineInfo.stage === 'Intermediate') {
           stageClass = 'stage-ovet';
           stageLabel = 'Practiced';
         } else if (lineInfo.stage === 'Mastered' || lineInfo.stage === 'Mestret') {
@@ -3383,8 +3458,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="line-left-group">
             <input type="checkbox" class="line-checkbox" data-line-id="${line.id}" ${isChecked ? 'checked' : ''} title="Check to include in active training">
             <div class="line-details-stack">
-              <span class="line-name">${line.name}</span>
-              <span class="line-meta">${line.eco || folder.eco || ''} • ${line.moves.length} moves</span>
+              <span class="line-name"><span class="line-color-dot" title="${colorName} Line">${colorDot}</span>${line.name}</span>
+              <span class="line-meta">${line.eco || folder.eco || ''} • ${line.moves.length} moves • ${colorName}</span>
             </div>
           </div>
           <div class="line-right-group">
@@ -3465,7 +3540,7 @@ document.addEventListener('DOMContentLoaded', () => {
       whiteSpan.className = 'notation-move';
       whiteSpan.textContent = moves[whiteIdx] || '';
       if (whiteIdx < state.moveIndex) whiteSpan.classList.add('active-step');
-      if (whiteIdx === state.moveIndex && state.currentFolder.color === 'w') {
+      if (whiteIdx === state.moveIndex && getUserColor() === 'w') {
         whiteSpan.classList.add('pending-user');
       }
       frag.appendChild(whiteSpan);
@@ -3474,7 +3549,7 @@ document.addEventListener('DOMContentLoaded', () => {
       blackSpan.className = 'notation-move';
       blackSpan.textContent = moves[blackIdx] || '';
       if (blackIdx < state.moveIndex) blackSpan.classList.add('active-step');
-      if (blackIdx === state.moveIndex && state.currentFolder.color === 'b') {
+      if (blackIdx === state.moveIndex && getUserColor() === 'b') {
         blackSpan.classList.add('pending-user');
       }
       frag.appendChild(blackSpan);
@@ -4317,7 +4392,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (el.builderLineColor) {
-      el.builderLineColor.value = (state.currentFolder && state.currentFolder.color) ? state.currentFolder.color : 'w';
+      el.builderLineColor.value = getUserColor();
     }
 
     el.builderSaveDrawer.style.display = 'flex';

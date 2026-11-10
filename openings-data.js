@@ -13631,6 +13631,53 @@ const OPENING_FOLDERS = [
         "folderName": "Scotch Game Tournament Lines",
         "color": "w",
         "icon": "🏴󠁧󠁢󠁳󠁣󠁴󠁿"
+      },
+      {
+        "id": "open-scotch-game-3-exd4-4-nxd4-black",
+        "name": "Scotch Game: 3...exd4 4. Nxd4 (Black Defense)",
+        "moves": [
+          "e4",
+          "e5",
+          "Nf3",
+          "Nc6",
+          "d4",
+          "exd4",
+          "Nxd4",
+          "Nxd4",
+          "Qxd4",
+          "Qf6",
+          "Qe3",
+          "Bb4+",
+          "c3",
+          "Ba5",
+          "Nd2",
+          "Bb6",
+          "Qg3",
+          "d6",
+          "Bb5+",
+          "c6",
+          "Be2",
+          "Be6",
+          "f4",
+          "Qg6",
+          "f5",
+          "Qxg3+",
+          "hxg3",
+          "Bd7"
+        ],
+        "eco": "C45",
+        "difficulty": "Intermediate",
+        "explanation": "Active Black defense against the Scotch Game: 3...exd4 4.Nxd4 Nxd4 5.Qxd4 Qf6, challenging White's center and exchanging queens into an active endgame.",
+        "keyThemes": [
+          "Scotch Defense",
+          "Black Repertoire",
+          "Queen Trade",
+          "Active Bishop Play"
+        ],
+        "folderId": "folder-scotch",
+        "folderName": "Scotch Game Tournament Lines",
+        "color": "b",
+        "icon": "🏴󠁧󠁢󠁳󠁣󠁴󠁿"
       }
     ]
   },
@@ -39722,6 +39769,53 @@ const OPENINGS_DATA = [
     "folderName": "Stafford Gambit & Traps (Eric Rosen)",
     "color": "b",
     "icon": "🧙‍♂️"
+  },
+  {
+    "id": "open-scotch-game-3-exd4-4-nxd4-black",
+    "name": "Scotch Game: 3...exd4 4. Nxd4 (Black Defense)",
+    "moves": [
+      "e4",
+      "e5",
+      "Nf3",
+      "Nc6",
+      "d4",
+      "exd4",
+      "Nxd4",
+      "Nxd4",
+      "Qxd4",
+      "Qf6",
+      "Qe3",
+      "Bb4+",
+      "c3",
+      "Ba5",
+      "Nd2",
+      "Bb6",
+      "Qg3",
+      "d6",
+      "Bb5+",
+      "c6",
+      "Be2",
+      "Be6",
+      "f4",
+      "Qg6",
+      "f5",
+      "Qxg3+",
+      "hxg3",
+      "Bd7"
+    ],
+    "eco": "C45",
+    "difficulty": "Intermediate",
+    "explanation": "Active Black defense against the Scotch Game: 3...exd4 4.Nxd4 Nxd4 5.Qxd4 Qf6, challenging White's center and exchanging queens into an active endgame.",
+    "keyThemes": [
+      "Scotch Defense",
+      "Black Repertoire",
+      "Queen Trade",
+      "Active Bishop Play"
+    ],
+    "folderId": "folder-scotch",
+    "folderName": "Scotch Game Tournament Lines",
+    "color": "b",
+    "icon": "🏴󠁧󠁢󠁳󠁣󠁴󠁿"
   }
 ];
 

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ChessReps Speed Trainer - Train your chess opening repertoires at blitz speed with spaced repetition and instant feedback.">
   <title>ChessReps Speed Trainer | Speed Chess Opening Trainer</title>
-  <link rel="stylesheet" href="style.css?v=1789372739329">
+  <link rel="stylesheet" href="style.css?v=1794307360933">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body class="theme-slate">
@@ -428,7 +428,19 @@
       <!-- Quick Control Bar Below Board -->
       <div class="board-controls" id="board-controls">
         <div class="control-btn-group">
-          <button class="btn-pill" id="btn-flip-board" title="Flip the board (Key: F)">
+          <!-- Training Side Selector (Auto / White / Black) -->
+          <div class="side-selector-wrap" id="side-selector-wrap" title="Vælg spilleside / Choose training side">
+            <button class="btn-pill btn-side active" id="btn-side-auto" data-side="auto" title="Auto: Følg åbningens standardside (Hvid for hvid repertoire, Sort for sort repertoire)">
+              <span>⚡ Auto</span>
+            </button>
+            <button class="btn-pill btn-side" id="btn-side-w" data-side="w" title="Spil altid som Hvid ⚪ (Tast: W)">
+              <span>⚪ White</span>
+            </button>
+            <button class="btn-pill btn-side" id="btn-side-b" data-side="b" title="Spil altid som Sort ⚫ (Tast: B)">
+              <span>⚫ Black</span>
+            </button>
+          </div>
+          <button class="btn-pill" id="btn-flip-board" title="Vend bræt & skift side (Key: F)">
             <span>🔄</span> Flip Board
           </button>
           <button class="btn-pill" id="btn-restart-rep" title="Restart this line from start (Key: R)">
@@ -1199,9 +1211,17 @@
               <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">H</td>
               <td style="padding:6px;">Show hint for next move</td>
             </tr>
-            <tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
               <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">F</td>
-              <td style="padding:6px;">Flip the board</td>
+              <td style="padding:6px;">Vend bræt / Flip board</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">W</td>
+              <td style="padding:6px;">Spil som Hvid ⚪ (White)</td>
+            </tr>
+            <tr>
+              <td style="padding:6px; font-family:'JetBrains Mono'; color:var(--color-cyan);">B</td>
+              <td style="padding:6px;">Spil som Sort ⚫ (Black)</td>
             </tr>
           </table>
         </div>
@@ -1224,12 +1244,12 @@
       document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"><\/script>');
     }
   </script>
-  <script src="pieces.js?v=1789372739329"></script>
-  <script src="audio.js?v=1789372739329"></script>
-  <script src="openings-data.js?v=1789372739329"></script>
-  <script src="srs-manager.js?v=1789372739329"></script>
+  <script src="pieces.js?v=1794307360933"></script>
+  <script src="audio.js?v=1794307360933"></script>
+  <script src="openings-data.js?v=1794307360933"></script>
+  <script src="srs-manager.js?v=1794307360933"></script>
   <script src="stockfish-engine.js"></script>
   <script src="game-review.js"></script>
-  <script src="app.js?v=1789372739329"></script>
+  <script src="app.js?v=1794307360933"></script>
 </body>
 </html>
