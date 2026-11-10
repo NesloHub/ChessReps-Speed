@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ChessReps Speed Trainer - Train your chess opening repertoires at blitz speed with spaced repetition and instant feedback.">
   <title>ChessReps Speed Trainer | Speed Chess Opening Trainer</title>
-  <link rel="stylesheet" href="style.css?v=1794307360933">
+  <link rel="stylesheet" href="style.css?v=1794326000000">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
-<body class="theme-slate">
+<body class="theme-wood">
 
   <!-- App Header -->
   <header class="app-header" id="app-header">
@@ -356,14 +356,14 @@
       <!-- BIG Chessboard Container with Dynamic Sizing & Player Info Cards -->
       <div class="board-column-wrap" id="board-column-wrap">
         <!-- Top Player Card (Black / Opponent by default, or White when flipped) -->
-        <div class="player-board-card player-top" id="player-card-top" style="display:none;">
+        <div class="player-board-card player-top" id="player-card-top" style="display:flex;">
           <div class="player-card-left">
             <span class="player-card-avatar" id="player-avatar-top">⚫</span>
-            <span class="player-card-name" id="player-name-top">Opponent</span>
+            <span class="player-card-name" id="player-name-top">Sort</span>
             <span class="player-card-elo" id="player-elo-top"></span>
           </div>
           <div class="player-card-right" id="player-captured-top">
-            <span class="player-card-tag tag-black" id="player-tag-top">Black</span>
+            <span class="player-card-tag tag-black" id="player-tag-top">Sort</span>
           </div>
         </div>
 
@@ -386,14 +386,14 @@
         </div>
 
         <!-- Bottom Player Card (White / Player by default, or Black when flipped) -->
-        <div class="player-board-card player-bottom" id="player-card-bottom" style="display:none;">
+        <div class="player-board-card player-bottom" id="player-card-bottom" style="display:flex;">
           <div class="player-card-left">
             <span class="player-card-avatar" id="player-avatar-bottom">⚪</span>
-            <span class="player-card-name" id="player-name-bottom">Player</span>
+            <span class="player-card-name" id="player-name-bottom">Hvid</span>
             <span class="player-card-elo" id="player-elo-bottom"></span>
           </div>
           <div class="player-card-right" id="player-captured-bottom">
-            <span class="player-card-tag tag-white" id="player-tag-bottom">White</span>
+            <span class="player-card-tag tag-white" id="player-tag-bottom">Hvid</span>
           </div>
         </div>
       </div>
@@ -848,7 +848,7 @@
         <div>
           <label class="form-label" style="margin-bottom:8px; display:block;">Select Chessboard Theme</label>
           <div class="theme-options-grid" id="theme-board-options">
-            <div class="theme-card-option" data-board-theme="wood">
+            <div class="theme-card-option active" data-board-theme="wood">
               <div class="theme-mini-board" style="background:#b58863; border:2px solid #5c3822;">
                 <div style="background:#f0dab5"></div><div style="background:#b58863"></div>
                 <div style="background:#b58863"></div><div style="background:#f0dab5"></div>
@@ -858,7 +858,7 @@
                 <div style="font-size:0.72rem; color:var(--text-dim)">Maple &amp; walnut grain with timber frame</div>
               </div>
             </div>
-            <div class="theme-card-option active" data-board-theme="slate">
+            <div class="theme-card-option" data-board-theme="slate">
               <div class="theme-mini-board" style="background:#5b6f84;">
                 <div style="background:#edf2f7"></div><div style="background:#5b6f84"></div>
                 <div style="background:#5b6f84"></div><div style="background:#edf2f7"></div>
@@ -932,7 +932,7 @@
                 <div style="font-size:0.72rem; color:var(--text-dim)">Fischer championship classic</div>
               </div>
             </div>
-            <div class="theme-card-option active" data-piece-set="staunton">
+            <div class="theme-card-option" data-piece-set="staunton">
               <div class="piece-preview-icon" data-set-preview="staunton">
                 <span style="font-size:1.6rem;">♞</span>
               </div>
@@ -941,7 +941,7 @@
                 <div style="font-size:0.72rem; color:var(--text-dim)">International tournament standard</div>
               </div>
             </div>
-            <div class="theme-card-option" data-piece-set="neo">
+            <div class="theme-card-option active" data-piece-set="neo">
               <div class="piece-preview-icon" data-set-preview="neo">
                 <span style="font-size:1.6rem;">♘</span>
               </div>
@@ -1250,6 +1250,6 @@
   <script src="srs-manager.js?v=1794307360933"></script>
   <script src="stockfish-engine.js"></script>
   <script src="game-review.js"></script>
-  <script src="app.js?v=1794307360933"></script>
+  <script src="app.js?v=1794326000000"></script>
 </body>
 </html>

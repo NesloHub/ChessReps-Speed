@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     trainingSide: localStorage.getItem('chessreps_training_side') || 'auto', // 'auto' | 'w' | 'b'
     randomWithinFolder: true,
     boardSize: localStorage.getItem('chessreps_board_size') || 'lg', // 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl' | 'max'
-    boardTheme: localStorage.getItem('chessreps_board_theme') || 'slate',
+    boardTheme: localStorage.getItem('chessreps_board_theme') || 'wood',
     pieceTheme: localStorage.getItem('chessreps_piece_theme') || 'standard',
-    pieceSet: localStorage.getItem('chessreps_piece_set') || 'staunton',
+    pieceSet: localStorage.getItem('chessreps_piece_set') || 'neo',
     builderMoves: [],
     selectedLineIds: new Set(),
     linkedProfile: null,
@@ -1800,61 +1800,61 @@ document.addEventListener('DOMContentLoaded', () => {
   function updatePlayerCards() {
     if (!el.playerCardTop || !el.playerCardBottom) return;
 
-    if (state.trainingMode !== 'review') {
-      el.playerCardTop.style.display = 'none';
-      el.playerCardBottom.style.display = 'none';
-      return;
-    }
-
     el.playerCardTop.style.display = 'flex';
     el.playerCardBottom.style.display = 'flex';
 
-    const meta = state.reviewGameMeta || { whiteName: 'White', blackName: 'Black', whiteElo: '', blackElo: '' };
+    const defaultWhite = (state.linkedProfile && state.linkedProfile.username) ? state.linkedProfile.username : 'Hvid';
+    const meta = state.reviewGameMeta || {
+      whiteName: defaultWhite,
+      blackName: 'Sort',
+      whiteElo: '',
+      blackElo: ''
+    };
 
     if (!state.boardFlipped) {
       // Normal: Black on top, White on bottom
       if (el.playerAvatarTop) el.playerAvatarTop.textContent = '⚫';
-      if (el.playerNameTop) el.playerNameTop.textContent = meta.blackName || 'Black';
+      if (el.playerNameTop) el.playerNameTop.textContent = meta.blackName || 'Sort';
       if (el.playerEloTop) {
         el.playerEloTop.textContent = meta.blackElo ? `(${meta.blackElo})` : '';
         el.playerEloTop.style.display = meta.blackElo ? 'inline-block' : 'none';
       }
       if (el.playerTagTop) {
-        el.playerTagTop.textContent = 'Black';
+        el.playerTagTop.textContent = 'Sort';
         el.playerTagTop.className = 'player-card-tag tag-black';
       }
 
       if (el.playerAvatarBottom) el.playerAvatarBottom.textContent = '⚪';
-      if (el.playerNameBottom) el.playerNameBottom.textContent = meta.whiteName || 'White';
+      if (el.playerNameBottom) el.playerNameBottom.textContent = meta.whiteName || defaultWhite;
       if (el.playerEloBottom) {
         el.playerEloBottom.textContent = meta.whiteElo ? `(${meta.whiteElo})` : '';
         el.playerEloBottom.style.display = meta.whiteElo ? 'inline-block' : 'none';
       }
       if (el.playerTagBottom) {
-        el.playerTagBottom.textContent = 'White';
+        el.playerTagBottom.textContent = 'Hvid';
         el.playerTagBottom.className = 'player-card-tag tag-white';
       }
     } else {
       // Flipped: White on top, Black on bottom
       if (el.playerAvatarTop) el.playerAvatarTop.textContent = '⚪';
-      if (el.playerNameTop) el.playerNameTop.textContent = meta.whiteName || 'White';
+      if (el.playerNameTop) el.playerNameTop.textContent = meta.whiteName || defaultWhite;
       if (el.playerEloTop) {
         el.playerEloTop.textContent = meta.whiteElo ? `(${meta.whiteElo})` : '';
         el.playerEloTop.style.display = meta.whiteElo ? 'inline-block' : 'none';
       }
       if (el.playerTagTop) {
-        el.playerTagTop.textContent = 'White';
+        el.playerTagTop.textContent = 'Hvid';
         el.playerTagTop.className = 'player-card-tag tag-white';
       }
 
       if (el.playerAvatarBottom) el.playerAvatarBottom.textContent = '⚫';
-      if (el.playerNameBottom) el.playerNameBottom.textContent = meta.blackName || 'Black';
+      if (el.playerNameBottom) el.playerNameBottom.textContent = meta.blackName || 'Sort';
       if (el.playerEloBottom) {
         el.playerEloBottom.textContent = meta.blackElo ? `(${meta.blackElo})` : '';
         el.playerEloBottom.style.display = meta.blackElo ? 'inline-block' : 'none';
       }
       if (el.playerTagBottom) {
-        el.playerTagBottom.textContent = 'Black';
+        el.playerTagBottom.textContent = 'Sort';
         el.playerTagBottom.className = 'player-card-tag tag-black';
       }
     }
@@ -3051,30 +3051,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const dist = Math.hypot(dx, dy);
     if (dist === 0) return;
 
-    const color = options.color || '#10b981';
-    const shadowColor = options.shadowColor || 'rgba(16, 185, 129, 0.65)';
+    // Chess.com style flat translucent arrow
+    const color = options.color || '#52b7f9';
     const sqSize = p1.size;
-    const headLen = Math.max(16, Math.min(32, sqSize * 0.34));
-    const lineWidth = options.width || Math.max(6, Math.min(13, sqSize * 0.12));
+    const headLen = Math.max(16, Math.min(32, sqSize * 0.35));
+    const lineWidth = options.width || Math.max(7, Math.min(14, sqSize * 0.13));
 
-    const startOffset = Math.min(sqSize * 0.2, dist * 0.25);
+    const startOffset = Math.min(sqSize * 0.22, dist * 0.25);
     const startX = p1.x + Math.cos(angle) * startOffset;
     const startY = p1.y + Math.sin(angle) * startOffset;
 
     const tipX = p2.x;
     const tipY = p2.y;
 
-    const shaftEndX = tipX - Math.cos(angle) * (headLen * 0.8);
-    const shaftEndY = tipY - Math.sin(angle) * (headLen * 0.8);
+    const shaftEndX = tipX - Math.cos(angle) * (headLen * 0.75);
+    const shaftEndY = tipY - Math.sin(angle) * (headLen * 0.75);
 
     ctx.save();
+    ctx.globalAlpha = 0.88;
     ctx.strokeStyle = color;
     ctx.fillStyle = color;
     ctx.lineWidth = lineWidth;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
-    ctx.shadowColor = shadowColor;
-    ctx.shadowBlur = 10;
+    ctx.shadowBlur = 0;
 
     // Draw shaft
     ctx.beginPath();
@@ -3121,7 +3121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function drawArrow(fromSq, toSq, color = '#10b981') {
+  function drawArrow(fromSq, toSq, color = '#52b7f9') {
     state.hintArrow = { from: fromSq, to: toSq };
     drawArrows([{ from: fromSq, to: toSq, color }]);
   }
@@ -3133,25 +3133,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const arrows = [];
 
-    // Primary Recommendation (#1 Best Move): Vibrant Emerald Green (#10b981)
+    // Primary Recommendation (#1 Best Move): Chess.com Green (#81b64c)
     if (curMove.bestMoveFrom && curMove.bestMoveTo) {
       arrows.push({
         from: curMove.bestMoveFrom,
         to: curMove.bestMoveTo,
-        color: '#10b981',
-        shadowColor: 'rgba(16, 185, 129, 0.85)',
+        color: '#81b64c',
         width: 10
       });
     }
 
-    // Secondary Recommendation (#2 Alternative Move): Vibrant Cyan (#06b6d4)
+    // Secondary Recommendation (#2 Alternative Move): Clean Sky Blue (#52b7f9)
     if (state.showDualArrows && curMove.secondBestFrom && curMove.secondBestTo) {
       if (curMove.secondBestFrom !== curMove.bestMoveFrom || curMove.secondBestTo !== curMove.bestMoveTo) {
         arrows.push({
           from: curMove.secondBestFrom,
           to: curMove.secondBestTo,
-          color: '#06b6d4',
-          shadowColor: 'rgba(6, 182, 212, 0.85)',
+          color: '#52b7f9',
           width: 8
         });
       }
